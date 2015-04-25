@@ -8,12 +8,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="css/codemirror.css">        
-        <link rel="stylesheet" type="text/css" href="css/solarized.css">        
+        <link rel="stylesheet" type="text/css" href="CodeMirror/lib/codemirror.css">
+        <link rel="stylesheet" type="text/css" href="CodeMirror/theme/solarized.css">        
         <link rel="stylesheet" type="text/css" href="css/styles.css">
 
-        <script type="text/javascript" src="js/codemirror.js"></script>
-        <script type="text/javascript" src="js/mode/javascript/javascript.js"></script>
+        <script type="text/javascript" src="CodeMirror/lib/codemirror.js"></script>
+
+        <script type="text/javascript" src="CodeMirror/addon/edit/closebrackets.js"></script>
+        <script type="text/javascript" src="CodeMirror/addon/edit/matchbrackets.js"></script>
+
+        <!-- Playing with linters
+        <script type="text/javascript" src="CodeMirror/addon/lint/lint.js"></script>
+        <script type="text/javascript" src="CodeMirror/addon/lint/javascript-lint.js"></script>
+
+        <script src="//ajax.aspnetcdn.com/ajax/jshint/r07/jshint.js"></script>
+        -->
+
+        <script type="text/javascript" src="CodeMirror/mode/javascript/javascript.js"></script>
 
         <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     </head>

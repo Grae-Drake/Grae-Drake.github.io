@@ -3,11 +3,16 @@ var myCodeMirror = CodeMirror(document.getElementById("editor"), {
           "var someText = 'Yo, dawg'"].join("\n"),
   mode:  {name: "javascript", json: true},
   theme: "solarized dark",
-  lineNumbers: true
+  lineNumbers: true,
+  autoCloseBrackets: true,
+  //lint: true,
+  matchBrackets: true
 });
 
 $(document).ready(function (){
-  myCodeMirror.on("click", function() {
+
+  $(".CodeMirror").on("click", function() {
     console.log(myCodeMirror.getDoc());
   });
+
 });
