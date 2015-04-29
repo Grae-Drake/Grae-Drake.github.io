@@ -1,6 +1,13 @@
 var myCodeMirror = CodeMirror(document.getElementById("editor"), {
+
   value: ["function myScript(){return 100;}",
-          "var someText = 'Yo, dawg'"].join("\n"),
+          "var someText = 'Yo, dawg'",
+          "var areYou = 'Missing a semicolon?'",
+
+          "function tooManySemis(){};",
+
+          "var lintMe = 'Cloooooose meeeeeee"].join("\n"),
+
   mode:  {name: "javascript", json: true},
   lineNumbers: true,
   gutters: ["CodeMirror-lint-markers"],
