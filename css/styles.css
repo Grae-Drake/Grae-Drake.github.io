@@ -1,10 +1,19 @@
-li {
-    list-style: none;
-}
-
 body {
     background-color: #fdf6e3;
     color: #657b83;
+    font-size: 16px ;
+}
+
+header {
+    text-align: right;
+}
+
+.social {
+    list-style-type: none;
+}
+
+.social li {
+    display: inline;
 }
 
 .one {
