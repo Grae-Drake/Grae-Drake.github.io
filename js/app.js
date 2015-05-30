@@ -24,7 +24,7 @@ $(document).ready(function (){
   });
 
   $("button[name='Problem_1']").on("click", function(){
-    var problemData = $.get("Problem_1.py");
+    var problemData = $.get("Python_Euler/Problem_1.py");
     console.log(problemData["responseText"])
   });
 
