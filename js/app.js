@@ -2,7 +2,7 @@ var myCodeMirror = CodeMirror(document.getElementById("editor"), {
 
   value: ["var placeholder = 'text'"].join("\n"),
 
-  mode:  {name: "javascript", json: true},
+  mode:  {name: "python"},
   lineNumbers: true,
   gutters: ["CodeMirror-lint-markers"],
   lint: true,
