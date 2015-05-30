@@ -5,7 +5,7 @@ var myCodeMirror = CodeMirror(document.getElementById("editor"), {
   mode:  {name: "python"},
   lineNumbers: true,
   gutters: ["CodeMirror-lint-markers"],
-  //lint: true,
+  // lint: true,
   theme: "solarized dark",
   autoCloseBrackets: true,
   matchBrackets: true
@@ -22,7 +22,13 @@ $(document).ready(function (){
       console.log(problemData["responseText"]);
       myCodeMirror.setValue(problemData["responseText"]);
     });
-    
+  });
+
+  $("button[name='Index']").on("click", function(){
+    var indexURL = "https://api.github.com/repos/Grae-Drake/Python_Euler/contents/"
+    var problemIndex = $.get(indexURL, function() {
+      myCodeMirror.setValue(problemIndex["responseText"]);
+    });
   });
 
 });
