@@ -23,4 +23,8 @@ $(document).ready(function (){
     console.log(myCodeMirror.getValue());
   });
 
+  $("button[name='Problem_1']").on("click", function(){
+    alert("Success");
+  });
+
 });
