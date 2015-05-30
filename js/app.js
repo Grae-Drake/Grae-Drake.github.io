@@ -1,6 +1,6 @@
 var myCodeMirror = CodeMirror(document.getElementById("editor"), {
 
-  value: ["var Placehoder = 'text'"]
+  value: ["var placeholder = 'text'"].join("\n"),
 
   mode:  {name: "javascript", json: true},
   lineNumbers: true,
@@ -20,7 +20,6 @@ $(document).ready(function (){
   $("button[name='Problem_1']").on("click", function(){
     var problemData = $.get("Python_Euler/Problem_1.py", function() {
       console.log(problemData["responseText"]);
-      myCodeMirror.setValue(problemData["responseText"]);
     });
     
   });
