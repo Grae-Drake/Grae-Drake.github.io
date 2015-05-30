@@ -24,8 +24,10 @@ $(document).ready(function (){
   });
 
   $("button[name='Problem_1']").on("click", function(){
-    var problemData = $.get("Python_Euler/Problem_1.py");
-    console.log(problemData["responseText"])
+    var problemData = $.get("Python_Euler/Problem_1.py", function(data) {
+      console.log(data["responseText"]);
+    });
+    
   });
 
 });
