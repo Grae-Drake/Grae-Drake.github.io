@@ -18,12 +18,10 @@ header {
 
 .one {
     background-color: #002b36;
-    height: 200px;
     display: block;
 }
 
 .two {
     background-color: #fdf6e3;
-    height: 200px;
     display: block;
 }
