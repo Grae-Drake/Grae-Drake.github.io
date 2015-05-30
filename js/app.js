@@ -24,7 +24,7 @@ $(document).ready(function (){
   });
 
   $("button[name='Problem_1']").on("click", function(){
-    alert("Success");
+    var problemData = $.get("Problem_1.py"))
   });
 
 });
