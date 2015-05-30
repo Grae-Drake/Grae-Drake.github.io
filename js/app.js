@@ -1,12 +1,6 @@
 var myCodeMirror = CodeMirror(document.getElementById("editor"), {
 
-  value: ["function myScript(){return 100;}",
-          "var someText = 'Yo, dawg'",
-          "var areYou = 'Missing a semicolon?'",
-
-          "function tooManySemis(){};",
-
-          "var lintMe = 'Cloooooose meeeeeee"].join("\n"),
+  value: ["var Placehoder = 'text'"]
 
   mode:  {name: "javascript", json: true},
   lineNumbers: true,
@@ -26,6 +20,7 @@ $(document).ready(function (){
   $("button[name='Problem_1']").on("click", function(){
     var problemData = $.get("Python_Euler/Problem_1.py", function() {
       console.log(problemData["responseText"]);
+      myCodeMirror.setValue(problemData["responseText"]);
     });
     
   });
