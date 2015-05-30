@@ -5,7 +5,7 @@ var myCodeMirror = CodeMirror(document.getElementById("editor"), {
   mode:  {name: "python"},
   lineNumbers: true,
   gutters: ["CodeMirror-lint-markers"],
-  lint: true,
+  //lint: true,
   theme: "solarized dark",
   autoCloseBrackets: true,
   matchBrackets: true
