@@ -31,6 +31,7 @@ $(document).ready(function (){
       console.log("Response Text is so long: ", responseText.length);
       problemList = [];
       for (var i ; i < responseText.length ; i++) {
+        console.log("inside loop");
         console.log("This response is: ", responseText[i]);
         if (responseText[i]["name"].indexOf("Problem") > -1) {
           problemList.push(responseText[i]["name"]);
