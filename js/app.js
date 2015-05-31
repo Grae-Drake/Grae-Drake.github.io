@@ -25,17 +25,9 @@ $(document).ready(function (){
   });
 
   $("button[name='Index']").on("click", function(){
-    var indexURL = "https://api.github.com/repos/Grae-Drake/Python_Euler/contents/";
+    var indexURL = "https://api.github.com/repos/Grae-Drake/Python_Euler/contents/"
     var problemIndex = $.get(indexURL, function() {
-      var rawData = problemIndex["responseText"];
-      var problemList = [];
-      for (var i = 0; i < rawData.lengh ; i ++) {
-        if (rawData[i].indexOf("Problem" > -1)) {
-          problemList.push(value["name"]);
-        }
-      }
-      console.log(problemList);
-      //myCodeMirror.setValue(problemList);
+      myCodeMirror.setValue(problemIndex["responseText"]);
     });
   });
 
