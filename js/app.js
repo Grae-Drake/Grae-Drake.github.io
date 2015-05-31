@@ -30,7 +30,7 @@ $(document).ready(function (){
       responseText = JSON.parse(repoData["responseText"]);
       console.log("Response Text is so long: ", responseText.length);
       problemList = [];
-      for (var i ; i < 5 ; i++) {
+      for (var i = 1 ; i < responseText.length ; i++) {
         console.log("inside loop");
         console.log("This response is: ", responseText[i]);
         if (responseText[i]["name"].indexOf("Problem") > -1) {
