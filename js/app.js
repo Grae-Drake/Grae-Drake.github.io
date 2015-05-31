@@ -25,15 +25,15 @@ $(document).ready(function (){
   });
 
   $("button[name='Index']").on("click", function(){
-    var indexURL = "https://api.github.com/repos/Grae-Drake/Python_Euler/contents/"
+    var indexURL = "https://api.github.com/repos/Grae-Drake/Python_Euler/contents/";
     var problemIndex = $.get(indexURL, function() {
       var rawData = problemIndex["responseText"];
       var problemList = [];
-      $.each(rawData, function(index, value) {
-        if (value["name"].indexOf("Problem" > -1)) {
-          problemList.push(value["name"])
-        };
-      });
+      for (var i = 0; i < rawData.lengh ; i ++) {
+        if (rawData[i].indexOf("Problem" > -1)) {
+          problemList.push(value["name"]);
+        }
+      }
       myCodeMirror.setValue(problemList);
     });
   });
