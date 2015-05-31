@@ -34,7 +34,8 @@ $(document).ready(function (){
           problemList.push(value["name"]);
         }
       }
-      myCodeMirror.setValue(problemList);
+      console.log(problemList);
+      //myCodeMirror.setValue(problemList);
     });
   });
 
