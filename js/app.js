@@ -26,16 +26,17 @@ $(document).ready(function (){
 
   $("button[name='Index']").on("click", function(){
     var indexURL = "https://api.github.com/repos/Grae-Drake/Python_Euler/contents/";
-    var repoIndex = $.get(indexURL, function() {
+    var repoData = $.get(indexURL, function() {
+      responseText = repoData["responseText"];
       problemList = [];
-      for (var i ; i < repoIndex.length ; i ++) {
-        console.log(repoIndex[i]);
-        if (repoIndex[i].indexOf("Problem") > -1) {
-          problemList.push(repoIndex[i]["name"]);
+      for (var i ; i < responseText.length ; i ++) {
+        console.log(responseText[i]);
+        if (responseText[i]["name"].indexOf("Problem") > -1) {
+          problemList.push(responseText[i]["name"]);
         }
       }
       console.log("Problem list is: ", problemList);
-      //myCodeMirror.setValue(repoIndex["responseText"]);
+      myCodeMirror.setValue(repoData["responseText"]);
     });
   });
 
