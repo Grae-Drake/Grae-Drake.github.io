@@ -27,7 +27,7 @@ $(document).ready(function (){
   $("button[name='Index']").on("click", function(){
     var indexURL = "https://api.github.com/repos/Grae-Drake/Python_Euler/contents/";
     var repoData = $.get(indexURL, function() {
-      responseText = repoData["responseText"];
+      responseText = JSON.parse(repoData["responseText"]);
       console.log("Response Text is so long: ", responseText.length);
       problemList = [];
       for (var i ; i < responseText.length ; i++) {
