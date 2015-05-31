@@ -29,7 +29,7 @@ $(document).ready(function (){
     var repoIndex = $.get(indexURL, function() {
       problemList = [];
       for (var i ; i < repoIndex.length ; i ++) {
-        console.log repoIndex[i]
+        console.log(repoIndex[i]);
         if (repoIndex[i].indexOf("Problem") > -1) {
           problemList.push(repoIndex[i]["name"]);
         }
