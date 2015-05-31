@@ -28,6 +28,7 @@ $(document).ready(function (){
     var indexURL = "https://api.github.com/repos/Grae-Drake/Python_Euler/contents/";
     var repoData = $.get(indexURL, function() {
       responseText = repoData["responseText"];
+      console.log("Response Text is: ", responseText);
       problemList = [];
       for (var i ; i < responseText.length ; i ++) {
         console.log(responseText[i]);
