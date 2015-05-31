@@ -27,7 +27,14 @@ $(document).ready(function (){
   $("button[name='Index']").on("click", function(){
     var indexURL = "https://api.github.com/repos/Grae-Drake/Python_Euler/contents/"
     var problemIndex = $.get(indexURL, function() {
-      myCodeMirror.setValue(problemIndex["responseText"]);
+      var rawData = problemIndex["responseText"];
+      var problemList = [];
+      $.each(rawData, function(index, value) {
+        if (value["name"].indexOf("Problem" > -1)) {
+          problemList.push(value["name"])
+        };
+      });
+      myCodeMirror.setValue(problemList);
     });
   });
 
