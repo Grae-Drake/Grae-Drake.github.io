@@ -44,13 +44,13 @@ $(document).ready(function (){
           ["<button name='",
           problemList[i],
           "'>",
-          problemList[i],
+          problemList[i].split("_")[-1],
           "</button>"].join("")
           );
       }
       
 
-      myCodeMirror.setValue(repoData["problemList"]);
+      myCodeMirror.setValue(problemList);
 
     });
   });
