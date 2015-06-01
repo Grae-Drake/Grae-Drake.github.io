@@ -17,7 +17,7 @@ $(document).ready(function (){
     console.log(myCodeMirror.getValue());
   });
 
-  $(".problem-selector']").on("click", "button", function(){
+  $(".problem-selector").on("click", "button", function(){
 
     var problemPath = ["Python_Euler/", this.prop("name")].join();
     console.log(problemPath);
