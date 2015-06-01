@@ -17,11 +17,14 @@ $(document).ready(function (){
     console.log(myCodeMirror.getValue());
   });
 
-  $("button[name='Problem_1']").on("click", function(){
+  $(".problem-selector']").on("click", "button", function(){
 
-    var problemData = $.get("Python_Euler/Problem_1.py", function() {
-      console.log(problemData["responseText"]);
-      myCodeMirror.setValue(problemData["responseText"]);
+    var problemPath = ["Python_Euler/", this.prop("name")].join();
+    console.log(problemPath);
+
+    // var problemData = $.get("Python_Euler/Problem_1.py", function() {
+    //   console.log(problemData["responseText"]);
+    //   myCodeMirror.setValue(problemData["responseText"]);
     });
 
   });
