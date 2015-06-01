@@ -19,7 +19,7 @@ $(document).ready(function (){
 
   $(".problem-selector").on("click", "button", function(){
 
-    var problemPath = ["Python_Euler", "/", this.getAttribute("data-problemName")].join();
+    var problemPath = ["Python_Euler", "/", this.getAttribute("data-problemName")].join("");
     console.log(problemPath);
     var problemData = $.get(problemPath, function() {
       console.log(problemData["responseText"]);
