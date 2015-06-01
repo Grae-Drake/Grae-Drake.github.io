@@ -19,7 +19,7 @@ $(document).ready(function (){
 
   $(".problem-selector").on("click", "button", function(){
 
-    var problemPath = ["Python_Euler/", this.prop("name")].join();
+    var problemPath = ["Python_Euler/", this.dataset.problemName].join();
     console.log(problemPath);
 
     // var problemData = $.get("Python_Euler/Problem_1.py", function() {
@@ -44,7 +44,7 @@ $(document).ready(function (){
 
       for (var i = 0 ; i < problemList.length ; i++) {
         $(".problem-selector").append(
-          ["<button name='",
+          ["<button data-problemName='",
           problemList[i],
           "'>",
           problemList[i].split("_").pop().split(".")[0],
