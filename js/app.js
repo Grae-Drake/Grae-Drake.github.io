@@ -19,7 +19,7 @@ $(document).ready(function (){
 
   $(".problem-selector").on("click", "button", function(){
 
-    var problemPath = ["Python_Euler/", this.html()].join();
+    var problemPath = ["Python_Euler/", this.innerHTML].join();
     console.log(problemPath);
 
     // var problemData = $.get("Python_Euler/Problem_1.py", function() {
