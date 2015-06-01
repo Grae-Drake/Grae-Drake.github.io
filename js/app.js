@@ -50,7 +50,7 @@ $(document).ready(function (){
       }
       
 
-      myCodeMirror.setValue(problemList);
+      myCodeMirror.setValue(JSON.stringify(problemList));
 
     });
   });
