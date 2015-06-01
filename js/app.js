@@ -1,7 +1,7 @@
 var myCodeMirror = CodeMirror(document.getElementById("editor"), {
 
-  value: ["var placeholder = 'text'"].join("\n"),
-
+  value: ["var placeholder = ",
+          "'text'"].join("\n"),
   mode:  {name: "python"},
   lineNumbers: true,
   gutters: ["CodeMirror-lint-markers"],
@@ -18,27 +18,40 @@ $(document).ready(function (){
   });
 
   $("button[name='Problem_1']").on("click", function(){
+
     var problemData = $.get("Python_Euler/Problem_1.py", function() {
       console.log(problemData["responseText"]);
       myCodeMirror.setValue(problemData["responseText"]);
     });
+
   });
 
   $("button[name='Index']").on("click", function(){
+
     var indexURL = "https://api.github.com/repos/Grae-Drake/Python_Euler/contents/";
     var repoData = $.get(indexURL, function() {
-      responseText = JSON.parse(repoData["responseText"]);
-      console.log("Response Text is so long: ", responseText.length);
-      problemList = [];
-      for (var i = 1 ; i < responseText.length ; i++) {
-        console.log("inside loop");
-        console.log("This response is: ", responseText[i]);
+
+      var responseText = JSON.parse(repoData["responseText"]);
+      var problemList = [];
+      for (var i = 0 ; i < responseText.length ; i++) {
         if (responseText[i]["name"].indexOf("Problem") > -1) {
           problemList.push(responseText[i]["name"]);
         }
       }
-      console.log("Problem list is: ", problemList);
-      myCodeMirror.setValue(repoData["responseText"]);
+
+      for (var i = 0 ; i < problemList.length ; i++) {
+        $(".problem-selector").append(
+          ["<button name='",
+          problemList[i],
+          "'>",
+          problemList[i],
+          "</button>"].join("")
+          );
+      }
+      
+
+      myCodeMirror.setValue(repoData["problemList"]);
+
     });
   });
 
