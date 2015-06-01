@@ -44,7 +44,7 @@ $(document).ready(function (){
           ["<button name='",
           problemList[i],
           "'>",
-          problemList[i].split("_").slice(-1),
+          problemList[i].split("_").pop().split(".")[0],
           "</button>"].join("")
           );
       }
