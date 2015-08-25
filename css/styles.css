@@ -1,18 +1,26 @@
 body {
     background-color: #fdf6e3;
     color: #657b83;
-    font-size: 16px ;
+    font-size: 16px;
 }
 
 header {
     text-align: right;
 }
 
-.social {
+.nav {
     list-style-type: none;
 }
 
-.social li {
+.nav li {
+    display: inline;
+}
+
+footer {
+    list-style-type: none;
+}
+
+footer li {
     display: inline;
 }
 
@@ -24,4 +32,16 @@ header {
 .two {
     background-color: #fdf6e3;
     display: block;
+}
+
+a {
+    color: #b58900;
+}
+
+a:visited {
+    color: #b58900;
+}
+
+a:hover {
+    background-color: #eee8d5;
 }
