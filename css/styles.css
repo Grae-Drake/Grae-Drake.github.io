@@ -1,35 +1,55 @@
-body {
+html, body {
     font-size: 16px;
+    height: 100%;
+}
+
+.container {
+    min-height: 100%;
+    margin-bottom: -60px;
 }
 
 header {
     text-align: right;
+    min-height: 36px;
 }
 
 .nav {
     list-style-type: none;
+    margin-top: 12px;
 }
 
 .nav li {
     display: inline;
+    margin: 0 12px 0 12px;
+}
+
+p {
+    margin-top: 48px;
+    padding: 12px;
 }
 
 footer {
     list-style-type: none;
+    position: absolute;
+    bottom: 0;
+    padding: 0 12px 0 12px;
+    margin-bottom: 12px;
+    height: 36px;
 }
 
 footer li {
     display: inline;
-}
-
-a {
-
-}
-
-a:visited {
+    bottom: 0;
+    margin: 0 12px 0 12px;
 
 }
 
-a:hover {
+footer ul > :first-child {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
 
+header ul > :first-child {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
 }
