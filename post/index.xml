@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | Grae Drake</title>
+    <link>Grae-Drake.github.io/post/</link>
+      <atom:link href="Grae-Drake.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 21 May 2020 23:54:43 -0700</lastBuildDate>
+    <image>
+      <url>/Grae-Drake.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Posts</title>
+      <link>Grae-Drake.github.io/post/</link>
+    </image>
+    
+    <item>
+      <title>❤️ Project Euler</title>
+      <link>Grae-Drake.github.io/post/heart_euler/</link>
+      <pubDate>Thu, 21 May 2020 23:54:43 -0700</pubDate>
+      <guid>Grae-Drake.github.io/post/heart_euler/</guid>
+      <description>&lt;p&gt;In 2012 I was a corporate lawyer at a big fancy firm. If you&amp;rsquo;d seen teenage me or college me you&amp;rsquo;d be understandably confused. Grae somehow ended up a lawyer? A corporate lawyer at a fancy firm? What? And if you know me today you might be similarly confused.&lt;/p&gt;
+&lt;p&gt;My life as a corporate lawyer was short in part because of Project Euler.&lt;/p&gt;
+&lt;p&gt;That winter Kelly, a law school classmate, shared an article with a group of us about this crazy new company called Dev Bootcamp. It trained people to be programmers. And actually got them jobs! Good ones!&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-dbc-launched-the-coding-bootcamp-industry&#34;&gt;
+
+
+
+  &lt;img src=&#34;Grae-Drake.github.io/Grae-Drake.github.io/img/dbc.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    DBC launched the coding bootcamp industry.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;By then we were starting our second year of practice. It wasn&amp;rsquo;t a great time. Graduating into the great recession meant a lot of us couldn&amp;rsquo;t land a firm job. And those who &lt;em&gt;did&lt;/em&gt; get hired were dealing with the tough reality of law firm life. A bunch of us had the same thought when we learned about coding bootcamps: &amp;ldquo;Holy shit, I wish this was a thing four years ago when I made the naive decision to go to law school.&amp;rdquo;&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-aww-poor-white-collar-professional-photo-credit-ethan-sykes-on-unsplash&#34;&gt;
+
+
+
+  &lt;img src=&#34;Grae-Drake.github.io/Grae-Drake.github.io/img/gaze.jpg&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Aww, poor white collar professional. Photo credit: Ethan Sykes on Unsplash
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Most of the people who &lt;em&gt;would have&lt;/em&gt; done a bootcamp instead of law school couldn&amp;rsquo;t stomach eating the sunk cost to change careers. I was lucky: Stassia saw how unsatisfied I was. She said &amp;ldquo;If you aren&amp;rsquo;t happy you should quit; we&amp;rsquo;ll figure it out.&amp;rdquo; She&amp;rsquo;s done a lot of amazing things for me over the years, but giving me permission &amp;amp; encouragement to abandon a lucrative career is near the top of the list. She was still several years of training away from starting her own and mine was the only income. It was risky, but with her support I left biglaw.&lt;/p&gt;
+&lt;p&gt;Tuition at DBC was I think like $12k. That&amp;rsquo;s a tiny fraction of the cost of my JD. Still, with my student debt and monthly loan payments we didn&amp;rsquo;t have the reserves or cashflow for that. So what could I do?&lt;/p&gt;
+&lt;p&gt;Casting about the web for low cost options I ran into Hacker School (now 
+&lt;a href=&#34;https://www.recurse.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Recurse Center&lt;/a&gt;). Seemed like a cool opportunity. Price was right. But I wasn&amp;rsquo;t qualified yet. I knew I didn&amp;rsquo;t have anywhere near enough programming experience to apply, but how much &lt;em&gt;was&lt;/em&gt; enough? I checked 
+&lt;a href=&#34;https://web.archive.org/web/20130115173024/https://www.hackerschool.com/faq&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;their FAQ&lt;/a&gt; and that&amp;rsquo;s where I found it:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;How much programming experience do I need for Hacker School?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you&amp;hellip; solve 
+&lt;a href=&#34;http://projecteuler.net&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Project Euler&lt;/a&gt; problems for fun&amp;hellip; you&amp;rsquo;re almost certainly a good fit for Hacker School.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Huh. Project Euler. What&amp;rsquo;s that? &lt;em&gt;Click&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I got hooked right away. Hooked bad. Being newly unemployed I spent my spring at The Wormhole drinking coffee and teaching myself Python by solving Project Euler problems. They scratched an itch I forgot I had. They were frustrating and impossible and clever and solving one felt &lt;em&gt;amazing&lt;/em&gt;. That silly green checkmark became the best part of my day.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-youre-good-enough-youre-smart-enough-and-doggone-it-people-like-you&#34;&gt;
+
+
+
+  &lt;img src=&#34;Grae-Drake.github.io/Grae-Drake.github.io/img/green_check.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    You&amp;rsquo;re good enough, you&amp;rsquo;re smart enough, and doggone it, people like you!
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;By the time I interviewed at Thinkful I&amp;rsquo;d solved about 80 problems, averaging a solution every day or two, though some took much longer.&lt;/p&gt;
+&lt;p&gt;Project Euler had a big impact on my work and my life. It made me excited to write code. It gave me the motivation to keep beating my head against the wall while I was learning. It lent me credibility during my interviews and helped me join Thinkful, where I successfully pivoted into tech and got paid to help others do the same. It drilled me, without me realizing, in data structures and algorithmic complexity before I knew what those were. And it reminded me how much I love math.&lt;/p&gt;
+&lt;p&gt;So I want to talk about it here. I&amp;rsquo;ve held off on sharing my solutions or analysis because, well, Project Euler asked me not to. But now they let people talk about the first hundred problems. So let&amp;rsquo;s dive in and see how many of those we can cover.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+
+  &lt;img src=&#34;Grae-Drake.github.io/Grae-Drake.github.io/img/lets_go.gif&#34; alt=&#34;&#34; width=&#34;75%&#34; &gt;
+
+
+
+
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>
