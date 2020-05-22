@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors | Grae Drake</title>
-    <link>Grae-Drake.github.io/authors/</link>
-      <atom:link href="Grae-Drake.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
+    <link>www.grae.io/authors/</link>
+      <atom:link href="www.grae.io/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 21 May 2020 23:54:43 -0700</lastBuildDate>
     <image>
-      <url>/Grae-Drake.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>/www.grae.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Authors</title>
-      <link>Grae-Drake.github.io/authors/</link>
+      <link>www.grae.io/authors/</link>
     </image>
     
   </channel>
