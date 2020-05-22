@@ -1,15 +1,15 @@
 {
-  "name": "Grae Drake",
-  "short_name": "Grae Drake",
+  "name": "Grae",
+  "short_name": "Grae",
   "lang": "en-us",
   "theme_color": "hsl(339, 90%, 68%)",
   "background_color": "hsl(339, 90%, 68%)",
   "icons": [{
-    "src": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png",
+    "src": "/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png",
     "sizes": "192x192",
     "type": "image/png"
     }, {
-    "src": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png",
+    "src": "/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_512x512_fill_lanczos_center_2.png",
     "sizes": "512x512",
     "type": "image/png"
      }],
