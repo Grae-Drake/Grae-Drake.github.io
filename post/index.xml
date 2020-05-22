@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts | Grae Drake</title>
-    <link>www.grae.io/post/</link>
-      <atom:link href="www.grae.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <link>/post/</link>
+      <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 21 May 2020 23:54:43 -0700</lastBuildDate>
     <image>
-      <url>/www.grae.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Posts</title>
-      <link>www.grae.io/post/</link>
+      <link>/post/</link>
     </image>
     
     <item>
       <title>❤️ Project Euler</title>
-      <link>www.grae.io/post/heart_euler/</link>
+      <link>/post/heart_euler/</link>
       <pubDate>Thu, 21 May 2020 23:54:43 -0700</pubDate>
-      <guid>www.grae.io/post/heart_euler/</guid>
+      <guid>/post/heart_euler/</guid>
       <description>&lt;p&gt;In 2012 I was a corporate lawyer at a big fancy firm. If you&amp;rsquo;d seen teenage me or college me you&amp;rsquo;d be understandably confused. Grae somehow ended up a lawyer? A corporate lawyer at a fancy firm? What? And if you know me today you might be similarly confused.&lt;/p&gt;
 &lt;p&gt;My life as a corporate lawyer was short in part because of Project Euler.&lt;/p&gt;
 &lt;p&gt;That winter Kelly, a law school classmate, shared an article with a group of us about this crazy new company called Dev Bootcamp. It trained people to be programmers. And actually got them jobs! Good ones!&lt;/p&gt;
@@ -41,7 +41,7 @@
 
 
 
-  &lt;img src=&#34;www.grae.io/www.grae.io/img/dbc.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;/img/dbc.png&#34; alt=&#34;&#34;  &gt;
 
 
 
@@ -76,7 +76,7 @@
 
 
 
-  &lt;img src=&#34;www.grae.io/www.grae.io/img/gaze.jpg&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;/img/gaze.jpg&#34; alt=&#34;&#34;  &gt;
 
 
 
@@ -122,7 +122,7 @@
 
 
 
-  &lt;img src=&#34;www.grae.io/www.grae.io/img/green_check.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;/img/green_check.png&#34; alt=&#34;&#34;  &gt;
 
 
 
@@ -159,7 +159,7 @@
 
 
 
-  &lt;img src=&#34;www.grae.io/www.grae.io/img/lets_go.gif&#34; alt=&#34;&#34; width=&#34;75%&#34; &gt;
+  &lt;img src=&#34;/img/lets_go.gif&#34; alt=&#34;&#34; width=&#34;75%&#34; &gt;
 
 
 
