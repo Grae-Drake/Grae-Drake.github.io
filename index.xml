@@ -5,12 +5,206 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Grae</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 22 May 2020 16:12:38 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 24 May 2020 15:13:26 -0700</lastBuildDate>
     <image>
       <url>/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_512x512_fill_lanczos_center_2.png</url>
       <title>Grae</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>Project Euler Problem 2: Even Fibonacci numbers</title>
+      <link>/post/euler_problem_2/</link>
+      <pubDate>Sun, 24 May 2020 15:13:26 -0700</pubDate>
+      <guid>/post/euler_problem_2/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;Our first, and certainly not our last, encounter with the Fibonacci Sequence on Project Euler. Before we dive into Problem 2 together take some time to chew on it yourself if you haven&amp;rsquo;t already. Did you find a solution? If so have you been able to improve or streamline your first one? If not do can you clearly describe to yourself what you&amp;rsquo;re stuck on?&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-modern-mathematicians-just-arent-this-_imposing_-image-a-hrefhttpscommonswikimediaorgwikifileleonardo_da_pisajpgmediafileleonardo_fibonaccijpgwikipediaa&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/Leonardo_Fibonacci.jpeg&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Modern mathematicians just aren&amp;rsquo;t this &lt;em&gt;imposing&lt;/em&gt;. Image: &lt;a href=&#39;https://commons.wikimedia.org/wiki/File:Leonardo_da_Pisa.jpg#/media/File:Leonardo_Fibonacci.JPG&#39;&gt;Wikipedia&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;the-straightforward-approach&#34;&gt;The Straightforward Approach&lt;/h2&gt;
+&lt;p&gt;The most straightforward way to solve this problem is to generate every Fibonacci number below four million, then look at each one, check whether it&amp;rsquo;s even and add it to our total if it is:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;fibs = [1, 1]
+while fibs[-1] + fibs[-2] &amp;lt; 4000000:
+    fibs.append(fibs[-1] + fibs[-2])
+
+evens = []
+for n in fibs:
+    if n % 2 == 0:
+        evens.append(n)
+
+print(sum(evens))
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;saving-some-memory&#34;&gt;Saving Some Memory&lt;/h2&gt;
+&lt;p&gt;The solution above works and runs plenty quick. We don&amp;rsquo;t &lt;em&gt;need&lt;/em&gt; to simplify. But &lt;em&gt;can&lt;/em&gt; we? You might notice that we&amp;rsquo;re creating a pretty big list of fibonacci numbers. Is there a way we can avoid using all that memory? What if, instead of a list, we just kept track of the two most recent numbers and checked for evenness at the same time we generate each new number?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;result = 0
+a = 1
+b = 1
+while a + b &amp;lt; 4000000:
+    next = a + b
+    a = b
+    b = next
+    
+    if b % 2 == 0:
+        result += b
+
+print(result)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;saving-some-lines&#34;&gt;Saving Some Lines&lt;/h2&gt;
+&lt;p&gt;Mathematicians and programmers coming from other languages might get weirded out by an amazing Python feature called &lt;strong&gt;multiple assignment&lt;/strong&gt;. It lets us do things like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;x = &#39;ham&#39;
+y = &#39;eggs&#39;
+
+x, y = y, x
+
+print(x)
+&amp;gt;&amp;gt;&amp;gt; &#39;eggs&#39;
+print(y)
+&amp;gt;&amp;gt;&amp;gt; &#39;ham&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Multiple assignment lets us swap two variables in a single line and do other fun things with assigning to more than one variable at a time. Check out how we can use multiple assignment to compress our solution above in two places:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;result = 0
+a, b = 1, 1
+while a + b &amp;lt; 4000000:
+    a, b = b, a + b
+    if b % 2 == 0:
+        result += b
+
+print(result)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is super useful and can make for much more concise code. Trey Hunter has a great 
+&lt;a href=&#34;https://treyhunner.com/2018/03/tuple-unpacking-improves-python-code-readability/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tutorial on multiple assignment&lt;/a&gt; if you want to learn more.&lt;/p&gt;
+&lt;h2 id=&#34;skipping-odds&#34;&gt;Skipping Odds&lt;/h2&gt;
+&lt;p&gt;In our solutions so far we&amp;rsquo;ve been calculating every fibonacci number and then checking if it&amp;rsquo;s even. What if we could just skip the fibonacci numbers we don&amp;rsquo;t want and just calculate the ones we need?&lt;/p&gt;
+&lt;p&gt;Look at the sequence below. Do you see a pattern with even numbers?&lt;/p&gt;
+&lt;p&gt;1, 1, &lt;strong&gt;2&lt;/strong&gt;, 3, 5, &lt;strong&gt;8&lt;/strong&gt;, 13, 21, &lt;strong&gt;34&lt;/strong&gt;, 55, 89, &amp;hellip;&lt;/p&gt;
+&lt;p&gt;Every third term in the sample above is even. Can you see why it&amp;rsquo;s not just a coincidence and is true for the entire sequence?&lt;/p&gt;
+&lt;p&gt;Is there a way to calculate &lt;em&gt;only&lt;/em&gt; the 3rd, 6th, 9th, etc. items so we don&amp;rsquo;t waste precious CPU cycles on lame odd numbers like &lt;code&gt;89&lt;/code&gt;? Yes.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-he-must-have-used-more-compute-than-absolutely-necessary&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/computer_fire.gif&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    He must have used more compute than absolutely necessary
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;I won&amp;rsquo;t run through the steps here, but you can start with the fibonacci series definition:&lt;/p&gt;
+&lt;p&gt;$$ F_{n} = {\color{red}F_{n-2}} + \color{blue}F_{n-1} $$&lt;/p&gt;
+&lt;p&gt;where $ F_{n} $ is the nth term in the sequence, and algebraically derive the equation:&lt;/p&gt;
+&lt;p&gt;$$ F_{n} = {\color{red}F_{n-6}} + {\color{blue}F_{n-3}} + {\color{green}(3 * F_{n-3})} $$&lt;/p&gt;
+&lt;p&gt;So normally to get the next term we add the previous two terms. For the next &lt;em&gt;even&lt;/em&gt; term we add the previous two &lt;em&gt;even&lt;/em&gt; terms, and then add the previous even term three more times. In code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Seed with first two even terms.
+a, b = 2, 8
+result = 10
+while a + 4 * b &amp;lt; 4000000:
+    a, b = b, a + b + (3 * b)
+    result += b
+
+print(result)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It&amp;rsquo;s always nice when a more optimal algorithm &lt;em&gt;also&lt;/em&gt; makes for less code. However, we&amp;rsquo;ve lost some clarity compared to our previous solutions. It&amp;rsquo;s not clear from the code itself where the hard-coded &lt;strong&gt;magic numbers&lt;/strong&gt; &lt;code&gt;2&lt;/code&gt;, &lt;code&gt;8&lt;/code&gt;, and &lt;code&gt;10&lt;/code&gt; are coming from. 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Magic numbers&lt;/a&gt; aren&amp;rsquo;t self-explanatory in the way named variables are and they can make a program harder to understand and maintain. That&amp;rsquo;s why I added a comment at the top: I did&amp;rsquo;t think the code alone made it obvious enough to you what it was doing.&lt;/p&gt;
+&lt;h2 id=&#34;a-golden-solution&#34;&gt;A Golden Solution&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s get &lt;em&gt;real&lt;/em&gt; funky with it. Is there a way to calculate each term directly from the single term before it? For example, how could we look at &lt;code&gt;34&lt;/code&gt; and calculate &lt;code&gt;55&lt;/code&gt; without knowing or caring that the previous term was 21?&lt;/p&gt;
+&lt;p&gt;Our buddy Fibonacci discovered way back in 1202 that the ratio between successive terms in the fibonacci sequence converges on $ \phi $, the &lt;strong&gt;golden ratio&lt;/strong&gt;. So if you take $ F_n $ and multiply it by $ \phi $ you get alllllmost $ F_{n+1} $. Using the example above you get:&lt;/p&gt;
+&lt;p&gt;$$ 34 * \phi = 55.0131556175&amp;hellip; $$&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s &lt;em&gt;super&lt;/em&gt; close to the right answer: &lt;code&gt;55&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Multiply by $ \phi $ again and you get ~ &lt;code&gt;89&lt;/code&gt;, and multiply by $ \phi $ one last time to get ~&lt;code&gt;144&lt;/code&gt;. Each time we multiply by $ \phi $ we step to the next fibonacci number. We can take three steps at once by multiplying by $ \phi^3 $. More formally:&lt;/p&gt;
+&lt;p&gt;$$ F_{n+3} \approx F_{n} * \phi^3 $$&lt;/p&gt;
+&lt;p&gt;Ok this trick gets us an &lt;em&gt;approximate&lt;/em&gt; answer, but how do we turn that into an &lt;em&gt;exact&lt;/em&gt; answer? It turns out the approximation is so good and the error so small that you can just round the result to the nearest integer. That&amp;rsquo;s it:&lt;/p&gt;
+&lt;p&gt;$$ F_{n+3} = \|(F_{n} * \phi^3)\| $$&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s code that up:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Define phi because it isn&#39;t predifined in the Python standard library.
+phi = (1 + 5 ** 0.5) / 2
+a = result = 2
+while a * phi ** 3 &amp;lt; 4000000:
+    a = round(a * phi ** 3)
+    result += a
+
+print(result)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now ain&amp;rsquo;t that a shiny solution.&lt;/p&gt;
+&lt;h2 id=&#34;almost-but-not-quite-an-analytic-solution&#34;&gt;Almost (But Not Quite) an Analytic Solution&lt;/h2&gt;
+&lt;p&gt;This is a nice solution but it still relies on a &lt;code&gt;while&lt;/code&gt; loop to calculate items one by one. I can almost, but not &lt;em&gt;quite&lt;/em&gt; get to a direct calculation. The approximation, which was small enough between terms to round away, compounds in the approach I tried and is about 5% away from the right answer. If you see something I&amp;rsquo;m missing or know how to solve this &lt;em&gt;please let me know&lt;/em&gt;!. Here&amp;rsquo;s my not-quite-right stab at direct calculation.&lt;/p&gt;
+&lt;p&gt;If we ignore rounding for now, we can write out the sequence of terms we generate above like this:&lt;/p&gt;
+&lt;p&gt;$$ 2,\: 2\phi^3,\: 2\phi^6,\: 2\phi^9,\: 2\phi^{12},\: &amp;hellip; $$&lt;/p&gt;
+&lt;p&gt;If you squint real hard, you can see that&amp;rsquo;s a 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Geometric_series&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;geometric series&lt;/a&gt;. It&amp;rsquo;s easier to see if we have a symbol for $ \phi^3 $. Let&amp;rsquo;s use $ r $:&lt;/p&gt;
+&lt;p&gt;$$ 2r^0,\: 2r^1,\: 2r^2,\: 2r^3,\: 2r^4,\: &amp;hellip; $$&lt;/p&gt;
+&lt;p&gt;where $ r = \phi^3 \approx{4.2360679775} $&lt;/p&gt;
+&lt;p&gt;Since this is a geometric series we can use the 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Geometric_progression#Geometric_series&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;formula&lt;/a&gt; for the sum of the first $ n $ terms of a geometric series:&lt;/p&gt;
+&lt;p&gt;$$ a(1-r^n)/{1 - r}  $$&lt;/p&gt;
+&lt;p&gt;Where $ a $ is the start term (in our case: &lt;code&gt;2&lt;/code&gt;), $ r $ is the ratio between terms (in our case $ \phi^3 $ or about &lt;code&gt;4.2360679775&lt;/code&gt;), and $ n $ is the number of terms.&lt;/p&gt;
+&lt;p&gt;All we&amp;rsquo;re missing now is $ n $. We can get that by taking the log base $ r $ of our limit (spoiler: it&amp;rsquo;s &lt;code&gt;11&lt;/code&gt;). Let&amp;rsquo;s code it up:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import math
+phi = (1 + 5 ** 0.5) / 2
+r = phi ** 3
+a = 2
+n = 11
+print((a * (1 - r ** n)) / (1 - r))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Unfortunately the approximations, which were small enough to ignore last time, are now compounding. This attempt overshoots the right answer by about 5%. If you see something I&amp;rsquo;m overlooking please reach out and let me know!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Project Euler Problem 1: Multiples of 3 and 5</title>
