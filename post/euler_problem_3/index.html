@@ -64,10 +64,8 @@
     
       
       
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light" disabled>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark">
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai-sublime.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai-sublime.min.css" crossorigin="anonymous" title="hl-dark" disabled>
       
     
 
@@ -704,7 +702,7 @@ print(factors[-1])
     return factors[-1]
 </code></pre>
 <p>Now we can easily run that code with multiple inputs:</p>
-<pre><code class="language-python">&gt;&gt;&gt; largest_prime_factor(13195)
+<pre><code class="language-python-repl">&gt;&gt;&gt; largest_prime_factor(13195)
 29
 &gt;&gt;&gt; largest_prime_factor(21952)
 7
@@ -724,27 +722,26 @@ def timed (n):
     ))
 </code></pre>
 <p>Now we can see how fast the code is running:</p>
-<pre><code class="language-python">&gt;&gt;&gt; timed(13195)
-Largest prime factor of 13195 is 29. Execution: 0.018383000000000038 seconds
+<pre><code class="language-python-repl">&gt;&gt;&gt; timed(13195)
+&quot;Largest prime factor of 13195 is 29. Execution: 0.018383000000000038 seconds&quot;
 &gt;&gt;&gt; timed(21952)
-Largest prime factor of 21952 is 7. Execution: 0.026741000000015447 seconds
+&quot;Largest prime factor of 21952 is 7. Execution: 0.026741000000015447 seconds&quot;
 &gt;&gt;&gt; timed(98989)
-Largest prime factor of 98989 is 8999. Execution: 0.13390699999999356 seconds
+&quot;Largest prime factor of 98989 is 8999. Execution: 0.13390699999999356 seconds&quot;
 </code></pre>
 <p>Of course, all these numbers are specific to my computer and setup. They&rsquo;ll fluctuate a little each time I run the code, and they&rsquo;ll also change depending on what else my computer is doing and several other factors. So if you run this you&rsquo;ll get different numbers. That&rsquo;s ok. The point is that I can easily see how <em>execution time increases as I increase the size of the input</em>.</p>
 <p>That last part is important and bears repeating. <em>Execution time increases as I increase the size of the input</em>. Bigger inputs take more time to process. Thinking about the <code>for</code> loop in our <code>largest_prime_factor</code> function it makes a lot of sense: the more we loop the longer our program takes to run.</p>
 <p>Let&rsquo;s start adding zeros to our input and see what happens:</p>
-<pre><code class="language-python">&gt;&gt;&gt; timed(10000)
-Largest prime factor of 10000 is 5. Execution: 0.01425699999998642 seconds
+<pre><code class="language-python-repl">&gt;&gt;&gt; timed(10000)
+&quot;Largest prime factor of 10000 is 5. Execution: 0.01425699999998642 seconds&quot;
 &gt;&gt;&gt; timed(100000)
-Largest prime factor of 100000 is 5. Execution: 0.13481099999998492 seconds
+&quot;Largest prime factor of 100000 is 5. Execution: 0.13481099999998492 seconds&quot;
 &gt;&gt;&gt; timed(1000000)
-Largest prime factor of 1000000 is 5. Execution: 2.938510000000008 seconds
+&quot;Largest prime factor of 1000000 is 5. Execution: 2.938510000000008 seconds&quot;
 &gt;&gt;&gt; timed(10000000)
-Largest prime factor of 10000000 is 5. Execution: 74.51557199999999 seconds
-&gt;&gt;&gt; 
+&quot;Largest prime factor of 10000000 is 5. Execution: 74.51557199999999 seconds&quot;
 </code></pre>
-<p>Uuuugh, that last one was a pain to wait for. And the rules of Project Euler say that solutions should run in a minute or less so that&rsquo;s no good. Every time we add a zero to our input the code takes at least 10 times longer to run. The input we need to solve for, <code>600851475143</code>, has 4 more digits than the number that took 74 seconds to solve. Back of the napkin, running our program on it will take something like $ 74 *  10^4 = 740{,}000 $ seconds to run. That&rsquo;s 8 or 9 days. No good.</p>
+<p>Uuuugh, that last one was a pain to wait for. And the rules of Project Euler say that solutions should run in a minute or less so that&rsquo;s no good. Every time we add a zero to our input the code takes at least 10 times longer to run. The input we need to solve for, <code>600851475143</code>, has 4 more digits than the number that took 74 seconds to solve. Back of the napkin, running our program on it will take something like $ 74 * 10^4 = 740{,}000 $ seconds to run. That&rsquo;s 8 or 9 days. No good.</p>
 <h2 id="correct-isnt-good-enough">Correct isn&rsquo;t Good Enough</h2>
 <p>If we&rsquo;re <em>actually going to solve this</em> we need a better &ldquo;solution&rdquo;. It isn&rsquo;t good enough that our solution is correct. The solution above is correct. But we don&rsquo;t have the resources to actually run it on the input we need to so it&rsquo;s as good as useless. In our context, the naive solution <em>really is naive</em>: it doesn&rsquo;t take into account critical resource limitations.</p>
 <p>Computer cycles are <em>cheap</em>. But they aren&rsquo;t <em>free</em>. Give or take, my 2017 Macbook Air can run a simple python loop about $ 10{,}000{,}000 $ times in a second. That&rsquo;s:</p>
@@ -767,7 +764,7 @@ $$ 2{,}500 / 25 = 100 $$
 $$ 2{,}500 / 50 = 50 $$</p>
 <p>As one factor gets larger it&rsquo;s &ldquo;pair&rdquo; factor gets smaller and smaller. Until they meet. Where do they meet? At the square root: $ \sqrt(2{,}500) $ is $ 50 $. That means every factor of $ n $ <strong>larger</strong> than $ \sqrt(n) $ is paired with a factor <strong>smaller</strong> than $ \sqrt(n) $. And so: we can find every factor of $ n $ just by looking at the integers up to $ \sqrt(n) $!</p>
 <p>We can use this to improve our solution. Instead of looping every number below <code>600851475143</code> to find factors we can just loop over every integer below its square root: about <code>775146</code>. That&rsquo;s&hellip; <em>a lot</em> fewer loops. In code:</p>
-<pre><code>import math
+<pre><code class="language-python">import math
 def largest_prime_factor(n):
     factors = []
     for x in range(2, math.floor(math.sqrt(n)) + 1):
@@ -780,16 +777,16 @@ def largest_prime_factor(n):
     return sorted(factors)[-1]
 </code></pre>
 <p>Ok, let&rsquo;s check against our test input to see if it works:</p>
-<pre><code class="language-python">&gt;&gt;&gt; largest_prime_factor(13195)
+<pre><code class="language-python-repl">&gt;&gt;&gt; largest_prime_factor(13195)
 29
 </code></pre>
 <p>Yep, still works. How fast?</p>
-<pre><code class="language-python">&gt;&gt;&gt; timed(13195)
-Largest prime factor of 13195 is 29. Execution: 0.0001859999999851425 seconds
+<pre><code class="language-python-repl">&gt;&gt;&gt; timed(13195)
+&quot;Largest prime factor of 13195 is 29. Execution: 0.0001859999999851425 seconds&quot;
 </code></pre>
 <p>Hey, that&rsquo;s <em>a lot</em> faster than our naive solution. Is this good enough?</p>
-<pre><code class="language-python">&gt;&gt;&gt; timed(600851475143)
-Largest prime factor of 600851475143 is [censored]. Execution: 2.0993389999999863 seconds
+<pre><code class="language-python-repl">&gt;&gt;&gt; timed(600851475143)
+&quot;Largest prime factor of 600851475143 is [censored]. Execution: 2.0993389999999863 seconds&quot;
 </code></pre>
 <p>Woohoo!</p>
 
@@ -1111,9 +1108,11 @@ Largest prime factor of 600851475143 is [censored]. Execution: 2.099338999999986
 
       
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js" integrity="sha256-/2C3CAfmuTGkUqK2mVrhkTacBscoR1caE0u2QZZ3Uh8=" crossorigin="anonymous"></script>
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/languages/python.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/languages/python-repl.min.js"></script>
         
       
 
