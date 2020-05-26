@@ -1,0 +1,1274 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Grae Drake">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Problem 3 is where Euler starts forcing us to consider resource limitations. Before, the most straightforward solution worked just fine, even if it used more resources than a less complex algorithm would.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/euler_problem_3/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="hsl(339, 90%, 68%)">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light" disabled>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark">
+        
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/euler_problem_3/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="Grae">
+  <meta property="og:url" content="/post/euler_problem_3/">
+  <meta property="og:title" content="Project Euler Problem 3: Largest Prime Factor | Grae">
+  <meta property="og:description" content="Problem 3 is where Euler starts forcing us to consider resource limitations. Before, the most straightforward solution worked just fine, even if it used more resources than a less complex algorithm would."><meta property="og:image" content="/post/euler_problem_3/featured.png">
+  <meta property="twitter:image" content="/post/euler_problem_3/featured.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-05-25T12:50:20-07:00">
+    
+    <meta property="article:modified_time" content="2020-05-25T12:50:20-07:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/euler_problem_3/"
+  },
+  "headline": "Project Euler Problem 3: Largest Prime Factor",
+  
+  "image": [
+    "/post/euler_problem_3/featured.png"
+  ],
+  
+  "datePublished": "2020-05-25T12:50:20-07:00",
+  "dateModified": "2020-05-25T12:50:20-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Grae Drake"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Grae",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "Problem 3 is where Euler starts forcing us to consider resource limitations. Before, the most straightforward solution worked just fine, even if it used more resources than a less complex algorithm would."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Project Euler Problem 3: Largest Prime Factor | Grae</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="dark">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1>Project Euler Problem 3: Largest Prime Factor</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  
+  <span><a href="/author/grae-drake/">Grae Drake</a></span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    May 25, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    8 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 500px; max-height: 208px;">
+  <div style="position: relative">
+    <img src="/post/euler_problem_3/featured.png" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>
+<a href="https://projecteuler.net/problem=3" target="_blank" rel="noopener">Problem 3</a> is where Euler starts forcing us to consider resource limitations. Before, the most straightforward solution worked just fine, even if it used more resources than a less complex algorithm would. As we&rsquo;ll see here, that kind of solution, while <em>correct</em> doesn&rsquo;t work for us because the program never finishes in a reasonable amount of time. If we&rsquo;re going to solve this one we need to start thinking about algorithmic complexity.</p>
+<p>As usual, this is a good chance to take some time with the problem yourself before continuing on.</p>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-project-euler-_really_-likes-to-play-with-prime-numbers-image-a-hrefhttpscommonswikimediaorgwikifileprimes-vs-compositessvgdavid-eppsteina">
+
+
+
+  <img src="/img/primes_vs_composites.png" alt=""  >
+
+
+
+  
+  
+  <figcaption>
+    Project Euler <em>really</em> likes to play with prime numbers. Image: <a href='https://commons.wikimedia.org/wiki/File:Primes-vs-composites.svg'>David Eppstein</a>
+  </figcaption>
+
+
+</figure>
+
+<h2 id="the-straightforward-naive-approach">The Straightforward (Naive) Approach</h2>
+<p>So far I&rsquo;ve been super intentional about saying &ldquo;straightforward&rdquo; when talking about the first solution that comes to mind. A lot of people call this the &ldquo;naive&rdquo; solution. I understand why people say &ldquo;naive&rdquo; but I usually avoid that word because I don&rsquo;t like the negative connotations it carries. As we&rsquo;ve seen, sometimes the &ldquo;naive&rdquo; or &ldquo;straightforward&rdquo; solution really is the <em>best</em> solution: it really depends on your context and the tradeoffs you&rsquo;re making. I&rsquo;ve seen people internalize the principle that the straightforward solution <em>must be</em> a &ldquo;bad&rdquo; solution and refuse to consider the tradeoffs involved. In the real world that mindset will just <em>kill</em> your productivity and lead you to produce work that isn&rsquo;t appropriate for the context you&rsquo;re working in.</p>
+<p>That said, there are situations where it&rsquo;s easier to call a solution &ldquo;naive&rdquo; and this problem gives us a good example. My first attempt at solving this problem went like this:</p>
+<blockquote>
+<p>Ok, let&rsquo;s just iterate over every number between 1 and 600,851,475,143, test whether it&rsquo;s prime, then if so test whether it&rsquo;s a factor of 600,851,475,143. Finally take the biggest one and there&rsquo;s your answer.</p>
+</blockquote>
+<p>In code that would look something like this. Ignore the magic <code>is_prime()</code> function for now, we&rsquo;ll get to that further down:</p>
+<pre><code class="language-python">factors = []
+for x in range(2, 600851475143):
+    if is_prime(x):
+        if 600851475143 % x == 0:
+            factors.append(x)
+
+print(factors[-1])
+</code></pre>
+<p>Now, it&rsquo;s important to note that this solution is <em>correct</em>. We can test it on the example the problem gives us (<code>13195</code>) and we get the right answer (<code>29</code>). And we get it fast: running it on my machine there&rsquo;s no noticeable delay. But when I plug in <code>600851475143</code> the program just seems to freeze. What gives? Even after waiting five minutes the program is just sitting there. What&rsquo;s happening?</p>
+<h3 id="tinkering-and-timing">Tinkering and timing</h3>
+<p>Let&rsquo;s keep the logic of the program the same and play around with inputs to see if we get any hints about what the problem is. Remember I&rsquo;m still using a magic <code>is_prime()</code> function that we&rsquo;ll get to below.</p>
+<p>Here we refactor our program into a function to make it easier to call repeatedly on different inputs:</p>
+<pre><code class="language-python">def largest_prime_factor(n):
+    factors = []
+    for x in range(2, n):
+        if is_prime(x):
+            if n % x == 0:
+                factors.append(x)
+    return factors[-1]
+</code></pre>
+<p>Now we can easily run that code with multiple inputs:</p>
+<pre><code class="language-python">&gt;&gt;&gt; largest_prime_factor(13195)
+29
+&gt;&gt;&gt; largest_prime_factor(21952)
+7
+&gt;&gt;&gt; largest_prime_factor(98989)
+8999
+</code></pre>
+<p>On my laptop, those first two examples seemed to run instantaneously, but the third one had a noticeable delay. Let&rsquo;s measure how long the program takes to run every time we run it. We&rsquo;ll use a simple way to time our code. There are of course, much 
+<a href="https://stackoverflow.com/questions/7370801/measure-time-elapsed-in-python" target="_blank" rel="noopener">more accurate ways</a> to measure performance that are well suited for real-world profiling, but this is good enough for us right now.</p>
+<pre><code class="language-python">import time
+def timed (n):
+    start = time.clock()
+    result = largest_prime_factor(n)
+    end = time.clock()
+    duration = end - start
+    print('Largest prime factor of {} is {}. Execution: {} seconds'.format(
+        n, result, duration
+    ))
+</code></pre>
+<p>Now we can see how fast the code is running:</p>
+<pre><code class="language-python">&gt;&gt;&gt; timed(13195)
+Largest prime factor of 13195 is 29. Execution: 0.018383000000000038 seconds
+&gt;&gt;&gt; timed(21952)
+Largest prime factor of 21952 is 7. Execution: 0.026741000000015447 seconds
+&gt;&gt;&gt; timed(98989)
+Largest prime factor of 98989 is 8999. Execution: 0.13390699999999356 seconds
+</code></pre>
+<p>Of course, all these numbers are specific to my computer and setup. They&rsquo;ll fluctuate a little each time I run the code, and they&rsquo;ll also change depending on what else my computer is doing and several other factors. So if you run this you&rsquo;ll get different numbers. That&rsquo;s ok. The point is that I can easily see how <em>execution time increases as I increase the size of the input</em>.</p>
+<p>That last part is important and bears repeating. <em>Execution time increases as I increase the size of the input</em>. Bigger inputs take more time to process. Thinking about the <code>for</code> loop in our <code>largest_prime_factor</code> function it makes a lot of sense: the more we loop the longer our program takes to run.</p>
+<p>Let&rsquo;s start adding zeros to our input and see what happens:</p>
+<pre><code class="language-python">&gt;&gt;&gt; timed(10000)
+Largest prime factor of 10000 is 5. Execution: 0.01425699999998642 seconds
+&gt;&gt;&gt; timed(100000)
+Largest prime factor of 100000 is 5. Execution: 0.13481099999998492 seconds
+&gt;&gt;&gt; timed(1000000)
+Largest prime factor of 1000000 is 5. Execution: 2.938510000000008 seconds
+&gt;&gt;&gt; timed(10000000)
+Largest prime factor of 10000000 is 5. Execution: 74.51557199999999 seconds
+&gt;&gt;&gt; 
+</code></pre>
+<p>Uuuugh, that last one was a pain to wait for. And the rules of Project Euler say that solutions should run in a minute or less so that&rsquo;s no good. Every time we add a zero to our input the code takes at least 10 times longer to run. The input we need to solve for, <code>600851475143</code>, has 4 more digits than the number that took 74 seconds to solve. Back of the napkin, running our program on it will take something like $ 74 *  10^4 = 740{,}000 $ seconds to run. That&rsquo;s 8 or 9 days. No good.</p>
+<h2 id="correct-isnt-good-enough">Correct isn&rsquo;t Good Enough</h2>
+<p>If we&rsquo;re <em>actually going to solve this</em> we need a better &ldquo;solution&rdquo;. It isn&rsquo;t good enough that our solution is correct. The solution above is correct. But we don&rsquo;t have the resources to actually run it on the input we need to so it&rsquo;s as good as useless. In our context, the naive solution <em>really is naive</em>: it doesn&rsquo;t take into account critical resource limitations.</p>
+<p>Computer cycles are <em>cheap</em>. But they aren&rsquo;t <em>free</em>. Give or take, my 2017 Macbook Air can run a simple python loop about $ 10{,}000{,}000 $ times in a second. That&rsquo;s:</p>
+<ul>
+<li>$ \approx 1 * 10^7 $ loops in a second</li>
+<li>$ \approx 1 * 10^{14} $ loops in a year</li>
+<li>$ \approx 1 * 10^{16} $ loops in a <strong>lifetime</strong> (~80 years)</li>
+</ul>
+<p>Viewed through the lens of a human life, burning a million &ldquo;Macbook loops&rdquo; of time here or there doesn&rsquo;t matter. But my computing resources <em>are</em> limited. As the exponent on a program&rsquo;s computational needs increases that starts to matter more and more and <em>more</em>.</p>
+<p>Let&rsquo;s see if we can refactor our <em>correct</em> code into an actual, pragmatic <em>solution</em>.</p>
+<h2 id="correct-_and_-efficient">Correct <em>and</em> Efficient</h2>
+<p>Ok, so life is to short for programs that loop <code>600851475143</code> times. How can we find the factors of a number without needing so many loops?</p>
+<p>The key insight for this problem is to see that factors come in pairs. Take an easy number like $ 2{,}500 $. We can see right away that $ 2 $ is a factor:</p>
+<p>$$ 2{,}500 / 2 = 1{,}250 $$</p>
+<p>Hey look at that, we got another factor for free! If we see that $ 2 $ is a factor we can deduce that $ 1,250 $ <em>must also</em> be a factor. Let&rsquo;s do this a few more times and see if any patterns stand out:</p>
+<p>$$ 2{,}500 / 5 = 500 $$
+$$ 2{,}500 / 10 = 250 $$
+$$ 2{,}500 / 20 = 125 $$
+$$ 2{,}500 / 25 = 100 $$
+$$ 2{,}500 / 50 = 50 $$</p>
+<p>As one factor gets larger it&rsquo;s &ldquo;pair&rdquo; factor gets smaller and smaller. Until they meet. Where do they meet? At the square root: $ \sqrt(2{,}500) $ is $ 50 $. That means every factor of $ n $ <strong>larger</strong> than $ \sqrt(n) $ is paired with a factor <strong>smaller</strong> than $ \sqrt(n) $. And so: we can find every factor of $ n $ just by looking at the integers up to $ \sqrt(n) $!</p>
+<p>We can use this to improve our solution. Instead of looping every number below <code>600851475143</code> to find factors we can just loop over every integer below its square root: about <code>775146</code>. That&rsquo;s&hellip; <em>a lot</em> fewer loops. In code:</p>
+<pre><code>import math
+def largest_prime_factor(n):
+    factors = []
+    for x in range(2, math.floor(math.sqrt(n)) + 1):
+        if is_prime(x):
+            if n % x == 0:
+                pair = n / x
+                factors.append(x)
+                if is_prime(pair):
+                  factors.append(pair)
+    return sorted(factors)[-1]
+</code></pre>
+<p>Ok, let&rsquo;s check against our test input to see if it works:</p>
+<pre><code class="language-python">&gt;&gt;&gt; largest_prime_factor(13195)
+29
+</code></pre>
+<p>Yep, still works. How fast?</p>
+<pre><code class="language-python">&gt;&gt;&gt; timed(13195)
+Largest prime factor of 13195 is 29. Execution: 0.0001859999999851425 seconds
+</code></pre>
+<p>Hey, that&rsquo;s <em>a lot</em> faster than our naive solution. Is this good enough?</p>
+<pre><code class="language-python">&gt;&gt;&gt; timed(600851475143)
+Largest prime factor of 600851475143 is [censored]. Execution: 2.0993389999999863 seconds
+</code></pre>
+<p>Woohoo!</p>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-ah-thats-the-good-stuff">
+
+
+
+  <img src="/img/green_check.png" alt=""  >
+
+
+
+  
+  
+  <figcaption>
+    Ah. That&rsquo;s the good stuff.
+  </figcaption>
+
+
+</figure>
+
+<h2 id="the-is_prime-function-finally">The <code>is_prime()</code> Function, Finally</h2>
+<p>Ok so up till now I&rsquo;ve asked you to just accept that we have a good <code>is_prime()</code> function. Let&rsquo;s dig into that. A prime is a number that is divisible only by 1 and itself. That is: it has no factors. And hey, we&rsquo;ve already written code to find factors! Let&rsquo;s repurpose that for our <code>is_prime()</code> function:</p>
+<pre><code class="language-python">def is_prime(n):
+    for x in range(2, n):
+        if n % x == 0:
+            return False
+    return True
+</code></pre>
+<p>If you squint at this function you&rsquo;ll see it&rsquo;s wolfing down compute and running more loops than we need just like our initial solution code was. Let&rsquo;s use the same insight about only needing to search for factors up to the square root to improve things:</p>
+<pre><code class="language-python">def is_prime(n):
+    for x in range(2, math.floor(math.sqrt(n)) + 1):
+        if n % x == 0:
+            return False
+    return True
+</code></pre>
+<p>And there we go: we have an <code>is_prime()</code> function good enough to solve this problem. Are there ways to improve it? Yes, and we might look into that later if needed for harder problems, but in the spirit of pragmatism we&rsquo;ll stick with this straightforward solution for as long as it does what we need it to do.</p>
+
+    </div>
+
+    
+
+
+
+
+
+<p>
+    See an issue on this page? Report a 
+    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=typo&title=Typo+on+Project%20Euler%20Problem%203:%20Largest%20Prime%20Factor" target="_blank" rel="noopener" class="issue-report">typo</a>, 
+    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=bug&title=Bug+on+Project%20Euler%20Problem%203:%20Largest%20Prime%20Factor" target="_blank" rel="noopener" class="issue-report">bug</a>, or give
+    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=enhancement&title=Feedback+on+Project%20Euler%20Problem%203:%20Largest%20Prime%20Factor" target="_blank" rel="noopener" class="issue-report">general feedback</a> on GitHub.
+</p>
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/euler/">Euler</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/euler_problem_3/&amp;text=Project%20Euler%20Problem%203:%20Largest%20Prime%20Factor" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/euler_problem_3/&amp;t=Project%20Euler%20Problem%203:%20Largest%20Prime%20Factor" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Project%20Euler%20Problem%203:%20Largest%20Prime%20Factor&amp;body=/post/euler_problem_3/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/euler_problem_3/&amp;title=Project%20Euler%20Problem%203:%20Largest%20Prime%20Factor" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Project%20Euler%20Problem%203:%20Largest%20Prime%20Factor%20/post/euler_problem_3/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/euler_problem_3/&amp;title=Project%20Euler%20Problem%203:%20Largest%20Prime%20Factor" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/grae-drake/avatar_hu10888d42fd498c9540cd7a7f173bcd99_164392_270x270_fill_lanczos_center_2.png" alt="Grae Drake">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="/">Grae Drake</a></h5>
+        <h6 class="card-subtitle">Advisor</h6>
+        <p class="card-text">I build mission-driven products, teams, and companies.</p>
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/Grae_Drake" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/Grae-Drake" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/graed/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/euler_problem_2/">Project Euler Problem 2: Even Fibonacci numbers</a></li>
+      
+      <li><a href="/post/euler_problem_1/">Project Euler Problem 1: Multiples of 3 and 5</a></li>
+      
+      <li><a href="/post/heart_euler/">❤️ Project Euler</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
