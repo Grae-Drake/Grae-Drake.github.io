@@ -5,12 +5,119 @@
     <link>/author/grae-drake/</link>
       <atom:link href="/author/grae-drake/index.xml" rel="self" type="application/rss+xml" />
     <description>Grae Drake</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 25 May 2020 12:50:20 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 26 May 2020 18:41:21 -0700</lastBuildDate>
     <image>
       <url>/author/grae-drake/avatar_hu10888d42fd498c9540cd7a7f173bcd99_164392_270x270_fill_lanczos_center_2.png</url>
       <title>Grae Drake</title>
       <link>/author/grae-drake/</link>
     </image>
+    
+    <item>
+      <title>Project Euler Problem 4: Largest palindrome product</title>
+      <link>/post/euler_problem_4/</link>
+      <pubDate>Tue, 26 May 2020 18:41:21 -0700</pubDate>
+      <guid>/post/euler_problem_4/</guid>
+      <description>&lt;p&gt;Project Euler 
+&lt;a href=&#34;projecteuler.net/problem=4&#34;&gt;problem 4&lt;/a&gt; feels like a step back in difficulty. The numbers involved aren&amp;rsquo;t too big so we don&amp;rsquo;t have to worry about resource constraints. The subproblems it breaks down into are fairly straightforward. If you haven&amp;rsquo;t yet, take some time with this problem on your own and continue on down below.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-photo-by-a-hrefhttpsunsplashcomlenscapismjingwei-kea-on-a-hrefunsplashcomunsplasha&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/reflection.jpg&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Photo by &lt;a href=&#39;https://unsplash.com/@lenscapism&#39;&gt;Jingwei Ke&lt;/a&gt; on &lt;a href=&#39;unsplash.com&#39;&gt;Unsplash&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;breaking-the-problem-down&#34;&gt;Breaking the Problem Down&lt;/h2&gt;
+&lt;p&gt;We can break this problem down into several subproblems:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Be able to check whether a number is a &amp;ldquo;palindrome&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Look at the right set of numbers and check whether each is a palindrome&lt;/li&gt;
+&lt;li&gt;Choose the right one from the final set&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;subproblem-1-the-is_palindromen-function&#34;&gt;Subproblem 1: The &lt;code&gt;is_palindrome(n)&lt;/code&gt; Function&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s start with the first subproblem and write an  &lt;code&gt;is_palindrome(n)&lt;/code&gt; function to check whether a number is a palindrome. This function uses arithmetic to create a new integer with the digits of &lt;code&gt;n&lt;/code&gt; reversed&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_palindrome(n):
+    backwards = 0
+    temp = n
+    while temp &amp;gt; 0:
+        backwards *= 10
+        backwards += temp % 10
+        temp = temp // 10
+    return backwards == n
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are several ways you could define this &lt;code&gt;is_palindrome(n)&lt;/code&gt; function. You might prefer to use strings rather than arithmetic:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_palindrome(n):
+    return str(n) == str(n)[::-1]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This one uses Python&amp;rsquo;s 
+&lt;a href=&#34;https://docs.python.org/2.3/whatsnew/section-slices.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;extended slicing&lt;/a&gt;, one of my favorite Python features. Slicing makes Python a joy to work with.&lt;/p&gt;
+&lt;h2 id=&#34;subproblem-2-generating-products&#34;&gt;Subproblem 2: Generating Products&lt;/h2&gt;
+&lt;p&gt;How can we generate the set of numbers we need to check? We&amp;rsquo;re interested in all the products of two 3-digit numbers. We can use a simple &lt;code&gt;for&lt;/code&gt; loop to generate each 3-digit number. To generate all &lt;em&gt;pairs&lt;/em&gt; of 3-digit numbers we can nest two &lt;code&gt;for&lt;/code&gt; loops:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;products = []
+for x in range(100, 1000):
+    for y in range(100, 1000):
+        products.append(x * y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The nested &lt;code&gt;for&lt;/code&gt; loops above will generate every 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Permutation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;permutation&lt;/a&gt; (specifically, the &amp;ldquo;permutation with repetition&amp;rdquo; or 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Cartesian_product&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cartesian product&lt;/a&gt;) of three digit numbers, use those factors to calculate the product, and add that product to a list of all products.&lt;/p&gt;
+&lt;p&gt;Python has a &lt;em&gt;wonderful&lt;/em&gt; standard library. The &lt;code&gt;itertools&lt;/code&gt; module (
+&lt;a href=&#34;https://docs.python.org/3/library/itertools.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docs&lt;/a&gt;) is particularly useful for Project Euler problems with how often it throws combinatorics problems at us.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://imgs.xkcd.com/comics/python.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Here is the same solution using &lt;code&gt;itertools.product&lt;/code&gt; and a list comprehension:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from itertools import product
+factor_pairs = product(range(100, 1000), repeat=2)
+products = [factors[0] * factors[1] for factors in factor_pairs]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;speeding-up-with-combinations&#34;&gt;Speeding up with Combinations&lt;/h3&gt;
+&lt;p&gt;The approach above using products will make us duplicate some of our work. For example, $ 101 * 202 $ is the same as $ 202 * 101 $, and the approach above calculates that product ($ 20{,}402 $) multiple times. Wasted compute cycles, right?&lt;/p&gt;
+&lt;p&gt;It doesn&amp;rsquo;t matter much for this problem because the numbers are small enough to just power through, but it&amp;rsquo;s easy to imagine a situation where unnecessarily repeating work &lt;em&gt;does&lt;/em&gt; cause problems.&lt;/p&gt;
+&lt;p&gt;Because the order of factors doesn&amp;rsquo;t matter, we can use a 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Combination&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;combination&lt;/a&gt; rather than a product to find all the products we want. We&amp;rsquo;ll skip straight to the &lt;code&gt;itertools&lt;/code&gt; solution this time:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from itertools import combinations_with_replacement
+factor_pairs = combinations_with_replacement(range(100, 1000), r=2)
+products = [factors[0] * factors[1] for factors in factor_pairs]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This approach cuts the length of &lt;code&gt;products&lt;/code&gt; about in half because it isn&amp;rsquo;t unnecessarily repeating calculations. That&amp;rsquo;s not critical for this problem, but being aware of these issues will help us down the road.&lt;/p&gt;
+&lt;h2 id=&#34;subproblem-3-finding-the-correct-product&#34;&gt;Subproblem 3: Finding the Correct Product&lt;/h2&gt;
+&lt;p&gt;Now that we&amp;rsquo;ve generated every product we want and stored them in a &lt;code&gt;products&lt;/code&gt; list and have a &lt;code&gt;is_palindrome(n)&lt;/code&gt; function we can filter down to just palindromic numbers:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;palindromes = [product for product in products if is_palindrome(product)]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;From there we can sort and take the largest palindrome:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(sorted(palindromes)[-1])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This approach uses Python&amp;rsquo;s built-in &lt;code&gt;sorted()&lt;/code&gt; function (
+&lt;a href=&#34;https://docs.python.org/3/howto/sorting.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docs&lt;/a&gt;) and looks at the end of the list for the biggest value.&lt;/p&gt;
+&lt;h2 id=&#34;can-you-improve-it&#34;&gt;Can you Improve it?&lt;/h2&gt;
+&lt;p&gt;The solution described here generates &lt;em&gt;all&lt;/em&gt; products of 3-digit numbers, even the small ones we know probably aren&amp;rsquo;t the answer. The nested for loops above count &lt;em&gt;up&lt;/em&gt; through all the factors to generate products and then palindromes. It&amp;rsquo;s possible to write a solution that counts &lt;em&gt;down&lt;/em&gt; and finds the answer with much less compute than the solution in this post. Can you figure out how?&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Project Euler Problem 3: Largest Prime Factor</title>
@@ -356,9 +463,9 @@ print(result)
 &lt;/figure&gt;
 
 &lt;p&gt;I won&amp;rsquo;t run through the steps here, but you can start with the fibonacci series definition:&lt;/p&gt;
-&lt;p&gt;$$ F_{n} = {\color{red}F_{n-2}} + \color{blue}F_{n-1} $$&lt;/p&gt;
+&lt;p&gt;$$ F_{n} = {\color{#FF007F}F_{n-2}} + \color{#0072BB}F_{n-1} $$&lt;/p&gt;
 &lt;p&gt;where $ F_{n} $ is the nth term in the sequence, and algebraically derive the equation:&lt;/p&gt;
-&lt;p&gt;$$ F_{n} = {\color{red}F_{n-6}} + {\color{blue}F_{n-3}} + {\color{green}(3 * F_{n-3})} $$&lt;/p&gt;
+&lt;p&gt;$$ F_{n} = {\color{#FF007F}F_{n-6}} + {\color{#0072BB}F_{n-3}} + {\color{#177245}(3 * F_{n-3})} $$&lt;/p&gt;
 &lt;p&gt;So normally to get the next term we add the previous two terms. For the next &lt;em&gt;even&lt;/em&gt; term we add the previous two &lt;em&gt;even&lt;/em&gt; terms, and then add the previous even term three more times. In code:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Seed with first two even terms.
 a, b = 2, 8

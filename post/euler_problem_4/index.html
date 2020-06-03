@@ -27,10 +27,10 @@
   
     
   
-  <meta name="description" content="This is a lovely problem to start with. It has a straightforward brute-force loop solution as well as a nice analytic solution where you can calculate the solution directly without the need for much programming.">
+  <meta name="description" content="Project Euler problem 4 feels like a step back in difficulty. The numbers involved aren&rsquo;t too big so we don&rsquo;t have to worry about resource constraints. The subproblems it breaks down into are fairly straightforward.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/euler_problem_1/">
+  <link rel="alternate" hreflang="en-us" href="/post/euler_problem_4/">
 
   
 
@@ -216,7 +216,7 @@
   <link rel="icon" type="image/png" href="/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="/post/euler_problem_1/">
+  <link rel="canonical" href="/post/euler_problem_4/">
 
   
   
@@ -231,15 +231,15 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Grae">
-  <meta property="og:url" content="/post/euler_problem_1/">
-  <meta property="og:title" content="Project Euler Problem 1: Multiples of 3 and 5 | Grae">
-  <meta property="og:description" content="This is a lovely problem to start with. It has a straightforward brute-force loop solution as well as a nice analytic solution where you can calculate the solution directly without the need for much programming."><meta property="og:image" content="/post/euler_problem_1/featured.png">
-  <meta property="twitter:image" content="/post/euler_problem_1/featured.png"><meta property="og:locale" content="en-us">
+  <meta property="og:url" content="/post/euler_problem_4/">
+  <meta property="og:title" content="Project Euler Problem 4: Largest palindrome product | Grae">
+  <meta property="og:description" content="Project Euler problem 4 feels like a step back in difficulty. The numbers involved aren&rsquo;t too big so we don&rsquo;t have to worry about resource constraints. The subproblems it breaks down into are fairly straightforward."><meta property="og:image" content="/post/euler_problem_4/featured.png">
+  <meta property="twitter:image" content="/post/euler_problem_4/featured.png"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2020-05-22T16:12:38-07:00">
+      <meta property="article:published_time" content="2020-05-26T18:41:21-07:00">
     
-    <meta property="article:modified_time" content="2020-05-22T16:12:38-07:00">
+    <meta property="article:modified_time" content="2020-05-26T18:41:21-07:00">
   
 
   
@@ -263,16 +263,16 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "/post/euler_problem_1/"
+    "@id": "/post/euler_problem_4/"
   },
-  "headline": "Project Euler Problem 1: Multiples of 3 and 5",
+  "headline": "Project Euler Problem 4: Largest palindrome product",
   
   "image": [
-    "/post/euler_problem_1/featured.png"
+    "/post/euler_problem_4/featured.png"
   ],
   
-  "datePublished": "2020-05-22T16:12:38-07:00",
-  "dateModified": "2020-05-22T16:12:38-07:00",
+  "datePublished": "2020-05-26T18:41:21-07:00",
+  "dateModified": "2020-05-26T18:41:21-07:00",
   
   "author": {
     "@type": "Person",
@@ -287,7 +287,7 @@
       "url": "/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "This is a lovely problem to start with. It has a straightforward brute-force loop solution as well as a nice analytic solution where you can calculate the solution directly without the need for much programming."
+  "description": "Project Euler problem 4 feels like a step back in difficulty. The numbers involved aren\u0026rsquo;t too big so we don\u0026rsquo;t have to worry about resource constraints. The subproblems it breaks down into are fairly straightforward."
 }
 </script>
 
@@ -305,7 +305,7 @@
 
 
 
-  <title>Project Euler Problem 1: Multiples of 3 and 5 | Grae</title>
+  <title>Project Euler Problem 4: Largest palindrome product | Grae</title>
 
 </head>
 
@@ -557,7 +557,7 @@
 
 
 <div class="article-container pt-3">
-  <h1>Project Euler Problem 1: Multiples of 3 and 5</h1>
+  <h1>Project Euler Problem 4: Largest palindrome product</h1>
 
   
 
@@ -585,7 +585,7 @@
     
       
     
-    May 22, 2020
+    May 26, 2020
   </span>
   
 
@@ -594,7 +594,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    7 min read
+    4 min read
   </span>
   
 
@@ -625,9 +625,9 @@
 </div>
 
 
-<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 500px; max-height: 218px;">
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 500px; max-height: 247px;">
   <div style="position: relative">
-    <img src="/post/euler_problem_1/featured.png" alt="" class="featured-image">
+    <img src="/post/euler_problem_4/featured.png" alt="" class="featured-image">
     
   </div>
 </div>
@@ -637,88 +637,105 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>This is a lovely 
-<a href="projecteuler.net/problem=1">problem</a> to start with. It has a straightforward brute-force loop solution as well as a nice analytic solution where you can calculate the solution directly without the need for much programming. And it&rsquo;s 
-<a href="https://en.wikipedia.org/wiki/Fizz_buzz#Programming" target="_blank" rel="noopener">fizzbuzz</a>! What a great way to dive in.</p>
-<h2 id="who-is-this-for">Who is this for?</h2>
-<p>A quick note: this series of posts is meant for people who already have a development environment set up and are familiar with the very basics of Python. If you&rsquo;ve never written a line of Python before I recommend 
-<a href="https://learn.datacamp.com/courses/intro-to-python-for-data-science" target="_blank" rel="noopener">Data Camp&rsquo;s Python introduction</a> or another free Python 3 tutorial that covers the basics of <strong>variables</strong>, <strong>basic types</strong> (ints, floats, strings, booleans), <strong>operations</strong>, <strong>lists</strong>, <strong>dictionaries</strong>, and <strong>functions</strong>. If you&rsquo;re an experienced programmer but new to Python check out the &ldquo;official&rdquo; 
-<a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener">Python Tutorial</a>. And if you&rsquo;re comfy writing Python but don&rsquo;t have a good local development environment set up yet check out 
-<a href="/">Problem 0: Getting Started</a> [TODO].</p>
-<p>Also, this is meant for people who enjoy solving or reading about 
-<a href="projecteuler.net">Project Euler</a> problems. PE has this to say about sharing solutions:</p>
-<blockquote>
-<p>We hope that you enjoyed solving this problem. Please do not deprive others of going through the same process by publishing your solution outside of Project Euler. Members found to be spoiling problems beyond #100 will have their accounts locked (see note).</p>
-<p>Note: The rule about sharing solutions outside of Project Euler does not apply to the first 100 problems, as long as any discussion clearly aims to instruct methods, not just provide answers, and does not directly threaten to undermine the enjoyment of solving later problems. Problems 1 to 100 provide a wealth of helpful introductory teaching material and if you are able to respect our requirements, then we give permission for them to be discussed elsewhere.</p>
-</blockquote>
-<p>I take PE&rsquo;s requirements about sharing information seriously and hope you will too. I love that so much of the programming world happens in the open with public repos and such, but you won&rsquo;t find my work on problems 101+ here, on GitHub, or anywhere else public.</p>
-<h2 id="the-problem">The Problem</h2>
-<p>Ok, let&rsquo;s talk about threes and fives. Before we analyze it together, 
-<a href="https://projecteuler.net/problem=1" target="_blank" rel="noopener">take a few minutes alone with Problem 1</a>. Set up a Project Euler account if you haven&rsquo;t already. Consider how you <em>might</em> solve it. Take a stab at writing a solution before moving on. I&rsquo;ll wait.</p>
-<p>&hellip;</p>
-<h2 id="iterative-solutions">Iterative Solutions</h2>
-<p>Great, you&rsquo;re back. Let&rsquo;s dive in. The most straightforward way to solve this problem is to look at every number from one to a thousand, test whether it&rsquo;s divisible by 3 or 5, and add it to our running total if it is:</p>
-<pre><code class="language-python">result = 0
-integers = range(1, 1000)
-for x in integers:
-  if x % 3 == 0 or x % 5 == 0:
-    result += x
+      <p>Project Euler 
+<a href="projecteuler.net/problem=4">problem 4</a> feels like a step back in difficulty. The numbers involved aren&rsquo;t too big so we don&rsquo;t have to worry about resource constraints. The subproblems it breaks down into are fairly straightforward. If you haven&rsquo;t yet, take some time with this problem on your own and continue on down below.</p>
 
-print(result)
-</code></pre>
-<p>In this solution we initialize our result to <code>0</code>, use a <code>for</code> loop to iterate over every integer from <code>1</code> through <code>1000</code>, test whether it&rsquo;s divisible by <code>3</code> or <code>5</code> using the modulo operator (<code>%</code>) and add it to our <code>result</code> variable if it is. Bam.</p>
-<h3 id="using-list-comprehensions">Using List Comprehensions</h3>
-<p>
-<a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions" target="_blank" rel="noopener">List comprehensions</a> can be an elegant and &ldquo;pythonic&rdquo; way to solve problems. Here&rsquo;s the same iterative solution above using a list comprehension rather than a loop.</p>
-<pre><code class="language-python">print(sum([x for x in range(1, 1000) if x % 3 == 0 or x % 5 == 0]))
-</code></pre>
-<p>Now isn&rsquo;t that short and sweet. I love list comprehensions. They can get ugly fast, and it&rsquo;s possible to overuse them, but comprehensions excel in cases like this where you can express a few lines of procedural code as a single thought.</p>
-<h3 id="a-more-functional-approach">A More Functional Approach</h3>
-<p>Python isn&rsquo;t known for being a naturally functional language, but it&rsquo;s certainly possible to use it that way. You can use <code>filter()</code> in place of the comprehension above:</p>
-<pre><code class="language-python">print(sum(filter(lambda x: x % 3 == 0 or x % 5 == 0, range(1, 1000))))
-</code></pre>
-<p>Looking at this approach next to the comprehension above it&rsquo;s easy to see why the comprehension is more idiomatic: it just reads easier.</p>
-<p>And of course it&rsquo;s no fun to talk about functional programming without contorting <code>reduce()</code> into a solution:</p>
-<pre><code class="language-python">from functools import reduce
-print(reduce(
-    lambda x, y: x + y if y % 3 == 0 or y % 5 == 0 else x,
-    range(1, 1000),
-    0
-))
-</code></pre>
-<p>With Python 3 <code>reduce()</code> is no longer a built-in function and instead needs to be imported from the <code>functools</code> library. That makes me sad. I can understand why (a comprehension is <em>almost</em> always more practical), but speaking as an apostle of 
-<a href="https://www.youtube.com/watch?v=Wl98eZpkp-c&amp;feature=youtu.be&amp;t=18" target="_blank" rel="noopener"><em>Reduce, God of Parentheses</em></a> I have to say I miss having it an my fingertips.</p>
-<h1 id="analytic-solution">Analytic solution</h1>
-<p>The iterative solutions above all rely on generating a list of integers, checking them one by one, and adding them up. That works just fine when you&rsquo;re only counting to a thousand and you have modern computing resources at your fingertips. But things aren&rsquo;t always so easy. What if we were solving this for all integers up to a quadrillion? What if we were working in an environment with limited memory or compute? What if we needed to run this solution gajillions of times every second?</p>
-<p>You might have heard a 
-<a href="https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss#Anecdotes" target="_blank" rel="noopener">famous anecdote about Gauss</a> and how as a young kid he summed the numbers from 1 to 100 in just a few seconds. He didn&rsquo;t actually add all the numbers together, he recognized a pattern in the arithmetic progression 1, 2, 3, &hellip; 99, 100 and used a formula instead. Specifically, you can &ldquo;fold&rdquo; the sequence and match pairs like 1 + 100, 2 + 99, 3 + 98, &hellip; 49 + 52, 50 + 51. There are exactly 50 such pairs and each pair equals 101, so the total sum is 101 * 50 = 5,050.</p>
-<p>This approach works with <em>any</em> arithmetic progression. We could sum all multiples of 5 below a hundred by &ldquo;folding&rdquo; the sequence 5, 10, 15, &hellip; 95, 100 and getting 10 pairs that equal 105 for a total sum of 1,050.</p>
-<p>In general, the formula to calculate the 
-<a href="https://en.wikipedia.org/wiki/Arithmetic_progression#Sum" target="_blank" rel="noopener">sum of an arithmetic progression</a> is: <code>number_of_terms * (first_term + last_term) / 2</code>.</p>
-<p>How does this apply to our fizzbuzz problem? The integers we&rsquo;re summing don&rsquo;t form a nice arithmetic progression. And we can&rsquo;t just add the sum of multiples of three to the sum of multiples of five, because that would double-count numbers like 15 and 30. And 45. And 60. See a pattern?</p>
-<p>The trick is in recognizing that we&rsquo;re dealing with <em>three</em> arithmetic progressions.  If we want the sum of all numbers that are a multiple of three <em>or</em> a multiple of five, we can find that by adding <code>sum(multiples_of_three</code> to <code>sum(multiples_of_five)</code> and then <em>subtracting</em> <code>sum(multiples_of_fifteen)</code>.</p>
-<pre><code class="language-python">def simple_arithmetic_series(step, limit):
-    first = step
-    count = (limit - 1) // step
-    last = step * count
-    return count * (first + last) / 2
 
-multiples_of_3 = simple_arithmetic_series(3, 1000)
-multiples_of_5 = simple_arithmetic_series(5, 1000)
-multiples_of_15 = simple_arithmetic_series(15, 1000)
 
-print(multiples_of_3 + multiples_of_5 - multiples_of_15)
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-photo-by-a-hrefhttpsunsplashcomlenscapismjingwei-kea-on-a-hrefunsplashcomunsplasha">
+
+
+
+  <img src="/img/reflection.jpg" alt=""  >
+
+
+
+  
+  
+  <figcaption>
+    Photo by <a href='https://unsplash.com/@lenscapism'>Jingwei Ke</a> on <a href='unsplash.com'>Unsplash</a>
+  </figcaption>
+
+
+</figure>
+
+<h2 id="breaking-the-problem-down">Breaking the Problem Down</h2>
+<p>We can break this problem down into several subproblems:</p>
+<ol>
+<li>Be able to check whether a number is a &ldquo;palindrome&rdquo;</li>
+<li>Look at the right set of numbers and check whether each is a palindrome</li>
+<li>Choose the right one from the final set</li>
+</ol>
+<h2 id="subproblem-1-the-is_palindromen-function">Subproblem 1: The <code>is_palindrome(n)</code> Function</h2>
+<p>Let&rsquo;s start with the first subproblem and write an  <code>is_palindrome(n)</code> function to check whether a number is a palindrome. This function uses arithmetic to create a new integer with the digits of <code>n</code> reversed</p>
+<pre><code class="language-python">def is_palindrome(n):
+    backwards = 0
+    temp = n
+    while temp &gt; 0:
+        backwards *= 10
+        backwards += temp % 10
+        temp = temp // 10
+    return backwards == n
 </code></pre>
-<h1 id="evil-optimization">Evil optimization</h1>
-<p>The analytic solution involves a lot more typing and it isn&rsquo;t as simple to read and understand, so why is it better?</p>
-<p>Well, it <em>isn&rsquo;t</em> better. There are tradeoffs between the analytic solution and the iterative solution. Neither is inherently better. Deciding which approach is better for you depends on your context.</p>
-<p>In the context of this specific problem, <em>the iterative solution works just fine</em>. It&rsquo;s faster to conceive and implement, it&rsquo;s easier to understand, and less code is less chance for things to break. With our crazy strong computers and the small numbers involved the analytic solution is just a bunch of optimization that was (maybe) fun to do but doesn&rsquo;t buy us anything valuable.</p>
-<p>This is an example of <strong>premature optimization</strong>, and as Donald Knuth famously said, &ldquo;
-<a href="https://en.wikipedia.org/wiki/Program_optimization#When_to_optimize" target="_blank" rel="noopener">premature optimization is the root of all evil</a>&quot;. Spending time optimizing things we don&rsquo;t need to isn&rsquo;t just a waste of time better spent elsewhere, it also makes our programs worse: harder to understand and maintain.</p>
-<p>That said, it&rsquo;s easy to think of cases where the tradeoffs might play out the other way. What if we were working with much larger numbers? Try plugging in bigger numbers to the iterative and analytic solutions and watch where the difference in performance starts to get noticeable. My laptop struggles to run the iterative solution above about a hundred million. Even the world&rsquo;s biggest supercomputer, 
-<a href="https://en.wikipedia.org/wiki/Summit_%28supercomputer%29" target="_blank" rel="noopener">Summit</a> doesn&rsquo;t have enough memory to store a list of all integers up to a quadrillion. But my dinky laptop can calculate <code>simple_arithmetic_series(3, 1000000000000000)</code> with no noticeable delay. With the right algorithm, my laptop can do something that&rsquo;s literally impossible for the world&rsquo;s best supercomputer.</p>
-<p>Those numbers seem ridiculous but spoiler alert: Project Euler is going to start throwing hefty numbers at us pretty quick. As we dig deeper performance, resources, and 
-<a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" target="_blank" rel="noopener">computational complexity</a> are going to get critically important.</p>
+<p>There are several ways you could define this <code>is_palindrome(n)</code> function. You might prefer to use strings rather than arithmetic:</p>
+<pre><code class="language-python">def is_palindrome(n):
+    return str(n) == str(n)[::-1]
+</code></pre>
+<p>This one uses Python&rsquo;s 
+<a href="https://docs.python.org/2.3/whatsnew/section-slices.html" target="_blank" rel="noopener">extended slicing</a>, one of my favorite Python features. Slicing makes Python a joy to work with.</p>
+<h2 id="subproblem-2-generating-products">Subproblem 2: Generating Products</h2>
+<p>How can we generate the set of numbers we need to check? We&rsquo;re interested in all the products of two 3-digit numbers. We can use a simple <code>for</code> loop to generate each 3-digit number. To generate all <em>pairs</em> of 3-digit numbers we can nest two <code>for</code> loops:</p>
+<pre><code class="language-python">products = []
+for x in range(100, 1000):
+    for y in range(100, 1000):
+        products.append(x * y)
+</code></pre>
+<p>The nested <code>for</code> loops above will generate every 
+<a href="https://en.wikipedia.org/wiki/Permutation" target="_blank" rel="noopener">permutation</a> (specifically, the &ldquo;permutation with repetition&rdquo; or 
+<a href="https://en.wikipedia.org/wiki/Cartesian_product" target="_blank" rel="noopener">Cartesian product</a>) of three digit numbers, use those factors to calculate the product, and add that product to a list of all products.</p>
+<p>Python has a <em>wonderful</em> standard library. The <code>itertools</code> module (
+<a href="https://docs.python.org/3/library/itertools.html" target="_blank" rel="noopener">docs</a>) is particularly useful for Project Euler problems with how often it throws combinatorics problems at us.</p>
+<p><img src="https://imgs.xkcd.com/comics/python.png" alt=""></p>
+<p>Here is the same solution using <code>itertools.product</code> and a list comprehension:</p>
+<pre><code class="language-python">from itertools import product
+factor_pairs = product(range(100, 1000), repeat=2)
+products = [factors[0] * factors[1] for factors in factor_pairs]
+</code></pre>
+<h3 id="speeding-up-with-combinations">Speeding up with Combinations</h3>
+<p>The approach above using products will make us duplicate some of our work. For example, $ 101 * 202 $ is the same as $ 202 * 101 $, and the approach above calculates that product ($ 20{,}402 $) multiple times. Wasted compute cycles, right?</p>
+<p>It doesn&rsquo;t matter much for this problem because the numbers are small enough to just power through, but it&rsquo;s easy to imagine a situation where unnecessarily repeating work <em>does</em> cause problems.</p>
+<p>Because the order of factors doesn&rsquo;t matter, we can use a 
+<a href="https://en.wikipedia.org/wiki/Combination" target="_blank" rel="noopener">combination</a> rather than a product to find all the products we want. We&rsquo;ll skip straight to the <code>itertools</code> solution this time:</p>
+<pre><code class="language-python">from itertools import combinations_with_replacement
+factor_pairs = combinations_with_replacement(range(100, 1000), r=2)
+products = [factors[0] * factors[1] for factors in factor_pairs]
+</code></pre>
+<p>This approach cuts the length of <code>products</code> about in half because it isn&rsquo;t unnecessarily repeating calculations. That&rsquo;s not critical for this problem, but being aware of these issues will help us down the road.</p>
+<h2 id="subproblem-3-finding-the-correct-product">Subproblem 3: Finding the Correct Product</h2>
+<p>Now that we&rsquo;ve generated every product we want and stored them in a <code>products</code> list and have a <code>is_palindrome(n)</code> function we can filter down to just palindromic numbers:</p>
+<pre><code class="language-python">palindromes = [product for product in products if is_palindrome(product)]
+</code></pre>
+<p>From there we can sort and take the largest palindrome:</p>
+<pre><code class="language-python">print(sorted(palindromes)[-1])
+</code></pre>
+<p>This approach uses Python&rsquo;s built-in <code>sorted()</code> function (
+<a href="https://docs.python.org/3/howto/sorting.html" target="_blank" rel="noopener">docs</a>) and looks at the end of the list for the biggest value.</p>
+<h2 id="can-you-improve-it">Can you Improve it?</h2>
+<p>The solution described here generates <em>all</em> products of 3-digit numbers, even the small ones we know probably aren&rsquo;t the answer. The nested for loops above count <em>up</em> through all the factors to generate products and then palindromes. It&rsquo;s possible to write a solution that counts <em>down</em> and finds the answer with much less compute than the solution in this post. Can you figure out how?</p>
 
     </div>
 
@@ -730,9 +747,9 @@ print(multiples_of_3 + multiples_of_5 - multiples_of_15)
 
 <p>
     See an issue on this page? Report a 
-    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=typo&title=Typo+on+Project%20Euler%20Problem%201:%20Multiples%20of%203%20and%205" target="_blank" rel="noopener" class="issue-report">typo</a>, 
-    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=bug&title=Bug+on+Project%20Euler%20Problem%201:%20Multiples%20of%203%20and%205" target="_blank" rel="noopener" class="issue-report">bug</a>, or give
-    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=enhancement&title=Feedback+on+Project%20Euler%20Problem%201:%20Multiples%20of%203%20and%205" target="_blank" rel="noopener" class="issue-report">general feedback</a> on GitHub.
+    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=typo&title=Typo+on+Project%20Euler%20Problem%204:%20Largest%20palindrome%20product" target="_blank" rel="noopener" class="issue-report">typo</a>, 
+    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=bug&title=Bug+on+Project%20Euler%20Problem%204:%20Largest%20palindrome%20product" target="_blank" rel="noopener" class="issue-report">bug</a>, or give
+    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=enhancement&title=Feedback+on+Project%20Euler%20Problem%204:%20Largest%20palindrome%20product" target="_blank" rel="noopener" class="issue-report">general feedback</a> on GitHub.
 </p>
 
 
@@ -755,7 +772,7 @@ print(multiples_of_3 + multiples_of_5 - multiples_of_15)
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=/post/euler_problem_1/&amp;text=Project%20Euler%20Problem%201:%20Multiples%20of%203%20and%205" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=/post/euler_problem_4/&amp;text=Project%20Euler%20Problem%204:%20Largest%20palindrome%20product" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -768,7 +785,7 @@ print(multiples_of_3 + multiples_of_5 - multiples_of_15)
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=/post/euler_problem_1/&amp;t=Project%20Euler%20Problem%201:%20Multiples%20of%203%20and%205" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=/post/euler_problem_4/&amp;t=Project%20Euler%20Problem%204:%20Largest%20palindrome%20product" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -781,7 +798,7 @@ print(multiples_of_3 + multiples_of_5 - multiples_of_15)
       
       
       <li>
-        <a href="mailto:?subject=Project%20Euler%20Problem%201:%20Multiples%20of%203%20and%205&amp;body=/post/euler_problem_1/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Project%20Euler%20Problem%204:%20Largest%20palindrome%20product&amp;body=/post/euler_problem_4/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -794,7 +811,7 @@ print(multiples_of_3 + multiples_of_5 - multiples_of_15)
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=/post/euler_problem_1/&amp;title=Project%20Euler%20Problem%201:%20Multiples%20of%203%20and%205" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=/post/euler_problem_4/&amp;title=Project%20Euler%20Problem%204:%20Largest%20palindrome%20product" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -807,7 +824,7 @@ print(multiples_of_3 + multiples_of_5 - multiples_of_15)
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=Project%20Euler%20Problem%201:%20Multiples%20of%203%20and%205%20/post/euler_problem_1/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=Project%20Euler%20Problem%204:%20Largest%20palindrome%20product%20/post/euler_problem_4/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -820,7 +837,7 @@ print(multiples_of_3 + multiples_of_5 - multiples_of_15)
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=/post/euler_problem_1/&amp;title=Project%20Euler%20Problem%201:%20Multiples%20of%203%20and%205" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=/post/euler_problem_4/&amp;title=Project%20Euler%20Problem%204:%20Largest%20palindrome%20product" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -958,6 +975,12 @@ print(multiples_of_3 + multiples_of_5 - multiples_of_15)
   <div class="article-widget content-widget-hr">
     <h3>Related</h3>
     <ul>
+      
+      <li><a href="/post/euler_problem_3/">Project Euler Problem 3: Largest Prime Factor</a></li>
+      
+      <li><a href="/post/euler_problem_2/">Project Euler Problem 2: Even Fibonacci numbers</a></li>
+      
+      <li><a href="/post/euler_problem_1/">Project Euler Problem 1: Multiples of 3 and 5</a></li>
       
       <li><a href="/post/heart_euler/">❤️ Project Euler</a></li>
       
