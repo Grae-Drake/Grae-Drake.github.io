@@ -5,12 +5,150 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Grae</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 26 May 2020 18:41:21 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 03 Jun 2020 10:33:17 -0600</lastBuildDate>
     <image>
       <url>/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_512x512_fill_lanczos_center_2.png</url>
       <title>Grae</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>Project Euler Problem 5: Smallest Multiple</title>
+      <link>/post/euler_problem_5/</link>
+      <pubDate>Wed, 03 Jun 2020 10:33:17 -0600</pubDate>
+      <guid>/post/euler_problem_5/</guid>
+      <description>&lt;p&gt;
+&lt;a href=&#34;https://projecteuler.net/problem=5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 5&lt;/a&gt; is a lot of fun (well, &amp;ldquo;fun&amp;rdquo;) because (1) there&amp;rsquo;s a very simple program requiring no math that calculates the answer, but (2) that program would need impossible amounts of compute to actually run, and (3) you can figure the answer with pen and paper super fast if you think about the math a bit. That&amp;rsquo;s what normal people consider fun, right?&lt;/p&gt;
+&lt;p&gt;Since this problem leans much more on number theory than on programming we&amp;rsquo;ll use it as an excuse to talk about math more than usual. Our first real step into number theory was 
+&lt;a href=&#34;https://projecteuler.net/problem=3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 3&lt;/a&gt; (
+&lt;a href=&#34;grae.io/post/euler_problem_3/&#34;&gt;blog post&lt;/a&gt;) with prime factors. Here we&amp;rsquo;ll talk about least common multiples and prime factorization. This will be useful: as we get deeper into Project Euler we&amp;rsquo;ll get much deeper into number theory.&lt;/p&gt;
+&lt;p&gt;As always, spend some time with 
+&lt;a href=&#34;https://projecteuler.net/problem=5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 5&lt;/a&gt; on your own if you haven&amp;rsquo;t already.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-an-ulam-spiral-visualizing-prime-factorization-source-a-hrefhttpsenwikipediaorgwikinumber_theorywikipediaa&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/ulam_spiral.jpeg&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    An Ulam Spiral visualizing prime factorization. Source: &lt;a href=&#39;https://en.wikipedia.org/wiki/Number_theory&#39;&gt;Wikipedia&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;brute-force&#34;&gt;Brute Force?&lt;/h2&gt;
+&lt;p&gt;Each Project Euler problem has basically two parts: an example and a problem statement. In this case the example is:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;These examples are crazy useful. They aren&amp;rsquo;t just there to define the problem: they let us work through the problem with simpler, smaller inputs. Testing and tinkering with small examples can yield insights, concepts, and strategies that help solve the problem with tougher inputs. They&amp;rsquo;re hints; if you look at them hard enough.&lt;/p&gt;
+&lt;p&gt;Now, as a programmer your instinct might be to throw piles of compute at this problem. The example number is pretty small (just 2,520). Maybe we can just light up a few nested loops to chew through this?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;found = False
+n = 1
+factors = range(1, 11)
+while not found:
+    found = True
+    for x in factors:
+        if n % x != 0:
+            found = False
+    if found:
+        print(i)
+    n += 1
+print(n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That program gives &lt;code&gt;2520&lt;/code&gt; with no appreciable delay. Let&amp;rsquo;s crank our range up to 20 and try it out!&lt;/p&gt;
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Yeah so I pulled the plug after taking more than a minute to iterate all the way up to &lt;code&gt;19034074&lt;/code&gt; without finding the answer. Clearly the number we&amp;rsquo;re looking for is too big to find with this brute force approach. Looks like we&amp;rsquo;re going to &lt;em&gt;have&lt;/em&gt; to think about the math a bit.&lt;/p&gt;
+&lt;h2 id=&#34;break-out-the-pen-and-paper&#34;&gt;Break Out the Pen and Paper&lt;/h2&gt;
+&lt;p&gt;If we can&amp;rsquo;t brute force our way, there must be a more direct solution. This is where Project Euler&amp;rsquo;s hints are crazy useful.&lt;/p&gt;
+&lt;p&gt;One way to calculate a number that&amp;rsquo;s divisible by a set of factors (a &amp;ldquo;&lt;strong&gt;common multiple&lt;/strong&gt;&amp;quot;) is to just multiply the factors all together. In our example case that&amp;rsquo;s:&lt;/p&gt;
+&lt;p&gt;$$ 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9 * 10 $$&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s cumbersome to write out, so instead I&amp;rsquo;ll use $ ! $, which is short hand for the 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Factorial&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;factorial operation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We see that $ 10! $ is $ 3{,}628{,}800 $. That&amp;rsquo;s MUCH bigger than $ 2{,}520 $. Exactly $ 1{,}440 $ times bigger in fact. What&amp;rsquo;s so special about $ 1{,}440 $? And why can you evenly divide it by 2 and 3 so many times?&lt;/p&gt;
+&lt;p&gt;Now, &lt;em&gt;you know&lt;/em&gt; that every integer is either prime or the product of prime factors. You &lt;em&gt;may not&lt;/em&gt; know that&amp;rsquo;s called the &amp;ldquo;unique factorization theorem&amp;rdquo;, or, with more gravitas, the &amp;ldquo;
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fundamental theorem of arithmetic&lt;/a&gt;&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Finding the prime factors of a number is called &lt;strong&gt;prime factorization&lt;/strong&gt; and it can take a long time with big numbers. But you can factorize all the numbers you need to solve this problem in your head because they&amp;rsquo;re all so small.&lt;/p&gt;
+&lt;p&gt;Tinkering with a calculator and without needing to write any code, we can see that the prime factors of $ 1{,}440 $ are:&lt;/p&gt;
+&lt;p&gt;$$ [2{,\ }2{,\ }2{,\ }2{,\ }2{,\ }3{,\ }3{,\ }5] $$&lt;/p&gt;
+&lt;p&gt;You could say that each of those is an &amp;ldquo;extra&amp;rdquo; factor and that $ 10! $ has a bunch of extra factors of $ 2 $ and $ 3 $ and $ 5 $ compared to the least common multiple. This is even clearer if we set the prime factorization of the least common multiple (&amp;ldquo;LCM&amp;rdquo;) and $ 10! $ next to each other:&lt;/p&gt;
+&lt;p&gt;$$ LCM = 2{,}520 = 2^3 * 3^2 * 5^1 * 7^1 $$
+$$ 10! = 3{,}628{,}800 = 2^8 * 3^4 * 5^2 * 7^1 $$&lt;/p&gt;
+&lt;p&gt;Progress! Is there a way we can figure out (1) which prime numbers are factors of our answer and (2) how many of each prime is &amp;ldquo;enough&amp;rdquo;?&lt;/p&gt;
+&lt;h3 id=&#34;which-prime-numbers&#34;&gt;Which Prime Numbers?&lt;/h3&gt;
+&lt;p&gt;Looking at the example we see none of the prime factors are larger than 10. And that every prime number less than 10 is represented at least once.&lt;/p&gt;
+&lt;p&gt;This makes sense. The next largest prime number, 11, isn&amp;rsquo;t a factor of any of the numbers 1-10. And &lt;em&gt;every&lt;/em&gt; number, &lt;em&gt;including each prime number&lt;/em&gt;, less than 10 is a factor.&lt;/p&gt;
+&lt;p&gt;So we know that our answer has every prime number less than 20 as a factor at least once, and none of the prime numbers larger than 20 as a factor.&lt;/p&gt;
+&lt;h3 id=&#34;how-many-of-each&#34;&gt;How many of each?&lt;/h3&gt;
+&lt;p&gt;Some of the primes from 2 to 19 have to be represented more than once. We know that because &lt;em&gt;that number&lt;/em&gt; (9,699,690) would have been found with our brute force approach if it were correct. We also know that because a number like 4, which has two factors of 2, wouldn&amp;rsquo;t evenly divide it. And 8, which has &lt;em&gt;three&lt;/em&gt; factors of two &lt;em&gt;also&lt;/em&gt; wouldn&amp;rsquo;t evenly divide it.&lt;/p&gt;
+&lt;p&gt;Turns out that we need &amp;ldquo;enough&amp;rdquo; of each prime to make every one of the factors (1 to 20). Looking at the answer to the example, it needs &lt;em&gt;three&lt;/em&gt; factors of 2 because it needs to be divisible by 8. And it needs &lt;em&gt;two&lt;/em&gt; factors of 3 because it needs to be divisible by 9. But only &lt;em&gt;one&lt;/em&gt; factor of the larger primes.&lt;/p&gt;
+&lt;h2 id=&#34;coding-a-solution&#34;&gt;Coding a solution&lt;/h2&gt;
+&lt;p&gt;At this point it might actually be easier to break out a pen and tally the answer. You could do that by looking at each number from 1 to 20, calculating the prime factors for each number, keeping the largest count of each prime factor, and then multiplying out everything. But instead, let&amp;rsquo;s write some code to do that!&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from math import floor
+
+# A simple function to test whether a number is prime.
+def is_prime(n):
+    for x in range(2, floor(n ** 0.5) + 1):
+        if n % x == 0:
+          return False
+    return True
+
+# The number we&#39;ll check up to. Set to 10 to test the code then change to 20.
+limit = 100
+
+# A list of primes we know show up at least once.
+primes = [x for x in range(2, limit + 1) if is_prime(x)]
+
+# A simple function to calculate the prime factors of a number.
+def prime_factors(n):
+    result = {prime: 0 for prime in primes}
+    i = 0
+    for prime in primes:
+        while n % prime == 0:
+            result[prime] += 1
+            n = n / prime
+    return result
+
+# Initialize factors. We know each prime below limit shows up at least once.
+factors = {prime: 1 for prime in primes}
+
+# Look at the prime counts for each number in our range and keep the highest.
+for x in range(2, limit + 1):
+    for prime, count in prime_factors(x).items():
+        factors[prime] = max(count, factors[prime])
+
+# Calculate and print the result.
+result = 1
+for prime, count in factors.items():
+    result *= prime ** count
+
+print(result)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are ways to further optimize this solution. For example, you could sidestep the need for a &lt;code&gt;prime_factors()&lt;/code&gt; function altogether with witty application of some logarithms and the observation that 3 * 3 * 3 is bigger than 20. But that feels a bit silly. Even bumping up our limit to 100 and running this program it calculates the 41-digit answer without noticeable delay.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Project Euler Problem 4: Largest palindrome product</title>
