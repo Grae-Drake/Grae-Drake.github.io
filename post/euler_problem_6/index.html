@@ -680,7 +680,7 @@
 </figure>
 
 <h2 id="brute-forcing-it">Brute Forcing it</h2>
-<p>All the numbers involved in this problem are small to quickly calculate:</p>
+<p>All the numbers involved in this problem are small enough to quickly calculate:</p>
 <pre><code class="language-python">limit = 100
 integers = range(1, limit + 1)
 sum_of_squares = sum([x ** 2 for x in integers])
@@ -690,7 +690,7 @@ print(square_of_sum - sum_of_squares)
 <p>You <em>could</em> get clever and jam all that into one line, but it&rsquo;d be less readable &amp; maintainable:</p>
 <pre><code class="language-python">print(sum(range(1, 101)) ** 2 - sum([x ** 2 for x in range(1, 101)]))
 </code></pre>
-<p>I feel the temptation to get clever like that a lot. I&rsquo;ve learned that I&rsquo;m usually better off down the line if I avoid that temptation.</p>
+<p>I feel the temptation to get clever like that a lot. I&rsquo;ve learned future me is usually better off if I avoid that temptation.</p>
 <h2 id="the-efficient-solution">The Efficient Solution</h2>
 <p>It&rsquo;s not my jam and I didn&rsquo;t figure it out on my own (I just used the brute force solution) so I&rsquo;ll avoid deriving the formula (you can read about it in depth 
 <a href="https://trans4mind.com/personal_development/mathematics/series/sumNaturalSquares.htm" target="_blank" rel="noopener">here</a> if you like), but for the series of squares:</p>

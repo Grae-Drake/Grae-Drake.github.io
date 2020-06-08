@@ -56,7 +56,7 @@
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;brute-forcing-it&#34;&gt;Brute Forcing it&lt;/h2&gt;
-&lt;p&gt;All the numbers involved in this problem are small to quickly calculate:&lt;/p&gt;
+&lt;p&gt;All the numbers involved in this problem are small enough to quickly calculate:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;limit = 100
 integers = range(1, limit + 1)
 sum_of_squares = sum([x ** 2 for x in integers])
@@ -66,7 +66,7 @@ print(square_of_sum - sum_of_squares)
 &lt;p&gt;You &lt;em&gt;could&lt;/em&gt; get clever and jam all that into one line, but it&amp;rsquo;d be less readable &amp;amp; maintainable:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(sum(range(1, 101)) ** 2 - sum([x ** 2 for x in range(1, 101)]))
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I feel the temptation to get clever like that a lot. I&amp;rsquo;ve learned that I&amp;rsquo;m usually better off down the line if I avoid that temptation.&lt;/p&gt;
+&lt;p&gt;I feel the temptation to get clever like that a lot. I&amp;rsquo;ve learned future me is usually better off if I avoid that temptation.&lt;/p&gt;
 &lt;h2 id=&#34;the-efficient-solution&#34;&gt;The Efficient Solution&lt;/h2&gt;
 &lt;p&gt;It&amp;rsquo;s not my jam and I didn&amp;rsquo;t figure it out on my own (I just used the brute force solution) so I&amp;rsquo;ll avoid deriving the formula (you can read about it in depth 
 &lt;a href=&#34;https://trans4mind.com/personal_development/mathematics/series/sumNaturalSquares.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; if you like), but for the series of squares:&lt;/p&gt;
