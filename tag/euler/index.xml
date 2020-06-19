@@ -5,12 +5,76 @@
     <link>/tag/euler/</link>
       <atom:link href="/tag/euler/index.xml" rel="self" type="application/rss+xml" />
     <description>Euler</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 03 Jun 2020 10:33:17 -0600</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 07 Jun 2020 18:01:03 -0600</lastBuildDate>
     <image>
       <url>/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_512x512_fill_lanczos_center_2.png</url>
       <title>Euler</title>
       <link>/tag/euler/</link>
     </image>
+    
+    <item>
+      <title>Project Euler Problem 7: 10001st prime</title>
+      <link>/post/euler_problem_7/</link>
+      <pubDate>Sun, 07 Jun 2020 18:01:03 -0600</pubDate>
+      <guid>/post/euler_problem_7/</guid>
+      <description>&lt;p&gt;Back to primes! So far we&amp;rsquo;ve been able to get away with being a little greedy with our compute when playing with primes. Now Euler is ratcheting up the difficulty and we&amp;rsquo;ll have to focus on efficiency.&lt;/p&gt;
+&lt;p&gt;As usual, if you haven&amp;rsquo;t spent time with 
+&lt;a href=&#34;https://projecteuler.net/problem=7&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 7&lt;/a&gt; yet, take a chance to play with it on your own and come back.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-todo&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    TODO
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;counting-primes&#34;&gt;Counting Primes&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s start by looking at each integer, deciding whether it&amp;rsquo;s prime, and counting it if it is until we get to the 10,001st prime.&lt;/p&gt;
+&lt;p&gt;To begin, we&amp;rsquo;ll use the &lt;code&gt;is_prime(n)&lt;/code&gt; function we wrote back for our 
+&lt;a href=&#34;https://www.grae.io/post/euler_problem_3/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 3 Solution&lt;/a&gt;. This function is already pretty optimized because it checks only numbers up to $ \sqrt{n} $&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_prime(n):
+    for x in range(2, n):
+        if n % x == 0:
+            return False
+    return True
+
+seen = 0
+n = 1
+while seen &amp;lt; 10001:
+    n += 1
+    if is_prime(n):
+        seen += 1
+
+print(n)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Project Euler Problem 5: Smallest Multiple</title>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ethics | Grae</title>
+    <link>/tag/ethics/</link>
+      <atom:link href="/tag/ethics/index.xml" rel="self" type="application/rss+xml" />
+    <description>Ethics</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 19 Jun 2020 12:43:57 -0700</lastBuildDate>
+    <image>
+      <url>/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_512x512_fill_lanczos_center_2.png</url>
+      <title>Ethics</title>
+      <link>/tag/ethics/</link>
+    </image>
+    
+    <item>
+      <title>The Hand Raiser Problem and Inequality</title>
+      <link>/post/hand_raisers_and_inequality/</link>
+      <pubDate>Fri, 19 Jun 2020 12:43:57 -0700</pubDate>
+      <guid>/post/hand_raisers_and_inequality/</guid>
+      <description>&lt;p&gt;While I was at Thinkful our instructional design and features evolved &lt;em&gt;a lot&lt;/em&gt;. At the beginning things were simple. The curriculum was plain text (a Google doc we shared) that curated 3rd-party resources and &amp;ldquo;explained&amp;rdquo; (in a way that will make instructional designers cringe) the remaining topics. It was a great MVP in that things really &lt;em&gt;were&lt;/em&gt; minimal and it (mostly) worked.&lt;/p&gt;
+&lt;p&gt;Over time we layered on more features. We added a robust student community. Loads of open office hours that anyone could attend. Chat-based technical coaching. Instructional design basics like learning objectives, formative and summative assessments, backwards design. Things unarguably got better. But not as much as I expected and, critically, &lt;em&gt;not for as many people&lt;/em&gt; as I expected.&lt;/p&gt;
+&lt;p&gt;A while into building new features I realized that the features we were building often didn&amp;rsquo;t have the effect I expected them to have. Take office hours. All of a sudden students now had access to experts almost around the clock. And the highest-performing students were attending office hours. &lt;em&gt;And yet&lt;/em&gt; we didn&amp;rsquo;t see a big change in student achievement rates. What gives?&lt;/p&gt;
+&lt;p&gt;It turns out the causation between office hours attendance and achievement was the reverse of what I expected: high performing students saw a chance for additional value and took it. They didn&amp;rsquo;t &lt;em&gt;need&lt;/em&gt; office hours. They&amp;rsquo;d have been successful without them. But they were valuable and they saw that value and weren&amp;rsquo;t afraid to take it. Students at the margin, the students who would most benefit from these extra resources weren&amp;rsquo;t taking advantage of them.&lt;/p&gt;
+&lt;p&gt;Internally we called this the &amp;ldquo;hand raiser problem&amp;rdquo;. Many seemingly great features would help the people who didn&amp;rsquo;t need help, the people in a class who always raised their hand, and &lt;em&gt;wouldn&amp;rsquo;t&lt;/em&gt; help those who were quietly struggling and most in need of support.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+
+  &lt;img src=&#34;/img/hand_raiser.gif&#34; alt=&#34;&#34;  &gt;
+
+
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Not every feature implicated the hand raiser problem, but I can confidently say that 100% of us on the education, product, and engineering teams were, ourselves, handraisers. That&amp;rsquo;s why we worked at Thinkful in the first place. That made all these seemingly wonderful features, these shiny features that were &lt;em&gt;obviously great&lt;/em&gt; because &lt;em&gt;we would love to have them&lt;/em&gt;, super tempting. But those weren&amp;rsquo;t the features we needed to build. The features that actually had an impact were the ones that &lt;em&gt;everyone&lt;/em&gt; valued (not just the hand raisers) or even the ones that hand raisers &lt;em&gt;disliked&lt;/em&gt; but that boosted students at the margins.&lt;/p&gt;
+&lt;p&gt;There is a story here about product strategy and feature selection process and understanding your users that is interesting but not what I want to talk about today.&lt;/p&gt;
+&lt;p&gt;What I want to talk about today is inequality.&lt;/p&gt;
+&lt;p&gt;We thought, when we added office hours, that we were &lt;em&gt;making the world&lt;/em&gt; (or at least our product) &lt;em&gt;a better place&lt;/em&gt;. Before there wasn&amp;rsquo;t a thing. Now there&amp;rsquo;s a thing. People who interact with the thing benefit. The thing doesn&amp;rsquo;t harm anyone; worst case it gets ignored. Multiply the number of people who use it by the utility each gets from using it and you have a measure of exactly &lt;em&gt;how much&lt;/em&gt; it made the world a better place.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-this-show-has-no-business-being-so-accurate&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/make_the_world_a_better_place.gif&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    This show has no business being so accurate
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;But while the thing doesn&amp;rsquo;t harm &lt;em&gt;people&lt;/em&gt; it had the potential to harm the &lt;em&gt;community&lt;/em&gt;. In isolation, this feature amplifies the existing performance gap between students. Learning outcomes become more bimodal. Winners are clearer, better winners. Others lose ground by standing still.&lt;/p&gt;
+&lt;p&gt;This example is just a silly feature from one education company. Students weren&amp;rsquo;t competing against one another in any meaningful way. These games were not zero sum; making well-off students better-off didn&amp;rsquo;t hurt anyone at Thinkful.&lt;/p&gt;
+&lt;p&gt;But looking around at our society now I see hand-raiser problems &lt;em&gt;fucking everywhere&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Look at all these amazing useful webapps we&amp;rsquo;ve got now! Oh, unless accessibility issues make them painful for you to use.&lt;/p&gt;
+&lt;p&gt;Thank goodness we have tax-advantaged savings plans to make it easier to save for retirement! Yet, somehow, 
+&lt;a href=&#34;https://www.fool.com/retirement/2017/06/19/does-the-average-american-have-a-401k.aspx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;only 37% of Americans who can contribute to a 401(k), do&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Healthcare is expensive and complicated, good thing for health insurance! (From our employer of course!) Except for the 
+&lt;a href=&#34;https://www.kff.org/other/state-indicator/total-population/?dataView=0&amp;amp;currentTimeframe=0&amp;amp;selectedDistributions=employer&amp;amp;sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;51% of us who aren&amp;rsquo;t employed, don&amp;rsquo;t receive employment benefits, or otherwise fall through the cracks&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;my-dilemma&#34;&gt;My Dilemma&lt;/h2&gt;
+&lt;p&gt;Do employer-sponsored health plans make our world a better place? I don&amp;rsquo;t think so. There seem to be much more efficient ways to organize and allocate healthcare resources. Other countries have figured this out and implemented better solutions. I&amp;rsquo;d love to go back in time and stop the people who made that a thing.&lt;/p&gt;
+&lt;p&gt;Does 
+&lt;a href=&#34;https://www.khanacademy.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Khan Academy&lt;/a&gt; make the world a better place? I have to believe it does. I&amp;rsquo;m sure hand raisers disproportionately benefit from KA, but I&amp;rsquo;m also sure that the sheer number of students touched by KA is net positive. Here, KA, have an internet fist bump from me. 👊&lt;/p&gt;
+&lt;p&gt;Did the 20,000 recorded lectures Berkeley posted to Youtube make the world a better place before 
+&lt;a href=&#34;https://www.insidehighered.com/news/2017/03/06/u-california-berkeley-delete-publicly-available-educational-content&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Berkeley removed them because of ADA complaints&lt;/a&gt;? I&amp;hellip; I don&amp;rsquo;t know.&lt;/p&gt;
+&lt;p&gt;This is where it gets selfish. I want to massively scale 1-on-1 learning. I think that&amp;rsquo;s possible today in a way it&amp;rsquo;s never been before. But &lt;em&gt;should&lt;/em&gt; I? I believe many people could benefit enormously from 1-on-1 mentoring relationships. Assuming for now that I&amp;rsquo;m successful in facilitating those, will I just end up making life better for professionals who already have it &amp;ldquo;great&amp;rdquo; by any rational measure? Open up new professional opportunities&amp;hellip; for those of us who least &lt;em&gt;need&lt;/em&gt; them? If my work creates a ton of value, is a &lt;em&gt;little bit&lt;/em&gt; of increased inequality an acceptable tradeoff? How much, and how do I measure that?&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t have any answers to these questions yet. For now I&amp;rsquo;m going to keep building and hope it works out, but I&amp;rsquo;m keeping an eye on this. If &lt;em&gt;you&lt;/em&gt; have any helpful ways to look at these issues 
+&lt;a href=&#34;https://twitter.com/Grae_Drake&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;drop me a line&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
