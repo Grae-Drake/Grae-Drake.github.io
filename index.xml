@@ -152,15 +152,35 @@
 
 &lt;h2 id=&#34;counting-primes&#34;&gt;Counting Primes&lt;/h2&gt;
 &lt;p&gt;Let&amp;rsquo;s start by looking at each integer, deciding whether it&amp;rsquo;s prime, and counting it if it is until we get to the 10,001st prime.&lt;/p&gt;
-&lt;p&gt;To begin, we&amp;rsquo;ll use the &lt;code&gt;is_prime(n)&lt;/code&gt; function we wrote back for our 
-&lt;a href=&#34;https://www.grae.io/post/euler_problem_3/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 3 Solution&lt;/a&gt;. This function is already pretty optimized because it checks only numbers up to $ \sqrt{n} $&lt;/p&gt;
+&lt;p&gt;Our first stab at an &lt;code&gt;is_prime(n)&lt;/code&gt; function will be the simplest and we&amp;rsquo;ll iterate into more optimized (and complicated) versions after. Here&amp;rsquo;s the starting point:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_prime(n):
     for x in range(2, n):
         if n % x == 0:
             return False
     return True
-
-seen = 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is &lt;em&gt;almost&lt;/em&gt; good enough to solve the problem in under a minute. My laptop chugs through the first 10,001 primes in 68 seconds using that version of the &lt;code&gt;is_prime(n)&lt;/code&gt; function (full code later). But we can do better.&lt;/p&gt;
+&lt;p&gt;Looking back at our 
+&lt;a href=&#34;https://www.grae.io/post/euler_problem_3/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 3 Solution&lt;/a&gt; we optimized our &lt;code&gt;is_prime(n)&lt;/code&gt; function by checking only numbers up to $ \sqrt{n} $. Check out that post if you want to dig deep into why / how that works.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_prime(n):
+    for x in range(2, math.floor(math.sqrt(n)) + 1):
+        if n % x == 0:
+            return False
+    return True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This runs a &lt;em&gt;lot&lt;/em&gt; faster. It finds the 10,001st prime in 0.37 seconds. But can we make it &lt;em&gt;even better&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;[Perhaps the most rediscovered result about primes numbers] (&lt;a href=&#34;https://primes.utm.edu/notes/faq/six.html&#34;&gt;https://primes.utm.edu/notes/faq/six.html&lt;/a&gt;) is the fact that every prime bigger than 3 is &amp;ldquo;next&amp;rdquo; to a multiple of 6. That is, every prime number is either 1 greater than or 1 less than 6 * k for some k. Using that property we can skip the 2/3rds of the integers. In code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_prime(n):
+    if n == 2 or n == 3:
+      return True
+    for x in range(6, math.floor(math.sqrt(n), 6) + 1):
+        if n % x == 0:
+            return False
+    return True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That definition takes advantage of Python&amp;rsquo;s &amp;ldquo;step&amp;rdquo; argument to the &lt;code&gt;range()&lt;/code&gt; function. We&amp;rsquo;re looking at every multiple of 6 (below our limit) and checking whether the number before and after it is prime&lt;/p&gt;
+&lt;p&gt;That optimi&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;seen = 0
 n = 1
 while seen &amp;lt; 10001:
     n += 1
