@@ -157,6 +157,116 @@
     </item>
     
     <item>
+      <title>Project Euler Problem 7: 10001st prime</title>
+      <link>/post/euler_problem_7/</link>
+      <pubDate>Sun, 07 Jun 2020 18:01:03 -0600</pubDate>
+      <guid>/post/euler_problem_7/</guid>
+      <description>&lt;p&gt;Back to primes! So far we&amp;rsquo;ve been able to get away with being a little greedy with our compute when playing with primes. Now Euler is ratcheting up the difficulty and we&amp;rsquo;ll have to focus on efficiency.&lt;/p&gt;
+&lt;p&gt;As usual, if you haven&amp;rsquo;t spent time with 
+&lt;a href=&#34;https://projecteuler.net/problem=7&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 7&lt;/a&gt; yet, take a chance to play with it on your own and come back.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-euclid-teaching-his-students-detail-from-the-school-of-athens-by-raphael&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/school_of_athens_euclid.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Euclid teaching his students, detail from The School of Athens by Raphael
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;counting-primes&#34;&gt;Counting Primes&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s start by looking at each integer, deciding whether it&amp;rsquo;s prime, and counting it if it is until we get to the 10,001st prime.&lt;/p&gt;
+&lt;p&gt;Our first stab at an &lt;code&gt;is_prime(n)&lt;/code&gt; function will be the simplest and we&amp;rsquo;ll iterate into more optimized (and complicated) versions after. Here&amp;rsquo;s the starting point:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_prime(n):
+    if n &amp;lt; 2:
+        return False
+    for x in range(2, n):
+        if n % x == 0:
+            return False
+    return True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This checks every number less than $ n $ to see if it&amp;rsquo;s a factor of $ n $. It&amp;rsquo;s &lt;em&gt;almost&lt;/em&gt; good enough to solve the problem in under a minute. My laptop chugs through the first 10,001 primes in 68 seconds using this version of the &lt;code&gt;is_prime(n)&lt;/code&gt; function (full code later). But the rules only give us a minute and we can do better.&lt;/p&gt;
+&lt;h2 id=&#34;cap-the-search-space&#34;&gt;Cap the Search Space&lt;/h2&gt;
+&lt;p&gt;Looking back at our 
+&lt;a href=&#34;https://www.grae.io/post/euler_problem_3/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 3 Solution&lt;/a&gt; we optimized our &lt;code&gt;is_prime(n)&lt;/code&gt; function by caping the space we search to find factors factors by checking only numbers up to $ \sqrt{n} $. Check out that post if you want to dig deep into why / how that works.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_prime(n):
+    if n &amp;lt; 2:
+        return False
+    for x in range(2, math.floor(math.sqrt(n)) + 1):
+        if n % x == 0:
+            return False
+    return True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This runs a &lt;em&gt;lot&lt;/em&gt; faster. It finds the 10,001st prime in 0.29 seconds on my machine. But can we make it &lt;em&gt;even better&lt;/em&gt;?&lt;/p&gt;
+&lt;h2 id=&#34;skip-through-the-search-space&#34;&gt;Skip Through the Search Space&lt;/h2&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://primes.utm.edu/notes/faq/six.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Perhaps the most rediscovered result about primes numbers&lt;/a&gt; is the fact that every prime bigger than 3 is &amp;ldquo;next&amp;rdquo; to a multiple of 6. That is, for every prime number starting at 5 you can get a multiple of 6 by adding 1 or subtracting 1.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;5 is prime, add 1 and get 6&lt;/li&gt;
+&lt;li&gt;13 is prime, subtract 1 and get (6 * 2)&lt;/li&gt;
+&lt;li&gt;1,361 is prime, add 1 and get (6 * 227)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This works for every prime number.&lt;/p&gt;
+&lt;p&gt;We can use this property to skip potential factors we don&amp;rsquo;t &lt;em&gt;need&lt;/em&gt; to check. When checking to see if a number $ n $ has factors we can get away with just looking for the prime factors, we don&amp;rsquo;t &lt;em&gt;also&lt;/em&gt; need to know if it has any factors that are themselves composite. For example, we don&amp;rsquo;t need to know that 24 is divisible by 8. We can stop as soon as we see it&amp;rsquo;s divisible by 2. So we can skip every potential factor except for those which &lt;em&gt;might&lt;/em&gt; be prime.&lt;/p&gt;
+&lt;p&gt;In code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_prime(n):
+    if n &amp;lt; 2:
+        return False
+    if n == 2 or n == 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    for x in range(6, math.floor(math.sqrt(n)) + 2, 6):
+        if n % (x - 1) == 0 or n % (x + 1) == 0:
+            return False
+    return True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This version takes advantage of Python&amp;rsquo;s &amp;ldquo;step&amp;rdquo; argument to &lt;code&gt;range()&lt;/code&gt;. We&amp;rsquo;re looking at every multiple of 6 (below our limit) and checking whether the number before or after it divides our target.&lt;/p&gt;
+&lt;p&gt;This optimizes things a bit more and, indeed, finds the 10,001st prime in 0.17 seconds on my machine.&lt;/p&gt;
+&lt;h2 id=&#34;putting-it-together&#34;&gt;Putting it Together&lt;/h2&gt;
+&lt;p&gt;Once we have an efficient &lt;code&gt;is_prime()&lt;/code&gt; function the solution is a matter of counting primes with a while loop.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;seen = 0
+n = 1
+while seen &amp;lt; 10001:
+    n += 1
+    if is_prime(n):
+        seen += 1
+
+print(n)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;going-further&#34;&gt;Going Further&lt;/h2&gt;
+&lt;p&gt;There are ways to solve this problem even faster. You &lt;em&gt;could&lt;/em&gt; use the 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Prime_number_theorem&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prime Number Theorem&lt;/a&gt; to approximate an upper bound for a 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sieve of Eratosthenes&lt;/a&gt; and sieve out the answer. We&amp;rsquo;ll deal with those concepts in coming problems so for now I&amp;rsquo;ll leave that as an exercise for the reader.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Project Euler Problem 6: Sum Square Difference</title>
       <link>/post/euler_problem_6/</link>
       <pubDate>Sat, 06 Jun 2020 17:10:14 -0600</pubDate>

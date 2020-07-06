@@ -53,6 +53,16 @@
   </url>
   
   <url>
+    <loc>/tag/euler/</loc>
+    <lastmod>2020-06-07T18:01:03-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/euler_problem_7/</loc>
+    <lastmod>2020-06-07T18:01:03-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <lastmod>2020-06-06T17:10:14-06:00</lastmod>
   </url>
@@ -65,11 +75,6 @@
   <url>
     <loc>/post/euler_problem_6/</loc>
     <lastmod>2020-06-06T17:10:14-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tag/euler/</loc>
-    <lastmod>2020-06-03T10:33:17-06:00</lastmod>
   </url>
   
   <url>

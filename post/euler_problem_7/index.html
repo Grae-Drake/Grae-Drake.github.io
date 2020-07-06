@@ -585,7 +585,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    4 min read
   </span>
   
 
@@ -662,32 +662,54 @@
 <p>Let&rsquo;s start by looking at each integer, deciding whether it&rsquo;s prime, and counting it if it is until we get to the 10,001st prime.</p>
 <p>Our first stab at an <code>is_prime(n)</code> function will be the simplest and we&rsquo;ll iterate into more optimized (and complicated) versions after. Here&rsquo;s the starting point:</p>
 <pre><code class="language-python">def is_prime(n):
+    if n &lt; 2:
+        return False
     for x in range(2, n):
         if n % x == 0:
             return False
     return True
 </code></pre>
-<p>This is <em>almost</em> good enough to solve the problem in under a minute. My laptop chugs through the first 10,001 primes in 68 seconds using that version of the <code>is_prime(n)</code> function (full code later). But we can do better.</p>
+<p>This checks every number less than $ n $ to see if it&rsquo;s a factor of $ n $. It&rsquo;s <em>almost</em> good enough to solve the problem in under a minute. My laptop chugs through the first 10,001 primes in 68 seconds using this version of the <code>is_prime(n)</code> function (full code later). But the rules only give us a minute and we can do better.</p>
+<h2 id="cap-the-search-space">Cap the Search Space</h2>
 <p>Looking back at our 
-<a href="https://www.grae.io/post/euler_problem_3/" target="_blank" rel="noopener">Problem 3 Solution</a> we optimized our <code>is_prime(n)</code> function by checking only numbers up to $ \sqrt{n} $. Check out that post if you want to dig deep into why / how that works.</p>
+<a href="https://www.grae.io/post/euler_problem_3/" target="_blank" rel="noopener">Problem 3 Solution</a> we optimized our <code>is_prime(n)</code> function by caping the space we search to find factors factors by checking only numbers up to $ \sqrt{n} $. Check out that post if you want to dig deep into why / how that works.</p>
 <pre><code class="language-python">def is_prime(n):
+    if n &lt; 2:
+        return False
     for x in range(2, math.floor(math.sqrt(n)) + 1):
         if n % x == 0:
             return False
     return True
 </code></pre>
-<p>This runs a <em>lot</em> faster. It finds the 10,001st prime in 0.37 seconds. But can we make it <em>even better</em>?</p>
-<p>[Perhaps the most rediscovered result about primes numbers] (<a href="https://primes.utm.edu/notes/faq/six.html">https://primes.utm.edu/notes/faq/six.html</a>) is the fact that every prime bigger than 3 is &ldquo;next&rdquo; to a multiple of 6. That is, every prime number is either 1 greater than or 1 less than 6 * k for some k. Using that property we can skip the 2/3rds of the integers. In code:</p>
+<p>This runs a <em>lot</em> faster. It finds the 10,001st prime in 0.29 seconds on my machine. But can we make it <em>even better</em>?</p>
+<h2 id="skip-through-the-search-space">Skip Through the Search Space</h2>
+<p>
+<a href="https://primes.utm.edu/notes/faq/six.html" target="_blank" rel="noopener">Perhaps the most rediscovered result about primes numbers</a> is the fact that every prime bigger than 3 is &ldquo;next&rdquo; to a multiple of 6. That is, for every prime number starting at 5 you can get a multiple of 6 by adding 1 or subtracting 1.</p>
+<p>For example:</p>
+<ul>
+<li>5 is prime, add 1 and get 6</li>
+<li>13 is prime, subtract 1 and get (6 * 2)</li>
+<li>1,361 is prime, add 1 and get (6 * 227)</li>
+</ul>
+<p>This works for every prime number.</p>
+<p>We can use this property to skip potential factors we don&rsquo;t <em>need</em> to check. When checking to see if a number $ n $ has factors we can get away with just looking for the prime factors, we don&rsquo;t <em>also</em> need to know if it has any factors that are themselves composite. For example, we don&rsquo;t need to know that 24 is divisible by 8. We can stop as soon as we see it&rsquo;s divisible by 2. So we can skip every potential factor except for those which <em>might</em> be prime.</p>
+<p>In code:</p>
 <pre><code class="language-python">def is_prime(n):
+    if n &lt; 2:
+        return False
     if n == 2 or n == 3:
-      return True
-    for x in range(6, math.floor(math.sqrt(n), 6) + 1):
-        if n % x == 0:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    for x in range(6, math.floor(math.sqrt(n)) + 2, 6):
+        if n % (x - 1) == 0 or n % (x + 1) == 0:
             return False
     return True
 </code></pre>
-<p>That definition takes advantage of Python&rsquo;s &ldquo;step&rdquo; argument to the <code>range()</code> function. We&rsquo;re looking at every multiple of 6 (below our limit) and checking whether the number before and after it is prime</p>
-<p>That optimi</p>
+<p>This version takes advantage of Python&rsquo;s &ldquo;step&rdquo; argument to <code>range()</code>. We&rsquo;re looking at every multiple of 6 (below our limit) and checking whether the number before or after it divides our target.</p>
+<p>This optimizes things a bit more and, indeed, finds the 10,001st prime in 0.17 seconds on my machine.</p>
+<h2 id="putting-it-together">Putting it Together</h2>
+<p>Once we have an efficient <code>is_prime()</code> function the solution is a matter of counting primes with a while loop.</p>
 <pre><code class="language-python">seen = 0
 n = 1
 while seen &lt; 10001:
@@ -697,6 +719,10 @@ while seen &lt; 10001:
 
 print(n)
 </code></pre>
+<h2 id="going-further">Going Further</h2>
+<p>There are ways to solve this problem even faster. You <em>could</em> use the 
+<a href="https://en.wikipedia.org/wiki/Prime_number_theorem" target="_blank" rel="noopener">Prime Number Theorem</a> to approximate an upper bound for a 
+<a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes" target="_blank" rel="noopener">Sieve of Eratosthenes</a> and sieve out the answer. We&rsquo;ll deal with those concepts in coming problems so for now I&rsquo;ll leave that as an exercise for the reader.</p>
 
     </div>
 
