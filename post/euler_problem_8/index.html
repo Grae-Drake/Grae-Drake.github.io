@@ -27,7 +27,7 @@
   
     
   
-  <meta name="description" content="When I first learned to program I didn&rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was for the problem.">
+  <meta name="description" content="When I first learned to program I didn&rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was to the problem.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/euler_problem_8/">
@@ -233,7 +233,7 @@
   <meta property="og:site_name" content="Grae">
   <meta property="og:url" content="/post/euler_problem_8/">
   <meta property="og:title" content="Project Euler Problem 8: Largest Product in a Series | Grae">
-  <meta property="og:description" content="When I first learned to program I didn&rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was for the problem."><meta property="og:image" content="/post/euler_problem_8/featured.png">
+  <meta property="og:description" content="When I first learned to program I didn&rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was to the problem."><meta property="og:image" content="/post/euler_problem_8/featured.png">
   <meta property="twitter:image" content="/post/euler_problem_8/featured.png"><meta property="og:locale" content="en-us">
   
     
@@ -287,7 +287,7 @@
       "url": "/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "When I first learned to program I didn\u0026rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was for the problem."
+  "description": "When I first learned to program I didn\u0026rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was to the problem."
 }
 </script>
 
@@ -641,9 +641,9 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>When I first learned to program I didn&rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was for the problem.</p>
-<p>But, like any good technologist, I&rsquo;m lazy. So if you give me a problem that (1) I know how to solve but (2) involves me doing a lot of repetitive work and (3) hints at the existence of a lazy solution, then, well, I might be lazy enough to actually learn something new. 
-<a href="https://projecteuler.net/problem=8" target="_blank" rel="noopener">Problem 8</a> was like that for me. It pushed me to understand and use Python slicing better when I was starting out so I didn&rsquo;t have to type so much.</p>
+      <p>When I first learned to program I didn&rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was to the problem.</p>
+<p>But, like any good technologist, I&rsquo;m lazy. So if you give me a problem that (1) I know how to solve but (2) involves me doing a lot of repetitive work and (3) hints at a lazy solution, then, well, I might be lazy enough to actually learn something new. 
+<a href="https://projecteuler.net/problem=8" target="_blank" rel="noopener">Problem 8</a> was like that for me. It pushed me to understand and use Python slicing better when I was starting out. It helped me not have to type so much.</p>
 <p>As usual, spend some time with 
 <a href="https://projecteuler.net/problem=8" target="_blank" rel="noopener">the problem</a> if you haven&rsquo;t already.</p>
 
@@ -674,7 +674,7 @@
   
   
   <figcaption>
-    Just look at this lazy bastard<br>Diogenes, detail from School of Athens by Raphael
+    Just look at this lazy bastard.<br>Diogenes, detail from School of Athens by Raphael
   </figcaption>
 
 
@@ -682,7 +682,7 @@
 
 <h2 id="wet-code">WET Code</h2>
 <p>This problem gives us a test case and tells us that the biggest product from 4 adjacent digits of our number is <code>5832</code>. Let&rsquo;s hammer out a quick solution to run against that test case.</p>
-<p>Copying and pasting the 1000 digit number into Python as a string and assigning it to the variable <code>n</code> we can do:</p>
+<p>Copying and pasting the 1000 digit number from the problem into Python as a string and assigning it to the variable <code>n</code> we can do:</p>
 <pre><code class="language-python">biggest = 0
 for i in range(996):
     product = int(n[i]) * int(n[i + 1]) * int(n[i + 2]) * int(n[i + 3])
@@ -690,11 +690,11 @@ for i in range(996):
 
 print(biggest)
 </code></pre>
-<p>This&hellip; works. And, if you can tolerate it, you can fix the ranges, extend this up to <code>n[i + 12]</code> and it&rsquo;ll solve the problem. But if you&rsquo;re like me, and I know I am, then you&rsquo;re too lazy for that.</p>
+<p>This&hellip; works. And, if you can tolerate it, you can fix the ranges, extend this up to <code>n[i + 12]</code> and it&rsquo;ll solve the actual problem. But if you&rsquo;re like me, and I know I am, you&rsquo;re too lazy for that.</p>
 <h2 id="dry-ing-our-code">DRY-ing Our Code</h2>
-<p>Copying and pasting code is <em>almost always</em> a bad idea. Imagine maintaining our solution above. You come back to this code to make a change and find yourself making the same change 13 different times. God forbid you mess up a change or, gasp, <em>miss</em> one of the changes you needed to make.</p>
+<p>Copying and pasting code is <em>almost always</em> a bad idea. Imagine maintaining our solution above. You come back to this code to make a change and find yourself making the same change <em>13 different times</em>. God forbid you mess up a change or, gasp, <em>miss</em> one of the changes you needed to make.</p>
 <p>This is the 
-<a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank" rel="noopener">&ldquo;Don&rsquo;t Repeat Yourself&rdquo; principle</a> in action. Let&rsquo;s tweak the solution above with slicing and a loop to remove repetition.</p>
+<a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank" rel="noopener">&ldquo;Don&rsquo;t Repeat Yourself&rdquo; principle</a> in action. Let&rsquo;s tweak our solution with slicing and a loop to remove repetition.</p>
 <pre><code class="language-python">biggest = 0
 for i in range(996):
     substring = n[i:i + 4]
@@ -705,12 +705,12 @@ for i in range(996):
 
 print(biggest)
 </code></pre>
-<p>There we go! Now it&rsquo;s much easier to modify this code to solve the problem instead of the test case. But if you do you&rsquo;ll notice that you still have to make changes in multiple places.</p>
+<p>There we go! Now it&rsquo;s much easier to modify this code to solve the actual problem instead of just the test case. But if you do you&rsquo;ll notice that you still have to make changes in multiple places.</p>
 <h2 id="science-not-magic">Science, not Magic</h2>
 <p>The solution above has two 
 <a href="https://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants" target="_blank" rel="noopener">magic numbers</a>: the <code>996</code> in the range and the <code>4</code> in our substring slice. These &ldquo;magic numbers&rdquo;, or unexplained numbers directly in our code, are problematic for at least two reasons.</p>
-<p>First, <em>why</em> is <code>996</code> there? What does it represent? Why that number instead of another? If we have the context of the problem fresh in our head it might be obvious that it&rsquo;s the number of substrings we&rsquo;re going to sample, but what if you come back to this code in a month? What if someone else needs to use it?</p>
-<p>Second, these magic numbers introduce the same kind of repetition we want to avoid by keeping our code DRY. If you change the length of the substring from 4 (our test) to 13 (the problem) you have to change both magic numbers. And what if we made our input number <code>n</code> bigger? We&rsquo;d have to remember to change both those magic numbers too or our solution would no longer be correct.</p>
+<p>First, <em>why</em> is <code>996</code> there? What does it represent? Why that number instead of another? If we have the context of the problem fresh in our head it might be obvious that it&rsquo;s the number of substrings we&rsquo;re going to sample. But what if you come back to this code in a month? What if someone else needs to use it?</p>
+<p>Second, these magic numbers introduce the same kind of repetition we want to avoid by keeping our code DRY. If you change the length of the substring from 4 (our test) to 13 (the problem) you now have to change both magic numbers. And what if we made our input number <code>n</code> bigger? We&rsquo;d have to remember to change all those magic numbers too or our solution would no longer be correct.</p>
 <p>Let&rsquo;s rewrite our solution without the magic numbers:</p>
 <pre><code class="language-python">biggest = 0
 substring_length = 4
@@ -723,21 +723,21 @@ for i in range(len(n) - substring_length):
 
 print(biggest)
 </code></pre>
-<p>This version will automatically handle any changes to the length of <code>n</code>. It lets us modify the length of the substring we&rsquo;re looking at in one single place. <em>And</em> we explain the number with a clear name so that our code is easier to read and understand.</p>
+<p>This version will automatically handle any changes to the length of <code>n</code>. It lets us modify the length of the substring we&rsquo;re looking at in one single place. <em>And</em> we use a nice semantic name for the number so our code is easier to read and understand.</p>
 <h2 id="scrap-that-lets-be-complex-and-efficient">Scrap That, Let&rsquo;s Be Complex and Efficient</h2>
-<p>We&rsquo;ve nicely removed the repetition from our code, and the solution runs in a fraction of a second so there isn&rsquo;t a <em>need</em>, for this exact problem, for a more efficient algorithm. But there is a way to speed up the code. It&rsquo;s useful to look at this solution now and keep in our toolbox for later.</p>
-<p>There are 996 4-digit substrings of a 1,000 digit string, and in our solutions so far we&rsquo;ve been calculating each one from scratch. It turns out that repeats a lot of work and we can get away with a lazier algorithm.</p>
+<p>We&rsquo;ve nicely removed the repetition from our code. The solution runs in a fraction of a second. We <em>could</em> stop here, and in real-life work we probably <em>should</em>. But there is a way to speed up the code. It&rsquo;s useful to look at this solution now and stash it in our toolbox for later.</p>
+<p>There are 996 4-digit substrings of a 1,000 digit string, and in our solutions so far we&rsquo;ve been calculating each product from scratch. It turns out that repeats a lot of work and we can get away with a lazier algorithm.</p>
 <p>Consider the first six digits of our <code>n</code> (<code>73167</code>) and the first three 4-digit substrings:</p>
 <ul>
-<li><code>7316</code></li>
-<li><code>3167</code></li>
-<li><code>1671</code></li>
+<li><code>7316__</code></li>
+<li><code>_3167_</code></li>
+<li><code>__1671</code></li>
 </ul>
 <p>Each substring is only a little different from the one before it. If we think of a 4-digit-wide &ldquo;window&rdquo; sliding from left to right we see each substring is made by chopping off the leftmost digit of the last substring and adding a new digit to the right.</p>
 <p>The digit products of each substring are similarly related. To find the product of each new substring we take the previous substring product, divide it by the digit that&rsquo;s disappearing, then multiply it by our new digit. This algorithm works no matter how &ldquo;wide&rdquo; the window is: if we have the product of the last substring we can calculate the next one with only two operations (a division and a multiplication).</p>
 <p>Well, almost. We don&rsquo;t want to divide by zero so we have to be careful when zero is involved. We&rsquo;ll keep track of that.</p>
 <p>Let&rsquo;s code that up:</p>
-<pre><code class="language-python">substring_length = 13
+<pre><code class="language-python">substring_length = 4
 
 # Keep track of whether our window includes a zero.
 zero_count = n[0:substring_length].count('0')
@@ -771,7 +771,7 @@ for j in range(len(n) - substring_length):
 
 print(biggest)
 </code></pre>
-<p>Phew. That was a lot of work to save a small amount of compute. This is the kind of optimization that&rsquo;s good to talk about during a coding interview but where the extra complexity of the code and difficulty to read and comprehend it isn&rsquo;t worth the performance improvement. At least, not for this problem.</p>
+<p>Phew. That was a lot of work to save a small amount of compute. This is the kind of optimization that&rsquo;s good to talk about during a coding interview but where the extra complexity of the code and difficulty to read and comprehend it isn&rsquo;t worth the performance improvement. At least, not for this problem. But hey we&rsquo;re doing PE for this kind of fuh, eh?</p>
 
     </div>
 
