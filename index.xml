@@ -5,12 +5,151 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Grae</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 06 Jul 2020 14:18:10 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 07 Jul 2020 10:50:18 -0700</lastBuildDate>
     <image>
       <url>/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_512x512_fill_lanczos_center_2.png</url>
       <title>Grae</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>Project Euler Problem 8: Largest Product in a Series</title>
+      <link>/post/euler_problem_8/</link>
+      <pubDate>Tue, 07 Jul 2020 10:50:18 -0700</pubDate>
+      <guid>/post/euler_problem_8/</guid>
+      <description>&lt;p&gt;When I first learned to program I didn&amp;rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was for the problem.&lt;/p&gt;
+&lt;p&gt;But, like any good technologist, I&amp;rsquo;m lazy. So if you give me a problem that (1) I know how to solve but (2) involves me doing a lot of repetitive work and (3) hints at the existence of a lazy solution, then, well, I might be lazy enough to actually learn something new. 
+&lt;a href=&#34;https://projecteuler.net/problem=8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 8&lt;/a&gt; was like that for me. It pushed me to understand and use Python slicing better when I was starting out so I didn&amp;rsquo;t have to type so much.&lt;/p&gt;
+&lt;p&gt;As usual, spend some time with 
+&lt;a href=&#34;https://projecteuler.net/problem=8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the problem&lt;/a&gt; if you haven&amp;rsquo;t already.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-just-look-at-this-lazy-bastardbrdiogenes-detail-from-school-of-athens-by-raphael&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/school_of_athens_diogenes.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Just look at this lazy bastard&lt;br&gt;Diogenes, detail from School of Athens by Raphael
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;wet-code&#34;&gt;WET Code&lt;/h2&gt;
+&lt;p&gt;This problem gives us a test case and tells us that the biggest product from 4 adjacent digits of our number is &lt;code&gt;5832&lt;/code&gt;. Let&amp;rsquo;s hammer out a quick solution to run against that test case.&lt;/p&gt;
+&lt;p&gt;Copying and pasting the 1000 digit number into Python as a string and assigning it to the variable &lt;code&gt;n&lt;/code&gt; we can do:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;biggest = 0
+for i in range(996):
+    product = int(n[i]) * int(n[i + 1]) * int(n[i + 2]) * int(n[i + 3])
+    biggest = max(biggest, product)
+
+print(biggest)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This&amp;hellip; works. And, if you can tolerate it, you can fix the ranges, extend this up to &lt;code&gt;n[i + 12]&lt;/code&gt; and it&amp;rsquo;ll solve the problem. But if you&amp;rsquo;re like me, and I know I am, then you&amp;rsquo;re too lazy for that.&lt;/p&gt;
+&lt;h2 id=&#34;dry-ing-our-code&#34;&gt;DRY-ing Our Code&lt;/h2&gt;
+&lt;p&gt;Copying and pasting code is &lt;em&gt;almost always&lt;/em&gt; a bad idea. Imagine maintaining our solution above. You come back to this code to make a change and find yourself making the same change 13 different times. God forbid you mess up a change or, gasp, &lt;em&gt;miss&lt;/em&gt; one of the changes you needed to make.&lt;/p&gt;
+&lt;p&gt;This is the 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Don&amp;rsquo;t Repeat Yourself&amp;rdquo; principle&lt;/a&gt; in action. Let&amp;rsquo;s tweak the solution above with slicing and a loop to remove repetition.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;biggest = 0
+for i in range(996):
+    substring = n[i:i + 4]
+    product = 1
+    for digit in substring:
+        product *= int(digit)
+    biggest = max(biggest, product)
+
+print(biggest)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There we go! Now it&amp;rsquo;s much easier to modify this code to solve the problem instead of the test case. But if you do you&amp;rsquo;ll notice that you still have to make changes in multiple places.&lt;/p&gt;
+&lt;h2 id=&#34;science-not-magic&#34;&gt;Science, not Magic&lt;/h2&gt;
+&lt;p&gt;The solution above has two 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;magic numbers&lt;/a&gt;: the &lt;code&gt;996&lt;/code&gt; in the range and the &lt;code&gt;4&lt;/code&gt; in our substring slice. These &amp;ldquo;magic numbers&amp;rdquo;, or unexplained numbers directly in our code, are problematic for at least two reasons.&lt;/p&gt;
+&lt;p&gt;First, &lt;em&gt;why&lt;/em&gt; is &lt;code&gt;996&lt;/code&gt; there? What does it represent? Why that number instead of another? If we have the context of the problem fresh in our head it might be obvious that it&amp;rsquo;s the number of substrings we&amp;rsquo;re going to sample, but what if you come back to this code in a month? What if someone else needs to use it?&lt;/p&gt;
+&lt;p&gt;Second, these magic numbers introduce the same kind of repetition we want to avoid by keeping our code DRY. If you change the length of the substring from 4 (our test) to 13 (the problem) you have to change both magic numbers. And what if we made our input number &lt;code&gt;n&lt;/code&gt; bigger? We&amp;rsquo;d have to remember to change both those magic numbers too or our solution would no longer be correct.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s rewrite our solution without the magic numbers:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;biggest = 0
+substring_length = 4
+for i in range(len(n) - substring_length):
+    substring = n[i:i + substring_length]
+    product = 1
+    for digit in substring:
+        product *= int(digit)
+    biggest = max(biggest, product)
+
+print(biggest)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This version will automatically handle any changes to the length of &lt;code&gt;n&lt;/code&gt;. It lets us modify the length of the substring we&amp;rsquo;re looking at in one single place. &lt;em&gt;And&lt;/em&gt; we explain the number with a clear name so that our code is easier to read and understand.&lt;/p&gt;
+&lt;h2 id=&#34;scrap-that-lets-be-complex-and-efficient&#34;&gt;Scrap That, Let&amp;rsquo;s Be Complex and Efficient&lt;/h2&gt;
+&lt;p&gt;We&amp;rsquo;ve nicely removed the repetition from our code, and the solution runs in a fraction of a second so there isn&amp;rsquo;t a &lt;em&gt;need&lt;/em&gt;, for this exact problem, for a more efficient algorithm. But there is a way to speed up the code. It&amp;rsquo;s useful to look at this solution now and keep in our toolbox for later.&lt;/p&gt;
+&lt;p&gt;There are 996 4-digit substrings of a 1,000 digit string, and in our solutions so far we&amp;rsquo;ve been calculating each one from scratch. It turns out that repeats a lot of work and we can get away with a lazier algorithm.&lt;/p&gt;
+&lt;p&gt;Consider the first six digits of our &lt;code&gt;n&lt;/code&gt; (&lt;code&gt;73167&lt;/code&gt;) and the first three 4-digit substrings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;7316&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;3167&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;1671&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each substring is only a little different from the one before it. If we think of a 4-digit-wide &amp;ldquo;window&amp;rdquo; sliding from left to right we see each substring is made by chopping off the leftmost digit of the last substring and adding a new digit to the right.&lt;/p&gt;
+&lt;p&gt;The digit products of each substring are similarly related. To find the product of each new substring we take the previous substring product, divide it by the digit that&amp;rsquo;s disappearing, then multiply it by our new digit. This algorithm works no matter how &amp;ldquo;wide&amp;rdquo; the window is: if we have the product of the last substring we can calculate the next one with only two operations (a division and a multiplication).&lt;/p&gt;
+&lt;p&gt;Well, almost. We don&amp;rsquo;t want to divide by zero so we have to be careful when zero is involved. We&amp;rsquo;ll keep track of that.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s code that up:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;substring_length = 13
+
+# Keep track of whether our window includes a zero.
+zero_count = n[0:substring_length].count(&#39;0&#39;)
+
+# Initialize the value of our substring product.
+previous_product = 1
+for digit in n[0:substring_length]:
+    if digit != 0:
+        previous_product *= int(digit)
+
+biggest = 0 if zero_count &amp;gt; 0 else previous_product
+
+# Slide our window across.
+for j in range(len(n) - substring_length):
+    
+    left = int(n[j])
+    right = int(n[j + substring_length])
+    
+    # Update our count of zeros in the window.
+    zero_count = zero_count - (left == 0) + (right == 0)
+    
+    # Be careful of zeros.
+    if left != 0:
+        next_product = previous_product / left
+    if right != 0:
+        next_product = next_product * right
+    if zero_count == 0:
+        biggest = max(biggest, next_product)    
+    
+    previous_product = next_product
+
+print(biggest)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Phew. That was a lot of work to save a small amount of compute. This is the kind of optimization that&amp;rsquo;s good to talk about during a coding interview but where the extra complexity of the code and difficulty to read and comprehend it isn&amp;rsquo;t worth the performance improvement. At least, not for this problem.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The Bitterness Trap</title>
