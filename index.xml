@@ -5,12 +5,69 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Grae</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 07 Jul 2020 10:50:18 -0700</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 09 Jul 2020 15:00:01 -0700</lastBuildDate>
     <image>
       <url>/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_512x512_fill_lanczos_center_2.png</url>
       <title>Grae</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>Do better work</title>
+      <link>/post/do_good_work/</link>
+      <pubDate>Thu, 09 Jul 2020 15:00:01 -0700</pubDate>
+      <guid>/post/do_good_work/</guid>
+      <description>&lt;p&gt;I want you to do better work.&lt;/p&gt;
+&lt;p&gt;I joke that my hobby is talking people out of going to law school. It&amp;rsquo;s a joke because it gets a chuckle, but it&amp;rsquo;s not &lt;em&gt;really&lt;/em&gt; a joke because I do actually take every chance I get to talk people out of going to law school. If you&amp;rsquo;re planning a typical legal career then there is better work to be done.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-source-a-hrefhttpsxkcdcom287xkcda&#34;&gt;
+
+
+
+  &lt;img src=&#34;https://imgs.xkcd.com/comics/np_complete.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Source: &lt;a href=&#39;https://xkcd.com/287/&#39;&gt;XKCD&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Moving from law to technology was the best career move I ever made. Yes, I took a hit on salary leaving a big law firm for a scrappy startup, but not as much as you might think and &lt;em&gt;not&lt;/em&gt; when you look at per-hour comp. Sure, 
+&lt;a href=&#34;https://www.nerdwallet.com/blog/loans/student-loans/big-law-salary/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;biglaw salaries look nice&lt;/a&gt; but they lose their shine when you consider the realities of billing 120 hours a week. In fact, considering my work week at Thinkful was ~50 hours while as an associate I typically worked 90-100 hours I averaged more &lt;em&gt;per hour&lt;/em&gt; than I would have with a biglaw salary.&lt;/p&gt;
+&lt;p&gt;Beyond comp, technology workers have opportunities for crazy autonomy. The same is true for mastery and, if you join the right company, purpose. Basically the 
+&lt;a href=&#34;https://www.nerdwallet.com/blog/loans/student-loans/big-law-salary/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;perfect trifecta&lt;/a&gt; for doing good work.&lt;/p&gt;
+&lt;p&gt;I have the luxury of working on my own projects now and I want to pay it forward by helping the next generation of ambitious people do good work. To that end I&amp;rsquo;m committed to work 1-on-1 with people who reach out for help and demonstrate their own commitment to doing good work.&lt;/p&gt;
+&lt;p&gt;Should &lt;em&gt;you&lt;/em&gt; reach out? Yeah, maybe you should. Some of the things I&amp;rsquo;m happy to help with:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Understanding possible career paths in tech &amp;amp; setting goals&lt;/li&gt;
+&lt;li&gt;Learning to code&lt;/li&gt;
+&lt;li&gt;Landing your first job in a new field&lt;/li&gt;
+&lt;li&gt;Transitioning from individual contributor to first-time manager&lt;/li&gt;
+&lt;li&gt;Scaling a people-ops-heavy startup&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you&amp;rsquo;re committed to accomplishing one of those goals then I&amp;rsquo;d like to work with you and you should reach out. Shoot me an email (&lt;a href=&#34;mailto:graemdrake@gmail.com&#34;&gt;graemdrake@gmail.com&lt;/a&gt;) or 
+&lt;a href=&#34;https://calendly.com/grae&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;schedule a chat&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Project Euler Problem 8: Largest Product in a Series</title>
