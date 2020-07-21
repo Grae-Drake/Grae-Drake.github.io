@@ -1,1 +1,137 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>/authors/</loc><lastmod>2020-07-09T15:00:01-07:00</lastmod></url><url><loc>/post/do_good_work/</loc><lastmod>2020-07-09T15:00:01-07:00</lastmod></url><url><loc>/</loc><lastmod>2020-07-09T15:00:01-07:00</lastmod></url><url><loc>/author/grae-drake/</loc><lastmod>2020-07-09T15:00:01-07:00</lastmod></url><url><loc>/post/</loc><lastmod>2020-07-09T15:00:01-07:00</lastmod></url><url><loc>/categories/</loc><lastmod>2020-07-07T10:50:18-07:00</lastmod></url><url><loc>/category/euler/</loc><lastmod>2020-07-07T10:50:18-07:00</lastmod></url><url><loc>/post/euler_problem_8/</loc><lastmod>2020-07-07T10:50:18-07:00</lastmod></url><url><loc>/post/bitterness_trap/</loc><lastmod>2020-07-06T14:18:10-07:00</lastmod></url><url><loc>/tag/education/</loc><lastmod>2020-06-19T12:43:57-07:00</lastmod></url><url><loc>/tag/ethics/</loc><lastmod>2020-06-19T12:43:57-07:00</lastmod></url><url><loc>/tag/inequality/</loc><lastmod>2020-06-19T12:43:57-07:00</lastmod></url><url><loc>/tags/</loc><lastmod>2020-06-19T12:43:57-07:00</lastmod></url><url><loc>/post/hand_raisers_and_inequality/</loc><lastmod>2020-06-19T12:43:57-07:00</lastmod></url><url><loc>/tag/euler/</loc><lastmod>2020-06-07T18:01:03-06:00</lastmod></url><url><loc>/post/euler_problem_7/</loc><lastmod>2020-06-07T18:01:03-06:00</lastmod></url><url><loc>/post/euler_problem_6/</loc><lastmod>2020-06-06T17:10:14-06:00</lastmod></url><url><loc>/post/euler_problem_5/</loc><lastmod>2020-06-03T10:33:17-06:00</lastmod></url><url><loc>/post/euler_problem_4/</loc><lastmod>2020-05-26T18:41:21-07:00</lastmod></url><url><loc>/post/euler_problem_3/</loc><lastmod>2020-05-25T12:50:20-07:00</lastmod></url><url><loc>/post/euler_problem_2/</loc><lastmod>2020-05-24T15:13:26-07:00</lastmod></url><url><loc>/post/euler_problem_1/</loc><lastmod>2020-05-22T16:12:38-07:00</lastmod></url><url><loc>/post/heart_euler/</loc><lastmod>2020-05-21T23:54:43-07:00</lastmod></url><url><loc>/publication_types/</loc></url><url><loc>/publication/</loc></url><url><loc>/talk/</loc></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-07-21T11:13:32-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-07-21T11:13:32-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/on_the_vibrant_ecosystem_of_community_based_learning_content/</loc>
+    <lastmod>2020-07-21T11:13:32-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2020-07-09T15:00:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/do_good_work/</loc>
+    <lastmod>2020-07-09T15:00:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/author/grae-drake/</loc>
+    <lastmod>2020-07-09T15:00:01-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-07-07T10:50:18-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/category/euler/</loc>
+    <lastmod>2020-07-07T10:50:18-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/euler_problem_8/</loc>
+    <lastmod>2020-07-07T10:50:18-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/bitterness_trap/</loc>
+    <lastmod>2020-07-06T14:18:10-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/education/</loc>
+    <lastmod>2020-06-19T12:43:57-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/ethics/</loc>
+    <lastmod>2020-06-19T12:43:57-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/inequality/</loc>
+    <lastmod>2020-06-19T12:43:57-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-06-19T12:43:57-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/hand_raisers_and_inequality/</loc>
+    <lastmod>2020-06-19T12:43:57-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/euler/</loc>
+    <lastmod>2020-06-07T18:01:03-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/euler_problem_7/</loc>
+    <lastmod>2020-06-07T18:01:03-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/euler_problem_6/</loc>
+    <lastmod>2020-06-06T17:10:14-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/euler_problem_5/</loc>
+    <lastmod>2020-06-03T10:33:17-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/euler_problem_4/</loc>
+    <lastmod>2020-05-26T18:41:21-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/euler_problem_3/</loc>
+    <lastmod>2020-05-25T12:50:20-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/euler_problem_2/</loc>
+    <lastmod>2020-05-24T15:13:26-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/euler_problem_1/</loc>
+    <lastmod>2020-05-22T16:12:38-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/heart_euler/</loc>
+    <lastmod>2020-05-21T23:54:43-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication_types/</loc>
+  </url>
+  
+  <url>
+    <loc>/publication/</loc>
+  </url>
+  
+  <url>
+    <loc>/talk/</loc>
+  </url>
+  
+</urlset>

@@ -1,501 +1,937 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Grae</title><link>/</link><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><description>Grae</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 09 Jul 2020 15:00:01 -0700</lastBuildDate><image><url>/img/athens_social.png</url><title>Grae</title><link>/</link></image><item><title>Do better work</title><link>/post/do_good_work/</link><pubDate>Thu, 09 Jul 2020 15:00:01 -0700</pubDate><guid>/post/do_good_work/</guid><description>&lt;p>I want you to do better work.&lt;/p>
-&lt;p>I joke that my hobby is talking people out of going to law school. It&amp;rsquo;s a joke because it gets a chuckle, but it&amp;rsquo;s not &lt;em>really&lt;/em> a joke because I do actually take every chance I get to talk people out of going to law school. If you&amp;rsquo;re planning a typical legal career then there is better work to be done.&lt;/p>
-&lt;figure id="figure-source-a-hrefhttpsxkcdcom287xkcda">
-&lt;img src="https://imgs.xkcd.com/comics/np_complete.png" alt="" >
-&lt;figcaption>
-Source: &lt;a href='https://xkcd.com/287/'>XKCD&lt;/a>
-&lt;/figcaption>
-&lt;/figure>
-&lt;p>Moving from law to technology was the best career move I ever made. Yes, I took a hit on salary leaving a big law firm for a scrappy startup, but not as much as you might think and &lt;em>not&lt;/em> when you look at per-hour comp. Sure,
-&lt;a href="https://www.nerdwallet.com/blog/loans/student-loans/big-law-salary/" target="_blank" rel="noopener">biglaw salaries look nice&lt;/a> but they lose their shine when you consider the realities of billing 120 hours a week. In fact, considering my work week at Thinkful was ~50 hours while as an associate I typically worked 90-100 hours I averaged more &lt;em>per hour&lt;/em> than I would have with a biglaw salary.&lt;/p>
-&lt;p>Beyond comp, technology workers have opportunities for crazy autonomy. The same is true for mastery and, if you join the right company, purpose. Basically the
-&lt;a href="https://www.nerdwallet.com/blog/loans/student-loans/big-law-salary/" target="_blank" rel="noopener">perfect trifecta&lt;/a> for doing good work.&lt;/p>
-&lt;p>I have the luxury of working on my own projects now and I want to pay it forward by helping the next generation of ambitious people do good work. To that end I&amp;rsquo;m committed to work 1-on-1 with people who reach out for help and demonstrate their own commitment to doing good work.&lt;/p>
-&lt;p>Should &lt;em>you&lt;/em> reach out? Yeah, maybe you should. Some of the things I&amp;rsquo;m happy to help with:&lt;/p>
-&lt;ul>
-&lt;li>Understanding possible career paths in tech &amp;amp; setting goals&lt;/li>
-&lt;li>Learning to code&lt;/li>
-&lt;li>Landing your first job in a new field&lt;/li>
-&lt;li>Transitioning from individual contributor to first-time manager&lt;/li>
-&lt;li>Scaling an ops-heavy startup&lt;/li>
-&lt;/ul>
-&lt;p>If you&amp;rsquo;re committed to accomplishing one of those goals then I&amp;rsquo;d like to work with you and you should reach out. Shoot me an email (&lt;a href="mailto:graemdrake@gmail.com">graemdrake@gmail.com&lt;/a>) or
-&lt;a href="https://calendly.com/grae" target="_blank" rel="noopener">schedule a chat&lt;/a>.&lt;/p></description></item><item><title>Project Euler Problem 8: Largest Product in a Series</title><link>/post/euler_problem_8/</link><pubDate>Tue, 07 Jul 2020 10:50:18 -0700</pubDate><guid>/post/euler_problem_8/</guid><description>&lt;p>When I first learned to program I didn&amp;rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was to the problem.&lt;/p>
-&lt;p>But, like any good technologist, I&amp;rsquo;m lazy. So if you give me a problem that (1) I know how to solve but (2) involves me doing a lot of repetitive work and (3) hints at a lazy solution, then, well, I might be lazy enough to actually learn something new.
-&lt;a href="https://projecteuler.net/problem=8" target="_blank" rel="noopener">Problem 8&lt;/a> was like that for me. It pushed me to understand and use Python slicing better when I was starting out. It helped me not have to type so much.&lt;/p>
-&lt;p>As usual, spend some time with
-&lt;a href="https://projecteuler.net/problem=8" target="_blank" rel="noopener">the problem&lt;/a> if you haven&amp;rsquo;t already.&lt;/p>
-&lt;figure id="figure-just-look-at-this-lazy-bastardbrdiogenes-detail-from-school-of-athens-by-raphael">
-&lt;img src="/img/school_of_athens_diogenes.png" alt="" >
-&lt;figcaption>
-Just look at this lazy bastard.&lt;br>Diogenes, detail from School of Athens by Raphael
-&lt;/figcaption>
-&lt;/figure>
-&lt;h2 id="wet-code">WET Code&lt;/h2>
-&lt;p>This problem gives us a test case and tells us that the biggest product from 4 adjacent digits of our number is &lt;code>5832&lt;/code>. Let&amp;rsquo;s hammer out a quick solution to run against that test case.&lt;/p>
-&lt;p>Copying and pasting the 1000 digit number from the problem into Python as a string and assigning it to the variable &lt;code>n&lt;/code> we can do:&lt;/p>
-&lt;pre>&lt;code class="language-python">biggest = 0
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Grae</title>
+    <link>/</link>
+      <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <description>Grae</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 21 Jul 2020 11:13:32 -0700</lastBuildDate>
+    <image>
+      <url>/img/athens_social.png</url>
+      <title>Grae</title>
+      <link>/</link>
+    </image>
+    
+    <item>
+      <title>The vibrant ecosystem of community-produced learning content</title>
+      <link>/post/on_the_vibrant_ecosystem_of_community_based_learning_content/</link>
+      <pubDate>Tue, 21 Jul 2020 11:13:32 -0700</pubDate>
+      <guid>/post/on_the_vibrant_ecosystem_of_community_based_learning_content/</guid>
+      <description>&lt;p&gt;Today Martin Weller 
+&lt;a href=&#34;http://blog.edtechie.net/25yearsou/25-years-of-ou-2000-open-source-teaching-project/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;wrote&lt;/a&gt; that, while the open source movement is a wildly successful model for producing software, we &amp;ldquo;haven&amp;rsquo;t really cracked a community based production model for learning content&amp;rdquo;. David Wiley 
+&lt;a href=&#34;https://opencontent.org/blog/archives/6585&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;followed up&lt;/a&gt; to say that, given our lack of progress in this area since the 90&amp;rsquo;s, he believes there&amp;rsquo;s &amp;ldquo;&lt;em&gt;a good argument to be made that a community based production model for learning content isn’t actually possible&lt;/em&gt;.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Not only is this &lt;em&gt;possible&lt;/em&gt;, it&amp;rsquo;s &lt;em&gt;already taken over&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Martin and David are right that we haven&amp;rsquo;t seen a successful translation of open source software practices to producing &lt;em&gt;courses&lt;/em&gt; and &lt;em&gt;textbooks&lt;/em&gt;. But they&amp;rsquo;re dead wrong about community produced learning content. A google search proves it.&lt;/p&gt;
+&lt;p&gt;In fact, let&amp;rsquo;s open a new tab and google 
+&lt;a href=&#34;https://www.google.com/search?q=python&amp;#43;list&amp;#43;comprehension&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;python list comprehension&amp;rdquo;&lt;/a&gt;. Google may give you different results, but I get:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A free tutorial on 
+&lt;a href=&#34;https://www.programiz.com/python-programming/list-comprehension&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Programiz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The open source 
+&lt;a href=&#34;https://docs.python.org/3/tutorial/datastructures.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A free tutorial on 
+&lt;a href=&#34;https://realpython.com/list-comprehension-python/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Real Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A free tutorial &amp;amp; course on 
+&lt;a href=&#34;https://www.pythonforbeginners.com/basics/list-comprehensions-in-python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python for Beginners&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A 
+&lt;a href=&#34;https://medium.com/better-programming/list-comprehension-in-python-8895a785550b&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;medium post&lt;/a&gt; from some internet person explaining list comprehensions.&lt;/li&gt;
+&lt;li&gt;A chapter from 
+&lt;a href=&#34;https://python-3-patterns-idioms-test.readthedocs.io/en/latest/Comprehensions.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python 3 Patterns, Recipes and Idioms&lt;/a&gt;, a collaboratively written book published on a free platform (readthedocs.org)&lt;/li&gt;
+&lt;li&gt;A tutorial on 
+&lt;a href=&#34;https://www.datacamp.com/community/tutorials/python-list-comprehension&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Data Camp&lt;/a&gt;, a for-profit company paying a large community of data scientists to produce content, much of which is freely available.&lt;/li&gt;
+&lt;li&gt;A tutorial on 
+&lt;a href=&#34;https://www.python-course.eu/list_comprehension.php&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python Course&lt;/a&gt;, a multi-language, donation-supported website.&lt;/li&gt;
+&lt;li&gt;An article on 
+&lt;a href=&#34;https://www.geeksforgeeks.org/comprehensions-in-python/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Geeks for Geeks&lt;/a&gt; a &amp;ldquo;computer science portal for geeks&amp;rdquo; that allows users to 
+&lt;a href=&#34;https://www.geeksforgeeks.org/contribute/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;draft and publish articles&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A medium post from 
+&lt;a href=&#34;https://towardsdatascience.com/python-basics-list-comprehensions-631278f22c40&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Towards Data Science&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Ten out of ten results for this search are community-produced learning resources.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Not only &lt;em&gt;can&lt;/em&gt; communities produce learning content, but they &lt;em&gt;have produced&lt;/em&gt; it. Google searches drop us into a vibrant ecosystem of learning content designed, produced, and consumed by the community.&lt;/p&gt;
+&lt;p&gt;Yet somehow, as educators, it&amp;rsquo;s easy for us to miss this ecosystem. We don&amp;rsquo;t realize it&amp;rsquo;s there at all or, when we do see it, we don&amp;rsquo;t consider it &amp;ldquo;learning content&amp;rdquo;. But internet users do see it and treat it that way every day.&lt;/p&gt;
+&lt;p&gt;I suspect it&amp;rsquo;s because we&amp;rsquo;re trapped by the concepts of pre-internet learning. Learning &lt;em&gt;used to be&lt;/em&gt; what happened in classrooms. Today literally no one is in a classroom. Classroom experiences &lt;em&gt;used to be&lt;/em&gt; collected into a &amp;ldquo;course&amp;rdquo;. Today&amp;rsquo;s learners bounce around the internet whenever they need to learn something to solve a concrete problem, not to achieve a grade or certification. Learning resources &lt;em&gt;used to be&lt;/em&gt; books and slides. Today&amp;rsquo;s learning resources are blog posts, documentation, content marketing, 
+&lt;a href=&#34;https://eater.net/quaternions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;playful&lt;/a&gt; 
+&lt;a href=&#34;https://meltingasphalt.com/going-critical/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;interactive&lt;/a&gt; 
+&lt;a href=&#34;https://distill.pub/2017/momentum/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;explanations&lt;/a&gt;, and emphatically &lt;em&gt;not&lt;/em&gt; textbooks or slide decks. Why would they be?&lt;/p&gt;
+&lt;p&gt;Hal Plotkin and David 
+&lt;a href=&#34;https://twitter.com/HalPlotkin/status/1285596300768141313&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;followed up on Twitter&lt;/a&gt; to clarify that the problem is to expect people to work for free in the first place. That textbooks and courses and so on are public goods and, as such, should be publicly funded rather than produced by free for the community. I agree. There is a role, unfortunately unfilled right now, for publicly funding learning resources that are public goods. I want to be clear about that.&lt;/p&gt;
+&lt;p&gt;But it&amp;rsquo;s wrong to say that there &lt;em&gt;is&lt;/em&gt; no community-produced learning content, much less that there &lt;em&gt;can be no community-produced learning content&lt;/em&gt;. Doing that is to overlook a revolution in learning that has already happened, which affects millions of people every day, and which is chipping away at the old order. People are working for free and we see their work everywhere.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Do better work</title>
+      <link>/post/do_good_work/</link>
+      <pubDate>Thu, 09 Jul 2020 15:00:01 -0700</pubDate>
+      <guid>/post/do_good_work/</guid>
+      <description>&lt;p&gt;I want you to do better work.&lt;/p&gt;
+&lt;p&gt;I joke that my hobby is talking people out of going to law school. It&amp;rsquo;s a joke because it gets a chuckle, but it&amp;rsquo;s not &lt;em&gt;really&lt;/em&gt; a joke because I do actually take every chance I get to talk people out of going to law school. If you&amp;rsquo;re planning a typical legal career then there is better work to be done.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-source-a-hrefhttpsxkcdcom287xkcda&#34;&gt;
+
+
+
+  &lt;img src=&#34;https://imgs.xkcd.com/comics/np_complete.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Source: &lt;a href=&#39;https://xkcd.com/287/&#39;&gt;XKCD&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Moving from law to technology was the best career move I ever made. Yes, I took a hit on salary leaving a big law firm for a scrappy startup, but not as much as you might think and &lt;em&gt;not&lt;/em&gt; when you look at per-hour comp. Sure, 
+&lt;a href=&#34;https://www.nerdwallet.com/blog/loans/student-loans/big-law-salary/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;biglaw salaries look nice&lt;/a&gt; but they lose their shine when you consider the realities of billing 120 hours a week. In fact, considering my work week at Thinkful was ~50 hours while as an associate I typically worked 90-100 hours I averaged more &lt;em&gt;per hour&lt;/em&gt; than I would have with a biglaw salary.&lt;/p&gt;
+&lt;p&gt;Beyond comp, technology workers have opportunities for crazy autonomy. The same is true for mastery and, if you join the right company, purpose. Basically the 
+&lt;a href=&#34;https://www.nerdwallet.com/blog/loans/student-loans/big-law-salary/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;perfect trifecta&lt;/a&gt; for doing good work.&lt;/p&gt;
+&lt;p&gt;I have the luxury of working on my own projects now and I want to pay it forward by helping the next generation of ambitious people do good work. To that end I&amp;rsquo;m committed to work 1-on-1 with people who reach out for help and demonstrate their own commitment to doing good work.&lt;/p&gt;
+&lt;p&gt;Should &lt;em&gt;you&lt;/em&gt; reach out? Yeah, maybe you should. Some of the things I&amp;rsquo;m happy to help with:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Understanding possible career paths in tech &amp;amp; setting goals&lt;/li&gt;
+&lt;li&gt;Learning to code&lt;/li&gt;
+&lt;li&gt;Landing your first job in a new field&lt;/li&gt;
+&lt;li&gt;Transitioning from individual contributor to first-time manager&lt;/li&gt;
+&lt;li&gt;Scaling an ops-heavy startup&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you&amp;rsquo;re committed to accomplishing one of those goals then I&amp;rsquo;d like to work with you and you should reach out. Shoot me an email (&lt;a href=&#34;mailto:graemdrake@gmail.com&#34;&gt;graemdrake@gmail.com&lt;/a&gt;) or 
+&lt;a href=&#34;https://calendly.com/grae&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;schedule a chat&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Project Euler Problem 8: Largest Product in a Series</title>
+      <link>/post/euler_problem_8/</link>
+      <pubDate>Tue, 07 Jul 2020 10:50:18 -0700</pubDate>
+      <guid>/post/euler_problem_8/</guid>
+      <description>&lt;p&gt;When I first learned to program I didn&amp;rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was to the problem.&lt;/p&gt;
+&lt;p&gt;But, like any good technologist, I&amp;rsquo;m lazy. So if you give me a problem that (1) I know how to solve but (2) involves me doing a lot of repetitive work and (3) hints at a lazy solution, then, well, I might be lazy enough to actually learn something new. 
+&lt;a href=&#34;https://projecteuler.net/problem=8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 8&lt;/a&gt; was like that for me. It pushed me to understand and use Python slicing better when I was starting out. It helped me not have to type so much.&lt;/p&gt;
+&lt;p&gt;As usual, spend some time with 
+&lt;a href=&#34;https://projecteuler.net/problem=8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the problem&lt;/a&gt; if you haven&amp;rsquo;t already.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-just-look-at-this-lazy-bastardbrdiogenes-detail-from-school-of-athens-by-raphael&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/school_of_athens_diogenes.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Just look at this lazy bastard.&lt;br&gt;Diogenes, detail from School of Athens by Raphael
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;wet-code&#34;&gt;WET Code&lt;/h2&gt;
+&lt;p&gt;This problem gives us a test case and tells us that the biggest product from 4 adjacent digits of our number is &lt;code&gt;5832&lt;/code&gt;. Let&amp;rsquo;s hammer out a quick solution to run against that test case.&lt;/p&gt;
+&lt;p&gt;Copying and pasting the 1000 digit number from the problem into Python as a string and assigning it to the variable &lt;code&gt;n&lt;/code&gt; we can do:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;biggest = 0
 for i in range(996):
-product = int(n[i]) * int(n[i + 1]) * int(n[i + 2]) * int(n[i + 3])
-biggest = max(biggest, product)
+    product = int(n[i]) * int(n[i + 1]) * int(n[i + 2]) * int(n[i + 3])
+    biggest = max(biggest, product)
+
 print(biggest)
-&lt;/code>&lt;/pre>
-&lt;p>This&amp;hellip; works. And, if you can tolerate it, you can fix the ranges, extend this up to &lt;code>n[i + 12]&lt;/code> and it&amp;rsquo;ll solve the actual problem. But if you&amp;rsquo;re like me, and I know I am, you&amp;rsquo;re too lazy for that.&lt;/p>
-&lt;h2 id="dry-ing-our-code">DRY-ing Our Code&lt;/h2>
-&lt;p>Copying and pasting code is &lt;em>almost always&lt;/em> a bad idea. Imagine maintaining our solution above. You come back to this code to make a change and find yourself making the same change &lt;em>13 different times&lt;/em>. God forbid you mess up a change or, gasp, &lt;em>miss&lt;/em> one of the changes you needed to make.&lt;/p>
-&lt;p>This is the
-&lt;a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank" rel="noopener">&amp;ldquo;Don&amp;rsquo;t Repeat Yourself&amp;rdquo; principle&lt;/a> in action. Let&amp;rsquo;s tweak our solution with slicing and a loop to remove repetition.&lt;/p>
-&lt;pre>&lt;code class="language-python">biggest = 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This&amp;hellip; works. And, if you can tolerate it, you can fix the ranges, extend this up to &lt;code&gt;n[i + 12]&lt;/code&gt; and it&amp;rsquo;ll solve the actual problem. But if you&amp;rsquo;re like me, and I know I am, you&amp;rsquo;re too lazy for that.&lt;/p&gt;
+&lt;h2 id=&#34;dry-ing-our-code&#34;&gt;DRY-ing Our Code&lt;/h2&gt;
+&lt;p&gt;Copying and pasting code is &lt;em&gt;almost always&lt;/em&gt; a bad idea. Imagine maintaining our solution above. You come back to this code to make a change and find yourself making the same change &lt;em&gt;13 different times&lt;/em&gt;. God forbid you mess up a change or, gasp, &lt;em&gt;miss&lt;/em&gt; one of the changes you needed to make.&lt;/p&gt;
+&lt;p&gt;This is the 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Don&amp;rsquo;t Repeat Yourself&amp;rdquo; principle&lt;/a&gt; in action. Let&amp;rsquo;s tweak our solution with slicing and a loop to remove repetition.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;biggest = 0
 for i in range(996):
-substring = n[i:i + 4]
-product = 1
-for digit in substring:
-product *= int(digit)
-biggest = max(biggest, product)
+    substring = n[i:i + 4]
+    product = 1
+    for digit in substring:
+        product *= int(digit)
+    biggest = max(biggest, product)
+
 print(biggest)
-&lt;/code>&lt;/pre>
-&lt;p>There we go! Now it&amp;rsquo;s much easier to modify this code to solve the actual problem instead of just the test case. But if you do you&amp;rsquo;ll notice that you still have to make changes in multiple places.&lt;/p>
-&lt;h2 id="science-not-magic">Science, not Magic&lt;/h2>
-&lt;p>The solution above has two
-&lt;a href="https://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants" target="_blank" rel="noopener">magic numbers&lt;/a>: the &lt;code>996&lt;/code> in the range and the &lt;code>4&lt;/code> in our substring slice. These &amp;ldquo;magic numbers&amp;rdquo;, or unexplained numbers directly in our code, are problematic for at least two reasons.&lt;/p>
-&lt;p>First, &lt;em>why&lt;/em> is &lt;code>996&lt;/code> there? What does it represent? Why that number instead of another? If we have the context of the problem fresh in our head it might be obvious that it&amp;rsquo;s the number of substrings we&amp;rsquo;re going to sample. But what if you come back to this code in a month? What if someone else needs to use it?&lt;/p>
-&lt;p>Second, these magic numbers introduce the same kind of repetition we want to avoid by keeping our code DRY. If you change the length of the substring from 4 (our test) to 13 (the problem) you now have to change both magic numbers. And what if we made our input number &lt;code>n&lt;/code> bigger? We&amp;rsquo;d have to remember to change all those magic numbers too or our solution would no longer be correct.&lt;/p>
-&lt;p>Let&amp;rsquo;s rewrite our solution without the magic numbers:&lt;/p>
-&lt;pre>&lt;code class="language-python">biggest = 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There we go! Now it&amp;rsquo;s much easier to modify this code to solve the actual problem instead of just the test case. But if you do you&amp;rsquo;ll notice that you still have to make changes in multiple places.&lt;/p&gt;
+&lt;h2 id=&#34;science-not-magic&#34;&gt;Science, not Magic&lt;/h2&gt;
+&lt;p&gt;The solution above has two 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;magic numbers&lt;/a&gt;: the &lt;code&gt;996&lt;/code&gt; in the range and the &lt;code&gt;4&lt;/code&gt; in our substring slice. These &amp;ldquo;magic numbers&amp;rdquo;, or unexplained numbers directly in our code, are problematic for at least two reasons.&lt;/p&gt;
+&lt;p&gt;First, &lt;em&gt;why&lt;/em&gt; is &lt;code&gt;996&lt;/code&gt; there? What does it represent? Why that number instead of another? If we have the context of the problem fresh in our head it might be obvious that it&amp;rsquo;s the number of substrings we&amp;rsquo;re going to sample. But what if you come back to this code in a month? What if someone else needs to use it?&lt;/p&gt;
+&lt;p&gt;Second, these magic numbers introduce the same kind of repetition we want to avoid by keeping our code DRY. If you change the length of the substring from 4 (our test) to 13 (the problem) you now have to change both magic numbers. And what if we made our input number &lt;code&gt;n&lt;/code&gt; bigger? We&amp;rsquo;d have to remember to change all those magic numbers too or our solution would no longer be correct.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s rewrite our solution without the magic numbers:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;biggest = 0
 substring_length = 4
 for i in range(len(n) - substring_length):
-substring = n[i:i + substring_length]
-product = 1
-for digit in substring:
-product *= int(digit)
-biggest = max(biggest, product)
+    substring = n[i:i + substring_length]
+    product = 1
+    for digit in substring:
+        product *= int(digit)
+    biggest = max(biggest, product)
+
 print(biggest)
-&lt;/code>&lt;/pre>
-&lt;p>This version will automatically handle any changes to the length of &lt;code>n&lt;/code>. It lets us modify the length of the substring we&amp;rsquo;re looking at in one single place. &lt;em>And&lt;/em> we use a nice semantic name for the number so our code is easier to read and understand.&lt;/p>
-&lt;h2 id="scrap-that-lets-be-complex-and-efficient">Scrap That, Let&amp;rsquo;s Be Complex and Efficient&lt;/h2>
-&lt;p>We&amp;rsquo;ve nicely removed the repetition from our code. The solution runs in a fraction of a second. We &lt;em>could&lt;/em> stop here, and in real-life work we probably &lt;em>should&lt;/em>. But there is a way to speed up the code. It&amp;rsquo;s useful to look at this solution now and stash it in our toolbox for later.&lt;/p>
-&lt;p>There are 996 4-digit substrings of a 1,000 digit string, and in our solutions so far we&amp;rsquo;ve been calculating each product from scratch. It turns out that repeats a lot of work and we can get away with a lazier algorithm.&lt;/p>
-&lt;p>Consider the first six digits of our &lt;code>n&lt;/code> (&lt;code>73167&lt;/code>) and the first three 4-digit substrings:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>7316__&lt;/code>&lt;/li>
-&lt;li>&lt;code>_3167_&lt;/code>&lt;/li>
-&lt;li>&lt;code>__1671&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>Each substring is only a little different from the one before it. If we think of a 4-digit-wide &amp;ldquo;window&amp;rdquo; sliding from left to right we see each substring is made by chopping off the leftmost digit of the last substring and adding a new digit to the right.&lt;/p>
-&lt;p>The digit products of each substring are similarly related. To find the product of each new substring we take the previous substring product, divide it by the digit that&amp;rsquo;s disappearing, then multiply it by our new digit. This algorithm works no matter how &amp;ldquo;wide&amp;rdquo; the window is: if we have the product of the last substring we can calculate the next one with only two operations (a division and a multiplication).&lt;/p>
-&lt;p>Well, almost. We don&amp;rsquo;t want to divide by zero so we have to be careful when zero is involved. We&amp;rsquo;ll keep track of that.&lt;/p>
-&lt;p>Let&amp;rsquo;s code that up:&lt;/p>
-&lt;pre>&lt;code class="language-python">substring_length = 4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This version will automatically handle any changes to the length of &lt;code&gt;n&lt;/code&gt;. It lets us modify the length of the substring we&amp;rsquo;re looking at in one single place. &lt;em&gt;And&lt;/em&gt; we use a nice semantic name for the number so our code is easier to read and understand.&lt;/p&gt;
+&lt;h2 id=&#34;scrap-that-lets-be-complex-and-efficient&#34;&gt;Scrap That, Let&amp;rsquo;s Be Complex and Efficient&lt;/h2&gt;
+&lt;p&gt;We&amp;rsquo;ve nicely removed the repetition from our code. The solution runs in a fraction of a second. We &lt;em&gt;could&lt;/em&gt; stop here, and in real-life work we probably &lt;em&gt;should&lt;/em&gt;. But there is a way to speed up the code. It&amp;rsquo;s useful to look at this solution now and stash it in our toolbox for later.&lt;/p&gt;
+&lt;p&gt;There are 996 4-digit substrings of a 1,000 digit string, and in our solutions so far we&amp;rsquo;ve been calculating each product from scratch. It turns out that repeats a lot of work and we can get away with a lazier algorithm.&lt;/p&gt;
+&lt;p&gt;Consider the first six digits of our &lt;code&gt;n&lt;/code&gt; (&lt;code&gt;73167&lt;/code&gt;) and the first three 4-digit substrings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;7316__&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;_3167_&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;__1671&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each substring is only a little different from the one before it. If we think of a 4-digit-wide &amp;ldquo;window&amp;rdquo; sliding from left to right we see each substring is made by chopping off the leftmost digit of the last substring and adding a new digit to the right.&lt;/p&gt;
+&lt;p&gt;The digit products of each substring are similarly related. To find the product of each new substring we take the previous substring product, divide it by the digit that&amp;rsquo;s disappearing, then multiply it by our new digit. This algorithm works no matter how &amp;ldquo;wide&amp;rdquo; the window is: if we have the product of the last substring we can calculate the next one with only two operations (a division and a multiplication).&lt;/p&gt;
+&lt;p&gt;Well, almost. We don&amp;rsquo;t want to divide by zero so we have to be careful when zero is involved. We&amp;rsquo;ll keep track of that.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s code that up:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;substring_length = 4
+
 # Keep track of whether our window includes a zero.
-zero_count = n[0:substring_length].count('0')
+zero_count = n[0:substring_length].count(&#39;0&#39;)
+
 # Initialize the value of our substring product.
 previous_product = 1
 for digit in n[0:substring_length]:
-if digit != 0:
-previous_product *= int(digit)
+    if digit != 0:
+        previous_product *= int(digit)
+
 biggest = 0 if zero_count &amp;gt; 0 else previous_product
+
 # Slide our window across.
 for j in range(len(n) - substring_length):
-left = int(n[j])
-right = int(n[j + substring_length])
-# Update our count of zeros in the window.
-zero_count = zero_count - (left == 0) + (right == 0)
-# Be careful of zeros.
-if left != 0:
-next_product = previous_product / left
-if right != 0:
-next_product = next_product * right
-if zero_count == 0:
-biggest = max(biggest, next_product)
-previous_product = next_product
+    
+    left = int(n[j])
+    right = int(n[j + substring_length])
+    
+    # Update our count of zeros in the window.
+    zero_count = zero_count - (left == 0) + (right == 0)
+    
+    # Be careful of zeros.
+    if left != 0:
+        next_product = previous_product / left
+    if right != 0:
+        next_product = next_product * right
+    if zero_count == 0:
+        biggest = max(biggest, next_product)    
+    
+    previous_product = next_product
+
 print(biggest)
-&lt;/code>&lt;/pre>
-&lt;p>Phew. That was a lot of work to save a small amount of compute. This is the kind of optimization that&amp;rsquo;s good to talk about during a coding interview but where the extra complexity of the code and difficulty to read and comprehend it isn&amp;rsquo;t worth the performance improvement. At least, not for this problem. But hey we&amp;rsquo;re doing PE for this kind of fuh, eh?&lt;/p></description></item><item><title>The Bitterness Trap</title><link>/post/bitterness_trap/</link><pubDate>Mon, 06 Jul 2020 14:18:10 -0700</pubDate><guid>/post/bitterness_trap/</guid><description>&lt;p>I got my start in computing early because my dad was disabled. He had a degenerative nerve disease and at some point, maybe when I was five or six, my clumsy little kid hands got better at wrangling computer parts than his own traitorous hands. You see his side hustle in the eighties was buying OEM computer parts, building computers, and selling those machines to consumers. This was before closed-body devices made it the norm not to tinker with your hardware, before Newegg made it easy to buy OEM, and even before Gateway started selling fully-assembled PCs direct to consumer.&lt;/p>
-&lt;figure id="figure-this-box-contained-pure-unadulterated-excitement">
-&lt;img src="/img/gateway_box.jpg" alt="" >
-&lt;figcaption>
-This box contained pure, unadulterated excitement
-&lt;/figcaption>
-&lt;/figure>
-&lt;p>Dropping screws and struggling to pick them up wasn&amp;rsquo;t the only way his body betrayed him. I have snapshot memories of riding around our neighborhood on the back of his motorcycle, scared shitless and holding on to him as strong as I could. But those memories are all dusty and faded. I was still very young when he was no longer able to ride his bike. He started to use a wheelchair sometimes and then he was in the wheelchair all the time.&lt;/p>
-&lt;p>That disease took a lot from him, much more than the command of his own body. He had every right to be bitter, and he &lt;em>was&lt;/em> bitter. He was mean. He took out his frustration and resentment on those around him and drove people away. As an able-bodied person I can&amp;rsquo;t know what he lost when he lost control of his body. But as an adult I can see how the self-reinforcing cycle of bitterness, anger, and resentment played out and I wonder if he didn&amp;rsquo;t lose more because of that. My mom and I moved away when I was 10.&lt;/p>
-&lt;p>I didn&amp;rsquo;t inherit a neurological disease from him but recently I noticed I may have inherited some propensity to bitterness. I wouldn&amp;rsquo;t have said so a few years ago. But recently I&amp;rsquo;ve caught myself angry and complaining kind of a lot. Way more, on reflection, than I realized at the time. Taking a sharp look at myself I don&amp;rsquo;t always like the person I am right now.&lt;/p>
-&lt;p>I have things pretty great on almost every dimension. Yeah, I have tough things to deal with. And yeah, world affairs make it tough to be optimistic about much. But I could easily see this side of me harming my relationship with my family, with my kids. Giving me something to &lt;em>really&lt;/em> cry about.&lt;/p>
-&lt;p>Now that I&amp;rsquo;ve noticed things I think and hope it&amp;rsquo;s in my power to avoid the bitterness trap. To take a breath, deal with my shit, and be the person I want to be to the people I love. To that end, I&amp;rsquo;m declaring indefinite open season on my shit. Call me out on it, publicly, privately, help me to see when I&amp;rsquo;m being an asshole. Really. I&amp;rsquo;ll appreciate the help.&lt;/p></description></item><item><title>The Hand Raiser Problem and Inequality</title><link>/post/hand_raisers_and_inequality/</link><pubDate>Fri, 19 Jun 2020 12:43:57 -0700</pubDate><guid>/post/hand_raisers_and_inequality/</guid><description>&lt;p>While I was at Thinkful our instructional design and features evolved &lt;em>a lot&lt;/em>. At the beginning things were simple. The curriculum was plain text (a Google doc we shared) that curated 3rd-party resources and &amp;ldquo;explained&amp;rdquo; (in a way that will make instructional designers cringe) the remaining topics. It was a great MVP in that things really &lt;em>were&lt;/em> minimal and it (mostly) worked.&lt;/p>
-&lt;p>Over time we layered on more features. We added a robust student community. Loads of open office hours that anyone could attend. Chat-based technical coaching. Instructional design basics like learning objectives, formative and summative assessments, backwards design. Things unarguably got better. But not as much as I expected and, critically, &lt;em>not for as many people&lt;/em> as I expected.&lt;/p>
-&lt;p>A while into building new features I realized that the features we were building often didn&amp;rsquo;t have the effect I expected them to have. Take office hours. All of a sudden students now had access to experts almost around the clock. And the highest-performing students were attending office hours. &lt;em>And yet&lt;/em> we didn&amp;rsquo;t see a big change in student achievement rates. What gives?&lt;/p>
-&lt;p>It turns out the causation between office hours attendance and achievement was the reverse of what I expected: high performing students saw a chance for additional value and took it. They didn&amp;rsquo;t &lt;em>need&lt;/em> office hours. They&amp;rsquo;d have been successful without them. But they were valuable and they saw that value and weren&amp;rsquo;t afraid to take it. Students at the margin, the students who would most benefit from these extra resources weren&amp;rsquo;t taking advantage of them.&lt;/p>
-&lt;p>Internally we called this the &amp;ldquo;hand raiser problem&amp;rdquo;. Many seemingly great features would help the people who didn&amp;rsquo;t need help, the people in a class who always raised their hand, and &lt;em>wouldn&amp;rsquo;t&lt;/em> help those who were quietly struggling and most in need of support.&lt;/p>
-&lt;figure >
-&lt;img src="/img/hand_raiser.gif" alt="" >
-&lt;/figure>
-&lt;p>Not every feature implicated the hand raiser problem, but I can confidently say that 100% of us on the education, product, and engineering teams were, ourselves, handraisers. That&amp;rsquo;s why we worked at Thinkful in the first place. That made all these seemingly wonderful features, these shiny features that were &lt;em>obviously great&lt;/em> because &lt;em>we would love to have them&lt;/em>, super tempting. But those weren&amp;rsquo;t the features we needed to build. The features that actually had an impact were the ones that &lt;em>everyone&lt;/em> valued (not just the hand raisers) or even the ones that hand raisers &lt;em>disliked&lt;/em> but that boosted students at the margins.&lt;/p>
-&lt;p>There is a story here about product strategy and feature selection process and understanding your users that is interesting but not what I want to talk about today.&lt;/p>
-&lt;p>What I want to talk about today is inequality.&lt;/p>
-&lt;p>We thought, when we added office hours, that we were &lt;em>making the world&lt;/em> (or at least our product) &lt;em>a better place&lt;/em>. Before there wasn&amp;rsquo;t a thing. Now there&amp;rsquo;s a thing. People who interact with the thing benefit. The thing doesn&amp;rsquo;t harm anyone; worst case it gets ignored. Multiply the number of people who use it by the utility each gets from using it and you have a measure of exactly &lt;em>how much&lt;/em> it made the world a better place.&lt;/p>
-&lt;figure id="figure-this-show-has-no-business-being-so-accurate">
-&lt;img src="/img/make_the_world_a_better_place.gif" alt="" >
-&lt;figcaption>
-This show has no business being so accurate
-&lt;/figcaption>
-&lt;/figure>
-&lt;p>But while the thing doesn&amp;rsquo;t harm &lt;em>people&lt;/em> it had the potential to harm the &lt;em>community&lt;/em>. In isolation, this feature amplifies the existing performance gap between students. Learning outcomes become more bimodal. Winners are clearer, better winners. Others lose ground by standing still.&lt;/p>
-&lt;p>This example is just a silly feature from one education company. Students weren&amp;rsquo;t competing against one another in any meaningful way. These games were not zero sum; making well-off students better-off didn&amp;rsquo;t hurt anyone at Thinkful.&lt;/p>
-&lt;p>But looking around at our society now I see hand-raiser problems &lt;em>fucking everywhere&lt;/em>.&lt;/p>
-&lt;p>Look at all these amazing useful webapps we&amp;rsquo;ve got now! Oh, unless accessibility issues make them painful for you to use.&lt;/p>
-&lt;p>Thank goodness we have tax-advantaged savings plans to make it easier to save for retirement! Yet, somehow,
-&lt;a href="https://www.fool.com/retirement/2017/06/19/does-the-average-american-have-a-401k.aspx" target="_blank" rel="noopener">only 37% of Americans who can contribute to a 401(k), do&lt;/a>.&lt;/p>
-&lt;p>Healthcare is expensive and complicated, good thing for health insurance! (From our employer of course!) Except for the
-&lt;a href="https://www.kff.org/other/state-indicator/total-population/?dataView=0&amp;amp;currentTimeframe=0&amp;amp;selectedDistributions=employer&amp;amp;sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D" target="_blank" rel="noopener">51% of us who aren&amp;rsquo;t employed, don&amp;rsquo;t receive employment benefits, or otherwise fall through the cracks&lt;/a>.&lt;/p>
-&lt;h2 id="my-dilemma">My Dilemma&lt;/h2>
-&lt;p>Do employer-sponsored health plans make our world a better place? I don&amp;rsquo;t think so. There seem to be much more efficient ways to organize and allocate healthcare resources. Other countries have figured this out and implemented better solutions. I&amp;rsquo;d love to go back in time and stop the people who made that a thing.&lt;/p>
-&lt;p>Does
-&lt;a href="https://www.khanacademy.org/" target="_blank" rel="noopener">Khan Academy&lt;/a> make the world a better place? I have to believe it does. I&amp;rsquo;m sure hand raisers disproportionately benefit from KA, but I&amp;rsquo;m also sure that the sheer number of students touched by KA is net positive. Here, KA, have an internet fist bump from me. 👊&lt;/p>
-&lt;p>Did the 20,000 recorded lectures Berkeley posted to Youtube make the world a better place before
-&lt;a href="https://www.insidehighered.com/news/2017/03/06/u-california-berkeley-delete-publicly-available-educational-content" target="_blank" rel="noopener">Berkeley removed them because of ADA complaints&lt;/a>? I&amp;hellip; I don&amp;rsquo;t know.&lt;/p>
-&lt;p>This is where it gets selfish. I want to massively scale 1-on-1 learning. I think that&amp;rsquo;s possible today in a way it&amp;rsquo;s never been before. But &lt;em>should&lt;/em> I? I believe many people could benefit enormously from 1-on-1 mentoring relationships. Assuming for now that I&amp;rsquo;m successful in facilitating those, will I just end up making life better for professionals who already have it &amp;ldquo;great&amp;rdquo; by any rational measure? Open up new professional opportunities&amp;hellip; for those of us who least &lt;em>need&lt;/em> them? If my work creates a ton of value, is a &lt;em>little bit&lt;/em> of increased inequality an acceptable tradeoff? How much, and how do I measure that?&lt;/p>
-&lt;p>I don&amp;rsquo;t have any answers to these questions yet. For now I&amp;rsquo;m going to keep building and hope it works out, but I&amp;rsquo;m keeping an eye on this. If &lt;em>you&lt;/em> have any helpful ways to look at these issues
-&lt;a href="https://twitter.com/Grae_Drake" target="_blank" rel="noopener">drop me a line&lt;/a>.&lt;/p></description></item><item><title>Project Euler Problem 7: 10001st prime</title><link>/post/euler_problem_7/</link><pubDate>Sun, 07 Jun 2020 18:01:03 -0600</pubDate><guid>/post/euler_problem_7/</guid><description>&lt;p>Back to primes! So far we&amp;rsquo;ve been able to get away with being a little greedy with our compute when playing with primes. Now Euler is ratcheting up the difficulty and we&amp;rsquo;ll have to focus on efficiency.&lt;/p>
-&lt;p>As usual, if you haven&amp;rsquo;t spent time with
-&lt;a href="https://projecteuler.net/problem=7" target="_blank" rel="noopener">Problem 7&lt;/a> yet, take a chance to play with it on your own and come back.&lt;/p>
-&lt;figure id="figure-euclid-teaching-his-students-detail-from-the-school-of-athens-by-raphael">
-&lt;img src="/img/school_of_athens_euclid.png" alt="" >
-&lt;figcaption>
-Euclid teaching his students, detail from The School of Athens by Raphael
-&lt;/figcaption>
-&lt;/figure>
-&lt;h2 id="counting-primes">Counting Primes&lt;/h2>
-&lt;p>Let&amp;rsquo;s start by looking at each integer, deciding whether it&amp;rsquo;s prime, and counting it if it is until we get to the 10,001st prime.&lt;/p>
-&lt;p>Our first stab at an &lt;code>is_prime(n)&lt;/code> function will be the simplest and we&amp;rsquo;ll iterate into more optimized (and complicated) versions after. Here&amp;rsquo;s the starting point:&lt;/p>
-&lt;pre>&lt;code class="language-python">def is_prime(n):
-if n &amp;lt; 2:
-return False
-for x in range(2, n):
-if n % x == 0:
-return False
-return True
-&lt;/code>&lt;/pre>
-&lt;p>This checks every number less than $ n $ to see if it&amp;rsquo;s a factor of $ n $. It&amp;rsquo;s &lt;em>almost&lt;/em> good enough to solve the problem in under a minute. My laptop chugs through the first 10,001 primes in 68 seconds using this version of the &lt;code>is_prime(n)&lt;/code> function (full code later). But the rules only give us a minute and we can do better.&lt;/p>
-&lt;h2 id="cap-the-search-space">Cap the Search Space&lt;/h2>
-&lt;p>Looking back at our
-&lt;a href="https://www.grae.io/post/euler_problem_3/" target="_blank" rel="noopener">Problem 3 Solution&lt;/a> we optimized our &lt;code>is_prime(n)&lt;/code> function by caping the space we search to find factors factors by checking only numbers up to $ \sqrt{n} $. Check out that post if you want to dig deep into why / how that works.&lt;/p>
-&lt;pre>&lt;code class="language-python">def is_prime(n):
-if n &amp;lt; 2:
-return False
-for x in range(2, math.floor(math.sqrt(n)) + 1):
-if n % x == 0:
-return False
-return True
-&lt;/code>&lt;/pre>
-&lt;p>This runs a &lt;em>lot&lt;/em> faster. It finds the 10,001st prime in 0.29 seconds on my machine. But can we make it &lt;em>even better&lt;/em>?&lt;/p>
-&lt;h2 id="skip-through-the-search-space">Skip Through the Search Space&lt;/h2>
-&lt;p>
-&lt;a href="https://primes.utm.edu/notes/faq/six.html" target="_blank" rel="noopener">Perhaps the most rediscovered result about primes numbers&lt;/a> is the fact that every prime bigger than 3 is &amp;ldquo;next&amp;rdquo; to a multiple of 6. That is, for every prime number starting at 5 you can get a multiple of 6 by adding 1 or subtracting 1.&lt;/p>
-&lt;p>For example:&lt;/p>
-&lt;ul>
-&lt;li>5 is prime, add 1 and get 6&lt;/li>
-&lt;li>13 is prime, subtract 1 and get (6 * 2)&lt;/li>
-&lt;li>1,361 is prime, add 1 and get (6 * 227)&lt;/li>
-&lt;/ul>
-&lt;p>This works for every prime number.&lt;/p>
-&lt;p>We can use this property to skip potential factors we don&amp;rsquo;t &lt;em>need&lt;/em> to check. When checking to see if a number $ n $ has factors we can get away with just looking for the prime factors, we don&amp;rsquo;t &lt;em>also&lt;/em> need to know if it has any factors that are themselves composite. For example, we don&amp;rsquo;t need to know that 24 is divisible by 8. We can stop as soon as we see it&amp;rsquo;s divisible by 2. So we can skip every potential factor except for those which &lt;em>might&lt;/em> be prime.&lt;/p>
-&lt;p>In code:&lt;/p>
-&lt;pre>&lt;code class="language-python">def is_prime(n):
-if n &amp;lt; 2:
-return False
-if n == 2 or n == 3:
-return True
-if n % 2 == 0 or n % 3 == 0:
-return False
-for x in range(6, math.floor(math.sqrt(n)) + 2, 6):
-if n % (x - 1) == 0 or n % (x + 1) == 0:
-return False
-return True
-&lt;/code>&lt;/pre>
-&lt;p>This version takes advantage of Python&amp;rsquo;s &amp;ldquo;step&amp;rdquo; argument to &lt;code>range()&lt;/code>. We&amp;rsquo;re looking at every multiple of 6 (below our limit) and checking whether the number before or after it divides our target.&lt;/p>
-&lt;p>This optimizes things a bit more and, indeed, finds the 10,001st prime in 0.17 seconds on my machine.&lt;/p>
-&lt;h2 id="putting-it-together">Putting it Together&lt;/h2>
-&lt;p>Once we have an efficient &lt;code>is_prime()&lt;/code> function the solution is a matter of counting primes with a while loop.&lt;/p>
-&lt;pre>&lt;code class="language-python">seen = 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Phew. That was a lot of work to save a small amount of compute. This is the kind of optimization that&amp;rsquo;s good to talk about during a coding interview but where the extra complexity of the code and difficulty to read and comprehend it isn&amp;rsquo;t worth the performance improvement. At least, not for this problem. But hey we&amp;rsquo;re doing PE for this kind of fuh, eh?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Bitterness Trap</title>
+      <link>/post/bitterness_trap/</link>
+      <pubDate>Mon, 06 Jul 2020 14:18:10 -0700</pubDate>
+      <guid>/post/bitterness_trap/</guid>
+      <description>&lt;p&gt;I got my start in computing early because my dad was disabled. He had a degenerative nerve disease and at some point, maybe when I was five or six, my clumsy little kid hands got better at wrangling computer parts than his own traitorous hands. You see his side hustle in the eighties was buying OEM computer parts, building computers, and selling those machines to consumers. This was before closed-body devices made it the norm not to tinker with your hardware, before Newegg made it easy to buy OEM, and even before Gateway started selling fully-assembled PCs direct to consumer.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-this-box-contained-pure-unadulterated-excitement&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/gateway_box.jpg&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    This box contained pure, unadulterated excitement
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Dropping screws and struggling to pick them up wasn&amp;rsquo;t the only way his body betrayed him. I have snapshot memories of riding around our neighborhood on the back of his motorcycle, scared shitless and holding on to him as strong as I could. But those memories are all dusty and faded. I was still very young when he was no longer able to ride his bike. He started to use a wheelchair sometimes and then he was in the wheelchair all the time.&lt;/p&gt;
+&lt;p&gt;That disease took a lot from him, much more than the command of his own body. He had every right to be bitter, and he &lt;em&gt;was&lt;/em&gt; bitter. He was mean. He took out his frustration and resentment on those around him and drove people away. As an able-bodied person I can&amp;rsquo;t know what he lost when he lost control of his body. But as an adult I can see how the self-reinforcing cycle of bitterness, anger, and resentment played out and I wonder if he didn&amp;rsquo;t lose more because of that. My mom and I moved away when I was 10.&lt;/p&gt;
+&lt;p&gt;I didn&amp;rsquo;t inherit a neurological disease from him but recently I noticed I may have inherited some propensity to bitterness. I wouldn&amp;rsquo;t have said so a few years ago. But recently I&amp;rsquo;ve caught myself angry and complaining kind of a lot. Way more, on reflection, than I realized at the time. Taking a sharp look at myself I don&amp;rsquo;t always like the person I am right now.&lt;/p&gt;
+&lt;p&gt;I have things pretty great on almost every dimension. Yeah, I have tough things to deal with. And yeah, world affairs make it tough to be optimistic about much. But I could easily see this side of me harming my relationship with my family, with my kids. Giving me something to &lt;em&gt;really&lt;/em&gt; cry about.&lt;/p&gt;
+&lt;p&gt;Now that I&amp;rsquo;ve noticed things I think and hope it&amp;rsquo;s in my power to avoid the bitterness trap. To take a breath, deal with my shit, and be the person I want to be to the people I love. To that end, I&amp;rsquo;m declaring indefinite open season on my shit. Call me out on it, publicly, privately, help me to see when I&amp;rsquo;m being an asshole. Really. I&amp;rsquo;ll appreciate the help.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Hand Raiser Problem and Inequality</title>
+      <link>/post/hand_raisers_and_inequality/</link>
+      <pubDate>Fri, 19 Jun 2020 12:43:57 -0700</pubDate>
+      <guid>/post/hand_raisers_and_inequality/</guid>
+      <description>&lt;p&gt;While I was at Thinkful our instructional design and features evolved &lt;em&gt;a lot&lt;/em&gt;. At the beginning things were simple. The curriculum was plain text (a Google doc we shared) that curated 3rd-party resources and &amp;ldquo;explained&amp;rdquo; (in a way that will make instructional designers cringe) the remaining topics. It was a great MVP in that things really &lt;em&gt;were&lt;/em&gt; minimal and it (mostly) worked.&lt;/p&gt;
+&lt;p&gt;Over time we layered on more features. We added a robust student community. Loads of open office hours that anyone could attend. Chat-based technical coaching. Instructional design basics like learning objectives, formative and summative assessments, backwards design. Things unarguably got better. But not as much as I expected and, critically, &lt;em&gt;not for as many people&lt;/em&gt; as I expected.&lt;/p&gt;
+&lt;p&gt;A while into building new features I realized that the features we were building often didn&amp;rsquo;t have the effect I expected them to have. Take office hours. All of a sudden students now had access to experts almost around the clock. And the highest-performing students were attending office hours. &lt;em&gt;And yet&lt;/em&gt; we didn&amp;rsquo;t see a big change in student achievement rates. What gives?&lt;/p&gt;
+&lt;p&gt;It turns out the causation between office hours attendance and achievement was the reverse of what I expected: high performing students saw a chance for additional value and took it. They didn&amp;rsquo;t &lt;em&gt;need&lt;/em&gt; office hours. They&amp;rsquo;d have been successful without them. But they were valuable and they saw that value and weren&amp;rsquo;t afraid to take it. Students at the margin, the students who would most benefit from these extra resources weren&amp;rsquo;t taking advantage of them.&lt;/p&gt;
+&lt;p&gt;Internally we called this the &amp;ldquo;hand raiser problem&amp;rdquo;. Many seemingly great features would help the people who didn&amp;rsquo;t need help, the people in a class who always raised their hand, and &lt;em&gt;wouldn&amp;rsquo;t&lt;/em&gt; help those who were quietly struggling and most in need of support.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+
+  &lt;img src=&#34;/img/hand_raiser.gif&#34; alt=&#34;&#34;  &gt;
+
+
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Not every feature implicated the hand raiser problem, but I can confidently say that 100% of us on the education, product, and engineering teams were, ourselves, handraisers. That&amp;rsquo;s why we worked at Thinkful in the first place. That made all these seemingly wonderful features, these shiny features that were &lt;em&gt;obviously great&lt;/em&gt; because &lt;em&gt;we would love to have them&lt;/em&gt;, super tempting. But those weren&amp;rsquo;t the features we needed to build. The features that actually had an impact were the ones that &lt;em&gt;everyone&lt;/em&gt; valued (not just the hand raisers) or even the ones that hand raisers &lt;em&gt;disliked&lt;/em&gt; but that boosted students at the margins.&lt;/p&gt;
+&lt;p&gt;There is a story here about product strategy and feature selection process and understanding your users that is interesting but not what I want to talk about today.&lt;/p&gt;
+&lt;p&gt;What I want to talk about today is inequality.&lt;/p&gt;
+&lt;p&gt;We thought, when we added office hours, that we were &lt;em&gt;making the world&lt;/em&gt; (or at least our product) &lt;em&gt;a better place&lt;/em&gt;. Before there wasn&amp;rsquo;t a thing. Now there&amp;rsquo;s a thing. People who interact with the thing benefit. The thing doesn&amp;rsquo;t harm anyone; worst case it gets ignored. Multiply the number of people who use it by the utility each gets from using it and you have a measure of exactly &lt;em&gt;how much&lt;/em&gt; it made the world a better place.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-this-show-has-no-business-being-so-accurate&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/make_the_world_a_better_place.gif&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    This show has no business being so accurate
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;But while the thing doesn&amp;rsquo;t harm &lt;em&gt;people&lt;/em&gt; it had the potential to harm the &lt;em&gt;community&lt;/em&gt;. In isolation, this feature amplifies the existing performance gap between students. Learning outcomes become more bimodal. Winners are clearer, better winners. Others lose ground by standing still.&lt;/p&gt;
+&lt;p&gt;This example is just a silly feature from one education company. Students weren&amp;rsquo;t competing against one another in any meaningful way. These games were not zero sum; making well-off students better-off didn&amp;rsquo;t hurt anyone at Thinkful.&lt;/p&gt;
+&lt;p&gt;But looking around at our society now I see hand-raiser problems &lt;em&gt;fucking everywhere&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Look at all these amazing useful webapps we&amp;rsquo;ve got now! Oh, unless accessibility issues make them painful for you to use.&lt;/p&gt;
+&lt;p&gt;Thank goodness we have tax-advantaged savings plans to make it easier to save for retirement! Yet, somehow, 
+&lt;a href=&#34;https://www.fool.com/retirement/2017/06/19/does-the-average-american-have-a-401k.aspx&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;only 37% of Americans who can contribute to a 401(k), do&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Healthcare is expensive and complicated, good thing for health insurance! (From our employer of course!) Except for the 
+&lt;a href=&#34;https://www.kff.org/other/state-indicator/total-population/?dataView=0&amp;amp;currentTimeframe=0&amp;amp;selectedDistributions=employer&amp;amp;sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;51% of us who aren&amp;rsquo;t employed, don&amp;rsquo;t receive employment benefits, or otherwise fall through the cracks&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;my-dilemma&#34;&gt;My Dilemma&lt;/h2&gt;
+&lt;p&gt;Do employer-sponsored health plans make our world a better place? I don&amp;rsquo;t think so. There seem to be much more efficient ways to organize and allocate healthcare resources. Other countries have figured this out and implemented better solutions. I&amp;rsquo;d love to go back in time and stop the people who made that a thing.&lt;/p&gt;
+&lt;p&gt;Does 
+&lt;a href=&#34;https://www.khanacademy.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Khan Academy&lt;/a&gt; make the world a better place? I have to believe it does. I&amp;rsquo;m sure hand raisers disproportionately benefit from KA, but I&amp;rsquo;m also sure that the sheer number of students touched by KA is net positive. Here, KA, have an internet fist bump from me. 👊&lt;/p&gt;
+&lt;p&gt;Did the 20,000 recorded lectures Berkeley posted to Youtube make the world a better place before 
+&lt;a href=&#34;https://www.insidehighered.com/news/2017/03/06/u-california-berkeley-delete-publicly-available-educational-content&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Berkeley removed them because of ADA complaints&lt;/a&gt;? I&amp;hellip; I don&amp;rsquo;t know.&lt;/p&gt;
+&lt;p&gt;This is where it gets selfish. I want to massively scale 1-on-1 learning. I think that&amp;rsquo;s possible today in a way it&amp;rsquo;s never been before. But &lt;em&gt;should&lt;/em&gt; I? I believe many people could benefit enormously from 1-on-1 mentoring relationships. Assuming for now that I&amp;rsquo;m successful in facilitating those, will I just end up making life better for professionals who already have it &amp;ldquo;great&amp;rdquo; by any rational measure? Open up new professional opportunities&amp;hellip; for those of us who least &lt;em&gt;need&lt;/em&gt; them? If my work creates a ton of value, is a &lt;em&gt;little bit&lt;/em&gt; of increased inequality an acceptable tradeoff? How much, and how do I measure that?&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t have any answers to these questions yet. For now I&amp;rsquo;m going to keep building and hope it works out, but I&amp;rsquo;m keeping an eye on this. If &lt;em&gt;you&lt;/em&gt; have any helpful ways to look at these issues 
+&lt;a href=&#34;https://twitter.com/Grae_Drake&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;drop me a line&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Project Euler Problem 7: 10001st prime</title>
+      <link>/post/euler_problem_7/</link>
+      <pubDate>Sun, 07 Jun 2020 18:01:03 -0600</pubDate>
+      <guid>/post/euler_problem_7/</guid>
+      <description>&lt;p&gt;Back to primes! So far we&amp;rsquo;ve been able to get away with being a little greedy with our compute when playing with primes. Now Euler is ratcheting up the difficulty and we&amp;rsquo;ll have to focus on efficiency.&lt;/p&gt;
+&lt;p&gt;As usual, if you haven&amp;rsquo;t spent time with 
+&lt;a href=&#34;https://projecteuler.net/problem=7&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 7&lt;/a&gt; yet, take a chance to play with it on your own and come back.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-euclid-teaching-his-students-detail-from-the-school-of-athens-by-raphael&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/school_of_athens_euclid.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Euclid teaching his students, detail from The School of Athens by Raphael
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;counting-primes&#34;&gt;Counting Primes&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s start by looking at each integer, deciding whether it&amp;rsquo;s prime, and counting it if it is until we get to the 10,001st prime.&lt;/p&gt;
+&lt;p&gt;Our first stab at an &lt;code&gt;is_prime(n)&lt;/code&gt; function will be the simplest and we&amp;rsquo;ll iterate into more optimized (and complicated) versions after. Here&amp;rsquo;s the starting point:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_prime(n):
+    if n &amp;lt; 2:
+        return False
+    for x in range(2, n):
+        if n % x == 0:
+            return False
+    return True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This checks every number less than $ n $ to see if it&amp;rsquo;s a factor of $ n $. It&amp;rsquo;s &lt;em&gt;almost&lt;/em&gt; good enough to solve the problem in under a minute. My laptop chugs through the first 10,001 primes in 68 seconds using this version of the &lt;code&gt;is_prime(n)&lt;/code&gt; function (full code later). But the rules only give us a minute and we can do better.&lt;/p&gt;
+&lt;h2 id=&#34;cap-the-search-space&#34;&gt;Cap the Search Space&lt;/h2&gt;
+&lt;p&gt;Looking back at our 
+&lt;a href=&#34;https://www.grae.io/post/euler_problem_3/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 3 Solution&lt;/a&gt; we optimized our &lt;code&gt;is_prime(n)&lt;/code&gt; function by caping the space we search to find factors factors by checking only numbers up to $ \sqrt{n} $. Check out that post if you want to dig deep into why / how that works.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_prime(n):
+    if n &amp;lt; 2:
+        return False
+    for x in range(2, math.floor(math.sqrt(n)) + 1):
+        if n % x == 0:
+            return False
+    return True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This runs a &lt;em&gt;lot&lt;/em&gt; faster. It finds the 10,001st prime in 0.29 seconds on my machine. But can we make it &lt;em&gt;even better&lt;/em&gt;?&lt;/p&gt;
+&lt;h2 id=&#34;skip-through-the-search-space&#34;&gt;Skip Through the Search Space&lt;/h2&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://primes.utm.edu/notes/faq/six.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Perhaps the most rediscovered result about primes numbers&lt;/a&gt; is the fact that every prime bigger than 3 is &amp;ldquo;next&amp;rdquo; to a multiple of 6. That is, for every prime number starting at 5 you can get a multiple of 6 by adding 1 or subtracting 1.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;5 is prime, add 1 and get 6&lt;/li&gt;
+&lt;li&gt;13 is prime, subtract 1 and get (6 * 2)&lt;/li&gt;
+&lt;li&gt;1,361 is prime, add 1 and get (6 * 227)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This works for every prime number.&lt;/p&gt;
+&lt;p&gt;We can use this property to skip potential factors we don&amp;rsquo;t &lt;em&gt;need&lt;/em&gt; to check. When checking to see if a number $ n $ has factors we can get away with just looking for the prime factors, we don&amp;rsquo;t &lt;em&gt;also&lt;/em&gt; need to know if it has any factors that are themselves composite. For example, we don&amp;rsquo;t need to know that 24 is divisible by 8. We can stop as soon as we see it&amp;rsquo;s divisible by 2. So we can skip every potential factor except for those which &lt;em&gt;might&lt;/em&gt; be prime.&lt;/p&gt;
+&lt;p&gt;In code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_prime(n):
+    if n &amp;lt; 2:
+        return False
+    if n == 2 or n == 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    for x in range(6, math.floor(math.sqrt(n)) + 2, 6):
+        if n % (x - 1) == 0 or n % (x + 1) == 0:
+            return False
+    return True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This version takes advantage of Python&amp;rsquo;s &amp;ldquo;step&amp;rdquo; argument to &lt;code&gt;range()&lt;/code&gt;. We&amp;rsquo;re looking at every multiple of 6 (below our limit) and checking whether the number before or after it divides our target.&lt;/p&gt;
+&lt;p&gt;This optimizes things a bit more and, indeed, finds the 10,001st prime in 0.17 seconds on my machine.&lt;/p&gt;
+&lt;h2 id=&#34;putting-it-together&#34;&gt;Putting it Together&lt;/h2&gt;
+&lt;p&gt;Once we have an efficient &lt;code&gt;is_prime()&lt;/code&gt; function the solution is a matter of counting primes with a while loop.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;seen = 0
 n = 1
 while seen &amp;lt; 10001:
-n += 1
-if is_prime(n):
-seen += 1
+    n += 1
+    if is_prime(n):
+        seen += 1
+
 print(n)
-&lt;/code>&lt;/pre>
-&lt;h2 id="going-further">Going Further&lt;/h2>
-&lt;p>There are ways to solve this problem even faster. You &lt;em>could&lt;/em> use the
-&lt;a href="https://en.wikipedia.org/wiki/Prime_number_theorem" target="_blank" rel="noopener">Prime Number Theorem&lt;/a> to approximate an upper bound for a
-&lt;a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes" target="_blank" rel="noopener">Sieve of Eratosthenes&lt;/a> and sieve out the answer. We&amp;rsquo;ll deal with those concepts in coming problems so for now I&amp;rsquo;ll leave that as an exercise for the reader.&lt;/p></description></item><item><title>Project Euler Problem 6: Sum Square Difference</title><link>/post/euler_problem_6/</link><pubDate>Sat, 06 Jun 2020 17:10:14 -0600</pubDate><guid>/post/euler_problem_6/</guid><description>&lt;p>
-&lt;a href="https://projecteuler.net/problem=6" target="_blank" rel="noopener">Problem 6&lt;/a> has a brute force solution and an elegant formula solution that calculates the answer directly. But the brute force solution is good enough and the formula is obscure enough that I wouldn&amp;rsquo;t have found it without googling so we&amp;rsquo;ll focus on the brute force solution.&lt;/p>
-&lt;p>As always, spend some time with
-&lt;a href="https://projecteuler.net/problem=6" target="_blank" rel="noopener">the problem&lt;/a> if you haven&amp;rsquo;t yet.&lt;/p>
-&lt;figure id="figure-spent-_way_-too-long-on-google-images-searching-squares">
-&lt;img src="/img/green_squares.png" alt="" >
-&lt;figcaption>
-Spent &lt;em>way&lt;/em> too long on google images searching squares
-&lt;/figcaption>
-&lt;/figure>
-&lt;h2 id="brute-forcing-it">Brute Forcing it&lt;/h2>
-&lt;p>All the numbers involved in this problem are small enough to quickly calculate:&lt;/p>
-&lt;pre>&lt;code class="language-python">limit = 100
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;going-further&#34;&gt;Going Further&lt;/h2&gt;
+&lt;p&gt;There are ways to solve this problem even faster. You &lt;em&gt;could&lt;/em&gt; use the 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Prime_number_theorem&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prime Number Theorem&lt;/a&gt; to approximate an upper bound for a 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sieve of Eratosthenes&lt;/a&gt; and sieve out the answer. We&amp;rsquo;ll deal with those concepts in coming problems so for now I&amp;rsquo;ll leave that as an exercise for the reader.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Project Euler Problem 6: Sum Square Difference</title>
+      <link>/post/euler_problem_6/</link>
+      <pubDate>Sat, 06 Jun 2020 17:10:14 -0600</pubDate>
+      <guid>/post/euler_problem_6/</guid>
+      <description>&lt;p&gt;
+&lt;a href=&#34;https://projecteuler.net/problem=6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 6&lt;/a&gt; has a brute force solution and an elegant formula solution that calculates the answer directly. But the brute force solution is good enough and the formula is obscure enough that I wouldn&amp;rsquo;t have found it without googling so we&amp;rsquo;ll focus on the brute force solution.&lt;/p&gt;
+&lt;p&gt;As always, spend some time with 
+&lt;a href=&#34;https://projecteuler.net/problem=6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the problem&lt;/a&gt; if you haven&amp;rsquo;t yet.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-spent-_way_-too-long-on-google-images-searching-squares&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/green_squares.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Spent &lt;em&gt;way&lt;/em&gt; too long on google images searching squares
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;brute-forcing-it&#34;&gt;Brute Forcing it&lt;/h2&gt;
+&lt;p&gt;All the numbers involved in this problem are small enough to quickly calculate:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;limit = 100
 integers = range(1, limit + 1)
 sum_of_squares = sum([x ** 2 for x in integers])
 square_of_sum = sum(integers) ** 2
 print(square_of_sum - sum_of_squares)
-&lt;/code>&lt;/pre>
-&lt;p>You &lt;em>could&lt;/em> get clever and jam all that into one line, but it&amp;rsquo;d be less readable &amp;amp; maintainable:&lt;/p>
-&lt;pre>&lt;code class="language-python">print(sum(range(1, 101)) ** 2 - sum([x ** 2 for x in range(1, 101)]))
-&lt;/code>&lt;/pre>
-&lt;p>I feel the temptation to get clever like that a lot. I&amp;rsquo;ve learned future me is usually better off if I avoid that temptation.&lt;/p>
-&lt;h2 id="the-efficient-solution">The Efficient Solution&lt;/h2>
-&lt;p>It&amp;rsquo;s not my jam and I didn&amp;rsquo;t figure it out on my own (I just used the brute force solution) so I&amp;rsquo;ll avoid deriving the formula (you can read about it in depth
-&lt;a href="https://trans4mind.com/personal_development/mathematics/series/sumNaturalSquares.htm" target="_blank" rel="noopener">here&lt;/a> if you like), but for the series of squares:&lt;/p>
-&lt;p>$$ 1^2{,\ } 2^2{,\ } 3^2{,\ } 4^2{,\ } 5^2&amp;hellip; $$&lt;/p>
-&lt;p>there&amp;rsquo;s a formula to calculate the sum of the first n terms:&lt;/p>
-&lt;p>$$ \sum_{i=1}^{n} i^2 = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6} $$&lt;/p>
-&lt;p>And of course we know the sum of 1 to 100 is a good old
-&lt;a href="https://en.wikipedia.org/wiki/Arithmetic_progression#Sum" target="_blank" rel="noopener">arithmetic progression&lt;/a>:&lt;/p>
-&lt;p>$$ \sum_{a_{1}}^{a_{n}} = \frac{n(a_{1} + a_{n})}{2} $$&lt;/p>
-&lt;p>We can combine those as:&lt;/p>
-&lt;p>$$ Answer = \left( \frac{100^3}{3} + \frac{100^2}{2} + \frac{100}{6} \right) - \left( \frac{100(1 + 100)}{2} \right)^2 $$&lt;/p>
-&lt;p>In code:&lt;/p>
-&lt;pre>&lt;code class="language-python">limit = 100
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You &lt;em&gt;could&lt;/em&gt; get clever and jam all that into one line, but it&amp;rsquo;d be less readable &amp;amp; maintainable:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(sum(range(1, 101)) ** 2 - sum([x ** 2 for x in range(1, 101)]))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I feel the temptation to get clever like that a lot. I&amp;rsquo;ve learned future me is usually better off if I avoid that temptation.&lt;/p&gt;
+&lt;h2 id=&#34;the-efficient-solution&#34;&gt;The Efficient Solution&lt;/h2&gt;
+&lt;p&gt;It&amp;rsquo;s not my jam and I didn&amp;rsquo;t figure it out on my own (I just used the brute force solution) so I&amp;rsquo;ll avoid deriving the formula (you can read about it in depth 
+&lt;a href=&#34;https://trans4mind.com/personal_development/mathematics/series/sumNaturalSquares.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; if you like), but for the series of squares:&lt;/p&gt;
+&lt;p&gt;$$ 1^2{,\ } 2^2{,\ } 3^2{,\ } 4^2{,\ } 5^2&amp;hellip; $$&lt;/p&gt;
+&lt;p&gt;there&amp;rsquo;s a formula to calculate the sum of the first n terms:&lt;/p&gt;
+&lt;p&gt;$$ \sum_{i=1}^{n} i^2 = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6} $$&lt;/p&gt;
+&lt;p&gt;And of course we know the sum of 1 to 100 is a good old 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Arithmetic_progression#Sum&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;arithmetic progression&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;$$ \sum_{a_{1}}^{a_{n}} = \frac{n(a_{1} + a_{n})}{2} $$&lt;/p&gt;
+&lt;p&gt;We can combine those as:&lt;/p&gt;
+&lt;p&gt;$$  Answer = \left( \frac{100^3}{3} + \frac{100^2}{2} + \frac{100}{6} \right) - \left( \frac{100(1 + 100)}{2} \right)^2 $$&lt;/p&gt;
+&lt;p&gt;In code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;limit = 100
 sum_of_squares = (limit * (1 + limit) / 2) ** 2
 square_of_sum = (limit ** 3) / 3 + (limit ** 2) / 2 + limit / 6
 print(sum_of_squares - square_of_sum)
-&lt;/code>&lt;/pre>
-&lt;p>Look ma, no iteration.&lt;/p></description></item><item><title>Project Euler Problem 5: Smallest Multiple</title><link>/post/euler_problem_5/</link><pubDate>Wed, 03 Jun 2020 10:33:17 -0600</pubDate><guid>/post/euler_problem_5/</guid><description>&lt;p>
-&lt;a href="https://projecteuler.net/problem=5" target="_blank" rel="noopener">Problem 5&lt;/a> is a lot of fun (well, &amp;ldquo;fun&amp;rdquo;) because (1) there&amp;rsquo;s a very simple program requiring no math that calculates the answer, but (2) that program would need impossible amounts of compute to actually run, and (3) you can figure the answer with pen and paper super fast if you think about the math a bit. That&amp;rsquo;s what normal people consider fun, right?&lt;/p>
-&lt;p>Since this problem leans much more on number theory than on programming we&amp;rsquo;ll use it as an excuse to talk about math more than usual. Our first real step into number theory was
-&lt;a href="https://projecteuler.net/problem=3" target="_blank" rel="noopener">Problem 3&lt;/a> (
-&lt;a href="grae.io/post/euler_problem_3/">blog post&lt;/a>) with prime factors. Here we&amp;rsquo;ll talk about least common multiples and prime factorization. This will be useful: as we get deeper into Project Euler we&amp;rsquo;ll get much deeper into number theory.&lt;/p>
-&lt;p>As always, spend some time with
-&lt;a href="https://projecteuler.net/problem=5" target="_blank" rel="noopener">Problem 5&lt;/a> on your own if you haven&amp;rsquo;t already.&lt;/p>
-&lt;figure id="figure-an-ulam-spiral-visualizing-prime-factorization-source-a-hrefhttpsenwikipediaorgwikinumber_theorywikipediaa">
-&lt;img src="/img/ulam_spiral.jpeg" alt="" >
-&lt;figcaption>
-An Ulam Spiral visualizing prime factorization. Source: &lt;a href='https://en.wikipedia.org/wiki/Number_theory'>Wikipedia&lt;/a>
-&lt;/figcaption>
-&lt;/figure>
-&lt;h2 id="brute-force">Brute Force?&lt;/h2>
-&lt;p>Each Project Euler problem has basically two parts: an example and a problem statement. In this case the example is:&lt;/p>
-&lt;blockquote>
-&lt;p>2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.&lt;/p>
-&lt;/blockquote>
-&lt;p>These examples are crazy useful. They aren&amp;rsquo;t just there to define the problem: they let us work through the problem with simpler, smaller inputs. Testing and tinkering with small examples can yield insights, concepts, and strategies that help solve the problem with tougher inputs. They&amp;rsquo;re hints; if you look at them hard enough.&lt;/p>
-&lt;p>Now, as a programmer your instinct might be to throw piles of compute at this problem. The example number is pretty small (just 2,520). Maybe we can just light up a few nested loops to chew through this?&lt;/p>
-&lt;pre>&lt;code class="language-python">found = False
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Look ma, no iteration.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Project Euler Problem 5: Smallest Multiple</title>
+      <link>/post/euler_problem_5/</link>
+      <pubDate>Wed, 03 Jun 2020 10:33:17 -0600</pubDate>
+      <guid>/post/euler_problem_5/</guid>
+      <description>&lt;p&gt;
+&lt;a href=&#34;https://projecteuler.net/problem=5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 5&lt;/a&gt; is a lot of fun (well, &amp;ldquo;fun&amp;rdquo;) because (1) there&amp;rsquo;s a very simple program requiring no math that calculates the answer, but (2) that program would need impossible amounts of compute to actually run, and (3) you can figure the answer with pen and paper super fast if you think about the math a bit. That&amp;rsquo;s what normal people consider fun, right?&lt;/p&gt;
+&lt;p&gt;Since this problem leans much more on number theory than on programming we&amp;rsquo;ll use it as an excuse to talk about math more than usual. Our first real step into number theory was 
+&lt;a href=&#34;https://projecteuler.net/problem=3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 3&lt;/a&gt; (
+&lt;a href=&#34;grae.io/post/euler_problem_3/&#34;&gt;blog post&lt;/a&gt;) with prime factors. Here we&amp;rsquo;ll talk about least common multiples and prime factorization. This will be useful: as we get deeper into Project Euler we&amp;rsquo;ll get much deeper into number theory.&lt;/p&gt;
+&lt;p&gt;As always, spend some time with 
+&lt;a href=&#34;https://projecteuler.net/problem=5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 5&lt;/a&gt; on your own if you haven&amp;rsquo;t already.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-an-ulam-spiral-visualizing-prime-factorization-source-a-hrefhttpsenwikipediaorgwikinumber_theorywikipediaa&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/ulam_spiral.jpeg&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    An Ulam Spiral visualizing prime factorization. Source: &lt;a href=&#39;https://en.wikipedia.org/wiki/Number_theory&#39;&gt;Wikipedia&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;brute-force&#34;&gt;Brute Force?&lt;/h2&gt;
+&lt;p&gt;Each Project Euler problem has basically two parts: an example and a problem statement. In this case the example is:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;These examples are crazy useful. They aren&amp;rsquo;t just there to define the problem: they let us work through the problem with simpler, smaller inputs. Testing and tinkering with small examples can yield insights, concepts, and strategies that help solve the problem with tougher inputs. They&amp;rsquo;re hints; if you look at them hard enough.&lt;/p&gt;
+&lt;p&gt;Now, as a programmer your instinct might be to throw piles of compute at this problem. The example number is pretty small (just 2,520). Maybe we can just light up a few nested loops to chew through this?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;found = False
 n = 1
 factors = range(1, 11)
 while not found:
-found = True
-for x in factors:
-if n % x != 0:
-found = False
-if found:
-print(i)
-n += 1
+    found = True
+    for x in factors:
+        if n % x != 0:
+            found = False
+    if found:
+        print(i)
+    n += 1
 print(n)
-&lt;/code>&lt;/pre>
-&lt;p>That program gives &lt;code>2520&lt;/code> with no appreciable delay. Let&amp;rsquo;s crank our range up to 20 and try it out!&lt;/p>
-&lt;p>&amp;hellip;&lt;/p>
-&lt;p>Yeah so I pulled the plug after taking more than a minute to iterate all the way up to &lt;code>19034074&lt;/code> without finding the answer. Clearly the number we&amp;rsquo;re looking for is too big to find with this brute force approach. Looks like we&amp;rsquo;re going to &lt;em>have&lt;/em> to think about the math a bit.&lt;/p>
-&lt;h2 id="break-out-the-pen-and-paper">Break Out the Pen and Paper&lt;/h2>
-&lt;p>If we can&amp;rsquo;t brute force our way, there must be a more direct solution. This is where Project Euler&amp;rsquo;s hints are crazy useful.&lt;/p>
-&lt;p>One way to calculate a number that&amp;rsquo;s divisible by a set of factors (a &amp;ldquo;&lt;strong>common multiple&lt;/strong>&amp;quot;) is to just multiply the factors all together. In our example case that&amp;rsquo;s:&lt;/p>
-&lt;p>$$ 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9 * 10 $$&lt;/p>
-&lt;p>That&amp;rsquo;s cumbersome to write out, so instead I&amp;rsquo;ll use $ ! $, which is short hand for the
-&lt;a href="https://en.wikipedia.org/wiki/Factorial" target="_blank" rel="noopener">factorial operation&lt;/a>.&lt;/p>
-&lt;p>We see that $ 10! $ is $ 3{,}628{,}800 $. That&amp;rsquo;s MUCH bigger than $ 2{,}520 $. Exactly $ 1{,}440 $ times bigger in fact. What&amp;rsquo;s so special about $ 1{,}440 $? And why can you evenly divide it by 2 and 3 so many times?&lt;/p>
-&lt;p>Now, &lt;em>you know&lt;/em> that every integer is either prime or the product of prime factors. You &lt;em>may not&lt;/em> know that&amp;rsquo;s called the &amp;ldquo;unique factorization theorem&amp;rdquo;, or, with more gravitas, the &amp;ldquo;
-&lt;a href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic" target="_blank" rel="noopener">fundamental theorem of arithmetic&lt;/a>&amp;quot;.&lt;/p>
-&lt;p>Finding the prime factors of a number is called &lt;strong>prime factorization&lt;/strong> and it can take a long time with big numbers. But you can factorize all the numbers you need to solve this problem in your head because they&amp;rsquo;re all so small.&lt;/p>
-&lt;p>Tinkering with a calculator and without needing to write any code, we can see that the prime factors of $ 1{,}440 $ are:&lt;/p>
-&lt;p>$$ [2{,\ }2{,\ }2{,\ }2{,\ }2{,\ }3{,\ }3{,\ }5] $$&lt;/p>
-&lt;p>You could say that each of those is an &amp;ldquo;extra&amp;rdquo; factor and that $ 10! $ has a bunch of extra factors of $ 2 $ and $ 3 $ and $ 5 $ compared to the least common multiple. This is even clearer if we set the prime factorization of the least common multiple (&amp;ldquo;LCM&amp;rdquo;) and $ 10! $ next to each other:&lt;/p>
-&lt;p>$$ LCM = 2{,}520 = 2^3 * 3^2 * 5^1 * 7^1 $$
-$$ 10! = 3{,}628{,}800 = 2^8 * 3^4 * 5^2 * 7^1 $$&lt;/p>
-&lt;p>Progress! Is there a way we can figure out (1) which prime numbers are factors of our answer and (2) how many of each prime is &amp;ldquo;enough&amp;rdquo;?&lt;/p>
-&lt;h3 id="which-prime-numbers">Which Prime Numbers?&lt;/h3>
-&lt;p>Looking at the example we see none of the prime factors are larger than 10. And that every prime number less than 10 is represented at least once.&lt;/p>
-&lt;p>This makes sense. The next largest prime number, 11, isn&amp;rsquo;t a factor of any of the numbers 1-10. And &lt;em>every&lt;/em> number, &lt;em>including each prime number&lt;/em>, less than 10 is a factor.&lt;/p>
-&lt;p>So we know that our answer has every prime number less than 20 as a factor at least once, and none of the prime numbers larger than 20 as a factor.&lt;/p>
-&lt;h3 id="how-many-of-each">How many of each?&lt;/h3>
-&lt;p>Some of the primes from 2 to 19 have to be represented more than once. We know that because &lt;em>that number&lt;/em> (9,699,690) would have been found with our brute force approach if it were correct. We also know that because a number like 4, which has two factors of 2, wouldn&amp;rsquo;t evenly divide it. And 8, which has &lt;em>three&lt;/em> factors of two &lt;em>also&lt;/em> wouldn&amp;rsquo;t evenly divide it.&lt;/p>
-&lt;p>Turns out that we need &amp;ldquo;enough&amp;rdquo; of each prime to make every one of the factors (1 to 20). Looking at the answer to the example, it needs &lt;em>three&lt;/em> factors of 2 because it needs to be divisible by 8. And it needs &lt;em>two&lt;/em> factors of 3 because it needs to be divisible by 9. But only &lt;em>one&lt;/em> factor of the larger primes.&lt;/p>
-&lt;h2 id="coding-a-solution">Coding a solution&lt;/h2>
-&lt;p>At this point it might actually be easier to break out a pen and tally the answer. You could do that by looking at each number from 1 to 20, calculating the prime factors for each number, keeping the largest count of each prime factor, and then multiplying out everything. But instead, let&amp;rsquo;s write some code to do that!&lt;/p>
-&lt;pre>&lt;code class="language-python">from math import floor
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That program gives &lt;code&gt;2520&lt;/code&gt; with no appreciable delay. Let&amp;rsquo;s crank our range up to 20 and try it out!&lt;/p&gt;
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Yeah so I pulled the plug after taking more than a minute to iterate all the way up to &lt;code&gt;19034074&lt;/code&gt; without finding the answer. Clearly the number we&amp;rsquo;re looking for is too big to find with this brute force approach. Looks like we&amp;rsquo;re going to &lt;em&gt;have&lt;/em&gt; to think about the math a bit.&lt;/p&gt;
+&lt;h2 id=&#34;break-out-the-pen-and-paper&#34;&gt;Break Out the Pen and Paper&lt;/h2&gt;
+&lt;p&gt;If we can&amp;rsquo;t brute force our way, there must be a more direct solution. This is where Project Euler&amp;rsquo;s hints are crazy useful.&lt;/p&gt;
+&lt;p&gt;One way to calculate a number that&amp;rsquo;s divisible by a set of factors (a &amp;ldquo;&lt;strong&gt;common multiple&lt;/strong&gt;&amp;quot;) is to just multiply the factors all together. In our example case that&amp;rsquo;s:&lt;/p&gt;
+&lt;p&gt;$$ 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9 * 10 $$&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s cumbersome to write out, so instead I&amp;rsquo;ll use $ ! $, which is short hand for the 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Factorial&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;factorial operation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We see that $ 10! $ is $ 3{,}628{,}800 $. That&amp;rsquo;s MUCH bigger than $ 2{,}520 $. Exactly $ 1{,}440 $ times bigger in fact. What&amp;rsquo;s so special about $ 1{,}440 $? And why can you evenly divide it by 2 and 3 so many times?&lt;/p&gt;
+&lt;p&gt;Now, &lt;em&gt;you know&lt;/em&gt; that every integer is either prime or the product of prime factors. You &lt;em&gt;may not&lt;/em&gt; know that&amp;rsquo;s called the &amp;ldquo;unique factorization theorem&amp;rdquo;, or, with more gravitas, the &amp;ldquo;
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fundamental theorem of arithmetic&lt;/a&gt;&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Finding the prime factors of a number is called &lt;strong&gt;prime factorization&lt;/strong&gt; and it can take a long time with big numbers. But you can factorize all the numbers you need to solve this problem in your head because they&amp;rsquo;re all so small.&lt;/p&gt;
+&lt;p&gt;Tinkering with a calculator and without needing to write any code, we can see that the prime factors of $ 1{,}440 $ are:&lt;/p&gt;
+&lt;p&gt;$$ [2{,\ }2{,\ }2{,\ }2{,\ }2{,\ }3{,\ }3{,\ }5] $$&lt;/p&gt;
+&lt;p&gt;You could say that each of those is an &amp;ldquo;extra&amp;rdquo; factor and that $ 10! $ has a bunch of extra factors of $ 2 $ and $ 3 $ and $ 5 $ compared to the least common multiple. This is even clearer if we set the prime factorization of the least common multiple (&amp;ldquo;LCM&amp;rdquo;) and $ 10! $ next to each other:&lt;/p&gt;
+&lt;p&gt;$$ LCM = 2{,}520 = 2^3 * 3^2 * 5^1 * 7^1 $$
+$$ 10! = 3{,}628{,}800 = 2^8 * 3^4 * 5^2 * 7^1 $$&lt;/p&gt;
+&lt;p&gt;Progress! Is there a way we can figure out (1) which prime numbers are factors of our answer and (2) how many of each prime is &amp;ldquo;enough&amp;rdquo;?&lt;/p&gt;
+&lt;h3 id=&#34;which-prime-numbers&#34;&gt;Which Prime Numbers?&lt;/h3&gt;
+&lt;p&gt;Looking at the example we see none of the prime factors are larger than 10. And that every prime number less than 10 is represented at least once.&lt;/p&gt;
+&lt;p&gt;This makes sense. The next largest prime number, 11, isn&amp;rsquo;t a factor of any of the numbers 1-10. And &lt;em&gt;every&lt;/em&gt; number, &lt;em&gt;including each prime number&lt;/em&gt;, less than 10 is a factor.&lt;/p&gt;
+&lt;p&gt;So we know that our answer has every prime number less than 20 as a factor at least once, and none of the prime numbers larger than 20 as a factor.&lt;/p&gt;
+&lt;h3 id=&#34;how-many-of-each&#34;&gt;How many of each?&lt;/h3&gt;
+&lt;p&gt;Some of the primes from 2 to 19 have to be represented more than once. We know that because &lt;em&gt;that number&lt;/em&gt; (9,699,690) would have been found with our brute force approach if it were correct. We also know that because a number like 4, which has two factors of 2, wouldn&amp;rsquo;t evenly divide it. And 8, which has &lt;em&gt;three&lt;/em&gt; factors of two &lt;em&gt;also&lt;/em&gt; wouldn&amp;rsquo;t evenly divide it.&lt;/p&gt;
+&lt;p&gt;Turns out that we need &amp;ldquo;enough&amp;rdquo; of each prime to make every one of the factors (1 to 20). Looking at the answer to the example, it needs &lt;em&gt;three&lt;/em&gt; factors of 2 because it needs to be divisible by 8. And it needs &lt;em&gt;two&lt;/em&gt; factors of 3 because it needs to be divisible by 9. But only &lt;em&gt;one&lt;/em&gt; factor of the larger primes.&lt;/p&gt;
+&lt;h2 id=&#34;coding-a-solution&#34;&gt;Coding a solution&lt;/h2&gt;
+&lt;p&gt;At this point it might actually be easier to break out a pen and tally the answer. You could do that by looking at each number from 1 to 20, calculating the prime factors for each number, keeping the largest count of each prime factor, and then multiplying out everything. But instead, let&amp;rsquo;s write some code to do that!&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from math import floor
+
 # A simple function to test whether a number is prime.
 def is_prime(n):
-for x in range(2, floor(n ** 0.5) + 1):
-if n % x == 0:
-return False
-return True
-# The number we'll check up to. Set to 10 to test the code then change to 20.
+    for x in range(2, floor(n ** 0.5) + 1):
+        if n % x == 0:
+          return False
+    return True
+
+# The number we&#39;ll check up to. Set to 10 to test the code then change to 20.
 limit = 100
+
 # A list of primes we know show up at least once.
 primes = [x for x in range(2, limit + 1) if is_prime(x)]
+
 # A simple function to calculate the prime factors of a number.
 def prime_factors(n):
-result = {prime: 0 for prime in primes}
-i = 0
-for prime in primes:
-while n % prime == 0:
-result[prime] += 1
-n = n / prime
-return result
+    result = {prime: 0 for prime in primes}
+    i = 0
+    for prime in primes:
+        while n % prime == 0:
+            result[prime] += 1
+            n = n / prime
+    return result
+
 # Initialize factors. We know each prime below limit shows up at least once.
 factors = {prime: 1 for prime in primes}
+
 # Look at the prime counts for each number in our range and keep the highest.
 for x in range(2, limit + 1):
-for prime, count in prime_factors(x).items():
-factors[prime] = max(count, factors[prime])
+    for prime, count in prime_factors(x).items():
+        factors[prime] = max(count, factors[prime])
+
 # Calculate and print the result.
 result = 1
 for prime, count in factors.items():
-result *= prime ** count
+    result *= prime ** count
+
 print(result)
-&lt;/code>&lt;/pre>
-&lt;p>There are ways to further optimize this solution. For example, you could sidestep the need for a &lt;code>prime_factors()&lt;/code> function altogether with witty application of some logarithms and the observation that 3 * 3 * 3 is bigger than 20. But that feels a bit silly. Even bumping up our limit to 100 and running this program it calculates the 41-digit answer without noticeable delay.&lt;/p></description></item><item><title>Project Euler Problem 4: Largest palindrome product</title><link>/post/euler_problem_4/</link><pubDate>Tue, 26 May 2020 18:41:21 -0700</pubDate><guid>/post/euler_problem_4/</guid><description>&lt;p>Project Euler
-&lt;a href="projecteuler.net/problem=4">problem 4&lt;/a> feels like a step back in difficulty. The numbers involved aren&amp;rsquo;t too big so we don&amp;rsquo;t have to worry about resource constraints. The subproblems it breaks down into are fairly straightforward. If you haven&amp;rsquo;t yet, take some time with this problem on your own and continue on down below.&lt;/p>
-&lt;figure id="figure-photo-by-a-hrefhttpsunsplashcomlenscapismjingwei-kea-on-a-hrefunsplashcomunsplasha">
-&lt;img src="/img/reflection.jpg" alt="" >
-&lt;figcaption>
-Photo by &lt;a href='https://unsplash.com/@lenscapism'>Jingwei Ke&lt;/a> on &lt;a href='unsplash.com'>Unsplash&lt;/a>
-&lt;/figcaption>
-&lt;/figure>
-&lt;h2 id="breaking-the-problem-down">Breaking the Problem Down&lt;/h2>
-&lt;p>We can break this problem down into several subproblems:&lt;/p>
-&lt;ol>
-&lt;li>Be able to check whether a number is a &amp;ldquo;palindrome&amp;rdquo;&lt;/li>
-&lt;li>Look at the right set of numbers and check whether each is a palindrome&lt;/li>
-&lt;li>Choose the right one from the final set&lt;/li>
-&lt;/ol>
-&lt;h2 id="subproblem-1-the-is_palindromen-function">Subproblem 1: The &lt;code>is_palindrome(n)&lt;/code> Function&lt;/h2>
-&lt;p>Let&amp;rsquo;s start with the first subproblem and write an &lt;code>is_palindrome(n)&lt;/code> function to check whether a number is a palindrome. This function uses arithmetic to create a new integer with the digits of &lt;code>n&lt;/code> reversed&lt;/p>
-&lt;pre>&lt;code class="language-python">def is_palindrome(n):
-backwards = 0
-temp = n
-while temp &amp;gt; 0:
-backwards *= 10
-backwards += temp % 10
-temp = temp // 10
-return backwards == n
-&lt;/code>&lt;/pre>
-&lt;p>There are several ways you could define this &lt;code>is_palindrome(n)&lt;/code> function. You might prefer to use strings rather than arithmetic:&lt;/p>
-&lt;pre>&lt;code class="language-python">def is_palindrome(n):
-return str(n) == str(n)[::-1]
-&lt;/code>&lt;/pre>
-&lt;p>This one uses Python&amp;rsquo;s
-&lt;a href="https://docs.python.org/2.3/whatsnew/section-slices.html" target="_blank" rel="noopener">extended slicing&lt;/a>, one of my favorite Python features. Slicing makes Python a joy to work with.&lt;/p>
-&lt;h2 id="subproblem-2-generating-products">Subproblem 2: Generating Products&lt;/h2>
-&lt;p>How can we generate the set of numbers we need to check? We&amp;rsquo;re interested in all the products of two 3-digit numbers. We can use a simple &lt;code>for&lt;/code> loop to generate each 3-digit number. To generate all &lt;em>pairs&lt;/em> of 3-digit numbers we can nest two &lt;code>for&lt;/code> loops:&lt;/p>
-&lt;pre>&lt;code class="language-python">products = []
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are ways to further optimize this solution. For example, you could sidestep the need for a &lt;code&gt;prime_factors()&lt;/code&gt; function altogether with witty application of some logarithms and the observation that 3 * 3 * 3 is bigger than 20. But that feels a bit silly. Even bumping up our limit to 100 and running this program it calculates the 41-digit answer without noticeable delay.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Project Euler Problem 4: Largest palindrome product</title>
+      <link>/post/euler_problem_4/</link>
+      <pubDate>Tue, 26 May 2020 18:41:21 -0700</pubDate>
+      <guid>/post/euler_problem_4/</guid>
+      <description>&lt;p&gt;Project Euler 
+&lt;a href=&#34;projecteuler.net/problem=4&#34;&gt;problem 4&lt;/a&gt; feels like a step back in difficulty. The numbers involved aren&amp;rsquo;t too big so we don&amp;rsquo;t have to worry about resource constraints. The subproblems it breaks down into are fairly straightforward. If you haven&amp;rsquo;t yet, take some time with this problem on your own and continue on down below.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-photo-by-a-hrefhttpsunsplashcomlenscapismjingwei-kea-on-a-hrefunsplashcomunsplasha&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/reflection.jpg&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Photo by &lt;a href=&#39;https://unsplash.com/@lenscapism&#39;&gt;Jingwei Ke&lt;/a&gt; on &lt;a href=&#39;unsplash.com&#39;&gt;Unsplash&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;breaking-the-problem-down&#34;&gt;Breaking the Problem Down&lt;/h2&gt;
+&lt;p&gt;We can break this problem down into several subproblems:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Be able to check whether a number is a &amp;ldquo;palindrome&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Look at the right set of numbers and check whether each is a palindrome&lt;/li&gt;
+&lt;li&gt;Choose the right one from the final set&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;subproblem-1-the-is_palindromen-function&#34;&gt;Subproblem 1: The &lt;code&gt;is_palindrome(n)&lt;/code&gt; Function&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s start with the first subproblem and write an  &lt;code&gt;is_palindrome(n)&lt;/code&gt; function to check whether a number is a palindrome. This function uses arithmetic to create a new integer with the digits of &lt;code&gt;n&lt;/code&gt; reversed&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_palindrome(n):
+    backwards = 0
+    temp = n
+    while temp &amp;gt; 0:
+        backwards *= 10
+        backwards += temp % 10
+        temp = temp // 10
+    return backwards == n
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There are several ways you could define this &lt;code&gt;is_palindrome(n)&lt;/code&gt; function. You might prefer to use strings rather than arithmetic:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_palindrome(n):
+    return str(n) == str(n)[::-1]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This one uses Python&amp;rsquo;s 
+&lt;a href=&#34;https://docs.python.org/2.3/whatsnew/section-slices.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;extended slicing&lt;/a&gt;, one of my favorite Python features. Slicing makes Python a joy to work with.&lt;/p&gt;
+&lt;h2 id=&#34;subproblem-2-generating-products&#34;&gt;Subproblem 2: Generating Products&lt;/h2&gt;
+&lt;p&gt;How can we generate the set of numbers we need to check? We&amp;rsquo;re interested in all the products of two 3-digit numbers. We can use a simple &lt;code&gt;for&lt;/code&gt; loop to generate each 3-digit number. To generate all &lt;em&gt;pairs&lt;/em&gt; of 3-digit numbers we can nest two &lt;code&gt;for&lt;/code&gt; loops:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;products = []
 for x in range(100, 1000):
-for y in range(100, 1000):
-products.append(x * y)
-&lt;/code>&lt;/pre>
-&lt;p>The nested &lt;code>for&lt;/code> loops above will generate every
-&lt;a href="https://en.wikipedia.org/wiki/Permutation" target="_blank" rel="noopener">permutation&lt;/a> (specifically, the &amp;ldquo;permutation with repetition&amp;rdquo; or
-&lt;a href="https://en.wikipedia.org/wiki/Cartesian_product" target="_blank" rel="noopener">Cartesian product&lt;/a>) of three digit numbers, use those factors to calculate the product, and add that product to a list of all products.&lt;/p>
-&lt;p>Python has a &lt;em>wonderful&lt;/em> standard library. The &lt;code>itertools&lt;/code> module (
-&lt;a href="https://docs.python.org/3/library/itertools.html" target="_blank" rel="noopener">docs&lt;/a>) is particularly useful for Project Euler problems with how often it throws combinatorics problems at us.&lt;/p>
-&lt;p>&lt;img src="https://imgs.xkcd.com/comics/python.png" alt="">&lt;/p>
-&lt;p>Here is the same solution using &lt;code>itertools.product&lt;/code> and a list comprehension:&lt;/p>
-&lt;pre>&lt;code class="language-python">from itertools import product
+    for y in range(100, 1000):
+        products.append(x * y)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The nested &lt;code&gt;for&lt;/code&gt; loops above will generate every 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Permutation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;permutation&lt;/a&gt; (specifically, the &amp;ldquo;permutation with repetition&amp;rdquo; or 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Cartesian_product&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cartesian product&lt;/a&gt;) of three digit numbers, use those factors to calculate the product, and add that product to a list of all products.&lt;/p&gt;
+&lt;p&gt;Python has a &lt;em&gt;wonderful&lt;/em&gt; standard library. The &lt;code&gt;itertools&lt;/code&gt; module (
+&lt;a href=&#34;https://docs.python.org/3/library/itertools.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docs&lt;/a&gt;) is particularly useful for Project Euler problems with how often it throws combinatorics problems at us.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://imgs.xkcd.com/comics/python.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Here is the same solution using &lt;code&gt;itertools.product&lt;/code&gt; and a list comprehension:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from itertools import product
 factor_pairs = product(range(100, 1000), repeat=2)
 products = [factors[0] * factors[1] for factors in factor_pairs]
-&lt;/code>&lt;/pre>
-&lt;h3 id="speeding-up-with-combinations">Speeding up with Combinations&lt;/h3>
-&lt;p>The approach above using products will make us duplicate some of our work. For example, $ 101 * 202 $ is the same as $ 202 * 101 $, and the approach above calculates that product ($ 20{,}402 $) multiple times. Wasted compute cycles, right?&lt;/p>
-&lt;p>It doesn&amp;rsquo;t matter much for this problem because the numbers are small enough to just power through, but it&amp;rsquo;s easy to imagine a situation where unnecessarily repeating work &lt;em>does&lt;/em> cause problems.&lt;/p>
-&lt;p>Because the order of factors doesn&amp;rsquo;t matter, we can use a
-&lt;a href="https://en.wikipedia.org/wiki/Combination" target="_blank" rel="noopener">combination&lt;/a> rather than a product to find all the products we want. We&amp;rsquo;ll skip straight to the &lt;code>itertools&lt;/code> solution this time:&lt;/p>
-&lt;pre>&lt;code class="language-python">from itertools import combinations_with_replacement
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;speeding-up-with-combinations&#34;&gt;Speeding up with Combinations&lt;/h3&gt;
+&lt;p&gt;The approach above using products will make us duplicate some of our work. For example, $ 101 * 202 $ is the same as $ 202 * 101 $, and the approach above calculates that product ($ 20{,}402 $) multiple times. Wasted compute cycles, right?&lt;/p&gt;
+&lt;p&gt;It doesn&amp;rsquo;t matter much for this problem because the numbers are small enough to just power through, but it&amp;rsquo;s easy to imagine a situation where unnecessarily repeating work &lt;em&gt;does&lt;/em&gt; cause problems.&lt;/p&gt;
+&lt;p&gt;Because the order of factors doesn&amp;rsquo;t matter, we can use a 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Combination&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;combination&lt;/a&gt; rather than a product to find all the products we want. We&amp;rsquo;ll skip straight to the &lt;code&gt;itertools&lt;/code&gt; solution this time:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from itertools import combinations_with_replacement
 factor_pairs = combinations_with_replacement(range(100, 1000), r=2)
 products = [factors[0] * factors[1] for factors in factor_pairs]
-&lt;/code>&lt;/pre>
-&lt;p>This approach cuts the length of &lt;code>products&lt;/code> about in half because it isn&amp;rsquo;t unnecessarily repeating calculations. That&amp;rsquo;s not critical for this problem, but being aware of these issues will help us down the road.&lt;/p>
-&lt;h2 id="subproblem-3-finding-the-correct-product">Subproblem 3: Finding the Correct Product&lt;/h2>
-&lt;p>Now that we&amp;rsquo;ve generated every product we want and stored them in a &lt;code>products&lt;/code> list and have a &lt;code>is_palindrome(n)&lt;/code> function we can filter down to just palindromic numbers:&lt;/p>
-&lt;pre>&lt;code class="language-python">palindromes = [product for product in products if is_palindrome(product)]
-&lt;/code>&lt;/pre>
-&lt;p>From there we can sort and take the largest palindrome:&lt;/p>
-&lt;pre>&lt;code class="language-python">print(sorted(palindromes)[-1])
-&lt;/code>&lt;/pre>
-&lt;p>This approach uses Python&amp;rsquo;s built-in &lt;code>sorted()&lt;/code> function (
-&lt;a href="https://docs.python.org/3/howto/sorting.html" target="_blank" rel="noopener">docs&lt;/a>) and looks at the end of the list for the biggest value.&lt;/p>
-&lt;h2 id="can-you-improve-it">Can you Improve it?&lt;/h2>
-&lt;p>The solution described here generates &lt;em>all&lt;/em> products of 3-digit numbers, even the small ones we know probably aren&amp;rsquo;t the answer. The nested for loops above count &lt;em>up&lt;/em> through all the factors to generate products and then palindromes. It&amp;rsquo;s possible to write a solution that counts &lt;em>down&lt;/em> and finds the answer with much less compute than the solution in this post. Can you figure out how?&lt;/p></description></item><item><title>Project Euler Problem 3: Largest Prime Factor</title><link>/post/euler_problem_3/</link><pubDate>Mon, 25 May 2020 12:50:20 -0700</pubDate><guid>/post/euler_problem_3/</guid><description>&lt;p>
-&lt;a href="https://projecteuler.net/problem=3" target="_blank" rel="noopener">Problem 3&lt;/a> is where Euler starts forcing us to consider resource limitations. Before, the most straightforward solution worked just fine, even if it used more resources than a less complex algorithm would. As we&amp;rsquo;ll see here, that kind of solution, while &lt;em>correct&lt;/em> doesn&amp;rsquo;t work for us because the program never finishes in a reasonable amount of time. If we&amp;rsquo;re going to solve this one we need to start thinking about algorithmic complexity.&lt;/p>
-&lt;p>As usual, this is a good chance to take some time with the problem yourself before continuing on.&lt;/p>
-&lt;figure id="figure-project-euler-_really_-likes-to-play-with-prime-numbers-image-a-hrefhttpscommonswikimediaorgwikifileprimes-vs-compositessvgdavid-eppsteina">
-&lt;img src="/img/primes_vs_composites.png" alt="" >
-&lt;figcaption>
-Project Euler &lt;em>really&lt;/em> likes to play with prime numbers. Image: &lt;a href='https://commons.wikimedia.org/wiki/File:Primes-vs-composites.svg'>David Eppstein&lt;/a>
-&lt;/figcaption>
-&lt;/figure>
-&lt;h2 id="the-straightforward-naive-approach">The Straightforward (Naive) Approach&lt;/h2>
-&lt;p>So far I&amp;rsquo;ve been super intentional about saying &amp;ldquo;straightforward&amp;rdquo; when talking about the first solution that comes to mind. A lot of people call this the &amp;ldquo;naive&amp;rdquo; solution. I understand why people say &amp;ldquo;naive&amp;rdquo; but I usually avoid that word because I don&amp;rsquo;t like the negative connotations it carries. As we&amp;rsquo;ve seen, sometimes the &amp;ldquo;naive&amp;rdquo; or &amp;ldquo;straightforward&amp;rdquo; solution really is the &lt;em>best&lt;/em> solution: it really depends on your context and the tradeoffs you&amp;rsquo;re making. I&amp;rsquo;ve seen people internalize the principle that the straightforward solution &lt;em>must be&lt;/em> a &amp;ldquo;bad&amp;rdquo; solution and refuse to consider the tradeoffs involved. In the real world that mindset will just &lt;em>kill&lt;/em> your productivity and lead you to produce work that isn&amp;rsquo;t appropriate for the context you&amp;rsquo;re working in.&lt;/p>
-&lt;p>That said, there are situations where it&amp;rsquo;s easier to call a solution &amp;ldquo;naive&amp;rdquo; and this problem gives us a good example. My first attempt at solving this problem went like this:&lt;/p>
-&lt;blockquote>
-&lt;p>Ok, let&amp;rsquo;s just iterate over every number between 1 and 600,851,475,143, test whether it&amp;rsquo;s prime, then if so test whether it&amp;rsquo;s a factor of 600,851,475,143. Finally take the biggest one and there&amp;rsquo;s your answer.&lt;/p>
-&lt;/blockquote>
-&lt;p>In code that would look something like this. Ignore the magic &lt;code>is_prime()&lt;/code> function for now, we&amp;rsquo;ll get to that further down:&lt;/p>
-&lt;pre>&lt;code class="language-python">factors = []
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This approach cuts the length of &lt;code&gt;products&lt;/code&gt; about in half because it isn&amp;rsquo;t unnecessarily repeating calculations. That&amp;rsquo;s not critical for this problem, but being aware of these issues will help us down the road.&lt;/p&gt;
+&lt;h2 id=&#34;subproblem-3-finding-the-correct-product&#34;&gt;Subproblem 3: Finding the Correct Product&lt;/h2&gt;
+&lt;p&gt;Now that we&amp;rsquo;ve generated every product we want and stored them in a &lt;code&gt;products&lt;/code&gt; list and have a &lt;code&gt;is_palindrome(n)&lt;/code&gt; function we can filter down to just palindromic numbers:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;palindromes = [product for product in products if is_palindrome(product)]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;From there we can sort and take the largest palindrome:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(sorted(palindromes)[-1])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This approach uses Python&amp;rsquo;s built-in &lt;code&gt;sorted()&lt;/code&gt; function (
+&lt;a href=&#34;https://docs.python.org/3/howto/sorting.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docs&lt;/a&gt;) and looks at the end of the list for the biggest value.&lt;/p&gt;
+&lt;h2 id=&#34;can-you-improve-it&#34;&gt;Can you Improve it?&lt;/h2&gt;
+&lt;p&gt;The solution described here generates &lt;em&gt;all&lt;/em&gt; products of 3-digit numbers, even the small ones we know probably aren&amp;rsquo;t the answer. The nested for loops above count &lt;em&gt;up&lt;/em&gt; through all the factors to generate products and then palindromes. It&amp;rsquo;s possible to write a solution that counts &lt;em&gt;down&lt;/em&gt; and finds the answer with much less compute than the solution in this post. Can you figure out how?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Project Euler Problem 3: Largest Prime Factor</title>
+      <link>/post/euler_problem_3/</link>
+      <pubDate>Mon, 25 May 2020 12:50:20 -0700</pubDate>
+      <guid>/post/euler_problem_3/</guid>
+      <description>&lt;p&gt;
+&lt;a href=&#34;https://projecteuler.net/problem=3&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 3&lt;/a&gt; is where Euler starts forcing us to consider resource limitations. Before, the most straightforward solution worked just fine, even if it used more resources than a less complex algorithm would. As we&amp;rsquo;ll see here, that kind of solution, while &lt;em&gt;correct&lt;/em&gt; doesn&amp;rsquo;t work for us because the program never finishes in a reasonable amount of time. If we&amp;rsquo;re going to solve this one we need to start thinking about algorithmic complexity.&lt;/p&gt;
+&lt;p&gt;As usual, this is a good chance to take some time with the problem yourself before continuing on.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-project-euler-_really_-likes-to-play-with-prime-numbers-image-a-hrefhttpscommonswikimediaorgwikifileprimes-vs-compositessvgdavid-eppsteina&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/primes_vs_composites.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Project Euler &lt;em&gt;really&lt;/em&gt; likes to play with prime numbers. Image: &lt;a href=&#39;https://commons.wikimedia.org/wiki/File:Primes-vs-composites.svg&#39;&gt;David Eppstein&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;the-straightforward-naive-approach&#34;&gt;The Straightforward (Naive) Approach&lt;/h2&gt;
+&lt;p&gt;So far I&amp;rsquo;ve been super intentional about saying &amp;ldquo;straightforward&amp;rdquo; when talking about the first solution that comes to mind. A lot of people call this the &amp;ldquo;naive&amp;rdquo; solution. I understand why people say &amp;ldquo;naive&amp;rdquo; but I usually avoid that word because I don&amp;rsquo;t like the negative connotations it carries. As we&amp;rsquo;ve seen, sometimes the &amp;ldquo;naive&amp;rdquo; or &amp;ldquo;straightforward&amp;rdquo; solution really is the &lt;em&gt;best&lt;/em&gt; solution: it really depends on your context and the tradeoffs you&amp;rsquo;re making. I&amp;rsquo;ve seen people internalize the principle that the straightforward solution &lt;em&gt;must be&lt;/em&gt; a &amp;ldquo;bad&amp;rdquo; solution and refuse to consider the tradeoffs involved. In the real world that mindset will just &lt;em&gt;kill&lt;/em&gt; your productivity and lead you to produce work that isn&amp;rsquo;t appropriate for the context you&amp;rsquo;re working in.&lt;/p&gt;
+&lt;p&gt;That said, there are situations where it&amp;rsquo;s easier to call a solution &amp;ldquo;naive&amp;rdquo; and this problem gives us a good example. My first attempt at solving this problem went like this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ok, let&amp;rsquo;s just iterate over every number between 1 and 600,851,475,143, test whether it&amp;rsquo;s prime, then if so test whether it&amp;rsquo;s a factor of 600,851,475,143. Finally take the biggest one and there&amp;rsquo;s your answer.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In code that would look something like this. Ignore the magic &lt;code&gt;is_prime()&lt;/code&gt; function for now, we&amp;rsquo;ll get to that further down:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;factors = []
 for x in range(2, 600851475143):
-if is_prime(x):
-if 600851475143 % x == 0:
-factors.append(x)
+    if is_prime(x):
+        if 600851475143 % x == 0:
+            factors.append(x)
+
 print(factors[-1])
-&lt;/code>&lt;/pre>
-&lt;p>Now, it&amp;rsquo;s important to note that this solution is &lt;em>correct&lt;/em>. We can test it on the example the problem gives us (&lt;code>13195&lt;/code>) and we get the right answer (&lt;code>29&lt;/code>). And we get it fast: running it on my machine there&amp;rsquo;s no noticeable delay. But when I plug in &lt;code>600851475143&lt;/code> the program just seems to freeze. What gives? Even after waiting five minutes the program is just sitting there. What&amp;rsquo;s happening?&lt;/p>
-&lt;h3 id="tinkering-and-timing">Tinkering and timing&lt;/h3>
-&lt;p>Let&amp;rsquo;s keep the logic of the program the same and play around with inputs to see if we get any hints about what the problem is. Remember I&amp;rsquo;m still using a magic &lt;code>is_prime()&lt;/code> function that we&amp;rsquo;ll get to below.&lt;/p>
-&lt;p>Here we refactor our program into a function to make it easier to call repeatedly on different inputs:&lt;/p>
-&lt;pre>&lt;code class="language-python">def largest_prime_factor(n):
-factors = []
-for x in range(2, n):
-if is_prime(x):
-if n % x == 0:
-factors.append(x)
-return factors[-1]
-&lt;/code>&lt;/pre>
-&lt;p>Now we can easily run that code with multiple inputs:&lt;/p>
-&lt;pre>&lt;code class="language-python-repl">&amp;gt;&amp;gt;&amp;gt; largest_prime_factor(13195)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, it&amp;rsquo;s important to note that this solution is &lt;em&gt;correct&lt;/em&gt;. We can test it on the example the problem gives us (&lt;code&gt;13195&lt;/code&gt;) and we get the right answer (&lt;code&gt;29&lt;/code&gt;). And we get it fast: running it on my machine there&amp;rsquo;s no noticeable delay. But when I plug in &lt;code&gt;600851475143&lt;/code&gt; the program just seems to freeze. What gives? Even after waiting five minutes the program is just sitting there. What&amp;rsquo;s happening?&lt;/p&gt;
+&lt;h3 id=&#34;tinkering-and-timing&#34;&gt;Tinkering and timing&lt;/h3&gt;
+&lt;p&gt;Let&amp;rsquo;s keep the logic of the program the same and play around with inputs to see if we get any hints about what the problem is. Remember I&amp;rsquo;m still using a magic &lt;code&gt;is_prime()&lt;/code&gt; function that we&amp;rsquo;ll get to below.&lt;/p&gt;
+&lt;p&gt;Here we refactor our program into a function to make it easier to call repeatedly on different inputs:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def largest_prime_factor(n):
+    factors = []
+    for x in range(2, n):
+        if is_prime(x):
+            if n % x == 0:
+                factors.append(x)
+    return factors[-1]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can easily run that code with multiple inputs:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python-repl&#34;&gt;&amp;gt;&amp;gt;&amp;gt; largest_prime_factor(13195)
 29
 &amp;gt;&amp;gt;&amp;gt; largest_prime_factor(21952)
 7
 &amp;gt;&amp;gt;&amp;gt; largest_prime_factor(98989)
 8999
-&lt;/code>&lt;/pre>
-&lt;p>On my laptop, those first two examples seemed to run instantaneously, but the third one had a noticeable delay. Let&amp;rsquo;s measure how long the program takes to run every time we run it. We&amp;rsquo;ll use a simple way to time our code. There are of course, much
-&lt;a href="https://stackoverflow.com/questions/7370801/measure-time-elapsed-in-python" target="_blank" rel="noopener">more accurate ways&lt;/a> to measure performance that are well suited for real-world profiling, but this is good enough for us right now.&lt;/p>
-&lt;pre>&lt;code class="language-python">import time
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;On my laptop, those first two examples seemed to run instantaneously, but the third one had a noticeable delay. Let&amp;rsquo;s measure how long the program takes to run every time we run it. We&amp;rsquo;ll use a simple way to time our code. There are of course, much 
+&lt;a href=&#34;https://stackoverflow.com/questions/7370801/measure-time-elapsed-in-python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;more accurate ways&lt;/a&gt; to measure performance that are well suited for real-world profiling, but this is good enough for us right now.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import time
 def timed (n):
-start = time.clock()
-result = largest_prime_factor(n)
-end = time.clock()
-duration = end - start
-print('Largest prime factor of {} is {}. Execution: {} seconds'.format(
-n, result, duration
-))
-&lt;/code>&lt;/pre>
-&lt;p>Now we can see how fast the code is running:&lt;/p>
-&lt;pre>&lt;code class="language-python-repl">&amp;gt;&amp;gt;&amp;gt; timed(13195)
+    start = time.clock()
+    result = largest_prime_factor(n)
+    end = time.clock()
+    duration = end - start
+    print(&#39;Largest prime factor of {} is {}. Execution: {} seconds&#39;.format(
+        n, result, duration
+    ))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we can see how fast the code is running:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python-repl&#34;&gt;&amp;gt;&amp;gt;&amp;gt; timed(13195)
 &amp;quot;Largest prime factor of 13195 is 29. Execution: 0.018383000000000038 seconds&amp;quot;
 &amp;gt;&amp;gt;&amp;gt; timed(21952)
 &amp;quot;Largest prime factor of 21952 is 7. Execution: 0.026741000000015447 seconds&amp;quot;
 &amp;gt;&amp;gt;&amp;gt; timed(98989)
 &amp;quot;Largest prime factor of 98989 is 8999. Execution: 0.13390699999999356 seconds&amp;quot;
-&lt;/code>&lt;/pre>
-&lt;p>Of course, all these numbers are specific to my computer and setup. They&amp;rsquo;ll fluctuate a little each time I run the code, and they&amp;rsquo;ll also change depending on what else my computer is doing and several other factors. So if you run this you&amp;rsquo;ll get different numbers. That&amp;rsquo;s ok. The point is that I can easily see how &lt;em>execution time increases as I increase the size of the input&lt;/em>.&lt;/p>
-&lt;p>That last part is important and bears repeating. &lt;em>Execution time increases as I increase the size of the input&lt;/em>. Bigger inputs take more time to process. Thinking about the &lt;code>for&lt;/code> loop in our &lt;code>largest_prime_factor&lt;/code> function it makes a lot of sense: the more we loop the longer our program takes to run.&lt;/p>
-&lt;p>Let&amp;rsquo;s start adding zeros to our input and see what happens:&lt;/p>
-&lt;pre>&lt;code class="language-python-repl">&amp;gt;&amp;gt;&amp;gt; timed(10000)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Of course, all these numbers are specific to my computer and setup. They&amp;rsquo;ll fluctuate a little each time I run the code, and they&amp;rsquo;ll also change depending on what else my computer is doing and several other factors. So if you run this you&amp;rsquo;ll get different numbers. That&amp;rsquo;s ok. The point is that I can easily see how &lt;em&gt;execution time increases as I increase the size of the input&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;That last part is important and bears repeating. &lt;em&gt;Execution time increases as I increase the size of the input&lt;/em&gt;. Bigger inputs take more time to process. Thinking about the &lt;code&gt;for&lt;/code&gt; loop in our &lt;code&gt;largest_prime_factor&lt;/code&gt; function it makes a lot of sense: the more we loop the longer our program takes to run.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s start adding zeros to our input and see what happens:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python-repl&#34;&gt;&amp;gt;&amp;gt;&amp;gt; timed(10000)
 &amp;quot;Largest prime factor of 10000 is 5. Execution: 0.01425699999998642 seconds&amp;quot;
 &amp;gt;&amp;gt;&amp;gt; timed(100000)
 &amp;quot;Largest prime factor of 100000 is 5. Execution: 0.13481099999998492 seconds&amp;quot;
@@ -503,311 +939,549 @@ n, result, duration
 &amp;quot;Largest prime factor of 1000000 is 5. Execution: 2.938510000000008 seconds&amp;quot;
 &amp;gt;&amp;gt;&amp;gt; timed(10000000)
 &amp;quot;Largest prime factor of 10000000 is 5. Execution: 74.51557199999999 seconds&amp;quot;
-&lt;/code>&lt;/pre>
-&lt;p>Uuuugh, that last one was a pain to wait for. And the rules of Project Euler say that solutions should run in a minute or less so that&amp;rsquo;s no good. Every time we add a zero to our input the code takes at least 10 times longer to run. The input we need to solve for, &lt;code>600851475143&lt;/code>, has 4 more digits than the number that took 74 seconds to solve. Back of the napkin, running our program on it will take something like $ 74 * 10^4 = 740{,}000 $ seconds to run. That&amp;rsquo;s 8 or 9 days. No good.&lt;/p>
-&lt;h2 id="correct-isnt-good-enough">Correct isn&amp;rsquo;t Good Enough&lt;/h2>
-&lt;p>If we&amp;rsquo;re &lt;em>actually going to solve this&lt;/em> we need a better &amp;ldquo;solution&amp;rdquo;. It isn&amp;rsquo;t good enough that our solution is correct. The solution above is correct. But we don&amp;rsquo;t have the resources to actually run it on the input we need to so it&amp;rsquo;s as good as useless. In our context, the naive solution &lt;em>really is naive&lt;/em>: it doesn&amp;rsquo;t take into account critical resource limitations.&lt;/p>
-&lt;p>Computer cycles are &lt;em>cheap&lt;/em>. But they aren&amp;rsquo;t &lt;em>free&lt;/em>. Give or take, my 2017 Macbook Air can run a simple python loop about $ 10{,}000{,}000 $ times in a second. That&amp;rsquo;s:&lt;/p>
-&lt;ul>
-&lt;li>$ \approx 1 * 10^7 $ loops in a second&lt;/li>
-&lt;li>$ \approx 1 * 10^{14} $ loops in a year&lt;/li>
-&lt;li>$ \approx 1 * 10^{16} $ loops in a &lt;strong>lifetime&lt;/strong> (~80 years)&lt;/li>
-&lt;/ul>
-&lt;p>Viewed through the lens of a human life, burning a million &amp;ldquo;Macbook loops&amp;rdquo; of time here or there doesn&amp;rsquo;t matter. But my computing resources &lt;em>are&lt;/em> limited. As the exponent on a program&amp;rsquo;s computational needs increases that starts to matter more and more and &lt;em>more&lt;/em>.&lt;/p>
-&lt;p>Let&amp;rsquo;s see if we can refactor our &lt;em>correct&lt;/em> code into an actual, pragmatic &lt;em>solution&lt;/em>.&lt;/p>
-&lt;h2 id="correct-_and_-efficient">Correct &lt;em>and&lt;/em> Efficient&lt;/h2>
-&lt;p>Ok, so life is to short for programs that loop &lt;code>600851475143&lt;/code> times. How can we find the factors of a number without needing so many loops?&lt;/p>
-&lt;p>The key insight for this problem is to see that factors come in pairs. Take an easy number like $ 2{,}500 $. We can see right away that $ 2 $ is a factor:&lt;/p>
-&lt;p>$$ 2{,}500 / 2 = 1{,}250 $$&lt;/p>
-&lt;p>Hey look at that, we got another factor for free! If we see that $ 2 $ is a factor we can deduce that $ 1,250 $ &lt;em>must also&lt;/em> be a factor. Let&amp;rsquo;s do this a few more times and see if any patterns stand out:&lt;/p>
-&lt;p>$$ 2{,}500 / 5 = 500 $$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Uuuugh, that last one was a pain to wait for. And the rules of Project Euler say that solutions should run in a minute or less so that&amp;rsquo;s no good. Every time we add a zero to our input the code takes at least 10 times longer to run. The input we need to solve for, &lt;code&gt;600851475143&lt;/code&gt;, has 4 more digits than the number that took 74 seconds to solve. Back of the napkin, running our program on it will take something like $ 74 * 10^4 = 740{,}000 $ seconds to run. That&amp;rsquo;s 8 or 9 days. No good.&lt;/p&gt;
+&lt;h2 id=&#34;correct-isnt-good-enough&#34;&gt;Correct isn&amp;rsquo;t Good Enough&lt;/h2&gt;
+&lt;p&gt;If we&amp;rsquo;re &lt;em&gt;actually going to solve this&lt;/em&gt; we need a better &amp;ldquo;solution&amp;rdquo;. It isn&amp;rsquo;t good enough that our solution is correct. The solution above is correct. But we don&amp;rsquo;t have the resources to actually run it on the input we need to so it&amp;rsquo;s as good as useless. In our context, the naive solution &lt;em&gt;really is naive&lt;/em&gt;: it doesn&amp;rsquo;t take into account critical resource limitations.&lt;/p&gt;
+&lt;p&gt;Computer cycles are &lt;em&gt;cheap&lt;/em&gt;. But they aren&amp;rsquo;t &lt;em&gt;free&lt;/em&gt;. Give or take, my 2017 Macbook Air can run a simple python loop about $ 10{,}000{,}000 $ times in a second. That&amp;rsquo;s:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$ \approx 1 * 10^7 $ loops in a second&lt;/li&gt;
+&lt;li&gt;$ \approx 1 * 10^{14} $ loops in a year&lt;/li&gt;
+&lt;li&gt;$ \approx 1 * 10^{16} $ loops in a &lt;strong&gt;lifetime&lt;/strong&gt; (~80 years)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Viewed through the lens of a human life, burning a million &amp;ldquo;Macbook loops&amp;rdquo; of time here or there doesn&amp;rsquo;t matter. But my computing resources &lt;em&gt;are&lt;/em&gt; limited. As the exponent on a program&amp;rsquo;s computational needs increases that starts to matter more and more and &lt;em&gt;more&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s see if we can refactor our &lt;em&gt;correct&lt;/em&gt; code into an actual, pragmatic &lt;em&gt;solution&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;correct-_and_-efficient&#34;&gt;Correct &lt;em&gt;and&lt;/em&gt; Efficient&lt;/h2&gt;
+&lt;p&gt;Ok, so life is to short for programs that loop &lt;code&gt;600851475143&lt;/code&gt; times. How can we find the factors of a number without needing so many loops?&lt;/p&gt;
+&lt;p&gt;The key insight for this problem is to see that factors come in pairs. Take an easy number like $ 2{,}500 $. We can see right away that $ 2 $ is a factor:&lt;/p&gt;
+&lt;p&gt;$$ 2{,}500 / 2 = 1{,}250 $$&lt;/p&gt;
+&lt;p&gt;Hey look at that, we got another factor for free! If we see that $ 2 $ is a factor we can deduce that $ 1,250 $ &lt;em&gt;must also&lt;/em&gt; be a factor. Let&amp;rsquo;s do this a few more times and see if any patterns stand out:&lt;/p&gt;
+&lt;p&gt;$$ 2{,}500 / 5 = 500 $$
 $$ 2{,}500 / 10 = 250 $$
 $$ 2{,}500 / 20 = 125 $$
 $$ 2{,}500 / 25 = 100 $$
-$$ 2{,}500 / 50 = 50 $$&lt;/p>
-&lt;p>As one factor gets larger it&amp;rsquo;s &amp;ldquo;pair&amp;rdquo; factor gets smaller and smaller. Until they meet. Where do they meet? At the square root: $ \sqrt(2{,}500) $ is $ 50 $. That means every factor of $ n $ &lt;strong>larger&lt;/strong> than $ \sqrt(n) $ is paired with a factor &lt;strong>smaller&lt;/strong> than $ \sqrt(n) $. And so: we can find every factor of $ n $ just by looking at the integers up to $ \sqrt(n) $!&lt;/p>
-&lt;p>We can use this to improve our solution. Instead of looping every number below &lt;code>600851475143&lt;/code> to find factors we can just loop over every integer below its square root: about &lt;code>775146&lt;/code>. That&amp;rsquo;s&amp;hellip; &lt;em>a lot&lt;/em> fewer loops. In code:&lt;/p>
-&lt;pre>&lt;code class="language-python">import math
+$$ 2{,}500 / 50 = 50 $$&lt;/p&gt;
+&lt;p&gt;As one factor gets larger it&amp;rsquo;s &amp;ldquo;pair&amp;rdquo; factor gets smaller and smaller. Until they meet. Where do they meet? At the square root: $ \sqrt(2{,}500) $ is $ 50 $. That means every factor of $ n $ &lt;strong&gt;larger&lt;/strong&gt; than $ \sqrt(n) $ is paired with a factor &lt;strong&gt;smaller&lt;/strong&gt; than $ \sqrt(n) $. And so: we can find every factor of $ n $ just by looking at the integers up to $ \sqrt(n) $!&lt;/p&gt;
+&lt;p&gt;We can use this to improve our solution. Instead of looping every number below &lt;code&gt;600851475143&lt;/code&gt; to find factors we can just loop over every integer below its square root: about &lt;code&gt;775146&lt;/code&gt;. That&amp;rsquo;s&amp;hellip; &lt;em&gt;a lot&lt;/em&gt; fewer loops. In code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import math
 def largest_prime_factor(n):
-factors = []
-for x in range(2, math.floor(math.sqrt(n)) + 1):
-if is_prime(x):
-if n % x == 0:
-pair = n / x
-factors.append(x)
-if is_prime(pair):
-factors.append(pair)
-return sorted(factors)[-1]
-&lt;/code>&lt;/pre>
-&lt;p>Ok, let&amp;rsquo;s check against our test input to see if it works:&lt;/p>
-&lt;pre>&lt;code class="language-python-repl">&amp;gt;&amp;gt;&amp;gt; largest_prime_factor(13195)
+    factors = []
+    for x in range(2, math.floor(math.sqrt(n)) + 1):
+        if is_prime(x):
+            if n % x == 0:
+                pair = n / x
+                factors.append(x)
+                if is_prime(pair):
+                  factors.append(pair)
+    return sorted(factors)[-1]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ok, let&amp;rsquo;s check against our test input to see if it works:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python-repl&#34;&gt;&amp;gt;&amp;gt;&amp;gt; largest_prime_factor(13195)
 29
-&lt;/code>&lt;/pre>
-&lt;p>Yep, still works. How fast?&lt;/p>
-&lt;pre>&lt;code class="language-python-repl">&amp;gt;&amp;gt;&amp;gt; timed(13195)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Yep, still works. How fast?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python-repl&#34;&gt;&amp;gt;&amp;gt;&amp;gt; timed(13195)
 &amp;quot;Largest prime factor of 13195 is 29. Execution: 0.0001859999999851425 seconds&amp;quot;
-&lt;/code>&lt;/pre>
-&lt;p>Hey, that&amp;rsquo;s &lt;em>a lot&lt;/em> faster than our naive solution. Is this good enough?&lt;/p>
-&lt;pre>&lt;code class="language-python-repl">&amp;gt;&amp;gt;&amp;gt; timed(600851475143)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hey, that&amp;rsquo;s &lt;em&gt;a lot&lt;/em&gt; faster than our naive solution. Is this good enough?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python-repl&#34;&gt;&amp;gt;&amp;gt;&amp;gt; timed(600851475143)
 &amp;quot;Largest prime factor of 600851475143 is [censored]. Execution: 2.0993389999999863 seconds&amp;quot;
-&lt;/code>&lt;/pre>
-&lt;p>Woohoo!&lt;/p>
-&lt;figure id="figure-ah-thats-the-good-stuff">
-&lt;img src="/img/green_check.png" alt="" >
-&lt;figcaption>
-Ah. That&amp;rsquo;s the good stuff.
-&lt;/figcaption>
-&lt;/figure>
-&lt;h2 id="the-is_prime-function-finally">The &lt;code>is_prime()&lt;/code> Function, Finally&lt;/h2>
-&lt;p>Ok so up till now I&amp;rsquo;ve asked you to just accept that we have a good &lt;code>is_prime()&lt;/code> function. Let&amp;rsquo;s dig into that. A prime is a number that is divisible only by 1 and itself. That is: it has no factors. And hey, we&amp;rsquo;ve already written code to find factors! Let&amp;rsquo;s repurpose that for our &lt;code>is_prime()&lt;/code> function:&lt;/p>
-&lt;pre>&lt;code class="language-python">def is_prime(n):
-for x in range(2, n):
-if n % x == 0:
-return False
-return True
-&lt;/code>&lt;/pre>
-&lt;p>If you squint at this function you&amp;rsquo;ll see it&amp;rsquo;s wolfing down compute and running more loops than we need just like our initial solution code was. Let&amp;rsquo;s use the same insight about only needing to search for factors up to the square root to improve things:&lt;/p>
-&lt;pre>&lt;code class="language-python">def is_prime(n):
-for x in range(2, math.floor(math.sqrt(n)) + 1):
-if n % x == 0:
-return False
-return True
-&lt;/code>&lt;/pre>
-&lt;p>And there we go: we have an &lt;code>is_prime()&lt;/code> function good enough to solve this problem. Are there ways to improve it? Yes, and we might look into that later if needed for harder problems, but in the spirit of pragmatism we&amp;rsquo;ll stick with this straightforward solution for as long as it does what we need it to do.&lt;/p></description></item><item><title>Project Euler Problem 2: Even Fibonacci numbers</title><link>/post/euler_problem_2/</link><pubDate>Sun, 24 May 2020 15:13:26 -0700</pubDate><guid>/post/euler_problem_2/</guid><description>&lt;p>Our first, and certainly not our last, encounter with the Fibonacci Sequence on Project Euler. Before we dive into Problem 2 together take some time to chew on it yourself if you haven&amp;rsquo;t already. Did you find a solution? If so have you been able to improve or streamline your first one? If not can you clearly describe to yourself what you&amp;rsquo;re stuck on?&lt;/p>
-&lt;figure id="figure-modern-mathematicians-just-arent-this-_imposing_-image-a-hrefhttpscommonswikimediaorgwikifileleonardo_da_pisajpgmediafileleonardo_fibonaccijpgwikipediaa">
-&lt;img src="/img/Leonardo_Fibonacci.jpeg" alt="" >
-&lt;figcaption>
-Modern mathematicians just aren&amp;rsquo;t this &lt;em>imposing&lt;/em>. Image: &lt;a href='https://commons.wikimedia.org/wiki/File:Leonardo_da_Pisa.jpg#/media/File:Leonardo_Fibonacci.JPG'>Wikipedia&lt;/a>
-&lt;/figcaption>
-&lt;/figure>
-&lt;h2 id="the-straightforward-approach">The Straightforward Approach&lt;/h2>
-&lt;p>The most straightforward way to solve this problem is to generate every Fibonacci number below four million, then look at each one, check whether it&amp;rsquo;s even and add it to our total if it is:&lt;/p>
-&lt;pre>&lt;code class="language-python">fibs = [1, 1]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Woohoo!&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-ah-thats-the-good-stuff&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/green_check.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Ah. That&amp;rsquo;s the good stuff.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;the-is_prime-function-finally&#34;&gt;The &lt;code&gt;is_prime()&lt;/code&gt; Function, Finally&lt;/h2&gt;
+&lt;p&gt;Ok so up till now I&amp;rsquo;ve asked you to just accept that we have a good &lt;code&gt;is_prime()&lt;/code&gt; function. Let&amp;rsquo;s dig into that. A prime is a number that is divisible only by 1 and itself. That is: it has no factors. And hey, we&amp;rsquo;ve already written code to find factors! Let&amp;rsquo;s repurpose that for our &lt;code&gt;is_prime()&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_prime(n):
+    for x in range(2, n):
+        if n % x == 0:
+            return False
+    return True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you squint at this function you&amp;rsquo;ll see it&amp;rsquo;s wolfing down compute and running more loops than we need just like our initial solution code was. Let&amp;rsquo;s use the same insight about only needing to search for factors up to the square root to improve things:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def is_prime(n):
+    for x in range(2, math.floor(math.sqrt(n)) + 1):
+        if n % x == 0:
+            return False
+    return True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And there we go: we have an &lt;code&gt;is_prime()&lt;/code&gt; function good enough to solve this problem. Are there ways to improve it? Yes, and we might look into that later if needed for harder problems, but in the spirit of pragmatism we&amp;rsquo;ll stick with this straightforward solution for as long as it does what we need it to do.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Project Euler Problem 2: Even Fibonacci numbers</title>
+      <link>/post/euler_problem_2/</link>
+      <pubDate>Sun, 24 May 2020 15:13:26 -0700</pubDate>
+      <guid>/post/euler_problem_2/</guid>
+      <description>&lt;p&gt;Our first, and certainly not our last, encounter with the Fibonacci Sequence on Project Euler. Before we dive into Problem 2 together take some time to chew on it yourself if you haven&amp;rsquo;t already. Did you find a solution? If so have you been able to improve or streamline your first one? If not can you clearly describe to yourself what you&amp;rsquo;re stuck on?&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-modern-mathematicians-just-arent-this-_imposing_-image-a-hrefhttpscommonswikimediaorgwikifileleonardo_da_pisajpgmediafileleonardo_fibonaccijpgwikipediaa&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/Leonardo_Fibonacci.jpeg&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Modern mathematicians just aren&amp;rsquo;t this &lt;em&gt;imposing&lt;/em&gt;. Image: &lt;a href=&#39;https://commons.wikimedia.org/wiki/File:Leonardo_da_Pisa.jpg#/media/File:Leonardo_Fibonacci.JPG&#39;&gt;Wikipedia&lt;/a&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;the-straightforward-approach&#34;&gt;The Straightforward Approach&lt;/h2&gt;
+&lt;p&gt;The most straightforward way to solve this problem is to generate every Fibonacci number below four million, then look at each one, check whether it&amp;rsquo;s even and add it to our total if it is:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;fibs = [1, 1]
 while fibs[-1] + fibs[-2] &amp;lt; 4000000:
-fibs.append(fibs[-1] + fibs[-2])
+    fibs.append(fibs[-1] + fibs[-2])
+
 evens = []
 for n in fibs:
-if n % 2 == 0:
-evens.append(n)
+    if n % 2 == 0:
+        evens.append(n)
+
 print(sum(evens))
-&lt;/code>&lt;/pre>
-&lt;h2 id="saving-some-memory">Saving Some Memory&lt;/h2>
-&lt;p>The solution above works and runs plenty quick. We don&amp;rsquo;t &lt;em>need&lt;/em> to simplify. But &lt;em>can&lt;/em> we? You might notice that we&amp;rsquo;re creating a pretty big list of fibonacci numbers. Is there a way we can avoid using all that memory? What if, instead of a list, we just kept track of the two most recent numbers and checked for evenness at the same time we generate each new number?&lt;/p>
-&lt;pre>&lt;code class="language-python">result = 0
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;saving-some-memory&#34;&gt;Saving Some Memory&lt;/h2&gt;
+&lt;p&gt;The solution above works and runs plenty quick. We don&amp;rsquo;t &lt;em&gt;need&lt;/em&gt; to simplify. But &lt;em&gt;can&lt;/em&gt; we? You might notice that we&amp;rsquo;re creating a pretty big list of fibonacci numbers. Is there a way we can avoid using all that memory? What if, instead of a list, we just kept track of the two most recent numbers and checked for evenness at the same time we generate each new number?&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;result = 0
 a = 1
 b = 1
 while a + b &amp;lt; 4000000:
-next = a + b
-a = b
-b = next
-if b % 2 == 0:
-result += b
+    next = a + b
+    a = b
+    b = next
+    
+    if b % 2 == 0:
+        result += b
+
 print(result)
-&lt;/code>&lt;/pre>
-&lt;h2 id="saving-some-lines">Saving Some Lines&lt;/h2>
-&lt;p>Mathematicians and programmers coming from other languages might get weirded out by an amazing Python feature called &lt;strong>multiple assignment&lt;/strong>. It lets us do things like this:&lt;/p>
-&lt;pre>&lt;code class="language-python">x = 'ham'
-y = 'eggs'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;saving-some-lines&#34;&gt;Saving Some Lines&lt;/h2&gt;
+&lt;p&gt;Mathematicians and programmers coming from other languages might get weirded out by an amazing Python feature called &lt;strong&gt;multiple assignment&lt;/strong&gt;. It lets us do things like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;x = &#39;ham&#39;
+y = &#39;eggs&#39;
+
 x, y = y, x
+
 print(x)
-&amp;gt;&amp;gt;&amp;gt; 'eggs'
+&amp;gt;&amp;gt;&amp;gt; &#39;eggs&#39;
 print(y)
-&amp;gt;&amp;gt;&amp;gt; 'ham'
-&lt;/code>&lt;/pre>
-&lt;p>Multiple assignment lets us swap two variables in a single line and do other fun things with assigning to more than one variable at a time. Check out how we can use multiple assignment to compress our solution above in two places:&lt;/p>
-&lt;pre>&lt;code class="language-python">result = 0
+&amp;gt;&amp;gt;&amp;gt; &#39;ham&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Multiple assignment lets us swap two variables in a single line and do other fun things with assigning to more than one variable at a time. Check out how we can use multiple assignment to compress our solution above in two places:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;result = 0
 a, b = 1, 1
 while a + b &amp;lt; 4000000:
-a, b = b, a + b
-if b % 2 == 0:
-result += b
+    a, b = b, a + b
+    if b % 2 == 0:
+        result += b
+
 print(result)
-&lt;/code>&lt;/pre>
-&lt;p>This is super useful and can make for much more concise code. Trey Hunter has a great
-&lt;a href="https://treyhunner.com/2018/03/tuple-unpacking-improves-python-code-readability/" target="_blank" rel="noopener">tutorial on multiple assignment&lt;/a> if you want to learn more.&lt;/p>
-&lt;h2 id="skipping-odds">Skipping Odds&lt;/h2>
-&lt;p>In our solutions so far we&amp;rsquo;ve been calculating every fibonacci number and then checking if it&amp;rsquo;s even. What if we could just skip the fibonacci numbers we don&amp;rsquo;t want and just calculate the ones we need?&lt;/p>
-&lt;p>Look at the sequence below. Do you see a pattern with even numbers?&lt;/p>
-&lt;p>1, 1, &lt;strong>2&lt;/strong>, 3, 5, &lt;strong>8&lt;/strong>, 13, 21, &lt;strong>34&lt;/strong>, 55, 89, &amp;hellip;&lt;/p>
-&lt;p>Every third term in the sample above is even. Can you see why it&amp;rsquo;s not just a coincidence and is true for the entire sequence?&lt;/p>
-&lt;p>Is there a way to calculate &lt;em>only&lt;/em> the 3rd, 6th, 9th, etc. items so we don&amp;rsquo;t waste precious CPU cycles on lame odd numbers like &lt;code>89&lt;/code>? Yes.&lt;/p>
-&lt;figure id="figure-he-must-have-used-more-compute-than-absolutely-necessary">
-&lt;img src="/img/computer_fire.gif" alt="" >
-&lt;figcaption>
-He must have used more compute than absolutely necessary
-&lt;/figcaption>
-&lt;/figure>
-&lt;p>I won&amp;rsquo;t run through the steps here, but you can start with the fibonacci series definition:&lt;/p>
-&lt;p>$$ F_{n} = {\color{#FF007F}F_{n-2}} + \color{#0072BB}F_{n-1} $$&lt;/p>
-&lt;p>where $ F_{n} $ is the nth term in the sequence, and algebraically derive the equation:&lt;/p>
-&lt;p>$$ F_{n} = {\color{#FF007F}F_{n-6}} + {\color{#0072BB}F_{n-3}} + {\color{#177245}(3 * F_{n-3})} $$&lt;/p>
-&lt;p>So normally to get the next term we add the previous two terms. For the next &lt;em>even&lt;/em> term we add the previous two &lt;em>even&lt;/em> terms, and then add the previous even term three more times. In code:&lt;/p>
-&lt;pre>&lt;code class="language-python"># Seed with first two even terms.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is super useful and can make for much more concise code. Trey Hunter has a great 
+&lt;a href=&#34;https://treyhunner.com/2018/03/tuple-unpacking-improves-python-code-readability/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tutorial on multiple assignment&lt;/a&gt; if you want to learn more.&lt;/p&gt;
+&lt;h2 id=&#34;skipping-odds&#34;&gt;Skipping Odds&lt;/h2&gt;
+&lt;p&gt;In our solutions so far we&amp;rsquo;ve been calculating every fibonacci number and then checking if it&amp;rsquo;s even. What if we could just skip the fibonacci numbers we don&amp;rsquo;t want and just calculate the ones we need?&lt;/p&gt;
+&lt;p&gt;Look at the sequence below. Do you see a pattern with even numbers?&lt;/p&gt;
+&lt;p&gt;1, 1, &lt;strong&gt;2&lt;/strong&gt;, 3, 5, &lt;strong&gt;8&lt;/strong&gt;, 13, 21, &lt;strong&gt;34&lt;/strong&gt;, 55, 89, &amp;hellip;&lt;/p&gt;
+&lt;p&gt;Every third term in the sample above is even. Can you see why it&amp;rsquo;s not just a coincidence and is true for the entire sequence?&lt;/p&gt;
+&lt;p&gt;Is there a way to calculate &lt;em&gt;only&lt;/em&gt; the 3rd, 6th, 9th, etc. items so we don&amp;rsquo;t waste precious CPU cycles on lame odd numbers like &lt;code&gt;89&lt;/code&gt;? Yes.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-he-must-have-used-more-compute-than-absolutely-necessary&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/computer_fire.gif&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    He must have used more compute than absolutely necessary
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;I won&amp;rsquo;t run through the steps here, but you can start with the fibonacci series definition:&lt;/p&gt;
+&lt;p&gt;$$ F_{n} = {\color{#FF007F}F_{n-2}} + \color{#0072BB}F_{n-1} $$&lt;/p&gt;
+&lt;p&gt;where $ F_{n} $ is the nth term in the sequence, and algebraically derive the equation:&lt;/p&gt;
+&lt;p&gt;$$ F_{n} = {\color{#FF007F}F_{n-6}} + {\color{#0072BB}F_{n-3}} + {\color{#177245}(3 * F_{n-3})} $$&lt;/p&gt;
+&lt;p&gt;So normally to get the next term we add the previous two terms. For the next &lt;em&gt;even&lt;/em&gt; term we add the previous two &lt;em&gt;even&lt;/em&gt; terms, and then add the previous even term three more times. In code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Seed with first two even terms.
 a, b = 2, 8
 result = 10
 while a + 4 * b &amp;lt; 4000000:
-a, b = b, a + b + (3 * b)
-result += b
+    a, b = b, a + b + (3 * b)
+    result += b
+
 print(result)
-&lt;/code>&lt;/pre>
-&lt;p>It&amp;rsquo;s always nice when a more optimal algorithm &lt;em>also&lt;/em> makes for less code. However, we&amp;rsquo;ve lost some clarity compared to our previous solutions. It&amp;rsquo;s not clear from the code itself where the hard-coded &lt;strong>magic numbers&lt;/strong> &lt;code>2&lt;/code>, &lt;code>8&lt;/code>, and &lt;code>10&lt;/code> are coming from.
-&lt;a href="https://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants" target="_blank" rel="noopener">Magic numbers&lt;/a> aren&amp;rsquo;t self-explanatory in the way named variables are and they can make a program harder to understand and maintain. That&amp;rsquo;s why I added a comment at the top: I did&amp;rsquo;t think the code alone made it obvious enough to you what it was doing.&lt;/p>
-&lt;h2 id="a-golden-solution">A Golden Solution&lt;/h2>
-&lt;p>Let&amp;rsquo;s get &lt;em>real&lt;/em> funky with it. Is there a way to calculate each term directly from the single term before it? For example, how could we look at $ 34 $ and calculate $ 55 $ without knowing or caring that the previous term was 21?&lt;/p>
-&lt;p>Our buddy Fibonacci discovered way back in 1202 that the ratio between successive terms in the fibonacci sequence converges on $ \phi $, the &lt;strong>golden ratio&lt;/strong>. So if you take $ F_n $ and multiply it by $ \phi $ you get alllllmost $ F_{n+1} $. Using the example above you get:&lt;/p>
-&lt;p>$$ 34 * \phi = 55.0131556175&amp;hellip; $$&lt;/p>
-&lt;p>That&amp;rsquo;s &lt;em>super&lt;/em> close to the right answer: $ 55 $.&lt;/p>
-&lt;p>Multiply by $ \phi $ again and you get $ \approx{89} $, and multiply by $ \phi $ one last time to get $ \approx{144} $. Each time we multiply by $ \phi $ we step to the next fibonacci number. We can take three steps at once by multiplying by $ \phi^3 $. More formally:&lt;/p>
-&lt;p>$$ F_{n+3} \approx F_{n} * \phi^3 $$&lt;/p>
-&lt;p>Ok this trick gets us an &lt;em>approximate&lt;/em> answer, but how do we turn that into an &lt;em>exact&lt;/em> answer? It turns out the approximation is so good and the error so small that you can just round the result to the nearest integer. That&amp;rsquo;s it:&lt;/p>
-&lt;p>$$ F_{n+3} = \|(F_{n} * \phi^3)\| $$&lt;/p>
-&lt;p>Let&amp;rsquo;s code that up:&lt;/p>
-&lt;pre>&lt;code class="language-python"># Define phi because it isn't predifined in the Python standard library.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It&amp;rsquo;s always nice when a more optimal algorithm &lt;em&gt;also&lt;/em&gt; makes for less code. However, we&amp;rsquo;ve lost some clarity compared to our previous solutions. It&amp;rsquo;s not clear from the code itself where the hard-coded &lt;strong&gt;magic numbers&lt;/strong&gt; &lt;code&gt;2&lt;/code&gt;, &lt;code&gt;8&lt;/code&gt;, and &lt;code&gt;10&lt;/code&gt; are coming from. 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Magic numbers&lt;/a&gt; aren&amp;rsquo;t self-explanatory in the way named variables are and they can make a program harder to understand and maintain. That&amp;rsquo;s why I added a comment at the top: I did&amp;rsquo;t think the code alone made it obvious enough to you what it was doing.&lt;/p&gt;
+&lt;h2 id=&#34;a-golden-solution&#34;&gt;A Golden Solution&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s get &lt;em&gt;real&lt;/em&gt; funky with it. Is there a way to calculate each term directly from the single term before it? For example, how could we look at $ 34 $ and calculate $ 55 $ without knowing or caring that the previous term was 21?&lt;/p&gt;
+&lt;p&gt;Our buddy Fibonacci discovered way back in 1202 that the ratio between successive terms in the fibonacci sequence converges on $ \phi $, the &lt;strong&gt;golden ratio&lt;/strong&gt;. So if you take $ F_n $ and multiply it by $ \phi $ you get alllllmost $ F_{n+1} $. Using the example above you get:&lt;/p&gt;
+&lt;p&gt;$$ 34 * \phi = 55.0131556175&amp;hellip; $$&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s &lt;em&gt;super&lt;/em&gt; close to the right answer: $ 55 $.&lt;/p&gt;
+&lt;p&gt;Multiply by $ \phi $ again and you get $ \approx{89} $, and multiply by $ \phi $ one last time to get $ \approx{144} $. Each time we multiply by $ \phi $ we step to the next fibonacci number. We can take three steps at once by multiplying by $ \phi^3 $. More formally:&lt;/p&gt;
+&lt;p&gt;$$ F_{n+3} \approx F_{n} * \phi^3 $$&lt;/p&gt;
+&lt;p&gt;Ok this trick gets us an &lt;em&gt;approximate&lt;/em&gt; answer, but how do we turn that into an &lt;em&gt;exact&lt;/em&gt; answer? It turns out the approximation is so good and the error so small that you can just round the result to the nearest integer. That&amp;rsquo;s it:&lt;/p&gt;
+&lt;p&gt;$$ F_{n+3} = \|(F_{n} * \phi^3)\| $$&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s code that up:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Define phi because it isn&#39;t predifined in the Python standard library.
 phi = (1 + 5 ** 0.5) / 2
 a = result = 2
 while a * phi ** 3 &amp;lt; 4000000:
-a = round(a * phi ** 3)
-result += a
+    a = round(a * phi ** 3)
+    result += a
+
 print(result)
-&lt;/code>&lt;/pre>
-&lt;p>Now ain&amp;rsquo;t that a shiny solution.&lt;/p>
-&lt;h2 id="analytic-approximation-not-solution">Analytic Approximation (not Solution)&lt;/h2>
-&lt;p>This is a nice solution but it still relies on a &lt;code>while&lt;/code> loop to calculate items one by one. I can almost, but not &lt;em>quite&lt;/em> get to a direct calculation. The approximation of $ \phi $, which was small enough between terms to round away in the solution above, compounds in this stab at an analytic solution and so only gives an approximation.&lt;/p>
-&lt;p>For the specific problem inputs this gives a result about 5% off from the true answer. Here&amp;rsquo;s my approximation.&lt;/p>
-&lt;p>If we ignore rounding for now, we can write out the sequence of terms we generate above like this:&lt;/p>
-&lt;p>$$ 2,\: 2\phi^3,\: 2\phi^6,\: 2\phi^9,\: 2\phi^{12},\: &amp;hellip; $$&lt;/p>
-&lt;p>If you squint real hard, you can see that&amp;rsquo;s a
-&lt;a href="https://en.wikipedia.org/wiki/Geometric_series" target="_blank" rel="noopener">geometric series&lt;/a>. It&amp;rsquo;s easier to see if we replace $ \phi^3 $ with the symbol $ r $:&lt;/p>
-&lt;p>$$ 2r^0,\: 2r^1,\: 2r^2,\: 2r^3,\: 2r^4,\: &amp;hellip; $$&lt;/p>
-&lt;p>where $ r = \phi^3 \approx{4.2360679775} $&lt;/p>
-&lt;p>Since this is a geometric series we can use the
-&lt;a href="https://en.wikipedia.org/wiki/Geometric_progression#Geometric_series" target="_blank" rel="noopener">formula&lt;/a> for the sum of the first $ n $ terms of a geometric series:&lt;/p>
-&lt;p>$$ Geometric{\ }Sum = \frac{a(1-r^n)}{1 - r} $$&lt;/p>
-&lt;p>Where $ a $ is the start term (in our case: $ 2 $), $ r $ is the ratio between terms (in our case $ \phi^3 $ or about $ 4.2360679775 $), and $ n $ is the number of terms.&lt;/p>
-&lt;p>All we&amp;rsquo;re missing now is $ n $. We can get that by taking the log base $ r $ of our limit (spoiler: it&amp;rsquo;s $ 11 $). Let&amp;rsquo;s code it up:&lt;/p>
-&lt;pre>&lt;code class="language-python">import math
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now ain&amp;rsquo;t that a shiny solution.&lt;/p&gt;
+&lt;h2 id=&#34;analytic-approximation-not-solution&#34;&gt;Analytic Approximation (not Solution)&lt;/h2&gt;
+&lt;p&gt;This is a nice solution but it still relies on a &lt;code&gt;while&lt;/code&gt; loop to calculate items one by one. I can almost, but not &lt;em&gt;quite&lt;/em&gt; get to a direct calculation. The approximation of $ \phi $, which was small enough between terms to round away in the solution above, compounds in this stab at an analytic solution and so only gives an approximation.&lt;/p&gt;
+&lt;p&gt;For the specific problem inputs this gives a result about 5% off from the true answer. Here&amp;rsquo;s my approximation.&lt;/p&gt;
+&lt;p&gt;If we ignore rounding for now, we can write out the sequence of terms we generate above like this:&lt;/p&gt;
+&lt;p&gt;$$ 2,\: 2\phi^3,\: 2\phi^6,\: 2\phi^9,\: 2\phi^{12},\: &amp;hellip; $$&lt;/p&gt;
+&lt;p&gt;If you squint real hard, you can see that&amp;rsquo;s a 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Geometric_series&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;geometric series&lt;/a&gt;. It&amp;rsquo;s easier to see if we replace $ \phi^3 $ with the symbol $ r $:&lt;/p&gt;
+&lt;p&gt;$$ 2r^0,\: 2r^1,\: 2r^2,\: 2r^3,\: 2r^4,\: &amp;hellip; $$&lt;/p&gt;
+&lt;p&gt;where $ r = \phi^3 \approx{4.2360679775} $&lt;/p&gt;
+&lt;p&gt;Since this is a geometric series we can use the 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Geometric_progression#Geometric_series&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;formula&lt;/a&gt; for the sum of the first $ n $ terms of a geometric series:&lt;/p&gt;
+&lt;p&gt;$$ Geometric{\ }Sum = \frac{a(1-r^n)}{1 - r} $$&lt;/p&gt;
+&lt;p&gt;Where $ a $ is the start term (in our case: $ 2 $), $ r $ is the ratio between terms (in our case $ \phi^3 $ or about $ 4.2360679775 $), and $ n $ is the number of terms.&lt;/p&gt;
+&lt;p&gt;All we&amp;rsquo;re missing now is $ n $. We can get that by taking the log base $ r $ of our limit (spoiler: it&amp;rsquo;s $ 11 $). Let&amp;rsquo;s code it up:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import math
 phi = (1 + 5 ** 0.5) / 2
 r = phi ** 3
 a = 2
 n = 11
 print((a * (1 - r ** n)) / (1 - r))
-&lt;/code>&lt;/pre>
-&lt;p>Unfortunately the approximations, which were small enough to ignore last time, are now compounding. This attempt overshoots the right answer by about 5%.&lt;/p>
-&lt;p>I don&amp;rsquo;t know whether there&amp;rsquo;s a way to improve the accuracy of this approach or if there&amp;rsquo;s a way to tweak it to sidestep the approximation issues. If you see something I&amp;rsquo;m overlooking please reach out and let me know!&lt;/p></description></item><item><title>Project Euler Problem 1: Multiples of 3 and 5</title><link>/post/euler_problem_1/</link><pubDate>Fri, 22 May 2020 16:12:38 -0700</pubDate><guid>/post/euler_problem_1/</guid><description>&lt;p>This is a lovely
-&lt;a href="projecteuler.net/problem=1">problem&lt;/a> to start with. It has a straightforward brute-force loop solution as well as a nice analytic solution where you can calculate the solution directly without the need for much programming. And it&amp;rsquo;s
-&lt;a href="https://en.wikipedia.org/wiki/Fizz_buzz#Programming" target="_blank" rel="noopener">fizzbuzz&lt;/a>! What a great way to dive in.&lt;/p>
-&lt;h2 id="who-is-this-for">Who is this for?&lt;/h2>
-&lt;p>A quick note: this series of posts is meant for people who already have a development environment set up and are familiar with the very basics of Python. If you&amp;rsquo;ve never written a line of Python before I recommend
-&lt;a href="https://learn.datacamp.com/courses/intro-to-python-for-data-science" target="_blank" rel="noopener">Data Camp&amp;rsquo;s Python introduction&lt;/a> or another free Python 3 tutorial that covers the basics of &lt;strong>variables&lt;/strong>, &lt;strong>basic types&lt;/strong> (ints, floats, strings, booleans), &lt;strong>operations&lt;/strong>, &lt;strong>lists&lt;/strong>, &lt;strong>dictionaries&lt;/strong>, and &lt;strong>functions&lt;/strong>. If you&amp;rsquo;re an experienced programmer but new to Python check out the &amp;ldquo;official&amp;rdquo;
-&lt;a href="https://docs.python.org/3/tutorial/" target="_blank" rel="noopener">Python Tutorial&lt;/a>. And if you&amp;rsquo;re comfy writing Python but don&amp;rsquo;t have a good local development environment set up yet check out
-&lt;a href="/">Problem 0: Getting Started&lt;/a> [TODO].&lt;/p>
-&lt;p>Also, this is meant for people who enjoy solving or reading about
-&lt;a href="projecteuler.net">Project Euler&lt;/a> problems. PE has this to say about sharing solutions:&lt;/p>
-&lt;blockquote>
-&lt;p>We hope that you enjoyed solving this problem. Please do not deprive others of going through the same process by publishing your solution outside of Project Euler. Members found to be spoiling problems beyond #100 will have their accounts locked (see note).&lt;/p>
-&lt;p>Note: The rule about sharing solutions outside of Project Euler does not apply to the first 100 problems, as long as any discussion clearly aims to instruct methods, not just provide answers, and does not directly threaten to undermine the enjoyment of solving later problems. Problems 1 to 100 provide a wealth of helpful introductory teaching material and if you are able to respect our requirements, then we give permission for them to be discussed elsewhere.&lt;/p>
-&lt;/blockquote>
-&lt;p>I take PE&amp;rsquo;s requirements about sharing information seriously and hope you will too. I love that so much of the programming world happens in the open with public repos and such, but you won&amp;rsquo;t find my work on problems 101+ here, on GitHub, or anywhere else public.&lt;/p>
-&lt;h2 id="the-problem">The Problem&lt;/h2>
-&lt;p>Ok, let&amp;rsquo;s talk about threes and fives. Before we analyze it together,
-&lt;a href="https://projecteuler.net/problem=1" target="_blank" rel="noopener">take a few minutes alone with Problem 1&lt;/a>. Set up a Project Euler account if you haven&amp;rsquo;t already. Consider how you &lt;em>might&lt;/em> solve it. Take a stab at writing a solution before moving on. I&amp;rsquo;ll wait.&lt;/p>
-&lt;p>&amp;hellip;&lt;/p>
-&lt;h2 id="iterative-solutions">Iterative Solutions&lt;/h2>
-&lt;p>Great, you&amp;rsquo;re back. Let&amp;rsquo;s dive in. The most straightforward way to solve this problem is to look at every number from one to a thousand, test whether it&amp;rsquo;s divisible by 3 or 5, and add it to our running total if it is:&lt;/p>
-&lt;pre>&lt;code class="language-python">result = 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Unfortunately the approximations, which were small enough to ignore last time, are now compounding. This attempt overshoots the right answer by about 5%.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t know whether there&amp;rsquo;s a way to improve the accuracy of this approach or if there&amp;rsquo;s a way to tweak it to sidestep the approximation issues. If you see something I&amp;rsquo;m overlooking please reach out and let me know!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Project Euler Problem 1: Multiples of 3 and 5</title>
+      <link>/post/euler_problem_1/</link>
+      <pubDate>Fri, 22 May 2020 16:12:38 -0700</pubDate>
+      <guid>/post/euler_problem_1/</guid>
+      <description>&lt;p&gt;This is a lovely 
+&lt;a href=&#34;projecteuler.net/problem=1&#34;&gt;problem&lt;/a&gt; to start with. It has a straightforward brute-force loop solution as well as a nice analytic solution where you can calculate the solution directly without the need for much programming. And it&amp;rsquo;s 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Fizz_buzz#Programming&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fizzbuzz&lt;/a&gt;! What a great way to dive in.&lt;/p&gt;
+&lt;h2 id=&#34;who-is-this-for&#34;&gt;Who is this for?&lt;/h2&gt;
+&lt;p&gt;A quick note: this series of posts is meant for people who already have a development environment set up and are familiar with the very basics of Python. If you&amp;rsquo;ve never written a line of Python before I recommend 
+&lt;a href=&#34;https://learn.datacamp.com/courses/intro-to-python-for-data-science&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Data Camp&amp;rsquo;s Python introduction&lt;/a&gt; or another free Python 3 tutorial that covers the basics of &lt;strong&gt;variables&lt;/strong&gt;, &lt;strong&gt;basic types&lt;/strong&gt; (ints, floats, strings, booleans), &lt;strong&gt;operations&lt;/strong&gt;, &lt;strong&gt;lists&lt;/strong&gt;, &lt;strong&gt;dictionaries&lt;/strong&gt;, and &lt;strong&gt;functions&lt;/strong&gt;. If you&amp;rsquo;re an experienced programmer but new to Python check out the &amp;ldquo;official&amp;rdquo; 
+&lt;a href=&#34;https://docs.python.org/3/tutorial/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python Tutorial&lt;/a&gt;. And if you&amp;rsquo;re comfy writing Python but don&amp;rsquo;t have a good local development environment set up yet check out 
+&lt;a href=&#34;/&#34;&gt;Problem 0: Getting Started&lt;/a&gt; [TODO].&lt;/p&gt;
+&lt;p&gt;Also, this is meant for people who enjoy solving or reading about 
+&lt;a href=&#34;projecteuler.net&#34;&gt;Project Euler&lt;/a&gt; problems. PE has this to say about sharing solutions:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We hope that you enjoyed solving this problem. Please do not deprive others of going through the same process by publishing your solution outside of Project Euler. Members found to be spoiling problems beyond #100 will have their accounts locked (see note).&lt;/p&gt;
+&lt;p&gt;Note: The rule about sharing solutions outside of Project Euler does not apply to the first 100 problems, as long as any discussion clearly aims to instruct methods, not just provide answers, and does not directly threaten to undermine the enjoyment of solving later problems. Problems 1 to 100 provide a wealth of helpful introductory teaching material and if you are able to respect our requirements, then we give permission for them to be discussed elsewhere.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I take PE&amp;rsquo;s requirements about sharing information seriously and hope you will too. I love that so much of the programming world happens in the open with public repos and such, but you won&amp;rsquo;t find my work on problems 101+ here, on GitHub, or anywhere else public.&lt;/p&gt;
+&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;Ok, let&amp;rsquo;s talk about threes and fives. Before we analyze it together, 
+&lt;a href=&#34;https://projecteuler.net/problem=1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;take a few minutes alone with Problem 1&lt;/a&gt;. Set up a Project Euler account if you haven&amp;rsquo;t already. Consider how you &lt;em&gt;might&lt;/em&gt; solve it. Take a stab at writing a solution before moving on. I&amp;rsquo;ll wait.&lt;/p&gt;
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;iterative-solutions&#34;&gt;Iterative Solutions&lt;/h2&gt;
+&lt;p&gt;Great, you&amp;rsquo;re back. Let&amp;rsquo;s dive in. The most straightforward way to solve this problem is to look at every number from one to a thousand, test whether it&amp;rsquo;s divisible by 3 or 5, and add it to our running total if it is:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;result = 0
 integers = range(1, 1000)
 for x in integers:
-if x % 3 == 0 or x % 5 == 0:
-result += x
+  if x % 3 == 0 or x % 5 == 0:
+    result += x
+
 print(result)
-&lt;/code>&lt;/pre>
-&lt;p>In this solution we initialize our result to &lt;code>0&lt;/code>, use a &lt;code>for&lt;/code> loop to iterate over every integer from &lt;code>1&lt;/code> through &lt;code>1000&lt;/code>, test whether it&amp;rsquo;s divisible by &lt;code>3&lt;/code> or &lt;code>5&lt;/code> using the modulo operator (&lt;code>%&lt;/code>) and add it to our &lt;code>result&lt;/code> variable if it is. Bam.&lt;/p>
-&lt;h3 id="using-list-comprehensions">Using List Comprehensions&lt;/h3>
-&lt;p>
-&lt;a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions" target="_blank" rel="noopener">List comprehensions&lt;/a> can be an elegant and &amp;ldquo;pythonic&amp;rdquo; way to solve problems. Here&amp;rsquo;s the same iterative solution above using a list comprehension rather than a loop.&lt;/p>
-&lt;pre>&lt;code class="language-python">print(sum([x for x in range(1, 1000) if x % 3 == 0 or x % 5 == 0]))
-&lt;/code>&lt;/pre>
-&lt;p>Now isn&amp;rsquo;t that short and sweet. I love list comprehensions. They can get ugly fast, and it&amp;rsquo;s possible to overuse them, but comprehensions excel in cases like this where you can express a few lines of procedural code as a single thought.&lt;/p>
-&lt;h3 id="a-more-functional-approach">A More Functional Approach&lt;/h3>
-&lt;p>Python isn&amp;rsquo;t known for being a naturally functional language, but it&amp;rsquo;s certainly possible to use it that way. You can use &lt;code>filter()&lt;/code> in place of the comprehension above:&lt;/p>
-&lt;pre>&lt;code class="language-python">print(sum(filter(lambda x: x % 3 == 0 or x % 5 == 0, range(1, 1000))))
-&lt;/code>&lt;/pre>
-&lt;p>Looking at this approach next to the comprehension above it&amp;rsquo;s easy to see why the comprehension is more idiomatic: it just reads easier.&lt;/p>
-&lt;p>And of course it&amp;rsquo;s no fun to talk about functional programming without contorting &lt;code>reduce()&lt;/code> into a solution:&lt;/p>
-&lt;pre>&lt;code class="language-python">from functools import reduce
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this solution we initialize our result to &lt;code&gt;0&lt;/code&gt;, use a &lt;code&gt;for&lt;/code&gt; loop to iterate over every integer from &lt;code&gt;1&lt;/code&gt; through &lt;code&gt;1000&lt;/code&gt;, test whether it&amp;rsquo;s divisible by &lt;code&gt;3&lt;/code&gt; or &lt;code&gt;5&lt;/code&gt; using the modulo operator (&lt;code&gt;%&lt;/code&gt;) and add it to our &lt;code&gt;result&lt;/code&gt; variable if it is. Bam.&lt;/p&gt;
+&lt;h3 id=&#34;using-list-comprehensions&#34;&gt;Using List Comprehensions&lt;/h3&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;List comprehensions&lt;/a&gt; can be an elegant and &amp;ldquo;pythonic&amp;rdquo; way to solve problems. Here&amp;rsquo;s the same iterative solution above using a list comprehension rather than a loop.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(sum([x for x in range(1, 1000) if x % 3 == 0 or x % 5 == 0]))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now isn&amp;rsquo;t that short and sweet. I love list comprehensions. They can get ugly fast, and it&amp;rsquo;s possible to overuse them, but comprehensions excel in cases like this where you can express a few lines of procedural code as a single thought.&lt;/p&gt;
+&lt;h3 id=&#34;a-more-functional-approach&#34;&gt;A More Functional Approach&lt;/h3&gt;
+&lt;p&gt;Python isn&amp;rsquo;t known for being a naturally functional language, but it&amp;rsquo;s certainly possible to use it that way. You can use &lt;code&gt;filter()&lt;/code&gt; in place of the comprehension above:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(sum(filter(lambda x: x % 3 == 0 or x % 5 == 0, range(1, 1000))))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Looking at this approach next to the comprehension above it&amp;rsquo;s easy to see why the comprehension is more idiomatic: it just reads easier.&lt;/p&gt;
+&lt;p&gt;And of course it&amp;rsquo;s no fun to talk about functional programming without contorting &lt;code&gt;reduce()&lt;/code&gt; into a solution:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from functools import reduce
 print(reduce(
-lambda x, y: x + y if y % 3 == 0 or y % 5 == 0 else x,
-range(1, 1000),
-0
+    lambda x, y: x + y if y % 3 == 0 or y % 5 == 0 else x,
+    range(1, 1000),
+    0
 ))
-&lt;/code>&lt;/pre>
-&lt;p>With Python 3 &lt;code>reduce()&lt;/code> is no longer a built-in function and instead needs to be imported from the &lt;code>functools&lt;/code> library. That makes me sad. I can understand why (a comprehension is &lt;em>almost&lt;/em> always more practical), but speaking as an apostle of
-&lt;a href="https://www.youtube.com/watch?v=Wl98eZpkp-c&amp;amp;feature=youtu.be&amp;amp;t=18" target="_blank" rel="noopener">&lt;em>Reduce, God of Parentheses&lt;/em>&lt;/a> I have to say I miss having it an my fingertips.&lt;/p>
-&lt;h1 id="analytic-solution">Analytic solution&lt;/h1>
-&lt;p>The iterative solutions above all rely on generating a list of integers, checking them one by one, and adding them up. That works just fine when you&amp;rsquo;re only counting to a thousand and you have modern computing resources at your fingertips. But things aren&amp;rsquo;t always so easy. What if we were solving this for all integers up to a quadrillion? What if we were working in an environment with limited memory or compute? What if we needed to run this solution gajillions of times every second?&lt;/p>
-&lt;p>You might have heard a
-&lt;a href="https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss#Anecdotes" target="_blank" rel="noopener">famous anecdote about Gauss&lt;/a> and how as a young kid he summed the numbers from 1 to 100 in just a few seconds. He didn&amp;rsquo;t actually add all the numbers together, he recognized a pattern in the arithmetic progression 1, 2, 3, &amp;hellip; 99, 100 and used a formula instead. Specifically, you can &amp;ldquo;fold&amp;rdquo; the sequence and match pairs like 1 + 100, 2 + 99, 3 + 98, &amp;hellip; 49 + 52, 50 + 51. There are exactly 50 such pairs and each pair equals 101, so the total sum is 101 * 50 = 5,050.&lt;/p>
-&lt;p>This approach works with &lt;em>any&lt;/em> arithmetic progression. We could sum all multiples of 5 below a hundred by &amp;ldquo;folding&amp;rdquo; the sequence 5, 10, 15, &amp;hellip; 95, 100 and getting 10 pairs that equal 105 for a total sum of 1,050.&lt;/p>
-&lt;p>In general, the formula to calculate the
-&lt;a href="https://en.wikipedia.org/wiki/Arithmetic_progression#Sum" target="_blank" rel="noopener">sum of an arithmetic progression&lt;/a> is: &lt;code>number_of_terms * (first_term + last_term) / 2&lt;/code>.&lt;/p>
-&lt;p>How does this apply to our fizzbuzz problem? The integers we&amp;rsquo;re summing don&amp;rsquo;t form a nice arithmetic progression. And we can&amp;rsquo;t just add the sum of multiples of three to the sum of multiples of five, because that would double-count numbers like 15 and 30. And 45. And 60. See a pattern?&lt;/p>
-&lt;p>The trick is in recognizing that we&amp;rsquo;re dealing with &lt;em>three&lt;/em> arithmetic progressions. If we want the sum of all numbers that are a multiple of three &lt;em>or&lt;/em> a multiple of five, we can find that by adding &lt;code>sum(multiples_of_three&lt;/code> to &lt;code>sum(multiples_of_five)&lt;/code> and then &lt;em>subtracting&lt;/em> &lt;code>sum(multiples_of_fifteen)&lt;/code>.&lt;/p>
-&lt;pre>&lt;code class="language-python">def simple_arithmetic_series(step, limit):
-first = step
-count = (limit - 1) // step
-last = step * count
-return count * (first + last) / 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With Python 3 &lt;code&gt;reduce()&lt;/code&gt; is no longer a built-in function and instead needs to be imported from the &lt;code&gt;functools&lt;/code&gt; library. That makes me sad. I can understand why (a comprehension is &lt;em&gt;almost&lt;/em&gt; always more practical), but speaking as an apostle of 
+&lt;a href=&#34;https://www.youtube.com/watch?v=Wl98eZpkp-c&amp;amp;feature=youtu.be&amp;amp;t=18&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Reduce, God of Parentheses&lt;/em&gt;&lt;/a&gt; I have to say I miss having it an my fingertips.&lt;/p&gt;
+&lt;h1 id=&#34;analytic-solution&#34;&gt;Analytic solution&lt;/h1&gt;
+&lt;p&gt;The iterative solutions above all rely on generating a list of integers, checking them one by one, and adding them up. That works just fine when you&amp;rsquo;re only counting to a thousand and you have modern computing resources at your fingertips. But things aren&amp;rsquo;t always so easy. What if we were solving this for all integers up to a quadrillion? What if we were working in an environment with limited memory or compute? What if we needed to run this solution gajillions of times every second?&lt;/p&gt;
+&lt;p&gt;You might have heard a 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss#Anecdotes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;famous anecdote about Gauss&lt;/a&gt; and how as a young kid he summed the numbers from 1 to 100 in just a few seconds. He didn&amp;rsquo;t actually add all the numbers together, he recognized a pattern in the arithmetic progression 1, 2, 3, &amp;hellip; 99, 100 and used a formula instead. Specifically, you can &amp;ldquo;fold&amp;rdquo; the sequence and match pairs like 1 + 100, 2 + 99, 3 + 98, &amp;hellip; 49 + 52, 50 + 51. There are exactly 50 such pairs and each pair equals 101, so the total sum is 101 * 50 = 5,050.&lt;/p&gt;
+&lt;p&gt;This approach works with &lt;em&gt;any&lt;/em&gt; arithmetic progression. We could sum all multiples of 5 below a hundred by &amp;ldquo;folding&amp;rdquo; the sequence 5, 10, 15, &amp;hellip; 95, 100 and getting 10 pairs that equal 105 for a total sum of 1,050.&lt;/p&gt;
+&lt;p&gt;In general, the formula to calculate the 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Arithmetic_progression#Sum&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;sum of an arithmetic progression&lt;/a&gt; is: &lt;code&gt;number_of_terms * (first_term + last_term) / 2&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;How does this apply to our fizzbuzz problem? The integers we&amp;rsquo;re summing don&amp;rsquo;t form a nice arithmetic progression. And we can&amp;rsquo;t just add the sum of multiples of three to the sum of multiples of five, because that would double-count numbers like 15 and 30. And 45. And 60. See a pattern?&lt;/p&gt;
+&lt;p&gt;The trick is in recognizing that we&amp;rsquo;re dealing with &lt;em&gt;three&lt;/em&gt; arithmetic progressions.  If we want the sum of all numbers that are a multiple of three &lt;em&gt;or&lt;/em&gt; a multiple of five, we can find that by adding &lt;code&gt;sum(multiples_of_three&lt;/code&gt; to &lt;code&gt;sum(multiples_of_five)&lt;/code&gt; and then &lt;em&gt;subtracting&lt;/em&gt; &lt;code&gt;sum(multiples_of_fifteen)&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def simple_arithmetic_series(step, limit):
+    first = step
+    count = (limit - 1) // step
+    last = step * count
+    return count * (first + last) / 2
+
 multiples_of_3 = simple_arithmetic_series(3, 1000)
 multiples_of_5 = simple_arithmetic_series(5, 1000)
 multiples_of_15 = simple_arithmetic_series(15, 1000)
+
 print(multiples_of_3 + multiples_of_5 - multiples_of_15)
-&lt;/code>&lt;/pre>
-&lt;h1 id="evil-optimization">Evil optimization&lt;/h1>
-&lt;p>The analytic solution involves a lot more typing and it isn&amp;rsquo;t as simple to read and understand, so why is it better?&lt;/p>
-&lt;p>Well, it &lt;em>isn&amp;rsquo;t&lt;/em> better. There are tradeoffs between the analytic solution and the iterative solution. Neither is inherently better. Deciding which approach is better for you depends on your context.&lt;/p>
-&lt;p>In the context of this specific problem, &lt;em>the iterative solution works just fine&lt;/em>. It&amp;rsquo;s faster to conceive and implement, it&amp;rsquo;s easier to understand, and less code is less chance for things to break. With our crazy strong computers and the small numbers involved the analytic solution is just a bunch of optimization that was (maybe) fun to do but doesn&amp;rsquo;t buy us anything valuable.&lt;/p>
-&lt;p>This is an example of &lt;strong>premature optimization&lt;/strong>, and as Donald Knuth famously said, &amp;ldquo;
-&lt;a href="https://en.wikipedia.org/wiki/Program_optimization#When_to_optimize" target="_blank" rel="noopener">premature optimization is the root of all evil&lt;/a>&amp;quot;. Spending time optimizing things we don&amp;rsquo;t need to isn&amp;rsquo;t just a waste of time better spent elsewhere, it also makes our programs worse: harder to understand and maintain.&lt;/p>
-&lt;p>That said, it&amp;rsquo;s easy to think of cases where the tradeoffs might play out the other way. What if we were working with much larger numbers? Try plugging in bigger numbers to the iterative and analytic solutions and watch where the difference in performance starts to get noticeable. My laptop struggles to run the iterative solution above about a hundred million. Even the world&amp;rsquo;s biggest supercomputer,
-&lt;a href="https://en.wikipedia.org/wiki/Summit_%28supercomputer%29" target="_blank" rel="noopener">Summit&lt;/a> doesn&amp;rsquo;t have enough memory to store a list of all integers up to a quadrillion. But my dinky laptop can calculate &lt;code>simple_arithmetic_series(3, 1000000000000000)&lt;/code> with no noticeable delay. With the right algorithm, my laptop can do something that&amp;rsquo;s literally impossible for the world&amp;rsquo;s best supercomputer.&lt;/p>
-&lt;p>Those numbers seem ridiculous but spoiler alert: Project Euler is going to start throwing hefty numbers at us pretty quick. As we dig deeper performance, resources, and
-&lt;a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" target="_blank" rel="noopener">computational complexity&lt;/a> are going to get critically important.&lt;/p></description></item><item><title>❤️ Project Euler</title><link>/post/heart_euler/</link><pubDate>Thu, 21 May 2020 23:54:43 -0700</pubDate><guid>/post/heart_euler/</guid><description>&lt;p>In 2012 I was a corporate lawyer at a big fancy firm. If you&amp;rsquo;d seen teenage me or college me you&amp;rsquo;d be understandably confused. Grae somehow ended up a lawyer? A corporate lawyer at a fancy firm? What? And if you know me today you might be similarly confused.&lt;/p>
-&lt;p>My life as a corporate lawyer was short in part because of Project Euler.&lt;/p>
-&lt;p>That winter Kelly, a law school classmate, shared an article with a group of us about this crazy new company called Dev Bootcamp. It trained people to be programmers. And actually got them jobs! Good ones!&lt;/p>
-&lt;figure id="figure-dbc-launched-the-coding-bootcamp-industry">
-&lt;img src="/img/dbc.png" alt="" >
-&lt;figcaption>
-DBC launched the coding bootcamp industry.
-&lt;/figcaption>
-&lt;/figure>
-&lt;p>By then we were starting our second year of practice. It wasn&amp;rsquo;t a great time. Graduating into the great recession meant a lot of us couldn&amp;rsquo;t land a firm job. And those who &lt;em>did&lt;/em> get hired were dealing with the tough reality of law firm life. A bunch of us had the same thought when we learned about coding bootcamps: &amp;ldquo;Holy shit, I wish this was a thing four years ago when I made the naive decision to go to law school.&amp;rdquo;&lt;/p>
-&lt;figure id="figure-aww-poor-white-collar-professional-photo-credit-ethan-sykes-on-unsplash">
-&lt;img src="/img/gaze.jpg" alt="" >
-&lt;figcaption>
-Aww, poor white collar professional. Photo credit: Ethan Sykes on Unsplash
-&lt;/figcaption>
-&lt;/figure>
-&lt;p>Most of the people who &lt;em>would have&lt;/em> done a bootcamp instead of law school couldn&amp;rsquo;t stomach eating the sunk cost to change careers. I was lucky: Stassia saw how unsatisfied I was. She said &amp;ldquo;If you aren&amp;rsquo;t happy you should quit; we&amp;rsquo;ll figure it out.&amp;rdquo; She&amp;rsquo;s done a lot of amazing things for me over the years, but giving me permission &amp;amp; encouragement to abandon a lucrative career is near the top of the list. She was still several years of training away from starting her own and mine was the only income. It was risky, but with her support I left biglaw.&lt;/p>
-&lt;p>Tuition at DBC was I think like $12k. That&amp;rsquo;s a tiny fraction of the cost of my JD. Still, with my student debt and monthly loan payments we didn&amp;rsquo;t have the reserves or cashflow for that. So what could I do?&lt;/p>
-&lt;p>Casting about the web for low cost options I ran into Hacker School (now
-&lt;a href="https://www.recurse.com/" target="_blank" rel="noopener">Recurse Center&lt;/a>). Seemed like a cool opportunity. Price was right. But I wasn&amp;rsquo;t qualified yet. I knew I didn&amp;rsquo;t have anywhere near enough programming experience to apply, but how much &lt;em>was&lt;/em> enough? I checked
-&lt;a href="https://web.archive.org/web/20130115173024/https://www.hackerschool.com/faq" target="_blank" rel="noopener">their FAQ&lt;/a> and that&amp;rsquo;s where I found it:&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;strong>How much programming experience do I need for Hacker School?&lt;/strong>&lt;/p>
-&lt;p>If you&amp;hellip; solve
-&lt;a href="http://projecteuler.net" target="_blank" rel="noopener">Project Euler&lt;/a> problems for fun&amp;hellip; you&amp;rsquo;re almost certainly a good fit for Hacker School.&lt;/p>
-&lt;/blockquote>
-&lt;p>Huh. Project Euler. What&amp;rsquo;s that? &lt;em>Click&lt;/em>&lt;/p>
-&lt;p>I got hooked right away. Hooked bad. Being newly unemployed I spent my spring at The Wormhole drinking coffee and teaching myself Python by solving Project Euler problems. They scratched an itch I forgot I had. They were frustrating and impossible and clever and solving one felt &lt;em>amazing&lt;/em>. That silly green checkmark became the best part of my day.&lt;/p>
-&lt;figure id="figure-youre-good-enough-youre-smart-enough-and-doggone-it-people-like-you">
-&lt;img src="/img/green_check.png" alt="" >
-&lt;figcaption>
-You&amp;rsquo;re good enough, you&amp;rsquo;re smart enough, and doggone it, people like you!
-&lt;/figcaption>
-&lt;/figure>
-&lt;p>By the time I interviewed at Thinkful I&amp;rsquo;d solved about 80 problems, averaging a solution every day or two, though some took much longer.&lt;/p>
-&lt;p>Project Euler had a big impact on my work and my life. It made me excited to write code. It gave me the motivation to keep beating my head against the wall while I was learning. It lent me credibility during my interviews and helped me join Thinkful, where I successfully pivoted into tech and got paid to help others do the same. It drilled me, without me realizing, in data structures and algorithmic complexity before I knew what those were. And it reminded me how much I love math.&lt;/p>
-&lt;p>So I want to talk about it here. I&amp;rsquo;ve held off on sharing my solutions or analysis because, well, Project Euler asked me not to. But now they let people talk about the first hundred problems. So let&amp;rsquo;s dive in and see how many of those we can cover.&lt;/p>
-&lt;figure >
-&lt;img src="/img/lets_go.gif" alt="" width="75%" >
-&lt;/figure></description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;evil-optimization&#34;&gt;Evil optimization&lt;/h1&gt;
+&lt;p&gt;The analytic solution involves a lot more typing and it isn&amp;rsquo;t as simple to read and understand, so why is it better?&lt;/p&gt;
+&lt;p&gt;Well, it &lt;em&gt;isn&amp;rsquo;t&lt;/em&gt; better. There are tradeoffs between the analytic solution and the iterative solution. Neither is inherently better. Deciding which approach is better for you depends on your context.&lt;/p&gt;
+&lt;p&gt;In the context of this specific problem, &lt;em&gt;the iterative solution works just fine&lt;/em&gt;. It&amp;rsquo;s faster to conceive and implement, it&amp;rsquo;s easier to understand, and less code is less chance for things to break. With our crazy strong computers and the small numbers involved the analytic solution is just a bunch of optimization that was (maybe) fun to do but doesn&amp;rsquo;t buy us anything valuable.&lt;/p&gt;
+&lt;p&gt;This is an example of &lt;strong&gt;premature optimization&lt;/strong&gt;, and as Donald Knuth famously said, &amp;ldquo;
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Program_optimization#When_to_optimize&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;premature optimization is the root of all evil&lt;/a&gt;&amp;quot;. Spending time optimizing things we don&amp;rsquo;t need to isn&amp;rsquo;t just a waste of time better spent elsewhere, it also makes our programs worse: harder to understand and maintain.&lt;/p&gt;
+&lt;p&gt;That said, it&amp;rsquo;s easy to think of cases where the tradeoffs might play out the other way. What if we were working with much larger numbers? Try plugging in bigger numbers to the iterative and analytic solutions and watch where the difference in performance starts to get noticeable. My laptop struggles to run the iterative solution above about a hundred million. Even the world&amp;rsquo;s biggest supercomputer, 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Summit_%28supercomputer%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Summit&lt;/a&gt; doesn&amp;rsquo;t have enough memory to store a list of all integers up to a quadrillion. But my dinky laptop can calculate &lt;code&gt;simple_arithmetic_series(3, 1000000000000000)&lt;/code&gt; with no noticeable delay. With the right algorithm, my laptop can do something that&amp;rsquo;s literally impossible for the world&amp;rsquo;s best supercomputer.&lt;/p&gt;
+&lt;p&gt;Those numbers seem ridiculous but spoiler alert: Project Euler is going to start throwing hefty numbers at us pretty quick. As we dig deeper performance, resources, and 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Computational_complexity_theory&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;computational complexity&lt;/a&gt; are going to get critically important.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>❤️ Project Euler</title>
+      <link>/post/heart_euler/</link>
+      <pubDate>Thu, 21 May 2020 23:54:43 -0700</pubDate>
+      <guid>/post/heart_euler/</guid>
+      <description>&lt;p&gt;In 2012 I was a corporate lawyer at a big fancy firm. If you&amp;rsquo;d seen teenage me or college me you&amp;rsquo;d be understandably confused. Grae somehow ended up a lawyer? A corporate lawyer at a fancy firm? What? And if you know me today you might be similarly confused.&lt;/p&gt;
+&lt;p&gt;My life as a corporate lawyer was short in part because of Project Euler.&lt;/p&gt;
+&lt;p&gt;That winter Kelly, a law school classmate, shared an article with a group of us about this crazy new company called Dev Bootcamp. It trained people to be programmers. And actually got them jobs! Good ones!&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-dbc-launched-the-coding-bootcamp-industry&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/dbc.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    DBC launched the coding bootcamp industry.
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;By then we were starting our second year of practice. It wasn&amp;rsquo;t a great time. Graduating into the great recession meant a lot of us couldn&amp;rsquo;t land a firm job. And those who &lt;em&gt;did&lt;/em&gt; get hired were dealing with the tough reality of law firm life. A bunch of us had the same thought when we learned about coding bootcamps: &amp;ldquo;Holy shit, I wish this was a thing four years ago when I made the naive decision to go to law school.&amp;rdquo;&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-aww-poor-white-collar-professional-photo-credit-ethan-sykes-on-unsplash&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/gaze.jpg&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Aww, poor white collar professional. Photo credit: Ethan Sykes on Unsplash
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;Most of the people who &lt;em&gt;would have&lt;/em&gt; done a bootcamp instead of law school couldn&amp;rsquo;t stomach eating the sunk cost to change careers. I was lucky: Stassia saw how unsatisfied I was. She said &amp;ldquo;If you aren&amp;rsquo;t happy you should quit; we&amp;rsquo;ll figure it out.&amp;rdquo; She&amp;rsquo;s done a lot of amazing things for me over the years, but giving me permission &amp;amp; encouragement to abandon a lucrative career is near the top of the list. She was still several years of training away from starting her own and mine was the only income. It was risky, but with her support I left biglaw.&lt;/p&gt;
+&lt;p&gt;Tuition at DBC was I think like $12k. That&amp;rsquo;s a tiny fraction of the cost of my JD. Still, with my student debt and monthly loan payments we didn&amp;rsquo;t have the reserves or cashflow for that. So what could I do?&lt;/p&gt;
+&lt;p&gt;Casting about the web for low cost options I ran into Hacker School (now 
+&lt;a href=&#34;https://www.recurse.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Recurse Center&lt;/a&gt;). Seemed like a cool opportunity. Price was right. But I wasn&amp;rsquo;t qualified yet. I knew I didn&amp;rsquo;t have anywhere near enough programming experience to apply, but how much &lt;em&gt;was&lt;/em&gt; enough? I checked 
+&lt;a href=&#34;https://web.archive.org/web/20130115173024/https://www.hackerschool.com/faq&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;their FAQ&lt;/a&gt; and that&amp;rsquo;s where I found it:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;How much programming experience do I need for Hacker School?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you&amp;hellip; solve 
+&lt;a href=&#34;http://projecteuler.net&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Project Euler&lt;/a&gt; problems for fun&amp;hellip; you&amp;rsquo;re almost certainly a good fit for Hacker School.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Huh. Project Euler. What&amp;rsquo;s that? &lt;em&gt;Click&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I got hooked right away. Hooked bad. Being newly unemployed I spent my spring at The Wormhole drinking coffee and teaching myself Python by solving Project Euler problems. They scratched an itch I forgot I had. They were frustrating and impossible and clever and solving one felt &lt;em&gt;amazing&lt;/em&gt;. That silly green checkmark became the best part of my day.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-youre-good-enough-youre-smart-enough-and-doggone-it-people-like-you&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/green_check.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    You&amp;rsquo;re good enough, you&amp;rsquo;re smart enough, and doggone it, people like you!
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;By the time I interviewed at Thinkful I&amp;rsquo;d solved about 80 problems, averaging a solution every day or two, though some took much longer.&lt;/p&gt;
+&lt;p&gt;Project Euler had a big impact on my work and my life. It made me excited to write code. It gave me the motivation to keep beating my head against the wall while I was learning. It lent me credibility during my interviews and helped me join Thinkful, where I successfully pivoted into tech and got paid to help others do the same. It drilled me, without me realizing, in data structures and algorithmic complexity before I knew what those were. And it reminded me how much I love math.&lt;/p&gt;
+&lt;p&gt;So I want to talk about it here. I&amp;rsquo;ve held off on sharing my solutions or analysis because, well, Project Euler asked me not to. But now they let people talk about the first hundred problems. So let&amp;rsquo;s dive in and see how many of those we can cover.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure &gt;
+
+
+
+  &lt;img src=&#34;/img/lets_go.gif&#34; alt=&#34;&#34; width=&#34;75%&#34; &gt;
+
+
+
+
+&lt;/figure&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

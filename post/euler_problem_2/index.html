@@ -1,8 +1,684 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Source Themes Academic 4.8.0"><meta name=author content="Grae Drake"><meta name=description content="Our first, and certainly not our last, encounter with the Fibonacci Sequence on Project Euler. Before we dive into Problem 2 together take some time to chew on it yourself if you haven&rsquo;t already."><link rel=alternate hreflang=en-us href=/post/euler_problem_2/><meta name=theme-color content="hsl(339, 90%, 68%)"><script src=/js/mathjax-config.js></script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark-reasonable.min.css crossorigin=anonymous title=hl-light><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark-reasonable.min.css crossorigin=anonymous title=hl-dark disabled><script src=https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script><script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js integrity crossorigin=anonymous async></script><link rel=preconnect href=https://fonts.googleapis.com><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"><link rel=stylesheet href=/css/academic.css><link rel=manifest href=/index.webmanifest><link rel=icon type=image/png href=/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_32x32_fill_lanczos_center_2.png><link rel=apple-touch-icon type=image/png href=/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png><link rel=canonical href=/post/euler_problem_2/><meta property="twitter:card" content="summary_large_image"><meta property="twitter:site" content="@Grae_Drake"><meta property="twitter:creator" content="@Grae_Drake"><meta property="og:site_name" content="Grae"><meta property="og:url" content="/post/euler_problem_2/"><meta property="og:title" content="Project Euler Problem 2: Even Fibonacci numbers | Grae"><meta property="og:description" content="Our first, and certainly not our last, encounter with the Fibonacci Sequence on Project Euler. Before we dive into Problem 2 together take some time to chew on it yourself if you haven&rsquo;t already."><meta property="og:image" content="/post/euler_problem_2/featured.png"><meta property="twitter:image" content="/post/euler_problem_2/featured.png"><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2020-05-24T15:13:26-07:00"><meta property="article:modified_time" content="2020-05-24T15:13:26-07:00"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/post/euler_problem_2/"},"headline":"Project Euler Problem 2: Even Fibonacci numbers","image":["/post/euler_problem_2/featured.png"],"datePublished":"2020-05-24T15:13:26-07:00","dateModified":"2020-05-24T15:13:26-07:00","author":{"@type":"Person","name":"Grae Drake"},"publisher":{"@type":"Organization","name":"Grae","logo":{"@type":"ImageObject","url":"/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png"}},"description":"Our first, and certainly not our last, encounter with the Fibonacci Sequence on Project Euler. Before we dive into Problem 2 together take some time to chew on it yourself if you haven\u0026rsquo;t already."}</script><title>Project Euler Problem 2: Even Fibonacci numbers | Grae</title></head><body id=top data-spy=scroll data-offset=70 data-target=#TableOfContents class=dark><aside class=search-results id=search><div class=container><section class=search-header><div class="row no-gutters justify-content-between mb-3"><div class=col-6><h1>Search</h1></div><div class="col-6 col-search-close"><a class=js-search href=#><i class="fas fa-times-circle text-muted" aria-hidden=true></i></a></div></div><div id=search-box><input name=q id=search-query placeholder=Search... autocapitalize=off autocomplete=off autocorrect=off spellcheck=false type=search></div></section><section class=section-search-results><div id=search-hits></div></section></div></aside><nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main><div class=container><button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Toggle navigation">
-<span><i class="fas fa-bars"></i></span></button><div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content><ul class="navbar-nav d-md-inline-flex"><li class=nav-item><a class=nav-link href=/#posts><span>Home</span></a></li><li class=nav-item><a class=nav-link href=/#posts><span>Posts</span></a></li><li class=nav-item><a class=nav-link href=/#about><span>About</span></a></li><li class=nav-item><a class=nav-link href=/#contact><span>Contact</span></a></li></ul></div><ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2"><li class=nav-item><a class="nav-link js-search" href=#><i class="fas fa-search" aria-hidden=true></i></a></li><li class="nav-item dropdown theme-dropdown"><a href=# class="nav-link js-theme-selector" data-toggle=dropdown aria-haspopup=true><i class="fas fa-palette" aria-hidden=true></i></a><div class=dropdown-menu><a href=# class="dropdown-item js-set-theme-light"><span>Light</span></a>
-<a href=# class="dropdown-item js-set-theme-dark"><span>Dark</span></a>
-<a href=# class="dropdown-item js-set-theme-auto"><span>Automatic</span></a></div></li></ul></div></nav><article class=article><div class="article-container pt-3"><h1>Project Euler Problem 2: Even Fibonacci numbers</h1><div class=article-metadata><div><span><a href=/author/grae-drake/>Grae Drake</a></span></div><span class=article-date>May 24, 2020</span>
-<span class=middot-divider></span><span class=article-reading-time>7 min read</span></div></div><div class="article-header article-container featured-image-wrapper mt-4 mb-4" style=max-width:500px;max-height:300px><div style=position:relative><img src=/post/euler_problem_2/featured.png alt class=featured-image></div></div><div class=article-container><div class=article-style><p>Our first, and certainly not our last, encounter with the Fibonacci Sequence on Project Euler. Before we dive into Problem 2 together take some time to chew on it yourself if you haven&rsquo;t already. Did you find a solution? If so have you been able to improve or streamline your first one? If not can you clearly describe to yourself what you&rsquo;re stuck on?</p><figure id=figure-modern-mathematicians-just-arent-this-_imposing_-image-a-hrefhttpscommonswikimediaorgwikifileleonardo_da_pisajpgmediafileleonardo_fibonaccijpgwikipediaa><img src=/img/Leonardo_Fibonacci.jpeg alt><figcaption>Modern mathematicians just aren&rsquo;t this <em>imposing</em>. Image: <a href=https://commons.wikimedia.org/wiki/File:Leonardo_da_Pisa.jpg#/media/File:Leonardo_Fibonacci.JPG>Wikipedia</a></figcaption></figure><h2 id=the-straightforward-approach>The Straightforward Approach</h2><p>The most straightforward way to solve this problem is to generate every Fibonacci number below four million, then look at each one, check whether it&rsquo;s even and add it to our total if it is:</p><pre><code class=language-python>fibs = [1, 1]
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Grae Drake">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Our first, and certainly not our last, encounter with the Fibonacci Sequence on Project Euler. Before we dive into Problem 2 together take some time to chew on it yourself if you haven&rsquo;t already.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/euler_problem_2/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="hsl(339, 90%, 68%)">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark-reasonable.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark-reasonable.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/euler_problem_2/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@Grae_Drake">
+  <meta property="twitter:creator" content="@Grae_Drake">
+  
+  <meta property="og:site_name" content="Grae">
+  <meta property="og:url" content="/post/euler_problem_2/">
+  <meta property="og:title" content="Project Euler Problem 2: Even Fibonacci numbers | Grae">
+  <meta property="og:description" content="Our first, and certainly not our last, encounter with the Fibonacci Sequence on Project Euler. Before we dive into Problem 2 together take some time to chew on it yourself if you haven&rsquo;t already."><meta property="og:image" content="/post/euler_problem_2/featured.png">
+  <meta property="twitter:image" content="/post/euler_problem_2/featured.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-05-24T15:13:26-07:00">
+    
+    <meta property="article:modified_time" content="2020-05-24T15:13:26-07:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/euler_problem_2/"
+  },
+  "headline": "Project Euler Problem 2: Even Fibonacci numbers",
+  
+  "image": [
+    "/post/euler_problem_2/featured.png"
+  ],
+  
+  "datePublished": "2020-05-24T15:13:26-07:00",
+  "dateModified": "2020-05-24T15:13:26-07:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Grae Drake"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Grae",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "Our first, and certainly not our last, encounter with the Fibonacci Sequence on Project Euler. Before we dive into Problem 2 together take some time to chew on it yourself if you haven\u0026rsquo;t already."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Project Euler Problem 2: Even Fibonacci numbers | Grae</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="dark">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1>Project Euler Problem 2: Even Fibonacci numbers</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  
+  <span><a href="/author/grae-drake/">Grae Drake</a></span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    May 24, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 500px; max-height: 300px;">
+  <div style="position: relative">
+    <img src="/post/euler_problem_2/featured.png" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>Our first, and certainly not our last, encounter with the Fibonacci Sequence on Project Euler. Before we dive into Problem 2 together take some time to chew on it yourself if you haven&rsquo;t already. Did you find a solution? If so have you been able to improve or streamline your first one? If not can you clearly describe to yourself what you&rsquo;re stuck on?</p>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-modern-mathematicians-just-arent-this-_imposing_-image-a-hrefhttpscommonswikimediaorgwikifileleonardo_da_pisajpgmediafileleonardo_fibonaccijpgwikipediaa">
+
+
+
+  <img src="/img/Leonardo_Fibonacci.jpeg" alt=""  >
+
+
+
+  
+  
+  <figcaption>
+    Modern mathematicians just aren&rsquo;t this <em>imposing</em>. Image: <a href='https://commons.wikimedia.org/wiki/File:Leonardo_da_Pisa.jpg#/media/File:Leonardo_Fibonacci.JPG'>Wikipedia</a>
+  </figcaption>
+
+
+</figure>
+
+<h2 id="the-straightforward-approach">The Straightforward Approach</h2>
+<p>The most straightforward way to solve this problem is to generate every Fibonacci number below four million, then look at each one, check whether it&rsquo;s even and add it to our total if it is:</p>
+<pre><code class="language-python">fibs = [1, 1]
 while fibs[-1] + fibs[-2] &lt; 4000000:
     fibs.append(fibs[-1] + fibs[-2])
 
@@ -13,7 +689,10 @@ for n in fibs:
 
 print(sum(evens))
 
-</code></pre><h2 id=saving-some-memory>Saving Some Memory</h2><p>The solution above works and runs plenty quick. We don&rsquo;t <em>need</em> to simplify. But <em>can</em> we? You might notice that we&rsquo;re creating a pretty big list of fibonacci numbers. Is there a way we can avoid using all that memory? What if, instead of a list, we just kept track of the two most recent numbers and checked for evenness at the same time we generate each new number?</p><pre><code class=language-python>result = 0
+</code></pre>
+<h2 id="saving-some-memory">Saving Some Memory</h2>
+<p>The solution above works and runs plenty quick. We don&rsquo;t <em>need</em> to simplify. But <em>can</em> we? You might notice that we&rsquo;re creating a pretty big list of fibonacci numbers. Is there a way we can avoid using all that memory? What if, instead of a list, we just kept track of the two most recent numbers and checked for evenness at the same time we generate each new number?</p>
+<pre><code class="language-python">result = 0
 a = 1
 b = 1
 while a + b &lt; 4000000:
@@ -25,7 +704,10 @@ while a + b &lt; 4000000:
         result += b
 
 print(result)
-</code></pre><h2 id=saving-some-lines>Saving Some Lines</h2><p>Mathematicians and programmers coming from other languages might get weirded out by an amazing Python feature called <strong>multiple assignment</strong>. It lets us do things like this:</p><pre><code class=language-python>x = 'ham'
+</code></pre>
+<h2 id="saving-some-lines">Saving Some Lines</h2>
+<p>Mathematicians and programmers coming from other languages might get weirded out by an amazing Python feature called <strong>multiple assignment</strong>. It lets us do things like this:</p>
+<pre><code class="language-python">x = 'ham'
 y = 'eggs'
 
 x, y = y, x
@@ -34,7 +716,9 @@ print(x)
 &gt;&gt;&gt; 'eggs'
 print(y)
 &gt;&gt;&gt; 'ham'
-</code></pre><p>Multiple assignment lets us swap two variables in a single line and do other fun things with assigning to more than one variable at a time. Check out how we can use multiple assignment to compress our solution above in two places:</p><pre><code class=language-python>result = 0
+</code></pre>
+<p>Multiple assignment lets us swap two variables in a single line and do other fun things with assigning to more than one variable at a time. Check out how we can use multiple assignment to compress our solution above in two places:</p>
+<pre><code class="language-python">result = 0
 a, b = 1, 1
 while a + b &lt; 4000000:
     a, b = b, a + b
@@ -42,8 +726,55 @@ while a + b &lt; 4000000:
         result += b
 
 print(result)
-</code></pre><p>This is super useful and can make for much more concise code. Trey Hunter has a great
-<a href=https://treyhunner.com/2018/03/tuple-unpacking-improves-python-code-readability/ target=_blank rel=noopener>tutorial on multiple assignment</a> if you want to learn more.</p><h2 id=skipping-odds>Skipping Odds</h2><p>In our solutions so far we&rsquo;ve been calculating every fibonacci number and then checking if it&rsquo;s even. What if we could just skip the fibonacci numbers we don&rsquo;t want and just calculate the ones we need?</p><p>Look at the sequence below. Do you see a pattern with even numbers?</p><p>1, 1, <strong>2</strong>, 3, 5, <strong>8</strong>, 13, 21, <strong>34</strong>, 55, 89, &mldr;</p><p>Every third term in the sample above is even. Can you see why it&rsquo;s not just a coincidence and is true for the entire sequence?</p><p>Is there a way to calculate <em>only</em> the 3rd, 6th, 9th, etc. items so we don&rsquo;t waste precious CPU cycles on lame odd numbers like <code>89</code>? Yes.</p><figure id=figure-he-must-have-used-more-compute-than-absolutely-necessary><img src=/img/computer_fire.gif alt><figcaption>He must have used more compute than absolutely necessary</figcaption></figure><p>I won&rsquo;t run through the steps here, but you can start with the fibonacci series definition:</p><p>$$ F_{n} = {\color{#FF007F}F_{n-2}} + \color{#0072BB}F_{n-1} $$</p><p>where $ F_{n} $ is the nth term in the sequence, and algebraically derive the equation:</p><p>$$ F_{n} = {\color{#FF007F}F_{n-6}} + {\color{#0072BB}F_{n-3}} + {\color{#177245}(3 * F_{n-3})} $$</p><p>So normally to get the next term we add the previous two terms. For the next <em>even</em> term we add the previous two <em>even</em> terms, and then add the previous even term three more times. In code:</p><pre><code class=language-python># Seed with first two even terms.
+</code></pre>
+<p>This is super useful and can make for much more concise code. Trey Hunter has a great 
+<a href="https://treyhunner.com/2018/03/tuple-unpacking-improves-python-code-readability/" target="_blank" rel="noopener">tutorial on multiple assignment</a> if you want to learn more.</p>
+<h2 id="skipping-odds">Skipping Odds</h2>
+<p>In our solutions so far we&rsquo;ve been calculating every fibonacci number and then checking if it&rsquo;s even. What if we could just skip the fibonacci numbers we don&rsquo;t want and just calculate the ones we need?</p>
+<p>Look at the sequence below. Do you see a pattern with even numbers?</p>
+<p>1, 1, <strong>2</strong>, 3, 5, <strong>8</strong>, 13, 21, <strong>34</strong>, 55, 89, &hellip;</p>
+<p>Every third term in the sample above is even. Can you see why it&rsquo;s not just a coincidence and is true for the entire sequence?</p>
+<p>Is there a way to calculate <em>only</em> the 3rd, 6th, 9th, etc. items so we don&rsquo;t waste precious CPU cycles on lame odd numbers like <code>89</code>? Yes.</p>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-he-must-have-used-more-compute-than-absolutely-necessary">
+
+
+
+  <img src="/img/computer_fire.gif" alt=""  >
+
+
+
+  
+  
+  <figcaption>
+    He must have used more compute than absolutely necessary
+  </figcaption>
+
+
+</figure>
+
+<p>I won&rsquo;t run through the steps here, but you can start with the fibonacci series definition:</p>
+<p>$$ F_{n} = {\color{#FF007F}F_{n-2}} + \color{#0072BB}F_{n-1} $$</p>
+<p>where $ F_{n} $ is the nth term in the sequence, and algebraically derive the equation:</p>
+<p>$$ F_{n} = {\color{#FF007F}F_{n-6}} + {\color{#0072BB}F_{n-3}} + {\color{#177245}(3 * F_{n-3})} $$</p>
+<p>So normally to get the next term we add the previous two terms. For the next <em>even</em> term we add the previous two <em>even</em> terms, and then add the previous even term three more times. In code:</p>
+<pre><code class="language-python"># Seed with first two even terms.
 a, b = 2, 8
 result = 10
 while a + 4 * b &lt; 4000000:
@@ -51,8 +782,20 @@ while a + 4 * b &lt; 4000000:
     result += b
 
 print(result)
-</code></pre><p>It&rsquo;s always nice when a more optimal algorithm <em>also</em> makes for less code. However, we&rsquo;ve lost some clarity compared to our previous solutions. It&rsquo;s not clear from the code itself where the hard-coded <strong>magic numbers</strong> <code>2</code>, <code>8</code>, and <code>10</code> are coming from.
-<a href=https://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants target=_blank rel=noopener>Magic numbers</a> aren&rsquo;t self-explanatory in the way named variables are and they can make a program harder to understand and maintain. That&rsquo;s why I added a comment at the top: I did&rsquo;t think the code alone made it obvious enough to you what it was doing.</p><h2 id=a-golden-solution>A Golden Solution</h2><p>Let&rsquo;s get <em>real</em> funky with it. Is there a way to calculate each term directly from the single term before it? For example, how could we look at $ 34 $ and calculate $ 55 $ without knowing or caring that the previous term was 21?</p><p>Our buddy Fibonacci discovered way back in 1202 that the ratio between successive terms in the fibonacci sequence converges on $ \phi $, the <strong>golden ratio</strong>. So if you take $ F_n $ and multiply it by $ \phi $ you get alllllmost $ F_{n+1} $. Using the example above you get:</p><p>$$ 34 * \phi = 55.0131556175&mldr; $$</p><p>That&rsquo;s <em>super</em> close to the right answer: $ 55 $.</p><p>Multiply by $ \phi $ again and you get $ \approx{89} $, and multiply by $ \phi $ one last time to get $ \approx{144} $. Each time we multiply by $ \phi $ we step to the next fibonacci number. We can take three steps at once by multiplying by $ \phi^3 $. More formally:</p><p>$$ F_{n+3} \approx F_{n} * \phi^3 $$</p><p>Ok this trick gets us an <em>approximate</em> answer, but how do we turn that into an <em>exact</em> answer? It turns out the approximation is so good and the error so small that you can just round the result to the nearest integer. That&rsquo;s it:</p><p>$$ F_{n+3} = \|(F_{n} * \phi^3)\| $$</p><p>Let&rsquo;s code that up:</p><pre><code class=language-python># Define phi because it isn't predifined in the Python standard library.
+</code></pre>
+<p>It&rsquo;s always nice when a more optimal algorithm <em>also</em> makes for less code. However, we&rsquo;ve lost some clarity compared to our previous solutions. It&rsquo;s not clear from the code itself where the hard-coded <strong>magic numbers</strong> <code>2</code>, <code>8</code>, and <code>10</code> are coming from. 
+<a href="https://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants" target="_blank" rel="noopener">Magic numbers</a> aren&rsquo;t self-explanatory in the way named variables are and they can make a program harder to understand and maintain. That&rsquo;s why I added a comment at the top: I did&rsquo;t think the code alone made it obvious enough to you what it was doing.</p>
+<h2 id="a-golden-solution">A Golden Solution</h2>
+<p>Let&rsquo;s get <em>real</em> funky with it. Is there a way to calculate each term directly from the single term before it? For example, how could we look at $ 34 $ and calculate $ 55 $ without knowing or caring that the previous term was 21?</p>
+<p>Our buddy Fibonacci discovered way back in 1202 that the ratio between successive terms in the fibonacci sequence converges on $ \phi $, the <strong>golden ratio</strong>. So if you take $ F_n $ and multiply it by $ \phi $ you get alllllmost $ F_{n+1} $. Using the example above you get:</p>
+<p>$$ 34 * \phi = 55.0131556175&hellip; $$</p>
+<p>That&rsquo;s <em>super</em> close to the right answer: $ 55 $.</p>
+<p>Multiply by $ \phi $ again and you get $ \approx{89} $, and multiply by $ \phi $ one last time to get $ \approx{144} $. Each time we multiply by $ \phi $ we step to the next fibonacci number. We can take three steps at once by multiplying by $ \phi^3 $. More formally:</p>
+<p>$$ F_{n+3} \approx F_{n} * \phi^3 $$</p>
+<p>Ok this trick gets us an <em>approximate</em> answer, but how do we turn that into an <em>exact</em> answer? It turns out the approximation is so good and the error so small that you can just round the result to the nearest integer. That&rsquo;s it:</p>
+<p>$$ F_{n+3} = \|(F_{n} * \phi^3)\| $$</p>
+<p>Let&rsquo;s code that up:</p>
+<pre><code class="language-python"># Define phi because it isn't predifined in the Python standard library.
 phi = (1 + 5 ** 0.5) / 2
 a = result = 2
 while a * phi ** 3 &lt; 4000000:
@@ -60,18 +803,345 @@ while a * phi ** 3 &lt; 4000000:
     result += a
 
 print(result)
-</code></pre><p>Now ain&rsquo;t that a shiny solution.</p><h2 id=analytic-approximation-not-solution>Analytic Approximation (not Solution)</h2><p>This is a nice solution but it still relies on a <code>while</code> loop to calculate items one by one. I can almost, but not <em>quite</em> get to a direct calculation. The approximation of $ \phi $, which was small enough between terms to round away in the solution above, compounds in this stab at an analytic solution and so only gives an approximation.</p><p>For the specific problem inputs this gives a result about 5% off from the true answer. Here&rsquo;s my approximation.</p><p>If we ignore rounding for now, we can write out the sequence of terms we generate above like this:</p><p>$$ 2,\: 2\phi^3,\: 2\phi^6,\: 2\phi^9,\: 2\phi^{12},\: &mldr; $$</p><p>If you squint real hard, you can see that&rsquo;s a
-<a href=https://en.wikipedia.org/wiki/Geometric_series target=_blank rel=noopener>geometric series</a>. It&rsquo;s easier to see if we replace $ \phi^3 $ with the symbol $ r $:</p><p>$$ 2r^0,\: 2r^1,\: 2r^2,\: 2r^3,\: 2r^4,\: &mldr; $$</p><p>where $ r = \phi^3 \approx{4.2360679775} $</p><p>Since this is a geometric series we can use the
-<a href=https://en.wikipedia.org/wiki/Geometric_progression#Geometric_series target=_blank rel=noopener>formula</a> for the sum of the first $ n $ terms of a geometric series:</p><p>$$ Geometric{\ }Sum = \frac{a(1-r^n)}{1 - r} $$</p><p>Where $ a $ is the start term (in our case: $ 2 $), $ r $ is the ratio between terms (in our case $ \phi^3 $ or about $ 4.2360679775 $), and $ n $ is the number of terms.</p><p>All we&rsquo;re missing now is $ n $. We can get that by taking the log base $ r $ of our limit (spoiler: it&rsquo;s $ 11 $). Let&rsquo;s code it up:</p><pre><code class=language-python>import math
+</code></pre>
+<p>Now ain&rsquo;t that a shiny solution.</p>
+<h2 id="analytic-approximation-not-solution">Analytic Approximation (not Solution)</h2>
+<p>This is a nice solution but it still relies on a <code>while</code> loop to calculate items one by one. I can almost, but not <em>quite</em> get to a direct calculation. The approximation of $ \phi $, which was small enough between terms to round away in the solution above, compounds in this stab at an analytic solution and so only gives an approximation.</p>
+<p>For the specific problem inputs this gives a result about 5% off from the true answer. Here&rsquo;s my approximation.</p>
+<p>If we ignore rounding for now, we can write out the sequence of terms we generate above like this:</p>
+<p>$$ 2,\: 2\phi^3,\: 2\phi^6,\: 2\phi^9,\: 2\phi^{12},\: &hellip; $$</p>
+<p>If you squint real hard, you can see that&rsquo;s a 
+<a href="https://en.wikipedia.org/wiki/Geometric_series" target="_blank" rel="noopener">geometric series</a>. It&rsquo;s easier to see if we replace $ \phi^3 $ with the symbol $ r $:</p>
+<p>$$ 2r^0,\: 2r^1,\: 2r^2,\: 2r^3,\: 2r^4,\: &hellip; $$</p>
+<p>where $ r = \phi^3 \approx{4.2360679775} $</p>
+<p>Since this is a geometric series we can use the 
+<a href="https://en.wikipedia.org/wiki/Geometric_progression#Geometric_series" target="_blank" rel="noopener">formula</a> for the sum of the first $ n $ terms of a geometric series:</p>
+<p>$$ Geometric{\ }Sum = \frac{a(1-r^n)}{1 - r} $$</p>
+<p>Where $ a $ is the start term (in our case: $ 2 $), $ r $ is the ratio between terms (in our case $ \phi^3 $ or about $ 4.2360679775 $), and $ n $ is the number of terms.</p>
+<p>All we&rsquo;re missing now is $ n $. We can get that by taking the log base $ r $ of our limit (spoiler: it&rsquo;s $ 11 $). Let&rsquo;s code it up:</p>
+<pre><code class="language-python">import math
 phi = (1 + 5 ** 0.5) / 2
 r = phi ** 3
 a = 2
 n = 11
 print((a * (1 - r ** n)) / (1 - r))
-</code></pre><p>Unfortunately the approximations, which were small enough to ignore last time, are now compounding. This attempt overshoots the right answer by about 5%.</p><p>I don&rsquo;t know whether there&rsquo;s a way to improve the accuracy of this approach or if there&rsquo;s a way to tweak it to sidestep the approximation issues. If you see something I&rsquo;m overlooking please reach out and let me know!</p></div><p>See an issue on this page? Report a
-<a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=typo&title=Typo+on+Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target=_blank rel=noopener class=issue-report>typo</a>,
-<a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=bug&title=Bug+on+Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target=_blank rel=noopener class=issue-report>bug</a>, or give
-<a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=enhancement&title=Feedback+on+Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target=_blank rel=noopener class=issue-report>general feedback</a> on GitHub.</p><div class=article-tags><a class="badge badge-light" href=/tag/euler/>Euler</a></div><div class=share-box aria-hidden=true><ul class=share><li><a href="https://twitter.com/intent/tweet?url=/post/euler_problem_2/&text=Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target=_blank rel=noopener class=share-btn-twitter><i class="fab fa-twitter"></i></a></li><li><a href="https://www.facebook.com/sharer.php?u=/post/euler_problem_2/&t=Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target=_blank rel=noopener class=share-btn-facebook><i class="fab fa-facebook"></i></a></li><li><a href="mailto:?subject=Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers&body=/post/euler_problem_2/" target=_blank rel=noopener class=share-btn-email><i class="fas fa-envelope"></i></a></li><li><a href="https://www.linkedin.com/shareArticle?url=/post/euler_problem_2/&title=Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target=_blank rel=noopener class=share-btn-linkedin><i class="fab fa-linkedin-in"></i></a></li><li><a href="https://web.whatsapp.com/send?text=Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers%20/post/euler_problem_2/" target=_blank rel=noopener class=share-btn-whatsapp><i class="fab fa-whatsapp"></i></a></li><li><a href="https://service.weibo.com/share/share.php?url=/post/euler_problem_2/&title=Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target=_blank rel=noopener class=share-btn-weibo><i class="fab fa-weibo"></i></a></li></ul></div><div class="media author-card content-widget-hr"><img class="avatar mr-3 avatar-circle" src=/author/grae-drake/avatar_hu10888d42fd498c9540cd7a7f173bcd99_164392_270x270_fill_lanczos_center_2.png alt="Grae Drake"><div class=media-body><h5 class=card-title><a href=/>Grae Drake</a></h5><h6 class=card-subtitle>Advisor</h6><p class=card-text>I build mission-driven products, teams, and companies.</p><ul class=network-icon aria-hidden=true><li><a href=/#contact><i class="fas fa-envelope"></i></a></li><li><a href=https://twitter.com/Grae_Drake target=_blank rel=noopener><i class="fab fa-twitter"></i></a></li><li><a href=https://github.com/Grae-Drake target=_blank rel=noopener><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/graed/ target=_blank rel=noopener><i class="fab fa-linkedin"></i></a></li></ul></div></div><div class="article-widget content-widget-hr"><h3>Related</h3><ul><li><a href=/post/euler_problem_1/>Project Euler Problem 1: Multiples of 3 and 5</a></li><li><a href=/post/heart_euler/>❤️ Project Euler</a></li></ul></div></div></article><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python-repl.min.js></script><script>const code_highlighting=true;</script><script>const isSiteThemeDark=true;</script><script>const search_config={"indexURI":"/index.json","minLength":1,"threshold":0.3};const i18n={"no_results":"No results found","placeholder":"Search...","results":"results found"};const content_type={'post':"Posts",'project':"Projects",'publication':"Publications",'talk':"Talks"};</script><script id=search-hit-fuse-template type=text/x-template>
+</code></pre>
+<p>Unfortunately the approximations, which were small enough to ignore last time, are now compounding. This attempt overshoots the right answer by about 5%.</p>
+<p>I don&rsquo;t know whether there&rsquo;s a way to improve the accuracy of this approach or if there&rsquo;s a way to tweak it to sidestep the approximation issues. If you see something I&rsquo;m overlooking please reach out and let me know!</p>
+
+    </div>
+
+    
+
+
+
+
+
+<p>
+    See an issue on this page? Report a 
+    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=typo&title=Typo+on+Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target="_blank" rel="noopener" class="issue-report">typo</a>, 
+    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=bug&title=Bug+on+Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target="_blank" rel="noopener" class="issue-report">bug</a>, or give
+    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=enhancement&title=Feedback+on+Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target="_blank" rel="noopener" class="issue-report">general feedback</a> on GitHub.
+</p>
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/euler/">Euler</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/euler_problem_2/&amp;text=Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/euler_problem_2/&amp;t=Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers&amp;body=/post/euler_problem_2/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/euler_problem_2/&amp;title=Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers%20/post/euler_problem_2/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/euler_problem_2/&amp;title=Project%20Euler%20Problem%202:%20Even%20Fibonacci%20numbers" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/grae-drake/avatar_hu10888d42fd498c9540cd7a7f173bcd99_164392_270x270_fill_lanczos_center_2.png" alt="Grae Drake">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="/">Grae Drake</a></h5>
+        <h6 class="card-subtitle">Advisor</h6>
+        <p class="card-text">I build mission-driven products, teams, and companies.</p>
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/Grae_Drake" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/Grae-Drake" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/graed/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/euler_problem_1/">Project Euler Problem 1: Multiples of 3 and 5</a></li>
+      
+      <li><a href="/post/heart_euler/">❤️ Project Euler</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python-repl.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
       <div class="search-hit" id="summary-{{key}}">
       <div class="search-hit-content">
         <div class="search-hit-name">
@@ -81,9 +1151,110 @@ print((a * (1 - r ** n)) / (1 - r))
         </div>
       </div>
       </div>
-    </script><script src=https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin=anonymous></script><script src=/js/academic.min.37431be2d92d7fb0160054761ab79602.js></script><div class=container><footer class=site-footer><p class=powered-by></p><p class=powered-by>Powered by the
-<a href=https://sourcethemes.com/academic/ target=_blank rel=noopener>Academic theme</a> for
-<a href=https://gohugo.io target=_blank rel=noopener>Hugo</a>.
-<span class=float-right aria-hidden=true><a href=# class=back-to-top><span class=button_icon><i class="fas fa-chevron-up fa-2x"></i></span></a></span></p></footer></div><div id=modal class="modal fade" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><h5 class=modal-title>Cite</h5><button type=button class=close data-dismiss=modal aria-label=Close>
-<span aria-hidden=true>&#215;</span></button></div><div class=modal-body><pre><code class="tex hljs"></code></pre></div><div class=modal-footer><a class="btn btn-outline-primary my-1 js-copy-cite" href=# target=_blank><i class="fas fa-copy"></i>Copy</a>
-<a class="btn btn-outline-primary my-1 js-download-cite" href=# target=_blank><i class="fas fa-download"></i>Download</a><div id=modal-error></div></div></div></div></div></body></html>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

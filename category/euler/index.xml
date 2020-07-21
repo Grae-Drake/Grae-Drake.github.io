@@ -1,130 +1,231 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Euler | Grae</title><link>/category/euler/</link><atom:link href="/category/euler/index.xml" rel="self" type="application/rss+xml"/><description>Euler</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 07 Jul 2020 10:50:18 -0700</lastBuildDate><image><url>/img/athens_social.png</url><title>Euler</title><link>/category/euler/</link></image><item><title>Project Euler Problem 8: Largest Product in a Series</title><link>/post/euler_problem_8/</link><pubDate>Tue, 07 Jul 2020 10:50:18 -0700</pubDate><guid>/post/euler_problem_8/</guid><description>&lt;p>When I first learned to program I didn&amp;rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was to the problem.&lt;/p>
-&lt;p>But, like any good technologist, I&amp;rsquo;m lazy. So if you give me a problem that (1) I know how to solve but (2) involves me doing a lot of repetitive work and (3) hints at a lazy solution, then, well, I might be lazy enough to actually learn something new.
-&lt;a href="https://projecteuler.net/problem=8" target="_blank" rel="noopener">Problem 8&lt;/a> was like that for me. It pushed me to understand and use Python slicing better when I was starting out. It helped me not have to type so much.&lt;/p>
-&lt;p>As usual, spend some time with
-&lt;a href="https://projecteuler.net/problem=8" target="_blank" rel="noopener">the problem&lt;/a> if you haven&amp;rsquo;t already.&lt;/p>
-&lt;figure id="figure-just-look-at-this-lazy-bastardbrdiogenes-detail-from-school-of-athens-by-raphael">
-&lt;img src="/img/school_of_athens_diogenes.png" alt="" >
-&lt;figcaption>
-Just look at this lazy bastard.&lt;br>Diogenes, detail from School of Athens by Raphael
-&lt;/figcaption>
-&lt;/figure>
-&lt;h2 id="wet-code">WET Code&lt;/h2>
-&lt;p>This problem gives us a test case and tells us that the biggest product from 4 adjacent digits of our number is &lt;code>5832&lt;/code>. Let&amp;rsquo;s hammer out a quick solution to run against that test case.&lt;/p>
-&lt;p>Copying and pasting the 1000 digit number from the problem into Python as a string and assigning it to the variable &lt;code>n&lt;/code> we can do:&lt;/p>
-&lt;pre>&lt;code class="language-python">biggest = 0
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Euler | Grae</title>
+    <link>/category/euler/</link>
+      <atom:link href="/category/euler/index.xml" rel="self" type="application/rss+xml" />
+    <description>Euler</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 07 Jul 2020 10:50:18 -0700</lastBuildDate>
+    <image>
+      <url>/img/athens_social.png</url>
+      <title>Euler</title>
+      <link>/category/euler/</link>
+    </image>
+    
+    <item>
+      <title>Project Euler Problem 8: Largest Product in a Series</title>
+      <link>/post/euler_problem_8/</link>
+      <pubDate>Tue, 07 Jul 2020 10:50:18 -0700</pubDate>
+      <guid>/post/euler_problem_8/</guid>
+      <description>&lt;p&gt;When I first learned to program I didn&amp;rsquo;t explore too much. I played it safe. I took things I knew how to do and I applied those to each new problem I found, no matter how well suited the solution actually was to the problem.&lt;/p&gt;
+&lt;p&gt;But, like any good technologist, I&amp;rsquo;m lazy. So if you give me a problem that (1) I know how to solve but (2) involves me doing a lot of repetitive work and (3) hints at a lazy solution, then, well, I might be lazy enough to actually learn something new. 
+&lt;a href=&#34;https://projecteuler.net/problem=8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 8&lt;/a&gt; was like that for me. It pushed me to understand and use Python slicing better when I was starting out. It helped me not have to type so much.&lt;/p&gt;
+&lt;p&gt;As usual, spend some time with 
+&lt;a href=&#34;https://projecteuler.net/problem=8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the problem&lt;/a&gt; if you haven&amp;rsquo;t already.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-just-look-at-this-lazy-bastardbrdiogenes-detail-from-school-of-athens-by-raphael&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/school_of_athens_diogenes.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Just look at this lazy bastard.&lt;br&gt;Diogenes, detail from School of Athens by Raphael
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;wet-code&#34;&gt;WET Code&lt;/h2&gt;
+&lt;p&gt;This problem gives us a test case and tells us that the biggest product from 4 adjacent digits of our number is &lt;code&gt;5832&lt;/code&gt;. Let&amp;rsquo;s hammer out a quick solution to run against that test case.&lt;/p&gt;
+&lt;p&gt;Copying and pasting the 1000 digit number from the problem into Python as a string and assigning it to the variable &lt;code&gt;n&lt;/code&gt; we can do:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;biggest = 0
 for i in range(996):
-product = int(n[i]) * int(n[i + 1]) * int(n[i + 2]) * int(n[i + 3])
-biggest = max(biggest, product)
+    product = int(n[i]) * int(n[i + 1]) * int(n[i + 2]) * int(n[i + 3])
+    biggest = max(biggest, product)
+
 print(biggest)
-&lt;/code>&lt;/pre>
-&lt;p>This&amp;hellip; works. And, if you can tolerate it, you can fix the ranges, extend this up to &lt;code>n[i + 12]&lt;/code> and it&amp;rsquo;ll solve the actual problem. But if you&amp;rsquo;re like me, and I know I am, you&amp;rsquo;re too lazy for that.&lt;/p>
-&lt;h2 id="dry-ing-our-code">DRY-ing Our Code&lt;/h2>
-&lt;p>Copying and pasting code is &lt;em>almost always&lt;/em> a bad idea. Imagine maintaining our solution above. You come back to this code to make a change and find yourself making the same change &lt;em>13 different times&lt;/em>. God forbid you mess up a change or, gasp, &lt;em>miss&lt;/em> one of the changes you needed to make.&lt;/p>
-&lt;p>This is the
-&lt;a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank" rel="noopener">&amp;ldquo;Don&amp;rsquo;t Repeat Yourself&amp;rdquo; principle&lt;/a> in action. Let&amp;rsquo;s tweak our solution with slicing and a loop to remove repetition.&lt;/p>
-&lt;pre>&lt;code class="language-python">biggest = 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This&amp;hellip; works. And, if you can tolerate it, you can fix the ranges, extend this up to &lt;code&gt;n[i + 12]&lt;/code&gt; and it&amp;rsquo;ll solve the actual problem. But if you&amp;rsquo;re like me, and I know I am, you&amp;rsquo;re too lazy for that.&lt;/p&gt;
+&lt;h2 id=&#34;dry-ing-our-code&#34;&gt;DRY-ing Our Code&lt;/h2&gt;
+&lt;p&gt;Copying and pasting code is &lt;em&gt;almost always&lt;/em&gt; a bad idea. Imagine maintaining our solution above. You come back to this code to make a change and find yourself making the same change &lt;em&gt;13 different times&lt;/em&gt;. God forbid you mess up a change or, gasp, &lt;em&gt;miss&lt;/em&gt; one of the changes you needed to make.&lt;/p&gt;
+&lt;p&gt;This is the 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Don&amp;rsquo;t Repeat Yourself&amp;rdquo; principle&lt;/a&gt; in action. Let&amp;rsquo;s tweak our solution with slicing and a loop to remove repetition.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;biggest = 0
 for i in range(996):
-substring = n[i:i + 4]
-product = 1
-for digit in substring:
-product *= int(digit)
-biggest = max(biggest, product)
+    substring = n[i:i + 4]
+    product = 1
+    for digit in substring:
+        product *= int(digit)
+    biggest = max(biggest, product)
+
 print(biggest)
-&lt;/code>&lt;/pre>
-&lt;p>There we go! Now it&amp;rsquo;s much easier to modify this code to solve the actual problem instead of just the test case. But if you do you&amp;rsquo;ll notice that you still have to make changes in multiple places.&lt;/p>
-&lt;h2 id="science-not-magic">Science, not Magic&lt;/h2>
-&lt;p>The solution above has two
-&lt;a href="https://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants" target="_blank" rel="noopener">magic numbers&lt;/a>: the &lt;code>996&lt;/code> in the range and the &lt;code>4&lt;/code> in our substring slice. These &amp;ldquo;magic numbers&amp;rdquo;, or unexplained numbers directly in our code, are problematic for at least two reasons.&lt;/p>
-&lt;p>First, &lt;em>why&lt;/em> is &lt;code>996&lt;/code> there? What does it represent? Why that number instead of another? If we have the context of the problem fresh in our head it might be obvious that it&amp;rsquo;s the number of substrings we&amp;rsquo;re going to sample. But what if you come back to this code in a month? What if someone else needs to use it?&lt;/p>
-&lt;p>Second, these magic numbers introduce the same kind of repetition we want to avoid by keeping our code DRY. If you change the length of the substring from 4 (our test) to 13 (the problem) you now have to change both magic numbers. And what if we made our input number &lt;code>n&lt;/code> bigger? We&amp;rsquo;d have to remember to change all those magic numbers too or our solution would no longer be correct.&lt;/p>
-&lt;p>Let&amp;rsquo;s rewrite our solution without the magic numbers:&lt;/p>
-&lt;pre>&lt;code class="language-python">biggest = 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;There we go! Now it&amp;rsquo;s much easier to modify this code to solve the actual problem instead of just the test case. But if you do you&amp;rsquo;ll notice that you still have to make changes in multiple places.&lt;/p&gt;
+&lt;h2 id=&#34;science-not-magic&#34;&gt;Science, not Magic&lt;/h2&gt;
+&lt;p&gt;The solution above has two 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Magic_number_%28programming%29#Unnamed_numerical_constants&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;magic numbers&lt;/a&gt;: the &lt;code&gt;996&lt;/code&gt; in the range and the &lt;code&gt;4&lt;/code&gt; in our substring slice. These &amp;ldquo;magic numbers&amp;rdquo;, or unexplained numbers directly in our code, are problematic for at least two reasons.&lt;/p&gt;
+&lt;p&gt;First, &lt;em&gt;why&lt;/em&gt; is &lt;code&gt;996&lt;/code&gt; there? What does it represent? Why that number instead of another? If we have the context of the problem fresh in our head it might be obvious that it&amp;rsquo;s the number of substrings we&amp;rsquo;re going to sample. But what if you come back to this code in a month? What if someone else needs to use it?&lt;/p&gt;
+&lt;p&gt;Second, these magic numbers introduce the same kind of repetition we want to avoid by keeping our code DRY. If you change the length of the substring from 4 (our test) to 13 (the problem) you now have to change both magic numbers. And what if we made our input number &lt;code&gt;n&lt;/code&gt; bigger? We&amp;rsquo;d have to remember to change all those magic numbers too or our solution would no longer be correct.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s rewrite our solution without the magic numbers:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;biggest = 0
 substring_length = 4
 for i in range(len(n) - substring_length):
-substring = n[i:i + substring_length]
-product = 1
-for digit in substring:
-product *= int(digit)
-biggest = max(biggest, product)
+    substring = n[i:i + substring_length]
+    product = 1
+    for digit in substring:
+        product *= int(digit)
+    biggest = max(biggest, product)
+
 print(biggest)
-&lt;/code>&lt;/pre>
-&lt;p>This version will automatically handle any changes to the length of &lt;code>n&lt;/code>. It lets us modify the length of the substring we&amp;rsquo;re looking at in one single place. &lt;em>And&lt;/em> we use a nice semantic name for the number so our code is easier to read and understand.&lt;/p>
-&lt;h2 id="scrap-that-lets-be-complex-and-efficient">Scrap That, Let&amp;rsquo;s Be Complex and Efficient&lt;/h2>
-&lt;p>We&amp;rsquo;ve nicely removed the repetition from our code. The solution runs in a fraction of a second. We &lt;em>could&lt;/em> stop here, and in real-life work we probably &lt;em>should&lt;/em>. But there is a way to speed up the code. It&amp;rsquo;s useful to look at this solution now and stash it in our toolbox for later.&lt;/p>
-&lt;p>There are 996 4-digit substrings of a 1,000 digit string, and in our solutions so far we&amp;rsquo;ve been calculating each product from scratch. It turns out that repeats a lot of work and we can get away with a lazier algorithm.&lt;/p>
-&lt;p>Consider the first six digits of our &lt;code>n&lt;/code> (&lt;code>73167&lt;/code>) and the first three 4-digit substrings:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>7316__&lt;/code>&lt;/li>
-&lt;li>&lt;code>_3167_&lt;/code>&lt;/li>
-&lt;li>&lt;code>__1671&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;p>Each substring is only a little different from the one before it. If we think of a 4-digit-wide &amp;ldquo;window&amp;rdquo; sliding from left to right we see each substring is made by chopping off the leftmost digit of the last substring and adding a new digit to the right.&lt;/p>
-&lt;p>The digit products of each substring are similarly related. To find the product of each new substring we take the previous substring product, divide it by the digit that&amp;rsquo;s disappearing, then multiply it by our new digit. This algorithm works no matter how &amp;ldquo;wide&amp;rdquo; the window is: if we have the product of the last substring we can calculate the next one with only two operations (a division and a multiplication).&lt;/p>
-&lt;p>Well, almost. We don&amp;rsquo;t want to divide by zero so we have to be careful when zero is involved. We&amp;rsquo;ll keep track of that.&lt;/p>
-&lt;p>Let&amp;rsquo;s code that up:&lt;/p>
-&lt;pre>&lt;code class="language-python">substring_length = 4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This version will automatically handle any changes to the length of &lt;code&gt;n&lt;/code&gt;. It lets us modify the length of the substring we&amp;rsquo;re looking at in one single place. &lt;em&gt;And&lt;/em&gt; we use a nice semantic name for the number so our code is easier to read and understand.&lt;/p&gt;
+&lt;h2 id=&#34;scrap-that-lets-be-complex-and-efficient&#34;&gt;Scrap That, Let&amp;rsquo;s Be Complex and Efficient&lt;/h2&gt;
+&lt;p&gt;We&amp;rsquo;ve nicely removed the repetition from our code. The solution runs in a fraction of a second. We &lt;em&gt;could&lt;/em&gt; stop here, and in real-life work we probably &lt;em&gt;should&lt;/em&gt;. But there is a way to speed up the code. It&amp;rsquo;s useful to look at this solution now and stash it in our toolbox for later.&lt;/p&gt;
+&lt;p&gt;There are 996 4-digit substrings of a 1,000 digit string, and in our solutions so far we&amp;rsquo;ve been calculating each product from scratch. It turns out that repeats a lot of work and we can get away with a lazier algorithm.&lt;/p&gt;
+&lt;p&gt;Consider the first six digits of our &lt;code&gt;n&lt;/code&gt; (&lt;code&gt;73167&lt;/code&gt;) and the first three 4-digit substrings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;7316__&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;_3167_&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;__1671&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each substring is only a little different from the one before it. If we think of a 4-digit-wide &amp;ldquo;window&amp;rdquo; sliding from left to right we see each substring is made by chopping off the leftmost digit of the last substring and adding a new digit to the right.&lt;/p&gt;
+&lt;p&gt;The digit products of each substring are similarly related. To find the product of each new substring we take the previous substring product, divide it by the digit that&amp;rsquo;s disappearing, then multiply it by our new digit. This algorithm works no matter how &amp;ldquo;wide&amp;rdquo; the window is: if we have the product of the last substring we can calculate the next one with only two operations (a division and a multiplication).&lt;/p&gt;
+&lt;p&gt;Well, almost. We don&amp;rsquo;t want to divide by zero so we have to be careful when zero is involved. We&amp;rsquo;ll keep track of that.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s code that up:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;substring_length = 4
+
 # Keep track of whether our window includes a zero.
-zero_count = n[0:substring_length].count('0')
+zero_count = n[0:substring_length].count(&#39;0&#39;)
+
 # Initialize the value of our substring product.
 previous_product = 1
 for digit in n[0:substring_length]:
-if digit != 0:
-previous_product *= int(digit)
+    if digit != 0:
+        previous_product *= int(digit)
+
 biggest = 0 if zero_count &amp;gt; 0 else previous_product
+
 # Slide our window across.
 for j in range(len(n) - substring_length):
-left = int(n[j])
-right = int(n[j + substring_length])
-# Update our count of zeros in the window.
-zero_count = zero_count - (left == 0) + (right == 0)
-# Be careful of zeros.
-if left != 0:
-next_product = previous_product / left
-if right != 0:
-next_product = next_product * right
-if zero_count == 0:
-biggest = max(biggest, next_product)
-previous_product = next_product
+    
+    left = int(n[j])
+    right = int(n[j + substring_length])
+    
+    # Update our count of zeros in the window.
+    zero_count = zero_count - (left == 0) + (right == 0)
+    
+    # Be careful of zeros.
+    if left != 0:
+        next_product = previous_product / left
+    if right != 0:
+        next_product = next_product * right
+    if zero_count == 0:
+        biggest = max(biggest, next_product)    
+    
+    previous_product = next_product
+
 print(biggest)
-&lt;/code>&lt;/pre>
-&lt;p>Phew. That was a lot of work to save a small amount of compute. This is the kind of optimization that&amp;rsquo;s good to talk about during a coding interview but where the extra complexity of the code and difficulty to read and comprehend it isn&amp;rsquo;t worth the performance improvement. At least, not for this problem. But hey we&amp;rsquo;re doing PE for this kind of fuh, eh?&lt;/p></description></item><item><title>Project Euler Problem 6: Sum Square Difference</title><link>/post/euler_problem_6/</link><pubDate>Sat, 06 Jun 2020 17:10:14 -0600</pubDate><guid>/post/euler_problem_6/</guid><description>&lt;p>
-&lt;a href="https://projecteuler.net/problem=6" target="_blank" rel="noopener">Problem 6&lt;/a> has a brute force solution and an elegant formula solution that calculates the answer directly. But the brute force solution is good enough and the formula is obscure enough that I wouldn&amp;rsquo;t have found it without googling so we&amp;rsquo;ll focus on the brute force solution.&lt;/p>
-&lt;p>As always, spend some time with
-&lt;a href="https://projecteuler.net/problem=6" target="_blank" rel="noopener">the problem&lt;/a> if you haven&amp;rsquo;t yet.&lt;/p>
-&lt;figure id="figure-spent-_way_-too-long-on-google-images-searching-squares">
-&lt;img src="/img/green_squares.png" alt="" >
-&lt;figcaption>
-Spent &lt;em>way&lt;/em> too long on google images searching squares
-&lt;/figcaption>
-&lt;/figure>
-&lt;h2 id="brute-forcing-it">Brute Forcing it&lt;/h2>
-&lt;p>All the numbers involved in this problem are small enough to quickly calculate:&lt;/p>
-&lt;pre>&lt;code class="language-python">limit = 100
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Phew. That was a lot of work to save a small amount of compute. This is the kind of optimization that&amp;rsquo;s good to talk about during a coding interview but where the extra complexity of the code and difficulty to read and comprehend it isn&amp;rsquo;t worth the performance improvement. At least, not for this problem. But hey we&amp;rsquo;re doing PE for this kind of fuh, eh?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Project Euler Problem 6: Sum Square Difference</title>
+      <link>/post/euler_problem_6/</link>
+      <pubDate>Sat, 06 Jun 2020 17:10:14 -0600</pubDate>
+      <guid>/post/euler_problem_6/</guid>
+      <description>&lt;p&gt;
+&lt;a href=&#34;https://projecteuler.net/problem=6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Problem 6&lt;/a&gt; has a brute force solution and an elegant formula solution that calculates the answer directly. But the brute force solution is good enough and the formula is obscure enough that I wouldn&amp;rsquo;t have found it without googling so we&amp;rsquo;ll focus on the brute force solution.&lt;/p&gt;
+&lt;p&gt;As always, spend some time with 
+&lt;a href=&#34;https://projecteuler.net/problem=6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the problem&lt;/a&gt; if you haven&amp;rsquo;t yet.&lt;/p&gt;
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure id=&#34;figure-spent-_way_-too-long-on-google-images-searching-squares&#34;&gt;
+
+
+
+  &lt;img src=&#34;/img/green_squares.png&#34; alt=&#34;&#34;  &gt;
+
+
+
+  
+  
+  &lt;figcaption&gt;
+    Spent &lt;em&gt;way&lt;/em&gt; too long on google images searching squares
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;brute-forcing-it&#34;&gt;Brute Forcing it&lt;/h2&gt;
+&lt;p&gt;All the numbers involved in this problem are small enough to quickly calculate:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;limit = 100
 integers = range(1, limit + 1)
 sum_of_squares = sum([x ** 2 for x in integers])
 square_of_sum = sum(integers) ** 2
 print(square_of_sum - sum_of_squares)
-&lt;/code>&lt;/pre>
-&lt;p>You &lt;em>could&lt;/em> get clever and jam all that into one line, but it&amp;rsquo;d be less readable &amp;amp; maintainable:&lt;/p>
-&lt;pre>&lt;code class="language-python">print(sum(range(1, 101)) ** 2 - sum([x ** 2 for x in range(1, 101)]))
-&lt;/code>&lt;/pre>
-&lt;p>I feel the temptation to get clever like that a lot. I&amp;rsquo;ve learned future me is usually better off if I avoid that temptation.&lt;/p>
-&lt;h2 id="the-efficient-solution">The Efficient Solution&lt;/h2>
-&lt;p>It&amp;rsquo;s not my jam and I didn&amp;rsquo;t figure it out on my own (I just used the brute force solution) so I&amp;rsquo;ll avoid deriving the formula (you can read about it in depth
-&lt;a href="https://trans4mind.com/personal_development/mathematics/series/sumNaturalSquares.htm" target="_blank" rel="noopener">here&lt;/a> if you like), but for the series of squares:&lt;/p>
-&lt;p>$$ 1^2{,\ } 2^2{,\ } 3^2{,\ } 4^2{,\ } 5^2&amp;hellip; $$&lt;/p>
-&lt;p>there&amp;rsquo;s a formula to calculate the sum of the first n terms:&lt;/p>
-&lt;p>$$ \sum_{i=1}^{n} i^2 = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6} $$&lt;/p>
-&lt;p>And of course we know the sum of 1 to 100 is a good old
-&lt;a href="https://en.wikipedia.org/wiki/Arithmetic_progression#Sum" target="_blank" rel="noopener">arithmetic progression&lt;/a>:&lt;/p>
-&lt;p>$$ \sum_{a_{1}}^{a_{n}} = \frac{n(a_{1} + a_{n})}{2} $$&lt;/p>
-&lt;p>We can combine those as:&lt;/p>
-&lt;p>$$ Answer = \left( \frac{100^3}{3} + \frac{100^2}{2} + \frac{100}{6} \right) - \left( \frac{100(1 + 100)}{2} \right)^2 $$&lt;/p>
-&lt;p>In code:&lt;/p>
-&lt;pre>&lt;code class="language-python">limit = 100
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You &lt;em&gt;could&lt;/em&gt; get clever and jam all that into one line, but it&amp;rsquo;d be less readable &amp;amp; maintainable:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(sum(range(1, 101)) ** 2 - sum([x ** 2 for x in range(1, 101)]))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I feel the temptation to get clever like that a lot. I&amp;rsquo;ve learned future me is usually better off if I avoid that temptation.&lt;/p&gt;
+&lt;h2 id=&#34;the-efficient-solution&#34;&gt;The Efficient Solution&lt;/h2&gt;
+&lt;p&gt;It&amp;rsquo;s not my jam and I didn&amp;rsquo;t figure it out on my own (I just used the brute force solution) so I&amp;rsquo;ll avoid deriving the formula (you can read about it in depth 
+&lt;a href=&#34;https://trans4mind.com/personal_development/mathematics/series/sumNaturalSquares.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; if you like), but for the series of squares:&lt;/p&gt;
+&lt;p&gt;$$ 1^2{,\ } 2^2{,\ } 3^2{,\ } 4^2{,\ } 5^2&amp;hellip; $$&lt;/p&gt;
+&lt;p&gt;there&amp;rsquo;s a formula to calculate the sum of the first n terms:&lt;/p&gt;
+&lt;p&gt;$$ \sum_{i=1}^{n} i^2 = \frac{n^3}{3} + \frac{n^2}{2} + \frac{n}{6} $$&lt;/p&gt;
+&lt;p&gt;And of course we know the sum of 1 to 100 is a good old 
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Arithmetic_progression#Sum&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;arithmetic progression&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;$$ \sum_{a_{1}}^{a_{n}} = \frac{n(a_{1} + a_{n})}{2} $$&lt;/p&gt;
+&lt;p&gt;We can combine those as:&lt;/p&gt;
+&lt;p&gt;$$  Answer = \left( \frac{100^3}{3} + \frac{100^2}{2} + \frac{100}{6} \right) - \left( \frac{100(1 + 100)}{2} \right)^2 $$&lt;/p&gt;
+&lt;p&gt;In code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;limit = 100
 sum_of_squares = (limit * (1 + limit) / 2) ** 2
 square_of_sum = (limit ** 3) / 3 + (limit ** 2) / 2 + limit / 6
 print(sum_of_squares - square_of_sum)
-&lt;/code>&lt;/pre>
-&lt;p>Look ma, no iteration.&lt;/p></description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Look ma, no iteration.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

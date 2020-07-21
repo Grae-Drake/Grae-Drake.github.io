@@ -1,24 +1,703 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=generator content="Source Themes Academic 4.8.0"><meta name=author content="Grae Drake"><meta name=description content="Back to primes! So far we&rsquo;ve been able to get away with being a little greedy with our compute when playing with primes. Now Euler is ratcheting up the difficulty and we&rsquo;ll have to focus on efficiency."><link rel=alternate hreflang=en-us href=/post/euler_problem_7/><meta name=theme-color content="hsl(339, 90%, 68%)"><script src=/js/mathjax-config.js></script><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark-reasonable.min.css crossorigin=anonymous title=hl-light><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark-reasonable.min.css crossorigin=anonymous title=hl-dark disabled><script src=https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script><script src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js integrity crossorigin=anonymous async></script><link rel=preconnect href=https://fonts.googleapis.com><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"><link rel=stylesheet href=/css/academic.css><link rel=manifest href=/index.webmanifest><link rel=icon type=image/png href=/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_32x32_fill_lanczos_center_2.png><link rel=apple-touch-icon type=image/png href=/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png><link rel=canonical href=/post/euler_problem_7/><meta property="twitter:card" content="summary_large_image"><meta property="twitter:site" content="@Grae_Drake"><meta property="twitter:creator" content="@Grae_Drake"><meta property="og:site_name" content="Grae"><meta property="og:url" content="/post/euler_problem_7/"><meta property="og:title" content="Project Euler Problem 7: 10001st prime | Grae"><meta property="og:description" content="Back to primes! So far we&rsquo;ve been able to get away with being a little greedy with our compute when playing with primes. Now Euler is ratcheting up the difficulty and we&rsquo;ll have to focus on efficiency."><meta property="og:image" content="/img/athens_social.png"><meta property="twitter:image" content="/img/athens_social.png"><meta property="og:locale" content="en-us"><meta property="article:published_time" content="2020-06-07T18:01:03-06:00"><meta property="article:modified_time" content="2020-06-07T18:01:03-06:00"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/post/euler_problem_7/"},"headline":"Project Euler Problem 7: 10001st prime","datePublished":"2020-06-07T18:01:03-06:00","dateModified":"2020-06-07T18:01:03-06:00","author":{"@type":"Person","name":"Grae Drake"},"publisher":{"@type":"Organization","name":"Grae","logo":{"@type":"ImageObject","url":"/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png"}},"description":"Back to primes! So far we\u0026rsquo;ve been able to get away with being a little greedy with our compute when playing with primes. Now Euler is ratcheting up the difficulty and we\u0026rsquo;ll have to focus on efficiency."}</script><title>Project Euler Problem 7: 10001st prime | Grae</title></head><body id=top data-spy=scroll data-offset=70 data-target=#TableOfContents class=dark><aside class=search-results id=search><div class=container><section class=search-header><div class="row no-gutters justify-content-between mb-3"><div class=col-6><h1>Search</h1></div><div class="col-6 col-search-close"><a class=js-search href=#><i class="fas fa-times-circle text-muted" aria-hidden=true></i></a></div></div><div id=search-box><input name=q id=search-query placeholder=Search... autocapitalize=off autocomplete=off autocorrect=off spellcheck=false type=search></div></section><section class=section-search-results><div id=search-hits></div></section></div></aside><nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main><div class=container><button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Toggle navigation">
-<span><i class="fas fa-bars"></i></span></button><div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content><ul class="navbar-nav d-md-inline-flex"><li class=nav-item><a class=nav-link href=/#posts><span>Home</span></a></li><li class=nav-item><a class=nav-link href=/#posts><span>Posts</span></a></li><li class=nav-item><a class=nav-link href=/#about><span>About</span></a></li><li class=nav-item><a class=nav-link href=/#contact><span>Contact</span></a></li></ul></div><ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2"><li class=nav-item><a class="nav-link js-search" href=#><i class="fas fa-search" aria-hidden=true></i></a></li><li class="nav-item dropdown theme-dropdown"><a href=# class="nav-link js-theme-selector" data-toggle=dropdown aria-haspopup=true><i class="fas fa-palette" aria-hidden=true></i></a><div class=dropdown-menu><a href=# class="dropdown-item js-set-theme-light"><span>Light</span></a>
-<a href=# class="dropdown-item js-set-theme-dark"><span>Dark</span></a>
-<a href=# class="dropdown-item js-set-theme-auto"><span>Automatic</span></a></div></li></ul></div></nav><article class=article><div class="article-container pt-3"><h1>Project Euler Problem 7: 10001st prime</h1><div class=article-metadata><div><span><a href=/author/grae-drake/>Grae Drake</a></span></div><span class=article-date>Jun 7, 2020</span>
-<span class=middot-divider></span><span class=article-reading-time>4 min read</span></div></div><div class=article-container><div class=article-style><p>Back to primes! So far we&rsquo;ve been able to get away with being a little greedy with our compute when playing with primes. Now Euler is ratcheting up the difficulty and we&rsquo;ll have to focus on efficiency.</p><p>As usual, if you haven&rsquo;t spent time with
-<a href="https://projecteuler.net/problem=7" target=_blank rel=noopener>Problem 7</a> yet, take a chance to play with it on your own and come back.</p><figure id=figure-euclid-teaching-his-students-detail-from-the-school-of-athens-by-raphael><img src=/img/school_of_athens_euclid.png alt><figcaption>Euclid teaching his students, detail from The School of Athens by Raphael</figcaption></figure><h2 id=counting-primes>Counting Primes</h2><p>Let&rsquo;s start by looking at each integer, deciding whether it&rsquo;s prime, and counting it if it is until we get to the 10,001st prime.</p><p>Our first stab at an <code>is_prime(n)</code> function will be the simplest and we&rsquo;ll iterate into more optimized (and complicated) versions after. Here&rsquo;s the starting point:</p><pre><code class=language-python>def is_prime(n):
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Grae Drake">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Back to primes! So far we&rsquo;ve been able to get away with being a little greedy with our compute when playing with primes. Now Euler is ratcheting up the difficulty and we&rsquo;ll have to focus on efficiency.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/euler_problem_7/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="hsl(339, 90%, 68%)">
+  
+
+  
+  
+  
+  <script src="/js/mathjax-config.js"></script>
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark-reasonable.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark-reasonable.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+  
+
+
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/euler_problem_7/">
+
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@Grae_Drake">
+  <meta property="twitter:creator" content="@Grae_Drake">
+  
+  <meta property="og:site_name" content="Grae">
+  <meta property="og:url" content="/post/euler_problem_7/">
+  <meta property="og:title" content="Project Euler Problem 7: 10001st prime | Grae">
+  <meta property="og:description" content="Back to primes! So far we&rsquo;ve been able to get away with being a little greedy with our compute when playing with primes. Now Euler is ratcheting up the difficulty and we&rsquo;ll have to focus on efficiency."><meta property="og:image" content="/img/athens_social.png">
+  <meta property="twitter:image" content="/img/athens_social.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-06-07T18:01:03-06:00">
+    
+    <meta property="article:modified_time" content="2020-06-07T18:01:03-06:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/euler_problem_7/"
+  },
+  "headline": "Project Euler Problem 7: 10001st prime",
+  
+  "datePublished": "2020-06-07T18:01:03-06:00",
+  "dateModified": "2020-06-07T18:01:03-06:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Grae Drake"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Grae",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu93b40ccc63f923d2d46da2367b778cd9_3377_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "Back to primes! So far we\u0026rsquo;ve been able to get away with being a little greedy with our compute when playing with primes. Now Euler is ratcheting up the difficulty and we\u0026rsquo;ll have to focus on efficiency."
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>Project Euler Problem 7: 10001st prime | Grae</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="dark">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link js-theme-selector" data-toggle="dropdown" aria-haspopup="true">
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Project Euler Problem 7: 10001st prime</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+  
+  
+  <div>
+    
+
+  
+  <span><a href="/author/grae-drake/">Grae Drake</a></span>
+  </div>
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jun 7, 2020
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>Back to primes! So far we&rsquo;ve been able to get away with being a little greedy with our compute when playing with primes. Now Euler is ratcheting up the difficulty and we&rsquo;ll have to focus on efficiency.</p>
+<p>As usual, if you haven&rsquo;t spent time with 
+<a href="https://projecteuler.net/problem=7" target="_blank" rel="noopener">Problem 7</a> yet, take a chance to play with it on your own and come back.</p>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-euclid-teaching-his-students-detail-from-the-school-of-athens-by-raphael">
+
+
+
+  <img src="/img/school_of_athens_euclid.png" alt=""  >
+
+
+
+  
+  
+  <figcaption>
+    Euclid teaching his students, detail from The School of Athens by Raphael
+  </figcaption>
+
+
+</figure>
+
+<h2 id="counting-primes">Counting Primes</h2>
+<p>Let&rsquo;s start by looking at each integer, deciding whether it&rsquo;s prime, and counting it if it is until we get to the 10,001st prime.</p>
+<p>Our first stab at an <code>is_prime(n)</code> function will be the simplest and we&rsquo;ll iterate into more optimized (and complicated) versions after. Here&rsquo;s the starting point:</p>
+<pre><code class="language-python">def is_prime(n):
     if n &lt; 2:
         return False
     for x in range(2, n):
         if n % x == 0:
             return False
     return True
-</code></pre><p>This checks every number less than $ n $ to see if it&rsquo;s a factor of $ n $. It&rsquo;s <em>almost</em> good enough to solve the problem in under a minute. My laptop chugs through the first 10,001 primes in 68 seconds using this version of the <code>is_prime(n)</code> function (full code later). But the rules only give us a minute and we can do better.</p><h2 id=cap-the-search-space>Cap the Search Space</h2><p>Looking back at our
-<a href=https://www.grae.io/post/euler_problem_3/ target=_blank rel=noopener>Problem 3 Solution</a> we optimized our <code>is_prime(n)</code> function by caping the space we search to find factors factors by checking only numbers up to $ \sqrt{n} $. Check out that post if you want to dig deep into why / how that works.</p><pre><code class=language-python>def is_prime(n):
+</code></pre>
+<p>This checks every number less than $ n $ to see if it&rsquo;s a factor of $ n $. It&rsquo;s <em>almost</em> good enough to solve the problem in under a minute. My laptop chugs through the first 10,001 primes in 68 seconds using this version of the <code>is_prime(n)</code> function (full code later). But the rules only give us a minute and we can do better.</p>
+<h2 id="cap-the-search-space">Cap the Search Space</h2>
+<p>Looking back at our 
+<a href="https://www.grae.io/post/euler_problem_3/" target="_blank" rel="noopener">Problem 3 Solution</a> we optimized our <code>is_prime(n)</code> function by caping the space we search to find factors factors by checking only numbers up to $ \sqrt{n} $. Check out that post if you want to dig deep into why / how that works.</p>
+<pre><code class="language-python">def is_prime(n):
     if n &lt; 2:
         return False
     for x in range(2, math.floor(math.sqrt(n)) + 1):
         if n % x == 0:
             return False
     return True
-</code></pre><p>This runs a <em>lot</em> faster. It finds the 10,001st prime in 0.29 seconds on my machine. But can we make it <em>even better</em>?</p><h2 id=skip-through-the-search-space>Skip Through the Search Space</h2><p><a href=https://primes.utm.edu/notes/faq/six.html target=_blank rel=noopener>Perhaps the most rediscovered result about primes numbers</a> is the fact that every prime bigger than 3 is &ldquo;next&rdquo; to a multiple of 6. That is, for every prime number starting at 5 you can get a multiple of 6 by adding 1 or subtracting 1.</p><p>For example:</p><ul><li>5 is prime, add 1 and get 6</li><li>13 is prime, subtract 1 and get (6 * 2)</li><li>1,361 is prime, add 1 and get (6 * 227)</li></ul><p>This works for every prime number.</p><p>We can use this property to skip potential factors we don&rsquo;t <em>need</em> to check. When checking to see if a number $ n $ has factors we can get away with just looking for the prime factors, we don&rsquo;t <em>also</em> need to know if it has any factors that are themselves composite. For example, we don&rsquo;t need to know that 24 is divisible by 8. We can stop as soon as we see it&rsquo;s divisible by 2. So we can skip every potential factor except for those which <em>might</em> be prime.</p><p>In code:</p><pre><code class=language-python>def is_prime(n):
+</code></pre>
+<p>This runs a <em>lot</em> faster. It finds the 10,001st prime in 0.29 seconds on my machine. But can we make it <em>even better</em>?</p>
+<h2 id="skip-through-the-search-space">Skip Through the Search Space</h2>
+<p>
+<a href="https://primes.utm.edu/notes/faq/six.html" target="_blank" rel="noopener">Perhaps the most rediscovered result about primes numbers</a> is the fact that every prime bigger than 3 is &ldquo;next&rdquo; to a multiple of 6. That is, for every prime number starting at 5 you can get a multiple of 6 by adding 1 or subtracting 1.</p>
+<p>For example:</p>
+<ul>
+<li>5 is prime, add 1 and get 6</li>
+<li>13 is prime, subtract 1 and get (6 * 2)</li>
+<li>1,361 is prime, add 1 and get (6 * 227)</li>
+</ul>
+<p>This works for every prime number.</p>
+<p>We can use this property to skip potential factors we don&rsquo;t <em>need</em> to check. When checking to see if a number $ n $ has factors we can get away with just looking for the prime factors, we don&rsquo;t <em>also</em> need to know if it has any factors that are themselves composite. For example, we don&rsquo;t need to know that 24 is divisible by 8. We can stop as soon as we see it&rsquo;s divisible by 2. So we can skip every potential factor except for those which <em>might</em> be prime.</p>
+<p>In code:</p>
+<pre><code class="language-python">def is_prime(n):
     if n &lt; 2:
         return False
     if n == 2 or n == 3:
@@ -29,7 +708,12 @@
         if n % (x - 1) == 0 or n % (x + 1) == 0:
             return False
     return True
-</code></pre><p>This version takes advantage of Python&rsquo;s &ldquo;step&rdquo; argument to <code>range()</code>. We&rsquo;re looking at every multiple of 6 (below our limit) and checking whether the number before or after it divides our target.</p><p>This optimizes things a bit more and, indeed, finds the 10,001st prime in 0.17 seconds on my machine.</p><h2 id=putting-it-together>Putting it Together</h2><p>Once we have an efficient <code>is_prime()</code> function the solution is a matter of counting primes with a while loop.</p><pre><code class=language-python>seen = 0
+</code></pre>
+<p>This version takes advantage of Python&rsquo;s &ldquo;step&rdquo; argument to <code>range()</code>. We&rsquo;re looking at every multiple of 6 (below our limit) and checking whether the number before or after it divides our target.</p>
+<p>This optimizes things a bit more and, indeed, finds the 10,001st prime in 0.17 seconds on my machine.</p>
+<h2 id="putting-it-together">Putting it Together</h2>
+<p>Once we have an efficient <code>is_prime()</code> function the solution is a matter of counting primes with a while loop.</p>
+<pre><code class="language-python">seen = 0
 n = 1
 while seen &lt; 10001:
     n += 1
@@ -37,12 +721,331 @@ while seen &lt; 10001:
         seen += 1
 
 print(n)
-</code></pre><h2 id=going-further>Going Further</h2><p>There are ways to solve this problem even faster. You <em>could</em> use the
-<a href=https://en.wikipedia.org/wiki/Prime_number_theorem target=_blank rel=noopener>Prime Number Theorem</a> to approximate an upper bound for a
-<a href=https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes target=_blank rel=noopener>Sieve of Eratosthenes</a> and sieve out the answer. We&rsquo;ll deal with those concepts in coming problems so for now I&rsquo;ll leave that as an exercise for the reader.</p></div><p>See an issue on this page? Report a
-<a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=typo&title=Typo+on+Project%20Euler%20Problem%207:%2010001st%20prime" target=_blank rel=noopener class=issue-report>typo</a>,
-<a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=bug&title=Bug+on+Project%20Euler%20Problem%207:%2010001st%20prime" target=_blank rel=noopener class=issue-report>bug</a>, or give
-<a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=enhancement&title=Feedback+on+Project%20Euler%20Problem%207:%2010001st%20prime" target=_blank rel=noopener class=issue-report>general feedback</a> on GitHub.</p><div class=article-tags><a class="badge badge-light" href=/tag/euler/>Euler</a></div><div class=share-box aria-hidden=true><ul class=share><li><a href="https://twitter.com/intent/tweet?url=/post/euler_problem_7/&text=Project%20Euler%20Problem%207:%2010001st%20prime" target=_blank rel=noopener class=share-btn-twitter><i class="fab fa-twitter"></i></a></li><li><a href="https://www.facebook.com/sharer.php?u=/post/euler_problem_7/&t=Project%20Euler%20Problem%207:%2010001st%20prime" target=_blank rel=noopener class=share-btn-facebook><i class="fab fa-facebook"></i></a></li><li><a href="mailto:?subject=Project%20Euler%20Problem%207:%2010001st%20prime&body=/post/euler_problem_7/" target=_blank rel=noopener class=share-btn-email><i class="fas fa-envelope"></i></a></li><li><a href="https://www.linkedin.com/shareArticle?url=/post/euler_problem_7/&title=Project%20Euler%20Problem%207:%2010001st%20prime" target=_blank rel=noopener class=share-btn-linkedin><i class="fab fa-linkedin-in"></i></a></li><li><a href="https://web.whatsapp.com/send?text=Project%20Euler%20Problem%207:%2010001st%20prime%20/post/euler_problem_7/" target=_blank rel=noopener class=share-btn-whatsapp><i class="fab fa-whatsapp"></i></a></li><li><a href="https://service.weibo.com/share/share.php?url=/post/euler_problem_7/&title=Project%20Euler%20Problem%207:%2010001st%20prime" target=_blank rel=noopener class=share-btn-weibo><i class="fab fa-weibo"></i></a></li></ul></div><div class="media author-card content-widget-hr"><img class="avatar mr-3 avatar-circle" src=/author/grae-drake/avatar_hu10888d42fd498c9540cd7a7f173bcd99_164392_270x270_fill_lanczos_center_2.png alt="Grae Drake"><div class=media-body><h5 class=card-title><a href=/>Grae Drake</a></h5><h6 class=card-subtitle>Advisor</h6><p class=card-text>I build mission-driven products, teams, and companies.</p><ul class=network-icon aria-hidden=true><li><a href=/#contact><i class="fas fa-envelope"></i></a></li><li><a href=https://twitter.com/Grae_Drake target=_blank rel=noopener><i class="fab fa-twitter"></i></a></li><li><a href=https://github.com/Grae-Drake target=_blank rel=noopener><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/graed/ target=_blank rel=noopener><i class="fab fa-linkedin"></i></a></li></ul></div></div><div class="article-widget content-widget-hr"><h3>Related</h3><ul><li><a href=/post/euler_problem_5/>Project Euler Problem 5: Smallest Multiple</a></li><li><a href=/post/euler_problem_4/>Project Euler Problem 4: Largest palindrome product</a></li><li><a href=/post/euler_problem_3/>Project Euler Problem 3: Largest Prime Factor</a></li><li><a href=/post/euler_problem_2/>Project Euler Problem 2: Even Fibonacci numbers</a></li><li><a href=/post/euler_problem_1/>Project Euler Problem 1: Multiples of 3 and 5</a></li></ul></div></div></article><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python-repl.min.js></script><script>const code_highlighting=true;</script><script>const isSiteThemeDark=true;</script><script>const search_config={"indexURI":"/index.json","minLength":1,"threshold":0.3};const i18n={"no_results":"No results found","placeholder":"Search...","results":"results found"};const content_type={'post':"Posts",'project':"Projects",'publication':"Publications",'talk':"Talks"};</script><script id=search-hit-fuse-template type=text/x-template>
+</code></pre>
+<h2 id="going-further">Going Further</h2>
+<p>There are ways to solve this problem even faster. You <em>could</em> use the 
+<a href="https://en.wikipedia.org/wiki/Prime_number_theorem" target="_blank" rel="noopener">Prime Number Theorem</a> to approximate an upper bound for a 
+<a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes" target="_blank" rel="noopener">Sieve of Eratosthenes</a> and sieve out the answer. We&rsquo;ll deal with those concepts in coming problems so for now I&rsquo;ll leave that as an exercise for the reader.</p>
+
+    </div>
+
+    
+
+
+
+
+
+<p>
+    See an issue on this page? Report a 
+    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=typo&title=Typo+on+Project%20Euler%20Problem%207:%2010001st%20prime" target="_blank" rel="noopener" class="issue-report">typo</a>, 
+    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=bug&title=Bug+on+Project%20Euler%20Problem%207:%2010001st%20prime" target="_blank" rel="noopener" class="issue-report">bug</a>, or give
+    <a href="https://github.com/Grae-Drake/grae-drake.github.io/issues/new?labels=enhancement&title=Feedback+on+Project%20Euler%20Problem%207:%2010001st%20prime" target="_blank" rel="noopener" class="issue-report">general feedback</a> on GitHub.
+</p>
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/euler/">Euler</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/euler_problem_7/&amp;text=Project%20Euler%20Problem%207:%2010001st%20prime" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/euler_problem_7/&amp;t=Project%20Euler%20Problem%207:%2010001st%20prime" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Project%20Euler%20Problem%207:%2010001st%20prime&amp;body=/post/euler_problem_7/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/euler_problem_7/&amp;title=Project%20Euler%20Problem%207:%2010001st%20prime" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Project%20Euler%20Problem%207:%2010001st%20prime%20/post/euler_problem_7/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/euler_problem_7/&amp;title=Project%20Euler%20Problem%207:%2010001st%20prime" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+    
+      
+    
+    
+    
+    <div class="media author-card content-widget-hr">
+      
+        
+        <img class="avatar mr-3 avatar-circle" src="/author/grae-drake/avatar_hu10888d42fd498c9540cd7a7f173bcd99_164392_270x270_fill_lanczos_center_2.png" alt="Grae Drake">
+      
+
+      <div class="media-body">
+        <h5 class="card-title"><a href="/">Grae Drake</a></h5>
+        <h6 class="card-subtitle">Advisor</h6>
+        <p class="card-text">I build mission-driven products, teams, and companies.</p>
+        <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/Grae_Drake" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/Grae-Drake" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/graed/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+      </div>
+    </div>
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/euler_problem_5/">Project Euler Problem 5: Smallest Multiple</a></li>
+      
+      <li><a href="/post/euler_problem_4/">Project Euler Problem 4: Largest palindrome product</a></li>
+      
+      <li><a href="/post/euler_problem_3/">Project Euler Problem 3: Largest Prime Factor</a></li>
+      
+      <li><a href="/post/euler_problem_2/">Project Euler Problem 2: Even Fibonacci numbers</a></li>
+      
+      <li><a href="/post/euler_problem_1/">Project Euler Problem 1: Multiples of 3 and 5</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/python-repl.min.js"></script>
+        
+      
+
+    
+
+    
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = true;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
       <div class="search-hit" id="summary-{{key}}">
       <div class="search-hit-content">
         <div class="search-hit-name">
@@ -52,9 +1055,110 @@ print(n)
         </div>
       </div>
       </div>
-    </script><script src=https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin=anonymous></script><script src=/js/academic.min.37431be2d92d7fb0160054761ab79602.js></script><div class=container><footer class=site-footer><p class=powered-by></p><p class=powered-by>Powered by the
-<a href=https://sourcethemes.com/academic/ target=_blank rel=noopener>Academic theme</a> for
-<a href=https://gohugo.io target=_blank rel=noopener>Hugo</a>.
-<span class=float-right aria-hidden=true><a href=# class=back-to-top><span class=button_icon><i class="fas fa-chevron-up fa-2x"></i></span></a></span></p></footer></div><div id=modal class="modal fade" role=dialog><div class=modal-dialog><div class=modal-content><div class=modal-header><h5 class=modal-title>Cite</h5><button type=button class=close data-dismiss=modal aria-label=Close>
-<span aria-hidden=true>&#215;</span></button></div><div class=modal-body><pre><code class="tex hljs"></code></pre></div><div class=modal-footer><a class="btn btn-outline-primary my-1 js-copy-cite" href=# target=_blank><i class="fas fa-copy"></i>Copy</a>
-<a class="btn btn-outline-primary my-1 js-download-cite" href=# target=_blank><i class="fas fa-download"></i>Download</a><div id=modal-error></div></div></div></div></div></body></html>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.37431be2d92d7fb0160054761ab79602.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    
+  </p>
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
